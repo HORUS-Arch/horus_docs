@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="calibrations_8hpp" kind="file" language="C++">
+    <compoundname>calibrations.hpp</compoundname>
+    <includes local="yes">horus_human_core/calibration_plugin.hpp</includes>
+    <includes local="yes">human_msgs/msg/emg.hpp</includes>
+    <includes local="yes">human_msgs/msg/insole.hpp</includes>
+    <includes local="yes">sensor_msgs/msg/imu.hpp</includes>
+    <includedby refid="default__calibrations_8hpp" local="yes">include/horus_human/default_calibrations.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/horus_human/calibrations.hpp</label>
+        <link refid="calibrations_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>horus_human_core/calibration_plugin.hpp</label>
+      </node>
+      <node id="3">
+        <label>human_msgs/msg/emg.hpp</label>
+      </node>
+      <node id="4">
+        <label>human_msgs/msg/insole.hpp</label>
+      </node>
+      <node id="5">
+        <label>sensor_msgs/msg/imu.hpp</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/horus_human/calibrations.hpp</label>
+        <link refid="calibrations_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/horus_human/default_calibrations.hpp</label>
+        <link refid="default__calibrations_8hpp"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespacehorus__human">horus_human</innernamespace>
+    <briefdescription>
+<para>The calibration plugin base classes of the horus_human nodes, one per input message type. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Write a new calibration algorithm by deriving from one of these, exporting it with PLUGINLIB_EXPORT_CLASS(MyCalibration, horus_human::ImuCalibration) and pointing the node&apos;s <computeroutput>calibration.plugin</computeroutput> parameter at it. No node code changes. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;horus_human_core/calibration_plugin.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;human_msgs/msg/emg.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;human_msgs/msg/insole.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;sensor_msgs/msg/imu.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">horus_human</highlight></codeline>
+<codeline lineno="18"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20" refid="calibrations_8hpp_1a132456bcbb6372491f8d1ddef33c693e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="calibrations_8hpp_1a132456bcbb6372491f8d1ddef33c693e" kindref="member">ImuCalibration</ref><sp/>=<sp/>horus_human_core::CalibrationPlugin&lt;sensor_msgs::msg::Imu&gt;;<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="21" refid="calibrations_8hpp_1a45d44ad0e82181d0a6eeffee8bca062b" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="calibrations_8hpp_1a45d44ad0e82181d0a6eeffee8bca062b" kindref="member">InsoleCalibration</ref><sp/>=<sp/>horus_human_core::CalibrationPlugin&lt;human_msgs::msg::Insole&gt;;<sp/></highlight></codeline>
+<codeline lineno="22" refid="calibrations_8hpp_1ab2bbee390ce04ee4dbb2daa600bf5c9e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="calibrations_8hpp_1ab2bbee390ce04ee4dbb2daa600bf5c9e" kindref="member">EmgCalibration</ref><sp/>=<sp/>horus_human_core::CalibrationPlugin&lt;human_msgs::msg::Emg&gt;;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>horus_human</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/horus_human/calibrations.hpp"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,73 @@
+
+.. _program_listing_file_include_horus_supervisor_mode_machine.hpp:
+
+Program Listing for File mode_machine.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_supervisor_mode_machine.hpp>` (``include/horus_supervisor/mode_machine.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <string>
+   
+   namespace horus_supervisor
+   {
+   
+   enum class Mode : int
+   {
+       INIT = 0,
+       STANDBY = 1,
+       RUN = 2,
+       MANUAL = 3,
+       RECOVERY = 4,
+       EMERGENCY_STOP = 5
+   };
+   
+   enum class Event : int
+   {
+       ESTOP,          
+       FAULT,          
+       OPERATOR_LOST,  
+       TREE_FAILED,    
+       READY,          
+       START,          
+       STOP,           
+       MANUAL,         
+       RESET,          
+       TREE_SUCCEEDED  
+   };
+   
+   struct Outcome
+   {
+       bool accepted{false};   
+       bool changed{false};    
+       Mode from{Mode::INIT};
+       Mode to{Mode::INIT};
+       std::string reason;     
+   };
+   
+   class ModeMachine
+   {
+      public:
+       static int priority(Event e);
+   
+       static std::string name(Mode m);
+   
+       static std::string name(Event e);
+   
+       Outcome handle(Event e, bool faults_active);
+   
+       Mode mode() const { return mode_; }
+   
+      private:
+       Outcome to(Mode next, const std::string& reason);
+   
+       Mode mode_{Mode::INIT}; 
+   };
+   
+   }  // namespace horus_supervisor

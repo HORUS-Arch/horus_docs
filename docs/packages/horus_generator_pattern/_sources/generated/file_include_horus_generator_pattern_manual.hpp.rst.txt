@@ -1,0 +1,75 @@
+
+.. _file_include_horus_generator_pattern_manual.hpp:
+
+File manual.hpp
+===============
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_generator_pattern>` (``include/horus_generator_pattern``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+Manual generator: the device follows targets sent by the operator (UI joint sliders). 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_generator_pattern/manual.hpp``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_generator_pattern_manual.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+Targets arrive as sensor_msgs/JointState on ``topic`` (names + position, or + effort for ``quantity: effort``); joints not named keep their target. The output moves toward the target at most ``max_rate`` per second (rad/s or N m/s), so a slider jump is a ramp, never a step. Position output starts at the measured pose; effort output starts at zero. With no target for ``timeout`` s the target freezes at the current output (hold). Continuous: runs until the behavior is canceled.
+
+manual: plugin: horus_generator_pattern/Manual joints: [hipR, kneeR, ankleR] quantity: position # position | effort max_rate: 0.5 # rad/s (position) or N m/s (effort) min: [-0.5, 0.0, -0.3] # optional clamp per joint (default: none) max: [ 0.8, 1.2, 0.3] timeout: 1.0 # s without a target -> hold topic: ~/manual_target 
+
+
+
+
+Includes
+--------
+
+
+- ``horus_generator_core/generator.hpp``
+
+- ``map``
+
+- ``mutex``
+
+- ``sensor_msgs/msg/joint_state.hpp``
+
+- ``string``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_generator_pattern`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__generator__pattern_1_1Manual`
+

@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,31,148,56"/>
+<area shape="rect" id="Node000001" href="$classhorus__bt_1_1IsAtPoseNode.html" title="SUCCESS when every listed joint is within tolerance of its target position." alt="" coords="199,5,375,31"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="162,30,199,26,199,31,162,36"/>
+<area shape="rect" id="Node000002" href="$classhorus__bt_1_1IsHealthyNode.html" title="SUCCESS while no diagnostic status whose name contains source is at level or worse (STALE counts as w..." alt="" coords="196,55,379,80"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="162,50,196,54,195,60,162,56"/>
+</map>

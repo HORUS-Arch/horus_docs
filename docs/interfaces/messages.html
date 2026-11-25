@@ -1,0 +1,3612 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Messages, services and actions &#8212; HORUS 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/horus.css?v=3a5e0f7b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/interfaces/messages';</script>
+    <script src="../../_static/force_dark.js?v=db5ebe2c"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="The rig file" href="../configuration/rig_file.html" />
+    <link rel="prev" title="ROS 2 interfaces" href="overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-dark" alt="HORUS"/>
+    <img src="../../_static/logo.png" class="logo__image only-light pst-js-only" alt="HORUS"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/sensing_estimation.html">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/rig_file.html">
+    The rig file
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/supervisor_trees.html">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/debug_testing.html">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/sensing_estimation.html">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/rig_file.html">
+    The rig file
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/supervisor_trees.html">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/debug_testing.html">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links" aria-label="Site navigation">
+  <div class="bd-toc-item navbar-nav">
+    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick start: the mock rig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/session.html">Running a session</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Architecture overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/decision_hierarchy.html">Decision hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/motion.html">Motion: generation and control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/sensing_estimation.html">Sensing and state estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/sessions_data.html">Sessions and data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/interface_deployment.html">Interface and deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/simulation.html">Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ROS 2 interfaces</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">ROS 2 interfaces</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Messages, services and actions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configure</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../configuration/rig_file.html">The rig file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/behaviors.html">Behaviors (generator server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/controllers.html">Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/sensing.html">Sensing nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/supervisor_trees.html">Supervisor and trees</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extend</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extend/generator.html">Write a generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/calibration.html">Write a calibration algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/bt_leaf.html">Write a tree leaf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/controller.html">Write a controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/device.html">Add a device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/sensor.html">Add a sensor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../packages/core_packages.html">Core Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packages/modules_packages.html">Modules &amp; External Packages</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../development/contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/debug_testing.html">Debugging &amp; Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/style_guide.html">Style Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../project/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/paper.html">Paper and citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/roadmap.html">Roadmap</a></li>
+</ul>
+
+  </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Messages, services and actions</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="messages-services-and-actions">
+<h1>Messages, services and actions<a class="headerlink" href="#messages-services-and-actions" title="Link to this heading">#</a></h1>
+<p>Generated from the interface files by <code class="docutils literal notranslate"><span class="pre">scripts/gen_messages.py</span></code>; do not edit by hand.</p>
+<p>Standard ROS 2 messages are used wherever one exists (<code class="docutils literal notranslate"><span class="pre">sensor_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">diagnostic_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">std_srvs</span></code>, <code class="docutils literal notranslate"><span class="pre">lifecycle_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">trajectory_msgs</span></code>). <code class="docutils literal notranslate"><span class="pre">horus_msgs</span></code> holds the framework’s own interfaces; <code class="docutils literal notranslate"><span class="pre">human_msgs</span></code> holds neutral human-state messages that sensor repositories can use without HORUS.</p>
+<section id="horus-msgs-actions">
+<h2>horus_msgs actions<a class="headerlink" href="#horus-msgs-actions" title="Link to this heading">#</a></h2>
+<section id="calibrate">
+<h3>Calibrate<a class="headerlink" href="#calibrate" title="Link to this heading">#</a></h3>
+<p>Run a calibration on a HORUS processing node (horus_imu, horus_insole, horus_emg, …). The node collects data for <code class="docutils literal notranslate"><span class="pre">duration</span></code> seconds and computes the calibration with its configured plugin; the result stays PENDING in the node until ~/save_calibration writes it for a subject.</p>
+<p><strong>Goal</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">unit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>channel to calibrate (a segment, a muscle, a side); “” = all channels at once</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">duration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>seconds of data to collect (0 = the plugin’s default)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Result</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">error_code</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">error_msg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">units</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>units that were calibrated (pending save)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">summary</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>short human-readable result, e.g. “mvc 0.42 mV”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">NONE</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">UNKNOWN</span> <span class="pre">=</span> <span class="pre">1100</span></code>, <code class="docutils literal notranslate"><span class="pre">UNIT_NOT_FOUND</span> <span class="pre">=</span> <span class="pre">1101</span></code>, <code class="docutils literal notranslate"><span class="pre">NOT_ACTIVE</span> <span class="pre">=</span> <span class="pre">1102</span></code>, <code class="docutils literal notranslate"><span class="pre">NO_DATA</span> <span class="pre">=</span> <span class="pre">1103</span></code>, <code class="docutils literal notranslate"><span class="pre">CALIBRATION_FAILED</span> <span class="pre">=</span> <span class="pre">1104</span></code></p>
+<p><strong>Feedback</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">unit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>unit being collected</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">progress</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>0.0 .. 1.0</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="executebehavior">
+<h3>ExecuteBehavior<a class="headerlink" href="#executebehavior" title="Link to this heading">#</a></h3>
+<p>Run a named generator behavior (home / sit / stand / walk / follow_trajectory / …) on the generator_server. The name selects a generator (+ params) from the server’s <code class="docutils literal notranslate"><span class="pre">generator_plugins</span></code>; finite behaviors (sit/stand/home) complete when their generator finishes, continuous ones (walk) run until canceled. Long-running, with feedback + cancel.</p>
+<p><strong>Goal</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">behavior</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>behavior name (key in the server’s <code class="docutils literal notranslate"><span class="pre">generator_plugins</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">parameters</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rcl_interfaces/Parameter[]</span></code></p></td>
+<td><p>optional per-goal overrides of the generator’s <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.*</span></code> params</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Result</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">error_code</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">error_msg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">NONE</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">UNKNOWN</span> <span class="pre">=</span> <span class="pre">800</span></code>, <code class="docutils literal notranslate"><span class="pre">BEHAVIOR_NOT_FOUND</span> <span class="pre">=</span> <span class="pre">801</span></code>, <code class="docutils literal notranslate"><span class="pre">BEHAVIOR_FAILED</span> <span class="pre">=</span> <span class="pre">802</span></code></p>
+<p><strong>Feedback</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">progress</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>0.0 .. 1.0 (finite behaviors); ~0 for continuous</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">state</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>human-readable phase (“standing up”, “walking”)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="optimize">
+<h3>Optimize<a class="headerlink" href="#optimize" title="Link to this heading">#</a></h3>
+<p>Run a human-in-the-loop optimization of a behavior’s parameters. The optimization server proposes candidates, applies each to <code class="docutils literal notranslate"><span class="pre">behavior</span></code>, collects CostSample’s for <code class="docutils literal notranslate"><span class="pre">cycles_per_candidate</span></code> cycles and iterates until the optimizer converges, <code class="docutils literal notranslate"><span class="pre">max_candidates</span></code> is reached, or the goal is canceled.</p>
+<p><strong>Goal</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">behavior</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>generator behavior whose parameters are optimized</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">optimizer</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>optimizer plugin name (key in the server’s <code class="docutils literal notranslate"><span class="pre">optimizer_plugins</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cost</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>cost plugin name (key in the server’s <code class="docutils literal notranslate"><span class="pre">cost_plugins</span></code>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cycles_per_candidate</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td><p>cost samples averaged per candidate (0 = server default)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_candidates</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td><p>stop after this many candidates (0 = optimizer decides)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Result</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">error_code</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">error_msg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">best</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Candidate</span></code></p></td>
+<td><p>best candidate found</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">best_cost</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">results_path</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>where the full history was saved</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">NONE</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">UNKNOWN</span> <span class="pre">=</span> <span class="pre">1000</span></code>, <code class="docutils literal notranslate"><span class="pre">BEHAVIOR_NOT_FOUND</span> <span class="pre">=</span> <span class="pre">1001</span></code>, <code class="docutils literal notranslate"><span class="pre">OPTIMIZER_NOT_FOUND</span> <span class="pre">=</span> <span class="pre">1002</span></code>, <code class="docutils literal notranslate"><span class="pre">COST_NOT_FOUND</span> <span class="pre">=</span> <span class="pre">1003</span></code>, <code class="docutils literal notranslate"><span class="pre">OPTIMIZATION_FAILED</span> <span class="pre">=</span> <span class="pre">1004</span></code></p>
+<p><strong>Feedback</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">current</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Candidate</span></code></p></td>
+<td><p>candidate being evaluated</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cycles_done</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td><p>cost samples collected for it so far</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">best</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Candidate</span></code></p></td>
+<td><p>best so far</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">best_cost</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="horus-msgs-messages">
+<h2>horus_msgs messages<a class="headerlink" href="#horus-msgs-messages" title="Link to this heading">#</a></h2>
+<section id="behaviorstate">
+<h3>BehaviorState<a class="headerlink" href="#behaviorstate" title="Link to this heading">#</a></h3>
+<p>The generator_server’s current behavior (latched, published on every change), for the UI and for behavior-tree conditions.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">behavior</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>active behavior name (”” = none)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">plugin</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>generator plugin class running it</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">active</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>true while a behavior is running</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">finished</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>true once a finite behavior has completed</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="calibrationfile">
+<h3>CalibrationFile<a class="headerlink" href="#calibrationfile" title="Link to this heading">#</a></h3>
+<p>One saved calibration file (see SaveCalibration for the on-disk layout).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">node</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>node (instance) name that produced it, e.g. “imus_a”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">unit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>channel it calibrates, e.g. “right_upper_leg”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">plugin</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>calibration plugin class that computed it</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">path</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>ISO-8601</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">latest</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>newest file for this node + unit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="candidate">
+<h3>Candidate<a class="headerlink" href="#candidate" title="Link to this heading">#</a></h3>
+<p>One parameter set proposed by an optimizer (human-in-the-loop personalization). Every cost sample refers back to the candidate that produced it by <code class="docutils literal notranslate"><span class="pre">id</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td><p>unique within one optimization run</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">generation</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td><p>optimizer iteration / generation the candidate belongs to</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">names</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>parameter names, index-aligned with values</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">values</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="costsample">
+<h3>CostSample<a class="headerlink" href="#costsample" title="Link to this heading">#</a></h3>
+<p>One cost evaluation of a candidate, typically once per gait cycle.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">candidate_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td><p>Candidate.id that was active while this cost was measured</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cycle</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></td>
+<td><p>cycle index within that candidate’s evaluation window</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cost</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sessionstate">
+<h3>SessionState<a class="headerlink" href="#sessionstate" title="Link to this heading">#</a></h3>
+<p>Session state (latched), the UI’s session banner: the selected subject and whether a trial is open.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">active</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>a trial is recording</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subject_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>the selected subject (”” = none)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trial_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>the open trial (”” when idle)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">started_at</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">builtin_interfaces/Time</span></code></p></td>
+<td><p>when the open trial started (zero when idle)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">record_mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>“per_run” / “manual”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>human-readable detail / error</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="subjectprofile">
+<h3>SubjectProfile<a class="headerlink" href="#subjectprofile" title="Link to this heading">#</a></h3>
+<p>A study subject / patient: identity, demographics and body measurements. <code class="docutils literal notranslate"><span class="pre">id</span></code> is auto-generated by the session node when left empty.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sex</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>M / F / other / “”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">age</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>years</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">body</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/Anthropometrics</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">notes</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">created_at</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>ISO-8601</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="supervisorstate">
+<h3>SupervisorState<a class="headerlink" href="#supervisorstate" title="Link to this heading">#</a></h3>
+<p>The supervisor’s global mode (latched, published on every change). A mode answers one question: who may move the device right now? Safety events always win: an emergency stop, a fault of a critical device or a lost operator drive the supervisor to EMERGENCY_STOP from any mode.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">previous_mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mode_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>“RUN”, …</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">reason</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>why the last transition happened</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tree</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>tree running for this mode (”” = none)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">since</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">builtin_interfaces/Time</span></code></p></td>
+<td><p>when the current mode was entered</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">faults</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>critical sources in ERROR / STALE (block RESET)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">warnings</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>non-critical sources in ERROR / STALE, or any source in WARN</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">operator_connected</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>operator heartbeat alive (true when heartbeat is disabled)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">protocols</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>registered tree ids the operator can START</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">INIT</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">STANDBY</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">RUN</span> <span class="pre">=</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">MANUAL</span> <span class="pre">=</span> <span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">RECOVERY</span> <span class="pre">=</span> <span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">EMERGENCY_STOP</span> <span class="pre">=</span> <span class="pre">5</span></code></p>
+</section>
+<section id="trialinfo">
+<h3>TrialInfo<a class="headerlink" href="#trialinfo" title="Link to this heading">#</a></h3>
+<p>Metadata for one recorded trial (written to trial.yaml alongside the bag). The session populates it; <code class="docutils literal notranslate"><span class="pre">notes</span></code> are live annotations the user adds while the trial is running.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trial_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subject_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">devices</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>devices used in the trial (a rig can have several)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">start_time</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">builtin_interfaces/Time</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stop_time</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">builtin_interfaces/Time</span></code></p></td>
+<td><p>zero while the trial is running</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">notes</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">TrialNote[]</span></code></p></td>
+<td><p>timestamped notes written during the trial</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="trialnote">
+<h3>TrialNote<a class="headerlink" href="#trialnote" title="Link to this heading">#</a></h3>
+<p>A timestamped note a user writes live during a trial (saved into trial.yaml with the trial).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stamp</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">builtin_interfaces/Time</span></code></p></td>
+<td><p>when the note was written</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>the note itself</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="horus-msgs-services">
+<h2>horus_msgs services<a class="headerlink" href="#horus-msgs-services" title="Link to this heading">#</a></h2>
+<section id="addtrialnote">
+<h3>AddTrialNote<a class="headerlink" href="#addtrialnote" title="Link to this heading">#</a></h3>
+<p>Add a timestamped note to the running trial (saved into its trial.yaml). The server stamps it.</p>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">text</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="createsubject">
+<h3>CreateSubject<a class="headerlink" href="#createsubject" title="Link to this heading">#</a></h3>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">profile</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SubjectProfile</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="deletesubject">
+<h3>DeleteSubject<a class="headerlink" href="#deletesubject" title="Link to this heading">#</a></h3>
+<p>Delete a subject. The subject folder is MOVED to &lt;data_root&gt;/trash/ (never erased), and a subject with recorded trials is refused unless <code class="docutils literal notranslate"><span class="pre">force</span></code> is set, so data is never lost by accident.</p>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">force</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p>also delete a subject that has recorded trials</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="getsubject">
+<h3>GetSubject<a class="headerlink" href="#getsubject" title="Link to this heading">#</a></h3>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">profile</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SubjectProfile</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="listcalibrations">
+<h3>ListCalibrations<a class="headerlink" href="#listcalibrations" title="Link to this heading">#</a></h3>
+<p>List a subject’s saved calibration files, newest first.</p>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subject_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">node</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>optional filter: one node / instance (”” = all)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">files</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">CalibrationFile[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="listsubjects">
+<h3>ListSubjects<a class="headerlink" href="#listsubjects" title="Link to this heading">#</a></h3>
+<p><strong>Request</strong></p>
+<p><em>(empty)</em></p>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">profiles</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SubjectProfile[]</span></code></p></td>
+<td><p>every subject on disk, full record (the UI’s subject picker)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="loadcalibration">
+<h3>LoadCalibration<a class="headerlink" href="#loadcalibration" title="Link to this heading">#</a></h3>
+<p>Apply a saved calibration file to the node. An empty path loads the latest file of every unit for <code class="docutils literal notranslate"><span class="pre">subject_id</span></code> (what the node also does on configure when its <code class="docutils literal notranslate"><span class="pre">subject_id</span></code> parameter is set).</p>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">path</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subject_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">units</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>units now calibrated from file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="managelifecyclenodes">
+<h3>ManageLifecycleNodes<a class="headerlink" href="#managelifecyclenodes" title="Link to this heading">#</a></h3>
+<p>Drive an ordered set of lifecycle nodes through their state machine.</p>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">command</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">node_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>optional: target ONE managed node (empty = the whole ordered set)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">STARTUP</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">PAUSE</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">RESUME</span> <span class="pre">=</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">RESET</span> <span class="pre">=</span> <span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">SHUTDOWN</span> <span class="pre">=</span> <span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">CONFIGURE</span> <span class="pre">=</span> <span class="pre">5</span></code>, <code class="docutils literal notranslate"><span class="pre">CLEANUP</span> <span class="pre">=</span> <span class="pre">6</span></code></p>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>why it failed, or a short summary</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="savecalibration">
+<h3>SaveCalibration<a class="headerlink" href="#savecalibration" title="Link to this heading">#</a></h3>
+<p>Save the node’s pending calibration result(s) for a subject, to &lt;data_root&gt;/subjects/&lt;subject_id&gt;/calibration/<node>/<unit>_&lt;YYYYmmdd_HHMMSS&gt;.yaml</p>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">subject_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">unit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>“” = every pending unit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">paths</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>one file per saved unit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sessioncontrol">
+<h3>SessionControl<a class="headerlink" href="#sessioncontrol" title="Link to this heading">#</a></h3>
+<p>The session: which subject is selected, and whether a trial (recording) is open. SELECT pushes the subject to every HORUS sensing node, which loads its newest calibrations. START opens a trial for the selected subject (or <code class="docutils literal notranslate"><span class="pre">subject_id</span></code>); STOP closes it. With <code class="docutils literal notranslate"><span class="pre">record:</span> <span class="pre">per_run</span></code> the session also opens a trial when the supervisor enters RUN and closes it back in STANDBY.</p>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">command</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subject_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>SELECT: the subject (”” = none); START: optional, selects it first</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">topics</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>START: optional topics to record (empty = the recorder’s configured set)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">STOP</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">SELECT</span> <span class="pre">=</span> <span class="pre">2</span></code></p>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trial_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>set on START</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="supervisorcommand">
+<h3>SupervisorCommand<a class="headerlink" href="#supervisorcommand" title="Link to this heading">#</a></h3>
+<p>Operator request to the supervisor. Requests are arbitrated: a request not allowed in the current mode is rejected (success = false) and the mode does not change.</p>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">command</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tree</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>START: protocol tree to run instead of trees.run</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">START</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">STOP</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">MANUAL</span> <span class="pre">=</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">RESET</span> <span class="pre">=</span> <span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">EMERGENCY_STOP</span> <span class="pre">=</span> <span class="pre">4</span></code></p>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="updatesubject">
+<h3>UpdateSubject<a class="headerlink" href="#updatesubject" title="Link to this heading">#</a></h3>
+<p>Replace an existing subject’s profile (matched by profile.id; created_at is preserved).</p>
+<p><strong>Request</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">profile</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SubjectProfile</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Response</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">success</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="human-msgs">
+<h2>human_msgs<a class="headerlink" href="#human-msgs" title="Link to this heading">#</a></h2>
+<p>Segment and joint names follow the Xsens MVN model (23 segments, 22 joints, ISB conventions). Multi-channel sources use the <code class="docutils literal notranslate"><span class="pre">X</span></code> / <code class="docutils literal notranslate"><span class="pre">XInfo</span></code> / <code class="docutils literal notranslate"><span class="pre">Xs</span></code> pattern: data, latched metadata, collection.</p>
+<section id="biosignals">
+<h3>biosignals<a class="headerlink" href="#biosignals" title="Link to this heading">#</a></h3>
+<section id="bcg">
+<h4>Bcg<a class="headerlink" href="#bcg" title="Link to this heading">#</a></h4>
+<p>Bcg — ballistocardiography Whole-body recoil samples from body-motion sensors.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sensor_reading</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="bcginfo">
+<h4>BcgInfo<a class="headerlink" href="#bcginfo" title="Link to this heading">#</a></h4>
+<p>BcgInfo — static BCG metadata (latched)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">number_of_sensors</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sensor_location</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sensing_direction</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>e.g. “dorso-ventral”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sensing_modality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>e.g. “piezoelectric”, “force-plate”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="co">
+<h4>Co<a class="headerlink" href="#co" title="Link to this heading">#</a></h4>
+<p>Co — cardiac output</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">co</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>L/min</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ecg">
+<h4>Ecg<a class="headerlink" href="#ecg" title="Link to this heading">#</a></h4>
+<p>Ecg — one ECG lead One lead’s samples. Aggregate all leads for a tick in Ecgs.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ecg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>amplitude, mV</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signal_quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>0-1 per sample</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ecginfo">
+<h4>EcgInfo<a class="headerlink" href="#ecginfo" title="Link to this heading">#</a></h4>
+<p>EcgInfo — static ECG lead metadata (latched)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lead_number</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">location_lead</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>e.g. “II”, “V1”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ecgs">
+<h4>Ecgs<a class="headerlink" href="#ecgs" title="Link to this heading">#</a></h4>
+<p>Ecgs — all ECG leads for one tick</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">leads</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ecg[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="eda">
+<h4>Eda<a class="headerlink" href="#eda" title="Link to this heading">#</a></h4>
+<p>Eda — electrodermal activity Skin conductance (SCR + SCL).</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eda</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>skin conductance</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signal_quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>0-1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="edainfo">
+<h4>EdaInfo<a class="headerlink" href="#edainfo" title="Link to this heading">#</a></h4>
+<p>EdaInfo — static EDA metadata (latched)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">location</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">measuring_technique</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>endosomatic / exosomatic</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">current_form</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>“AC” / “DC”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="eeg">
+<h4>Eeg<a class="headerlink" href="#eeg" title="Link to this heading">#</a></h4>
+<p>Eeg — one EEG channel Electroencephalography samples for one electrode. Aggregate in Eegs.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eeg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>mV</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signal_quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8[]</span></code></p></td>
+<td><p>0-100</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="eeginfo">
+<h4>EegInfo<a class="headerlink" href="#eeginfo" title="Link to this heading">#</a></h4>
+<p>EegInfo — static EEG channel metadata (latched)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">channel_number</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">electrode_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>10-20 nomenclature, e.g. “Cz”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">placement_standard</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>“10-20” / “10-10” / “10-5”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signal_gain</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="eegs">
+<h4>Eegs<a class="headerlink" href="#eegs" title="Link to this heading">#</a></h4>
+<p>Eegs — all EEG channels for one tick</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">channels</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Eeg[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="emg">
+<h4>Emg<a class="headerlink" href="#emg" title="Link to this heading">#</a></h4>
+<p>Emg — one EMG sensor’s sample batch Surface EMG streams per sensor in batches (~20 samples per poll cycle), so each message carries one batch for one muscle/channel — no downsampling, no loss. Aggregate all sensors for a tick in Emgs. Per-sample time = header.stamp - (N-1-i)/sample_rate.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p>stamp = time of the batch (last sample)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">muscle_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>anatomical label, e.g. “rectus_femoris_r”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sensor_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p>hardware sensor/pair index (0 if unused)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">samples</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>raw EMG samples in this batch, oldest first (mV)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sample_rate</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>per-sample rate within the batch, Hz</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">signal_quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>0-1 batch signal quality (-1 if unknown)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="emginfo">
+<h4>EmgInfo<a class="headerlink" href="#emginfo" title="Link to this heading">#</a></h4>
+<p>EmgInfo — static EMG channel metadata (latched) Publish ONCE with transient_local (latched) QoS, like sensor_msgs/CameraInfo. Pairs with Emg by sensor_id / muscle_name so static config isn’t repeated every batch.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">muscle_name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>anatomical label</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sensor_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p>pairs with Emg.sensor_id</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">electrode_type</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>“surface” / “needle”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">electrode_location</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>anatomical placement notes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="emgs">
+<h4>Emgs<a class="headerlink" href="#emgs" title="Link to this heading">#</a></h4>
+<p>Emgs — all EMG sensors for one tick Collection of per-sensor batches.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sensors</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Emg[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="eog">
+<h4>Eog<a class="headerlink" href="#eog" title="Link to this heading">#</a></h4>
+<p>Eog — electrooculography Eye-movement potential samples.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">eog</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>amplitude, mV</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signal_quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>0-1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="eoginfo">
+<h4>EogInfo<a class="headerlink" href="#eoginfo" title="Link to this heading">#</a></h4>
+<p>EogInfo — static EOG metadata (latched)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">electrode_placement</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="hr">
+<h4>Hr<a class="headerlink" href="#hr" title="Link to this heading">#</a></h4>
+<p>Hr — heart rate</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hr</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int32</span></code></p></td>
+<td><p>beats/min</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hr_quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int32</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="hrv">
+<h4>Hrv<a class="headerlink" href="#hrv" title="Link to this heading">#</a></h4>
+<p>Hrv — heart-rate variability</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hrv</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>ms (RR-interval variability)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="icg">
+<h4>Icg<a class="headerlink" href="#icg" title="Link to this heading">#</a></h4>
+<p>Icg — one ICG lead Impedance cardiography samples for one lead. Aggregate in Icgs.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">icg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>amplitude</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signal_quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>0-1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="icginfo">
+<h4>IcgInfo<a class="headerlink" href="#icginfo" title="Link to this heading">#</a></h4>
+<p>IcgInfo — static ICG lead metadata (latched)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lead_number</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">location_lead</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="icgs">
+<h4>Icgs<a class="headerlink" href="#icgs" title="Link to this heading">#</a></h4>
+<p>Icgs — all ICG leads for one tick</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">leads</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Icg[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ppg">
+<h4>Ppg<a class="headerlink" href="#ppg" title="Link to this heading">#</a></h4>
+<p>Ppg — one PPG channel Photoplethysmography samples for one wavelength/channel. Aggregate in Ppgs.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ppg</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>a.u.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signal_quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>0-1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ppginfo">
+<h4>PpgInfo<a class="headerlink" href="#ppginfo" title="Link to this heading">#</a></h4>
+<p>PpgInfo — static PPG channel metadata (latched)</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">wavelength_nm</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">location</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">measuring_mode</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>“transmissive” / “reflective”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">signal_gain</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="ppgs">
+<h4>Ppgs<a class="headerlink" href="#ppgs" title="Link to this heading">#</a></h4>
+<p>Ppgs — all PPG channels for one tick</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">channels</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Ppg[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="rr">
+<h4>Rr<a class="headerlink" href="#rr" title="Link to this heading">#</a></h4>
+<p>Rr — respiratory rate</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rr</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>breaths/min</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rr_quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">int32</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="sv">
+<h4>Sv<a class="headerlink" href="#sv" title="Link to this heading">#</a></h4>
+<p>Sv — stroke volume</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sv</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>mL</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="common">
+<h3>common<a class="headerlink" href="#common" title="Link to this heading">#</a></h3>
+<section id="anthropometrics">
+<h4>Anthropometrics<a class="headerlink" href="#anthropometrics" title="Link to this heading">#</a></h4>
+<p>Anthropometrics — body measurements of one person Static description of a body, embedded where a person is described (e.g. a subject profile) and consumed by body-model generators and estimators. SI units: metres and kilograms. 0.0 = not measured, so the consumer falls back to its own default. The set follows the Xsens MVN body-measurement list.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">body_mass</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>kg</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">body_height</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, floor to top of head, barefoot</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">foot_length</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, heel to tip of the longest toe (or shoe length when shod)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sole_thickness</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, extra height added by the shoe sole</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shoulder_height</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, floor to acromion</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shoulder_width</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, acromion to acromion</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">elbow_span</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, elbow tip to elbow tip, arms abducted 90 deg</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">wrist_span</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, wrist to wrist, arms abducted 90 deg</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">arm_span</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, fingertip to fingertip, arms abducted 90 deg</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">hip_height</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, floor to greater trochanter</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">hip_width</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, left to right anterior superior iliac spine</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">knee_height</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, floor to lateral femoral epicondyle</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ankle_height</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float64</span></code></p></td>
+<td><p>m, floor to lateral malleolus</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="derivedinfo">
+<h4>DerivedInfo<a class="headerlink" href="#derivedinfo" title="Link to this heading">#</a></h4>
+<p>DerivedInfo — static metadata for a derived (processed) stream Publish ONCE with transient_local (latched) QoS beside any stream computed from other signals (heart rate, gait parameters, joint moments, …), so readers know how it was produced.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">method</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>algorithm name, e.g. “pan_tompkins”, “fsr_threshold”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">source_topics</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>input topics the stream is derived from</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">window_size</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>s, analysis window length (-1 if not windowed)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">window_stride</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>s, step between successive windows (-1 if not windowed)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">output_rate</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>Hz (-1 if event-driven)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p>device that computes it on board (empty if computed on the host)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="deviceinfo">
+<h4>DeviceInfo<a class="headerlink" href="#deviceinfo" title="Link to this heading">#</a></h4>
+<p>DeviceInfo — static sensor metadata Lives inside *Info messages (latched, published once), never in a high-rate data message.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>device name / identifier</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">measuring_unit</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>unit of the output, e.g. “mV”, “kPa”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">sampling_frequency_hz</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">resolution</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>output resolution in the measuring unit</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">accuracy</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>manufacturer-tested accuracy, 0-1</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">max_range</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>max detectable input, measuring unit</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">min_range</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>min detectable input, measuring unit</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="kinematics">
+<h3>kinematics<a class="headerlink" href="#kinematics" title="Link to this heading">#</a></h3>
+<section id="gaitevent">
+<h4>GaitEvent<a class="headerlink" href="#gaitevent" title="Link to this heading">#</a></h4>
+<p>GaitEvent — one discrete gait event for one foot Published once per detected event. GaitPhase is the continuous state between events; GaitEvent is the instant itself, which is what triggers event-locked assistance and per-cycle analysis.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p>stamp = when the event OCCURRED (not when it was detected)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">foot</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>RIGHT or LEFT</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">event</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">label</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>name for CUSTOM events, e.g. “hip_flexion_start” (”” otherwise)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">confidence</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>0-1 (-1 if not provided)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">HEEL_STRIKE</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">FOOT_FLAT</span> <span class="pre">=</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">HEEL_OFF</span> <span class="pre">=</span> <span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">TOE_OFF</span> <span class="pre">=</span> <span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">CUSTOM</span> <span class="pre">=</span> <span class="pre">255</span></code></p>
+</section>
+<section id="gaitparameters">
+<h4>GaitParameters<a class="headerlink" href="#gaitparameters" title="Link to this heading">#</a></h4>
+<p>GaitParameters — spatiotemporal gait parameters (+ phase) Per foot / most-recent stride, from a gait-analysis node. Embeds the current GaitPhase. Fields not measured = -1.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p>stamp = end of the stride</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">foot</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>RIGHT or LEFT</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phase</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">GaitPhase</span></code></p></td>
+<td><p>current gait-cycle phase</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stride_length</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">step_length</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">step_width</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">step_height</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>peak foot clearance during swing</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stride_length_at_com</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">gait_cycle_duration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">step_duration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">stance_duration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">swing_duration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">single_stance_duration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">double_stance_duration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cadence</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>steps/min</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stride_speed</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>m/s</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">length_of_com_trajectory</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">lateral_movement_during_swing</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_hip_vertical_amplitude</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">=</span> <span class="pre">1</span></code></p>
+</section>
+<section id="gaitphase">
+<h4>GaitPhase<a class="headerlink" href="#gaitphase" title="Link to this heading">#</a></h4>
+<p>GaitPhase — gait-cycle phase for one foot Output of a gait event / state-machine node (needs previous contacts + timing). Usable standalone on its own topic, and embedded inside GaitParameters.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">foot</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>RIGHT or LEFT</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">phase</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">confidence</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>0-1 (-1 if not provided)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">UNKNOWN</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">SWING</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">HEEL_STRIKE</span> <span class="pre">=</span> <span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">FLAT_FOOT</span> <span class="pre">=</span> <span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">HEEL_OFF</span> <span class="pre">=</span> <span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">TOE_OFF</span> <span class="pre">=</span> <span class="pre">5</span></code></p>
+</section>
+<section id="jointangles">
+<h4>JointAngles<a class="headerlink" href="#jointangles" title="Link to this heading">#</a></h4>
+<p>JointAngles — human joint angles (3-DOF per joint, rad) One index-aligned entry per joint (Xsens MVN / ISB 22-joint model). Each <code class="docutils literal notranslate"><span class="pre">angle</span></code> is a Vector3, ISB convention:  x = flexion(+)/extension(-),  y = abduction(+)/adduction(-), z = internal(+)/external(-) rotation. 1-DOF analysis: use only .x. Canonical home of the joint name constants — JointVelocity / JointMoments reuse them. Use ONLY these constants in <code class="docutils literal notranslate"><span class="pre">name[]</span></code>. — joints: spine + neck —</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>joint labels from the constants above</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">angle</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">geometry_msgs/Vector3[]</span></code></p></td>
+<td><p>per-joint angle, rad: x=flex, y=abd, z=rot</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">L5_S1</span> <span class="pre">=</span> <span class="pre">l5_s1</span></code>, <code class="docutils literal notranslate"><span class="pre">L4_L3</span> <span class="pre">=</span> <span class="pre">l4_l3</span></code>, <code class="docutils literal notranslate"><span class="pre">L1_T12</span> <span class="pre">=</span> <span class="pre">l1_t12</span></code>, <code class="docutils literal notranslate"><span class="pre">T9_T8</span> <span class="pre">=</span> <span class="pre">t9_t8</span></code>, <code class="docutils literal notranslate"><span class="pre">T1_C7</span> <span class="pre">=</span> <span class="pre">t1_c7</span></code>, <code class="docutils literal notranslate"><span class="pre">C1_HEAD</span> <span class="pre">=</span> <span class="pre">c1_head</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_C7_SHOULDER</span> <span class="pre">=</span> <span class="pre">right_c7_shoulder</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_SHOULDER</span> <span class="pre">=</span> <span class="pre">right_shoulder</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_ELBOW</span> <span class="pre">=</span> <span class="pre">right_elbow</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_WRIST</span> <span class="pre">=</span> <span class="pre">right_wrist</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_C7_SHOULDER</span> <span class="pre">=</span> <span class="pre">left_c7_shoulder</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_SHOULDER</span> <span class="pre">=</span> <span class="pre">left_shoulder</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_ELBOW</span> <span class="pre">=</span> <span class="pre">left_elbow</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_WRIST</span> <span class="pre">=</span> <span class="pre">left_wrist</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_HIP</span> <span class="pre">=</span> <span class="pre">right_hip</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_KNEE</span> <span class="pre">=</span> <span class="pre">right_knee</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_ANKLE</span> <span class="pre">=</span> <span class="pre">right_ankle</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_BALL_FOOT</span> <span class="pre">=</span> <span class="pre">right_ball_foot</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_HIP</span> <span class="pre">=</span> <span class="pre">left_hip</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_KNEE</span> <span class="pre">=</span> <span class="pre">left_knee</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_ANKLE</span> <span class="pre">=</span> <span class="pre">left_ankle</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_BALL_FOOT</span> <span class="pre">=</span> <span class="pre">left_ball_foot</span></code></p>
+</section>
+<section id="jointvelocity">
+<h4>JointVelocity<a class="headerlink" href="#jointvelocity" title="Link to this heading">#</a></h4>
+<p>JointVelocity — human joint angular velocities (3-DOF per joint, rad/s) Index-aligned with <code class="docutils literal notranslate"><span class="pre">name</span></code> (Xsens MVN / ISB 22-joint model). Reuse the joint name constants from JointAngles. Vector3 axes = ISB: x=flexion, y=abduction, z=rotation.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>joint labels (see JointAngles constants)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">velocity</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">geometry_msgs/Vector3[]</span></code></p></td>
+<td><p>rad/s: x=flex, y=abd, z=rot</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="segmentstate">
+<h4>SegmentState<a class="headerlink" href="#segmentstate" title="Link to this heading">#</a></h4>
+<p>SegmentState — whole-body segment kinematics One index-aligned entry per body segment (Xsens MVN / ISB 23-segment model). <code class="docutils literal notranslate"><span class="pre">orientation</span></code> is required; position / velocities are optional (length N, or empty). Use ONLY the constants below in <code class="docutils literal notranslate"><span class="pre">name[]</span></code>. — segments: spine + head —</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p>frame_id = reference frame, e.g. “world”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>segment labels from the constants above</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">orientation</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">geometry_msgs/Quaternion[]</span></code></p></td>
+<td><p>segment orientation in header frame</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">position</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">geometry_msgs/Vector3[]</span></code></p></td>
+<td><p>segment origin, m         (length N, or empty)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">angular_velocity</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">geometry_msgs/Vector3[]</span></code></p></td>
+<td><p>rad/s                     (length N, or empty)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">linear_acceleration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">geometry_msgs/Vector3[]</span></code></p></td>
+<td><p>m/s^2                     (length N, or empty)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">PELVIS</span> <span class="pre">=</span> <span class="pre">pelvis</span></code>, <code class="docutils literal notranslate"><span class="pre">L5</span> <span class="pre">=</span> <span class="pre">l5</span></code>, <code class="docutils literal notranslate"><span class="pre">L3</span> <span class="pre">=</span> <span class="pre">l3</span></code>, <code class="docutils literal notranslate"><span class="pre">T12</span> <span class="pre">=</span> <span class="pre">t12</span></code>, <code class="docutils literal notranslate"><span class="pre">T8</span> <span class="pre">=</span> <span class="pre">t8</span></code>, <code class="docutils literal notranslate"><span class="pre">NECK</span> <span class="pre">=</span> <span class="pre">neck</span></code>, <code class="docutils literal notranslate"><span class="pre">HEAD</span> <span class="pre">=</span> <span class="pre">head</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_SHOULDER</span> <span class="pre">=</span> <span class="pre">right_shoulder</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_UPPER_ARM</span> <span class="pre">=</span> <span class="pre">right_upper_arm</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_FOREARM</span> <span class="pre">=</span> <span class="pre">right_forearm</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_HAND</span> <span class="pre">=</span> <span class="pre">right_hand</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_SHOULDER</span> <span class="pre">=</span> <span class="pre">left_shoulder</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_UPPER_ARM</span> <span class="pre">=</span> <span class="pre">left_upper_arm</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_FOREARM</span> <span class="pre">=</span> <span class="pre">left_forearm</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_HAND</span> <span class="pre">=</span> <span class="pre">left_hand</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_UPPER_LEG</span> <span class="pre">=</span> <span class="pre">right_upper_leg</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_LOWER_LEG</span> <span class="pre">=</span> <span class="pre">right_lower_leg</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_FOOT</span> <span class="pre">=</span> <span class="pre">right_foot</span></code>, <code class="docutils literal notranslate"><span class="pre">RIGHT_TOE</span> <span class="pre">=</span> <span class="pre">right_toe</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_UPPER_LEG</span> <span class="pre">=</span> <span class="pre">left_upper_leg</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_LOWER_LEG</span> <span class="pre">=</span> <span class="pre">left_lower_leg</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_FOOT</span> <span class="pre">=</span> <span class="pre">left_foot</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT_TOE</span> <span class="pre">=</span> <span class="pre">left_toe</span></code></p>
+</section>
+</section>
+<section id="kinetics">
+<h3>kinetics<a class="headerlink" href="#kinetics" title="Link to this heading">#</a></h3>
+<section id="insole">
+<h4>Insole<a class="headerlink" href="#insole" title="Link to this heading">#</a></h4>
+<p>Insole — instrumented-insole data for one foot Lean data stream (e.g. 8 FSR cells). Static cell layout/geometry + device live in InsoleInfo (latched); the insole’s own IMU is published separately as sensor_msgs/Imu. Both feet: Insoles.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p>stamp; frame_id = insole frame, e.g. “insole_r”</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">foot</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p>RIGHT or LEFT</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pressure</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>per-cell value, kPa (order = InsoleInfo.cell_id; -1 if not computed)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cop</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">geometry_msgs/Point32</span></code></p></td>
+<td><p>centre of pressure in the insole frame, m (-1 if not computed)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">total_force</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>summed vertical force, N (-1 if not computed)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">heel_contact</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">mid_contact</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">toe_contact</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">bool</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">=</span> <span class="pre">1</span></code></p>
+</section>
+<section id="insoleinfo">
+<h4>InsoleInfo<a class="headerlink" href="#insoleinfo" title="Link to this heading">#</a></h4>
+<p>InsoleInfo — static insole geometry + device (latched) Publish ONCE, transient_local. Defines the cell order + positions used by Insole.pressure so RViz / analysis can place each cell.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">foot</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cell_id</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>per-cell label (defines pressure[] order)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cell_position</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">geometry_msgs/Point32[]</span></code></p></td>
+<td><p>per-cell location in the insole frame, m (same order)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">device</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">human_msgs/DeviceInfo</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">RIGHT</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">LEFT</span> <span class="pre">=</span> <span class="pre">1</span></code></p>
+</section>
+<section id="insoles">
+<h4>Insoles<a class="headerlink" href="#insoles" title="Link to this heading">#</a></h4>
+<p>Insoles — both insoles for one tick</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">feet</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Insole[]</span></code></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="jointmoments">
+<h4>JointMoments<a class="headerlink" href="#jointmoments" title="Link to this heading">#</a></h4>
+<p>JointMoments — human joint moments / torques (3-DOF per joint, N*m) Index-aligned with <code class="docutils literal notranslate"><span class="pre">name</span></code> (Xsens MVN / ISB 22-joint model). Reuse the joint name constants from JointAngles. Vector3 axes = ISB: x=flexion, y=abduction, z=rotation.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>joint labels (see JointAngles constants)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">moment</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">geometry_msgs/Vector3[]</span></code></p></td>
+<td><p>N*m: x=flex, y=abd, z=rot</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="pressuremat">
+<h4>PressureMat<a class="headerlink" href="#pressuremat" title="Link to this heading">#</a></h4>
+<p>PressureMat — pressure grid from a mat / force plate For an instrumented insole use Insole instead.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rows</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">cols</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint16</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">resolution</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>metres per cell</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pressure</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>row-major, kPa</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="subjective">
+<h3>subjective<a class="headerlink" href="#subjective" title="Link to this heading">#</a></h3>
+<section id="comfort">
+<h4>Comfort<a class="headerlink" href="#comfort" title="Link to this heading">#</a></h4>
+<p>Comfort — self-reported comfort of a worn device</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p>stamp = when the rating was given</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scale</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">location</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>SegmentState segment name, or “” = overall</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">aspect</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>e.g. “fit”, “pressure”, “temperature”, “movement”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">VAS_100</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">LIKERT_5</span> <span class="pre">=</span> <span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">LIKERT_7</span> <span class="pre">=</span> <span class="pre">2</span></code></p>
+</section>
+<section id="pain">
+<h4>Pain<a class="headerlink" href="#pain" title="Link to this heading">#</a></h4>
+<p>Pain — self-reported pain intensity</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p>stamp = when the rating was given</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scale</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">location</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>SegmentState segment name, or free text</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">quality</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>optional descriptor, e.g. “pressure”, “sharp”, “burning”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">VAS_100</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">NRS_10</span> <span class="pre">=</span> <span class="pre">1</span></code></p>
+</section>
+<section id="perceivedexertion">
+<h4>PerceivedExertion<a class="headerlink" href="#perceivedexertion" title="Link to this heading">#</a></h4>
+<p>PerceivedExertion — rating of perceived exertion (RPE) Reported by the person, typically entered by the operator during or after a trial.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p>stamp = when the rating was given</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">scale</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">uint8</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">value</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">region</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>optional body region (SegmentState name) for a local rating; “” = whole body</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Constants: <code class="docutils literal notranslate"><span class="pre">BORG_6_20</span> <span class="pre">=</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">BORG_CR10</span> <span class="pre">=</span> <span class="pre">1</span></code></p>
+</section>
+<section id="questionnaire">
+<h4>Questionnaire<a class="headerlink" href="#questionnaire" title="Link to this heading">#</a></h4>
+<p>Questionnaire — one completed questionnaire instrument Generic container for scored instruments (NASA-TLX, SUS, QUEST, …). Items and scores are index-aligned; item ids and scoring follow the instrument named in <code class="docutils literal notranslate"><span class="pre">instrument</span></code> + <code class="docutils literal notranslate"><span class="pre">version</span></code>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">header</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">std_msgs/Header</span></code></p></td>
+<td><p>stamp = when the questionnaire was completed</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">instrument</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>e.g. “nasa_tlx”, “sus”</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">version</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string</span></code></p></td>
+<td><p>instrument version / language variant</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">item</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">string[]</span></code></p></td>
+<td><p>item ids</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">score</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32[]</span></code></p></td>
+<td><p>per-item score, index-aligned with item</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">total</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">float32</span></code></p></td>
+<td><p>instrument total (-1 if not computed)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ROS 2 interfaces</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../configuration/rig_file.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The rig file</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horus-msgs-actions">horus_msgs actions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrate">Calibrate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executebehavior">ExecuteBehavior</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimize">Optimize</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horus-msgs-messages">horus_msgs messages</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#behaviorstate">BehaviorState</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calibrationfile">CalibrationFile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#candidate">Candidate</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#costsample">CostSample</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessionstate">SessionState</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subjectprofile">SubjectProfile</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervisorstate">SupervisorState</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trialinfo">TrialInfo</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trialnote">TrialNote</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#horus-msgs-services">horus_msgs services</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#addtrialnote">AddTrialNote</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#createsubject">CreateSubject</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deletesubject">DeleteSubject</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getsubject">GetSubject</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listcalibrations">ListCalibrations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listsubjects">ListSubjects</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#loadcalibration">LoadCalibration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managelifecyclenodes">ManageLifecycleNodes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#savecalibration">SaveCalibration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sessioncontrol">SessionControl</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supervisorcommand">SupervisorCommand</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#updatesubject">UpdateSubject</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-msgs">human_msgs</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biosignals">biosignals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bcg">Bcg</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#bcginfo">BcgInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#co">Co</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ecg">Ecg</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ecginfo">EcgInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ecgs">Ecgs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eda">Eda</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#edainfo">EdaInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eeg">Eeg</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eeginfo">EegInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eegs">Eegs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#emg">Emg</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#emginfo">EmgInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#emgs">Emgs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eog">Eog</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#eoginfo">EogInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hr">Hr</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hrv">Hrv</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#icg">Icg</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#icginfo">IcgInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#icgs">Icgs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ppg">Ppg</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ppginfo">PpgInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ppgs">Ppgs</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#rr">Rr</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sv">Sv</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common">common</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#anthropometrics">Anthropometrics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#derivedinfo">DerivedInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deviceinfo">DeviceInfo</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kinematics">kinematics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gaitevent">GaitEvent</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gaitparameters">GaitParameters</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gaitphase">GaitPhase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jointangles">JointAngles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jointvelocity">JointVelocity</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#segmentstate">SegmentState</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetics">kinetics</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#insole">Insole</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#insoleinfo">InsoleInfo</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#insoles">Insoles</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jointmoments">JointMoments</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pressuremat">PressureMat</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#subjective">subjective</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#comfort">Comfort</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#pain">Pain</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#perceivedexertion">PerceivedExertion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#questionnaire">Questionnaire</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024-2026, HORUS · University of Minho.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

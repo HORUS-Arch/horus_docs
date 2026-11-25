@@ -1,0 +1,1031 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>The rig file &#8212; HORUS 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/horus.css?v=3a5e0f7b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/configuration/rig_file';</script>
+    <script src="../../_static/force_dark.js?v=db5ebe2c"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Behaviors (generator server)" href="behaviors.html" />
+    <link rel="prev" title="Messages, services and actions" href="../interfaces/messages.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-dark" alt="HORUS"/>
+    <img src="../../_static/logo.png" class="logo__image only-light pst-js-only" alt="HORUS"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/sensing_estimation.html">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../interfaces/overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../interfaces/messages.html">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    The rig file
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="supervisor_trees.html">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/debug_testing.html">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/sensing_estimation.html">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../interfaces/overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../interfaces/messages.html">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    The rig file
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="supervisor_trees.html">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/debug_testing.html">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links" aria-label="Site navigation">
+  <div class="bd-toc-item navbar-nav">
+    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick start: the mock rig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/session.html">Running a session</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Architecture overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/decision_hierarchy.html">Decision hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/motion.html">Motion: generation and control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/sensing_estimation.html">Sensing and state estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/sessions_data.html">Sessions and data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/interface_deployment.html">Interface and deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/simulation.html">Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ROS 2 interfaces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/overview.html">ROS 2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/messages.html">Messages, services and actions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configure</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">The rig file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behaviors.html">Behaviors (generator server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensing.html">Sensing nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="supervisor_trees.html">Supervisor and trees</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extend</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extend/generator.html">Write a generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/calibration.html">Write a calibration algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/bt_leaf.html">Write a tree leaf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/controller.html">Write a controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/device.html">Add a device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/sensor.html">Add a sensor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../packages/core_packages.html">Core Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packages/modules_packages.html">Modules &amp; External Packages</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../development/contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/debug_testing.html">Debugging &amp; Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/style_guide.html">Style Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../project/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/paper.html">Paper and citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/roadmap.html">Roadmap</a></li>
+</ul>
+
+  </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">The rig file</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="the-rig-file">
+<h1>The rig file<a class="headerlink" href="#the-rig-file" title="Link to this heading">#</a></h1>
+<p>A rig is one folder, ideally in its own git repository, with a <code class="docutils literal notranslate"><span class="pre">rig.yaml</span></code> and the files it points
+to. Relative paths resolve against that folder; <code class="docutils literal notranslate"><span class="pre">package://&lt;pkg&gt;/&lt;path&gt;</span></code> points into an installed
+package.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>horus_bringup<span class="w"> </span>rig.launch.py<span class="w"> </span>rig:<span class="o">=</span>/path/to/my_rig/rig.yaml
+</pre></div>
+</div>
+<section id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Link to this heading">#</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">data_root</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">~/horus_data</span><span class="w">          </span><span class="c1"># subjects, calibrations, trials</span>
+<span class="nt">devices</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">hank</span><span class="p p-Indicator">]</span><span class="w">                  </span><span class="c1"># written into every trial.yaml</span>
+
+<span class="nt">robot</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">launch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">package://hank_bringup/launch/hank.launch.py</span><span class="w">   </span><span class="c1"># ros2_control, controllers, description</span>
+<span class="w">  </span><span class="nt">launch_arguments</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">use_mock</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;false&quot;</span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">generators</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">generators.yaml</span><span class="w">    </span><span class="c1"># generator_server behaviors (see Behaviors)</span>
+<span class="w">  </span><span class="nt">critical_sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">controller_manager</span><span class="p p-Indicator">]</span><span class="w">   </span><span class="c1"># the device&#39;s own diagnostics stop it on ERROR</span>
+
+<span class="nt">sensors</span><span class="p">:</span><span class="w">                         </span><span class="c1"># drivers -&gt; /sensors/&lt;name&gt;/...</span>
+<span class="w">  </span><span class="nt">imus_a</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">package</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">xsens_mtw_ros2</span>
+<span class="w">    </span><span class="nt">executable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mtw_driver</span>
+<span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sensors/imus_a.yaml</span>
+<span class="w">    </span><span class="nt">lifecycle</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">              </span><span class="c1"># managed by the lifecycle manager (default true)</span>
+<span class="w">    </span><span class="nt">critical</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">              </span><span class="c1"># true: ERROR or silence while moving -&gt; EMERGENCY_STOP</span>
+
+<span class="nt">human</span><span class="p">:</span><span class="w">                           </span><span class="c1"># HORUS sensing nodes -&gt; /human/&lt;name&gt;/...</span>
+<span class="w">  </span><span class="nt">container</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                </span><span class="c1"># all in one process, zero-copy (default false)</span>
+<span class="w">  </span><span class="nt">imus_a</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">node</span><span class="p">:</span><span class="w"> </span><span class="nv">horus_imu</span><span class="p p-Indicator">,</span><span class="nt">    params</span><span class="p">:</span><span class="w"> </span><span class="nv">human/imus_a.yaml</span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">insoles</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">node</span><span class="p">:</span><span class="w"> </span><span class="nv">horus_insole</span><span class="p p-Indicator">,</span><span class="nt"> params</span><span class="p">:</span><span class="w"> </span><span class="nv">human/insoles.yaml</span><span class="p p-Indicator">}</span>
+<span class="w">  </span><span class="nt">emg</span><span class="p">:</span><span class="w">     </span><span class="p p-Indicator">{</span><span class="nt">node</span><span class="p">:</span><span class="w"> </span><span class="nv">horus_emg</span><span class="p p-Indicator">,</span><span class="nt">    params</span><span class="p">:</span><span class="w"> </span><span class="nv">human/emg.yaml</span><span class="p p-Indicator">,</span><span class="nt"> critical</span><span class="p">:</span><span class="w"> </span><span class="nv">true</span><span class="p p-Indicator">}</span>
+
+<span class="nt">system</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">autostart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w">               </span><span class="c1"># false: nodes wait unconfigured until the operator connects them</span>
+<span class="w">  </span><span class="nt">trees</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">trees/</span><span class="w">                  </span><span class="c1"># behavior-tree XML folder (protocols, Manual, Recovery)</span>
+<span class="w">  </span><span class="nt">supervisor</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">supervisor.yaml</span><span class="w">    </span><span class="c1"># trees per mode, heartbeat, require_subject</span>
+<span class="w">  </span><span class="nt">recording</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">recording.yaml</span><span class="w">      </span><span class="c1"># session: record (per_run | manual), post_stop_record, topics</span>
+<span class="w">  </span><span class="nt">health</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">                   </span><span class="c1"># diagnostic aggregator, if installed</span>
+<span class="w">  </span><span class="nt">ui</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{</span><span class="nt">web_root</span><span class="p">:</span><span class="w"> </span><span class="nv">../horus_ui/dist</span><span class="p p-Indicator">,</span><span class="nt"> port</span><span class="p">:</span><span class="w"> </span><span class="nv">8080</span><span class="p p-Indicator">,</span><span class="nt"> rosbridge_port</span><span class="p">:</span><span class="w"> </span><span class="nv">9090</span><span class="p p-Indicator">}</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Key</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">robot.launch</span></code></p></td>
+<td><p>the device’s own launch file; HORUS does not start ros2_control itself</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">robot.generators</span></code></p></td>
+<td><p>parameters of <code class="docutils literal notranslate"><span class="pre">/horus/generator_server</span></code> (omit to run without generation)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">robot.critical_sources</span></code></p></td>
+<td><p>diagnostic name substrings of the device that are critical, e.g. <code class="docutils literal notranslate"><span class="pre">[controller_manager]</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sensors.&lt;name&gt;</span></code></p></td>
+<td><p>a driver node <code class="docutils literal notranslate"><span class="pre">/sensors/&lt;name&gt;/&lt;name&gt;</span></code> with its parameter file and extra <code class="docutils literal notranslate"><span class="pre">parameters:</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">human.&lt;name&gt;</span></code></p></td>
+<td><p>a sensing node <code class="docutils literal notranslate"><span class="pre">/human/&lt;name&gt;</span></code>; <code class="docutils literal notranslate"><span class="pre">data_root</span></code> is passed automatically</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">critical</span></code> (on a sensor or human entry)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code>: its ERROR, or silence for <code class="docutils literal notranslate"><span class="pre">stale_timeout</span></code> while the device moves, is a fault (EMERGENCY_STOP, RESET refused until it clears); <code class="docutils literal notranslate"><span class="pre">false</span></code> (default): only a warning and an event in <code class="docutils literal notranslate"><span class="pre">trial.yaml</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">system.autostart</span></code></p></td>
+<td><p>the lifecycle manager configures and activates in order: sensors, sensing nodes, generator server; <code class="docutils literal notranslate"><span class="pre">false</span></code> leaves them unconfigured until the operator connects them from the UI</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">system.trees</span></code></p></td>
+<td><p>folder of tree XML for the supervisor (<code class="docutils literal notranslate"><span class="pre">tree_dirs</span></code>); omitted = the default trees of <code class="docutils literal notranslate"><span class="pre">horus_bt</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">system.supervisor</span></code></p></td>
+<td><p>supervisor parameters, see <a class="reference internal" href="supervisor_trees.html"><span class="doc">Supervisor and trees</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">system.recording</span></code></p></td>
+<td><p>session parameters, see <a class="reference internal" href="../concepts/sessions_data.html"><span class="doc">Sessions and data</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">system.ui</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">{}</span></code> for defaults; omit or <code class="docutils literal notranslate"><span class="pre">false</span></code> to run headless</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Parameter files use the <code class="docutils literal notranslate"><span class="pre">/**:</span></code> key, so one file per instance works under any name and namespace:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/**</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">channels</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">pelvis</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">right_upper_leg</span><span class="p p-Indicator">]</span>
+</pre></div>
+</div>
+<p>The entries marked <code class="docutils literal notranslate"><span class="pre">critical</span></code>, plus <code class="docutils literal notranslate"><span class="pre">robot.critical_sources</span></code>, become the supervisor’s
+<code class="docutils literal notranslate"><span class="pre">critical_sources</span></code>. When none is marked, the supervisor file decides (its default <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> makes every
+source critical).</p>
+<p>Runnable example: <code class="docutils literal notranslate"><span class="pre">horus_bringup/rigs/mock/rig.yaml</span></code>. Template: <code class="docutils literal notranslate"><span class="pre">horus_bringup/rigs/example/rig.yaml</span></code>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../interfaces/messages.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Messages, services and actions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="behaviors.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Behaviors (generator server)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reference">Reference</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024-2026, HORUS · University of Minho.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

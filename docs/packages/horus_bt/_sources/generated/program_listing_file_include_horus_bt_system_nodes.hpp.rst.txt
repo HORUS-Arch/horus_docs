@@ -1,0 +1,228 @@
+
+.. _program_listing_file_include_horus_bt_system_nodes.hpp:
+
+Program Listing for File system_nodes.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_bt_system_nodes.hpp>` (``include/horus_bt/system_nodes.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <chrono>
+   #include <future>
+   #include <memory>
+   #include <string>
+   
+   #include "behaviortree_cpp/action_node.h"
+   #include "horus_bt/node_ptr.hpp"
+   #include "horus_msgs/srv/add_trial_note.hpp"
+   #include "horus_msgs/srv/session_control.hpp"
+   #include "rclcpp/rclcpp.hpp"
+   #include "std_msgs/msg/string.hpp"
+   
+   namespace horus_bt
+   {
+   
+   class EmergencyStopNode : public BT::SyncActionNode
+   {
+      public:
+       EmergencyStopNode(const std::string& name, const BT::NodeConfig& config, const NodePtr& node)
+           : BT::SyncActionNode(name, config), node_(node)
+       {
+           pub_ = node_->create_publisher<std_msgs::msg::String>("/horus/supervisor/estop_request", rclcpp::QoS(10).reliable());
+       }
+   
+       static BT::PortsList providedPorts() { return {BT::InputPort<std::string>("reason", "tree", "why, shown and logged")}; }
+   
+       BT::NodeStatus tick() override
+       {
+           std_msgs::msg::String m;
+           m.data = getInput<std::string>("reason").value_or("tree");
+           RCLCPP_WARN(node_->get_logger(), "EmergencyStop leaf: %s", m.data.c_str());
+           pub_->publish(m);
+           return BT::NodeStatus::SUCCESS;
+       }
+   
+      private:
+       NodePtr node_;
+       rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_;
+   };
+   
+   template <class SrvT>
+   class ServiceLeaf : public BT::StatefulActionNode
+   {
+      public:
+       ServiceLeaf(const std::string& name, const BT::NodeConfig& config, const NodePtr& node, const std::string& service)
+           : BT::StatefulActionNode(name, config), node_(node)
+       {
+           group_ = node_->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive, false);
+           exec_.add_callback_group(group_, node_->get_node_base_interface());
+           client_ = node_->create_client<SrvT>(service, rclcpp::ServicesQoS(), group_);
+       }
+   
+       static BT::PortsList basePorts() { return {BT::InputPort<double>("timeout", 2.0, "s to wait for the reply")}; }
+   
+       BT::NodeStatus onStart() override
+       {
+           auto req = std::make_shared<typename SrvT::Request>();
+           if (!fill(*req)) return BT::NodeStatus::FAILURE;
+           if (!client_->service_is_ready())
+           {
+               RCLCPP_ERROR(node_->get_logger(), "%s: %s not available", registrationName().c_str(), client_->get_service_name());
+               return BT::NodeStatus::FAILURE;
+           }
+           deadline_ = std::chrono::steady_clock::now() +
+                       std::chrono::duration_cast<std::chrono::steady_clock::duration>(
+                           std::chrono::duration<double>(getInput<double>("timeout").value_or(2.0)));
+           future_ = client_->async_send_request(req).future.share();
+           return BT::NodeStatus::RUNNING;
+       }
+   
+       BT::NodeStatus onRunning() override
+       {
+           exec_.spin_all(std::chrono::milliseconds(5));
+           if (future_.wait_for(std::chrono::seconds(0)) == std::future_status::ready)
+           {
+               const auto res = future_.get();
+               if (!res->success)
+                   RCLCPP_WARN(node_->get_logger(), "%s: %s", registrationName().c_str(), res->message.c_str());
+               return res->success ? BT::NodeStatus::SUCCESS : BT::NodeStatus::FAILURE;
+           }
+           if (std::chrono::steady_clock::now() > deadline_)
+           {
+               RCLCPP_ERROR(node_->get_logger(), "%s: no reply", registrationName().c_str());
+               return BT::NodeStatus::FAILURE;
+           }
+           return BT::NodeStatus::RUNNING;
+       }
+   
+       void onHalted() override { exec_.spin_all(std::chrono::milliseconds(1)); }
+   
+      protected:
+       virtual bool fill(typename SrvT::Request& req) = 0;
+   
+       NodePtr node_;
+   
+      private:
+       rclcpp::CallbackGroup::SharedPtr group_;
+       rclcpp::executors::SingleThreadedExecutor exec_;
+       typename rclcpp::Client<SrvT>::SharedPtr client_;
+       std::shared_future<typename SrvT::Response::SharedPtr> future_;
+       std::chrono::steady_clock::time_point deadline_;
+   };
+   
+   class StartRecordingNode : public ServiceLeaf<horus_msgs::srv::SessionControl>
+   {
+      public:
+       StartRecordingNode(const std::string& name, const BT::NodeConfig& config, const NodePtr& node)
+           : ServiceLeaf(name, config, node, "/horus/session/session_control") {}
+       static BT::PortsList providedPorts() { return basePorts(); }
+   
+      protected:
+       bool fill(horus_msgs::srv::SessionControl::Request& req) override
+       {
+           req.command = horus_msgs::srv::SessionControl::Request::START;
+           return true;
+       }
+   };
+   
+   class StopRecordingNode : public ServiceLeaf<horus_msgs::srv::SessionControl>
+   {
+      public:
+       StopRecordingNode(const std::string& name, const BT::NodeConfig& config, const NodePtr& node)
+           : ServiceLeaf(name, config, node, "/horus/session/session_control") {}
+       static BT::PortsList providedPorts() { return basePorts(); }
+   
+      protected:
+       bool fill(horus_msgs::srv::SessionControl::Request& req) override
+       {
+           req.command = horus_msgs::srv::SessionControl::Request::STOP;
+           return true;
+       }
+   };
+   
+   class AddTrialNoteNode : public ServiceLeaf<horus_msgs::srv::AddTrialNote>
+   {
+      public:
+       AddTrialNoteNode(const std::string& name, const BT::NodeConfig& config, const NodePtr& node)
+           : ServiceLeaf(name, config, node, "/horus/session/add_trial_note") {}
+       static BT::PortsList providedPorts()
+       {
+           auto p = basePorts();
+           p.insert(BT::InputPort<std::string>("text", "note text"));
+           return p;
+       }
+   
+      protected:
+       bool fill(horus_msgs::srv::AddTrialNote::Request& req) override
+       {
+           req.text = getInput<std::string>("text").value_or("");
+           return !req.text.empty();
+       }
+   };
+   
+   class SetSpeedScaleNode : public BT::StatefulActionNode
+   {
+      public:
+       SetSpeedScaleNode(const std::string& name, const BT::NodeConfig& config, const NodePtr& node)
+           : BT::StatefulActionNode(name, config), node_(node)
+       {
+           group_ = node_->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive, false);
+           exec_.add_callback_group(group_, node_->get_node_base_interface());
+       }
+   
+       static BT::PortsList providedPorts()
+       {
+           return {BT::InputPort<double>("value", "speed scale (0 = hold, 1 = nominal)"),
+                   BT::InputPort<std::string>("generator", "", "generator server node; empty = from `generator_action`")};
+       }
+   
+       BT::NodeStatus onStart() override
+       {
+           const auto value = getInput<double>("value");
+           if (!value) return BT::NodeStatus::FAILURE;
+           auto target = getInput<std::string>("generator").value_or("");
+           if (target.empty())
+           {
+               target = node_->get_parameter("generator_action").as_string(); /* <server>/execute_behavior */
+               target = target.substr(0, target.rfind('/'));
+           }
+           if (!client_ || target != target_)
+           {
+               client_ = std::make_shared<rclcpp::AsyncParametersClient>(node_, target, rclcpp::ParametersQoS().get_rmw_qos_profile(), group_);
+               target_ = target;
+           }
+           if (!client_->service_is_ready())
+           {
+               RCLCPP_ERROR(node_->get_logger(), "SetSpeedScale: %s parameters not reachable", target.c_str());
+               return BT::NodeStatus::FAILURE;
+           }
+           future_ = client_->set_parameters({rclcpp::Parameter("speed_scale", *value)});
+           return BT::NodeStatus::RUNNING;
+       }
+   
+       BT::NodeStatus onRunning() override
+       {
+           exec_.spin_all(std::chrono::milliseconds(5));
+           if (future_.wait_for(std::chrono::seconds(0)) != std::future_status::ready) return BT::NodeStatus::RUNNING;
+           const auto results = future_.get();
+           return !results.empty() && results.front().successful ? BT::NodeStatus::SUCCESS : BT::NodeStatus::FAILURE;
+       }
+   
+       void onHalted() override {}
+   
+      private:
+       NodePtr node_;
+       rclcpp::CallbackGroup::SharedPtr group_;
+       rclcpp::executors::SingleThreadedExecutor exec_;
+       std::shared_ptr<rclcpp::AsyncParametersClient> client_;
+       std::string target_;
+       std::shared_future<std::vector<rcl_interfaces::msg::SetParametersResult>> future_;
+   };
+   
+   }  // namespace horus_bt

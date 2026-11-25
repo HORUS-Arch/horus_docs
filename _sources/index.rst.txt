@@ -1,0 +1,189 @@
+HORUS
+=====
+
+.. raw:: html
+
+   <div class="horus-landing"></div>
+   <div class="horus-hero">
+     <div>
+       <div class="eyebrow">ROS 2 Jazzy · human-interacting robotics</div>
+       <img class="hero-logo" src="_static/logo.png" alt="HORUS">
+       <p><b>Human Oriented Robotic Unified System</b>: an open-source framework for robots that
+       physically interact with people, such as lower-limb exoskeletons, wearable sensors and,
+       later, prostheses and stimulators. Built the way nav2 is built for navigation, on top of
+       ros2_control for the real-time loop.</p>
+       <div class="badges">
+         <span class="badge">ROS 2 Jazzy</span><span class="badge">ros2_control</span>
+         <span class="badge">BehaviorTree.CPP</span><span class="badge">MuJoCo</span>
+         <span class="badge">rosbridge</span><span class="badge">MIT</span>
+       </div>
+       <a class="cta primary" href="docs/getting_started/quickstart.html">Quickstart</a>
+       <a class="cta ghost" href="docs/concepts/overview.html">How it works</a>
+     </div>
+   </div>
+
+How HORUS works
+---------------
+
+.. grid:: 1 2 3 3
+   :gutter: 3
+
+   .. grid-item-card:: :octicon:`broadcast;1.2em` Sensing
+      :link: docs/concepts/sensing_estimation
+      :link-type: doc
+
+      Drivers publish raw data on ``/sensors``; HORUS nodes calibrate it per subject.
+
+   .. grid-item-card:: :octicon:`pulse;1.2em` State estimation
+      :link: docs/concepts/sensing_estimation
+      :link-type: doc
+
+      The calibrated state of the person and the robot, published on ``/human``.
+
+   .. grid-item-card:: :octicon:`shield-check;1.2em` Supervisor
+      :link: docs/concepts/decision_hierarchy
+      :link-type: doc
+
+      One mode says who may move the device: standby, run, manual, recovery, emergency stop.
+
+   .. grid-item-card:: :octicon:`workflow;1.2em` Behavior trees
+      :link: docs/configuration/supervisor_trees
+      :link-type: doc
+
+      The protocol, as XML, run by the supervisor: home, walk, calibrate, record, recover.
+
+   .. grid-item-card:: :octicon:`graph;1.2em` Generation
+      :link: docs/concepts/motion
+      :link-type: doc
+
+      Plugins turn a behavior into a joint reference at about 100 Hz.
+
+   .. grid-item-card:: :octicon:`cpu;1.2em` Control
+      :link: docs/configuration/controllers
+      :link-type: doc
+
+      ros2_control tracks it in real time, behind a safety controller, on a mock, in MuJoCo or on the device.
+
+Start here
+----------
+
+.. grid:: 1 2 2 2
+   :gutter: 3
+
+   .. grid-item-card:: :octicon:`play;1.2em` Operate a session
+      :link: docs/getting_started/session
+      :link-type: doc
+
+      Subject, devices, calibration, protocols, recording, emergency stop.
+
+   .. grid-item-card:: :octicon:`plug;1.2em` Integrate a device or a sensor
+      :link: docs/extend/device
+      :link-type: doc
+
+      The contracts, then one rig file to start everything.
+
+   .. grid-item-card:: :octicon:`code;1.2em` Write an algorithm
+      :link: docs/extend/generator
+      :link-type: doc
+
+      A generator, a calibration, a tree leaf or a controller, as a plugin.
+
+   .. grid-item-card:: :octicon:`list-unordered;1.2em` Find a topic or a message
+      :link: docs/interfaces/overview
+      :link-type: doc
+
+      Every node, topic, service and action of a running rig.
+
+.. code-block:: bash
+
+   # run the whole system on the built-in mock exoskeleton
+   ros2 launch horus_bringup rig.launch.py \
+     rig:=$(ros2 pkg prefix horus_bringup)/share/horus_bringup/rigs/mock/rig.yaml
+   # then open http://<this-pc>:8080 from a phone, tablet or laptop
+
+.. toctree::
+   :caption: Get started
+   :maxdepth: 1
+   :hidden:
+
+   docs/getting_started/installation
+   docs/getting_started/quickstart
+   docs/getting_started/session
+
+.. toctree::
+   :caption: Concepts
+   :maxdepth: 1
+   :hidden:
+
+   docs/concepts/overview
+   docs/concepts/decision_hierarchy
+   docs/concepts/motion
+   docs/concepts/sensing_estimation
+   docs/concepts/sessions_data
+   docs/concepts/interface_deployment
+   docs/concepts/simulation
+
+.. toctree::
+   :caption: ROS 2 interfaces
+   :maxdepth: 1
+   :hidden:
+
+   docs/interfaces/overview
+   docs/interfaces/messages
+
+.. toctree::
+   :caption: Configure
+   :maxdepth: 1
+   :hidden:
+
+   docs/configuration/rig_file
+   docs/configuration/behaviors
+   docs/configuration/controllers
+   docs/configuration/sensing
+   docs/configuration/supervisor_trees
+
+.. toctree::
+   :caption: Extend
+   :maxdepth: 1
+   :hidden:
+
+   docs/extend/generator
+   docs/extend/calibration
+   docs/extend/bt_leaf
+   docs/extend/controller
+   docs/extend/device
+   docs/extend/sensor
+
+.. toctree::
+   :caption: Packages
+   :maxdepth: 1
+   :hidden:
+
+   docs/packages/core_packages
+   docs/packages/modules_packages
+
+.. toctree::
+   :caption: Development
+   :maxdepth: 1
+   :hidden:
+
+   docs/development/contribute
+   docs/development/documentation
+   docs/development/dependencies
+   docs/development/debug_testing
+   docs/development/style_guide
+
+.. toctree::
+   :caption: Project
+   :maxdepth: 1
+   :hidden:
+
+   docs/project/hardware
+   docs/project/paper
+   docs/project/roadmap
+
+.. rubric:: About this build
+
+.. note::
+   Built from |horus_build_info| on |horus_build_date|. If that commit is behind the code, the
+   docs may be stale: run the docs build again.

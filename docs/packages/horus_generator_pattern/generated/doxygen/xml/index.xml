@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classhorus__generator__pattern_1_1Manual" kind="class"><name>horus_generator_pattern::Manual</name>
+    <member refid="classhorus__generator__pattern_1_1Manual_1ad533bab331764c79285f9ab984951497" kind="variable"><name>clock_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1af1c8a9955bef6bc62f8be7c475449b02" kind="variable"><name>joints_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a47448b0d9b06586e570dddcbc63460f4" kind="variable"><name>quantity_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a62b92e4a70e9340b209d8225e47eb8e3" kind="variable"><name>max_rate_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a49140ba42bb14f6a32b5685ffb151f95" kind="variable"><name>timeout_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a5ae26a75e2af17db381e1a74f9684585" kind="variable"><name>min_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1aa460c67b9a7a8201b01e204633d2ce88" kind="variable"><name>max_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a7d8d5ab4f2821e802d56e6d0c0679c40" kind="variable"><name>output_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a9b6fe2511eaa82f92a0e126ef71e6ba3" kind="variable"><name>target_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1af23f7b782b47e97c53ec41fc56c8bd3f" kind="variable"><name>started_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a6f712a066fc3bb95d81051c3a5fe55c3" kind="variable"><name>last_target_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1ae6832cd1f843b008636e0e4df8903b20" kind="variable"><name>mutex_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a19896c16189b6e7f4d2f5f3f5f1842e0" kind="variable"><name>measured_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a43275d575275849b90ea4ec9bf98fe9e" kind="variable"><name>target_sub_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1accee065e17c5e33d146bdd565f853d08" kind="variable"><name>js_sub_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1af6968f43af9eb42d5aaef6f08b95a9c5" kind="function"><name>configure</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a4a24d9c5d1d75ad527bdff48e319906b" kind="function"><name>activate</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a54f2c6a44a033a1cf82df0c73dab9350" kind="function"><name>deactivate</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a93d22f1692605501c074efbea118059a" kind="function"><name>reset</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1ad271dc754d43d5bd9cf6e16fd9ca65c2" kind="function"><name>update</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a1820845cdeda7a9494d40c7e17d73fe6" kind="function"><name>jointNames</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1aaa6bcf6cbfa9e99b4f4254dc44daec09" kind="function"><name>quantity</name></member>
+    <member refid="classhorus__generator__pattern_1_1Manual_1a1154b727b1e1fa74b1d5ec5bc767d82b" kind="function"><name>setTargets</name></member>
+  </compound>
+  <compound refid="classhorus__generator__pattern_1_1Pattern" kind="class"><name>horus_generator_pattern::Pattern</name>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1ae9c6ea133da48cb92dbf8b0365f04066" kind="variable"><name>signals_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1a7d87940927938e2181a26a0de7c0033a" kind="variable"><name>cycle_time_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1a52351ad26beeed9e279a832e8ff61f82" kind="variable"><name>speed_factor_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1aa174c1ac804e59cb8994d63f5a69c74d" kind="variable"><name>cycling_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1aaaf56bd63a29925305cd2766dcc4bf90" kind="variable"><name>phase_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1ab74d79a702a7a365bb005171c810a2cc" kind="variable"><name>cycles_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1aafbcef9fa232b1cf88902db218f83710" kind="function"><name>configure</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1a88e16840e66e01253c2ec45127d3f702" kind="function"><name>activate</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1a8cb440940b9a2368f2e103f280ac1cdb" kind="function"><name>deactivate</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1a30bbdc462266cfbcb1a6b06dbf8a34c3" kind="function"><name>reset</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1a667f982589795126bb03719ac31e5500" kind="function"><name>update</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1aa68037072e42b5cb00dea63caf6d9657" kind="function"><name>finished</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1a291eb33366321dd7eed3ad06410f4e96" kind="function"><name>waveform</name></member>
+    <member refid="classhorus__generator__pattern_1_1Pattern_1acd62c995863c641089b04e379dbc22ab" kind="function"><name>sample</name></member>
+  </compound>
+  <compound refid="structhorus__generator__pattern_1_1Signal" kind="struct"><name>horus_generator_pattern::Signal</name>
+    <member refid="structhorus__generator__pattern_1_1Signal_1a91d4ed906699ab993c5566f674bd9995" kind="variable"><name>type</name></member>
+    <member refid="structhorus__generator__pattern_1_1Signal_1a5afca66242d006875d2e87f0a2553ce6" kind="variable"><name>min</name></member>
+    <member refid="structhorus__generator__pattern_1_1Signal_1ab543da004fd8fdef5ea86bc89a41acb6" kind="variable"><name>max</name></member>
+    <member refid="structhorus__generator__pattern_1_1Signal_1a64e6bcf89457d12bf6a4757b02e7ad1d" kind="variable"><name>middle</name></member>
+    <member refid="structhorus__generator__pattern_1_1Signal_1a8746b51c4ee9520a77276a69aab96bd3" kind="variable"><name>amplitude</name></member>
+    <member refid="structhorus__generator__pattern_1_1Signal_1a091632917d22c68f1611b0767b594c8a" kind="variable"><name>custom</name></member>
+    <member refid="structhorus__generator__pattern_1_1Signal_1af1ef263d1f9267395686a18936b8654b" kind="variable"><name>phase_offset</name></member>
+  </compound>
+  <compound refid="classhorus__generator__pattern_1_1Waypoints" kind="class"><name>horus_generator_pattern::Waypoints</name>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1ac69c2b3e7dbff5abc0c2f7e4a76e08c9" kind="variable"><name>joints_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a636b603c1a080231bdb0979d1c8a1c6d" kind="variable"><name>times_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a5a42af8eb9d86ed3cdc971755423f0cc" kind="variable"><name>points_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a921ba4e14da290cd34b4835650ab12e2" kind="variable"><name>smooth_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1acf06750ed4c1810c2e9af1462489cb10" kind="variable"><name>cycling_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a476d24730432f416ce5cf911c275f0bb" kind="variable"><name>start_from_current_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a5a8c38909ab6204469fa85b082d3bfe4" kind="variable"><name>quantity_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1ade29f95510e836cbb8adbe0404c6c497" kind="variable"><name>speed_scale_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a3f3166e91fef9f7f85048802e03b50fe" kind="variable"><name>t_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1ad91c847351e1459116a1fe8da8bd06ea" kind="variable"><name>run_points_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1ac939f9bbb5506a471a7f15c341a4c183" kind="variable"><name>js_sub_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a075dd86bfeb07cd5085c1bcc8205b9a6" kind="variable"><name>js_mutex_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a77ae00b19f49d415056db7c22a37d205" kind="variable"><name>measured_</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1adefaacf84d5b54e3dff13f7b31b5cf52" kind="function"><name>configure</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1af940546d59ed2022ed8224b2dfb94765" kind="function"><name>activate</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a277c923f89d60f30b05f15428ebdc2e0" kind="function"><name>deactivate</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a07b34f64e4091ea17d7dd44aa3046673" kind="function"><name>reset</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1aee34aff08a0f1cb57b044463dbb0f640" kind="function"><name>update</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a8b16859483807126b87cd499bb520c57" kind="function"><name>finished</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1aac2e13af9f5083b285e885bb64b0ebf0" kind="function"><name>progress</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1ace2dcca71f50ee0e984d2878955e7065" kind="function"><name>jointNames</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1ab56ea98d0e555483d18543e73a2c16a2" kind="function"><name>quantity</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1ae90b24779ef7a314900799d9ba0a0aa8" kind="function"><name>setSpeedScale</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a66694d7ff0f1f2b83010d861cd1b35d0" kind="function"><name>sampleRate</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a7aa9f0fcb5e423cb3a9b13479e2859d2" kind="function"><name>sample</name></member>
+    <member refid="classhorus__generator__pattern_1_1Waypoints_1a971a0b89f05e97b33ff9e7392eae2663" kind="function"><name>loadCsv</name></member>
+  </compound>
+  <compound refid="namespacehorus__generator__pattern" kind="namespace"><name>horus_generator_pattern</name>
+  </compound>
+  <compound refid="manual_8hpp" kind="file"><name>manual.hpp</name>
+  </compound>
+  <compound refid="pattern_8hpp" kind="file"><name>pattern.hpp</name>
+  </compound>
+  <compound refid="waypoints_8hpp" kind="file"><name>waypoints.hpp</name>
+  </compound>
+  <compound refid="dir_3d66f55b8ead35f05d67fd2f817e487c" kind="dir"><name>include/horus_generator_pattern</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

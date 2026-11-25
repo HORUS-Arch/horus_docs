@@ -1,0 +1,27 @@
+
+.. _program_listing_file_include_horus_human_calibrations.hpp:
+
+Program Listing for File calibrations.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_human_calibrations.hpp>` (``include/horus_human/calibrations.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include "horus_human_core/calibration_plugin.hpp"
+   #include "human_msgs/msg/emg.hpp"
+   #include "human_msgs/msg/insole.hpp"
+   #include "sensor_msgs/msg/imu.hpp"
+   
+   namespace horus_human
+   {
+   
+   using ImuCalibration = horus_human_core::CalibrationPlugin<sensor_msgs::msg::Imu>;     
+   using InsoleCalibration = horus_human_core::CalibrationPlugin<human_msgs::msg::Insole>; 
+   using EmgCalibration = horus_human_core::CalibrationPlugin<human_msgs::msg::Emg>;       
+   }  // namespace horus_human

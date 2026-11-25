@@ -1,0 +1,30 @@
+# Write a controller
+
+A real-time algorithm that must run inside the control loop (an impedance law, a torque observer) is
+a ros2_control controller. Anything slower belongs in a generator.
+
+```cpp
+#include "controller_interface/controller_interface.hpp"
+
+class MyLaw : public controller_interface::ControllerInterface {
+ public:
+  controller_interface::CallbackReturn on_init() override {
+    auto_declare<std::vector<std::string>>("joints", {}); return CallbackReturn::SUCCESS; }
+  controller_interface::InterfaceConfiguration command_interface_configuration() const override;  // <joint>/effort
+  controller_interface::InterfaceConfiguration state_interface_configuration() const override;    // <joint>/position
+  controller_interface::CallbackReturn on_configure(const rclcpp_lifecycle::State&) override;
+  controller_interface::return_type update(const rclcpp::Time&, const rclcpp::Duration&) override {
+    // read state_interfaces_[i].get_optional(), write command_interfaces_[i].set_value(...)
+    // no allocation, no blocking, no logging in this function
+    return controller_interface::return_type::OK;
+  }
+};
+PLUGINLIB_EXPORT_CLASS(MyLaw, controller_interface::ControllerInterface)
+```
+
+- `get_robot_description()` gives the URDF the controller manager loaded (for model-based laws).
+- Pass references with a `realtime_tools::RealtimeBuffer`; publish with a `RealtimePublisher`.
+- A controller generic across devices belongs in `horus_control`; one that encodes a device's command
+  conventions belongs in that device's repository.
+
+`horus_control/GravityCompensation` (`src/gravity_compensation.cpp`) is a complete example.

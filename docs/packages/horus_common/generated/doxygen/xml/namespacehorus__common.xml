@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacehorus__common" kind="namespace" language="C++">
+    <compoundname>horus_common</compoundname>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="interface__utils_8hpp_1a9c367a34497eaf6a39a456116271c1e2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename NodePtr</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool horus_common::resolve_interface_names</definition>
+        <argsstring>(const NodePtr &amp;node, const std::vector&lt; std::string &gt; &amp;joints, const std::string &amp;suffix, std::vector&lt; std::string &gt; &amp;out)</argsstring>
+        <name>resolve_interface_names</name>
+        <qualifiedname>horus_common::resolve_interface_names</qualifiedname>
+        <param>
+          <type>const NodePtr &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>joints</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>suffix</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; std::string &gt; &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Resolve the <computeroutput>&lt;suffix&gt;_interfaces</computeroutput> param into one hardware interface name per joint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle providing get_parameter() + get_logger(). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>joints</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configured joints; defines the expected length. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>suffix</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Interface group, e.g. &quot;position&quot;, names the param <computeroutput>&lt;suffix&gt;_interfaces</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filled with one interface name per joint; <computeroutput>&lt;joint&gt;/&lt;suffix&gt;</computeroutput> when the param is unset. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True on success, false (after logging) if the param length does not match <computeroutput>joints</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_common/interface_utils.hpp" line="34" column="13" bodyfile="include/horus_common/interface_utils.hpp" bodystart="34" bodyend="50"/>
+      </memberdef>
+      <memberdef kind="function" id="interface__utils_8hpp_1a8861581d8326d5b13f25ccda831ad021" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename NodePtr</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool horus_common::param_or_zeros</definition>
+        <argsstring>(const NodePtr &amp;node, const std::string &amp;name, size_t n, std::vector&lt; double &gt; &amp;out)</argsstring>
+        <name>param_or_zeros</name>
+        <qualifiedname>horus_common::param_or_zeros</qualifiedname>
+        <param>
+          <type>const NodePtr &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+<para>Read a per-joint double-array param, defaulting to zeros when it is unset. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Handle providing get_parameter() + get_logger(). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameter name, e.g. &quot;stiffness&quot;. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>n</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Expected number of entries (the joint count). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>out</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Filled with the parameter values, or n zeros when the parameter is unset. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True on success, false (after logging) if the param is set but its length is not n. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_common/interface_utils.hpp" line="61" column="13" bodyfile="include/horus_common/interface_utils.hpp" bodystart="61" bodyend="72"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_common/interface_utils.hpp" line="22" column="1"/>
+  </compounddef>
+</doxygen>

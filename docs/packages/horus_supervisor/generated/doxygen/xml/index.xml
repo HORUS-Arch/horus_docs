@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classhorus__supervisor_1_1ModeMachine" kind="class"><name>horus_supervisor::ModeMachine</name>
+    <member refid="classhorus__supervisor_1_1ModeMachine_1a6401f27085a575cb9cc15ae5ac4857ba" kind="variable"><name>mode_</name></member>
+    <member refid="classhorus__supervisor_1_1ModeMachine_1a536852fcba76ef8c6a9b911ee56686ae" kind="function"><name>priority</name></member>
+    <member refid="classhorus__supervisor_1_1ModeMachine_1a5b6437a428f5a3a1ce120af417062448" kind="function"><name>name</name></member>
+    <member refid="classhorus__supervisor_1_1ModeMachine_1a3cff58ba46259b573b13b8fbe5e05a42" kind="function"><name>name</name></member>
+    <member refid="classhorus__supervisor_1_1ModeMachine_1a90b279538e05cae2b4df265405e8e2fc" kind="function"><name>handle</name></member>
+    <member refid="classhorus__supervisor_1_1ModeMachine_1ae15e35550382b01aa3e75618647df835" kind="function"><name>mode</name></member>
+    <member refid="classhorus__supervisor_1_1ModeMachine_1aa9e9bf9d7831f79a1eb0ea9fc93a3ab7" kind="function"><name>to</name></member>
+  </compound>
+  <compound refid="structhorus__supervisor_1_1Outcome" kind="struct"><name>horus_supervisor::Outcome</name>
+    <member refid="structhorus__supervisor_1_1Outcome_1a7130912b1613b65f2f862f66d5668f16" kind="variable"><name>accepted</name></member>
+    <member refid="structhorus__supervisor_1_1Outcome_1ac25b80fa0cef23ce1b2b61bac53c8c20" kind="variable"><name>changed</name></member>
+    <member refid="structhorus__supervisor_1_1Outcome_1abc26e8090f86b579416c775ce45fb1a9" kind="variable"><name>from</name></member>
+    <member refid="structhorus__supervisor_1_1Outcome_1a4d116b8b775770f00cf2d53cccf85be4" kind="variable"><name>to</name></member>
+    <member refid="structhorus__supervisor_1_1Outcome_1aa34f1be7a035d407c22c33ad067d44c0" kind="variable"><name>reason</name></member>
+  </compound>
+  <compound refid="namespacehorus__supervisor" kind="namespace"><name>horus_supervisor</name>
+    <member refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169" kind="enum"><name>Mode</name></member>
+    <member refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169afaee4ca3c30ee18148ce3ada37466498" kind="enumvalue"><name>INIT</name></member>
+    <member refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169aeea559d5c56d48e94e586f7fe000c0b1" kind="enumvalue"><name>STANDBY</name></member>
+    <member refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169a855520d2a5b0b1a64b939e7e30889e2a" kind="enumvalue"><name>RUN</name></member>
+    <member refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169aa60a6a471c0681e5a49c4f5d00f6bc5a" kind="enumvalue"><name>MANUAL</name></member>
+    <member refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169a9c90eb3f9201a7df861d94e494aa9b0b" kind="enumvalue"><name>RECOVERY</name></member>
+    <member refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169a94a07976a3cdac75d41a565aa5106484" kind="enumvalue"><name>EMERGENCY_STOP</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154" kind="enum"><name>Event</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154acfdc6269f63d890a77304b7e8f2c5346" kind="enumvalue"><name>ESTOP</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154a893b3aaf1661e3717b18e8335ff93a72" kind="enumvalue"><name>FAULT</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154aba7c35fe96dc023b05f5edceb93be00a" kind="enumvalue"><name>OPERATOR_LOST</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154a87449ba9c2c57b88bf1ca51148283b73" kind="enumvalue"><name>TREE_FAILED</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154a2baa69eafc7204f3bd8648eba580c489" kind="enumvalue"><name>READY</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154ab078ffd28db767c502ac367053f6e0ac" kind="enumvalue"><name>START</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154a615a46af313786fc4e349f34118be111" kind="enumvalue"><name>STOP</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154aa60a6a471c0681e5a49c4f5d00f6bc5a" kind="enumvalue"><name>MANUAL</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154ab5859d8721cfdc0312b2838b9c985bc1" kind="enumvalue"><name>RESET</name></member>
+    <member refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154a268386e3dc616243a7027a5ba5c5d8ef" kind="enumvalue"><name>TREE_SUCCEEDED</name></member>
+  </compound>
+  <compound refid="mode__machine_8hpp" kind="file"><name>mode_machine.hpp</name>
+  </compound>
+  <compound refid="dir_cf11cbcadc5d7d6c89b6ee22013e2732" kind="dir"><name>include/horus_supervisor</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

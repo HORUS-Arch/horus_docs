@@ -1,0 +1,33 @@
+
+.. _namespace_horus_human_core:
+
+Namespace horus_human_core
+==========================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhorus__human__core_1_1CalibrationEntry`
+
+- :ref:`exhale_class_classhorus__human__core_1_1CalibrationPlugin`
+
+- :ref:`exhale_class_classhorus__human__core_1_1CalibrationStore`
+
+- :ref:`exhale_class_classhorus__human__core_1_1ChannelNode`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158`

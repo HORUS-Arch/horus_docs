@@ -1,0 +1,22 @@
+.. _dir_include_horus_human:
+
+
+Directory horus_human
+=====================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include>` (``include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``include/horus_human``
+
+
+Files
+-----
+
+- :ref:`file_include_horus_human_calibrations.hpp`
+- :ref:`file_include_horus_human_default_calibrations.hpp`
+
+

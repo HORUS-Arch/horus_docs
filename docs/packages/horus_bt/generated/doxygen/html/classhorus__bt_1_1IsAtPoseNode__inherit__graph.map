@@ -1,0 +1,5 @@
+<map id="horus_bt::IsAtPoseNode" name="horus_bt::IsAtPoseNode">
+<area shape="rect" id="Node000001" title="SUCCESS when every listed joint is within tolerance of its target position." alt="" coords="5,79,181,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="22,5,165,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="96,44,96,79,91,79,91,44"/>
+</map>

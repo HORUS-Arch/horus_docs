@@ -1,0 +1,21 @@
+horus\_session package
+======================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   horus_session.recorder
+   horus_session.session
+   horus_session.session_client
+   horus_session.subjects
+
+Module contents
+---------------
+
+.. automodule:: horus_session
+   :members:
+   :show-inheritance:
+   :undoc-members:

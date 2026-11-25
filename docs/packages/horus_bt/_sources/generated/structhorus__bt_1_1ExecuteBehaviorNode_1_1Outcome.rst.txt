@@ -1,0 +1,23 @@
+.. _exhale_struct_structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome:
+
+Struct ExecuteBehaviorNode::Outcome
+===================================
+
+- Defined in :ref:`file_include_horus_bt_execute_behavior_node.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classhorus__bt_1_1ExecuteBehaviorNode`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: horus_bt::ExecuteBehaviorNode::Outcome
+   :project: horus_bt Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

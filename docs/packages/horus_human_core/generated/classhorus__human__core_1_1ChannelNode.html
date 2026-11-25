@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Template Class ChannelNode &mdash; horus_human_core: Jazzy 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+      <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Typedef horus_human_core::NodePtr" href="typedef_calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158.html" />
+    <link rel="prev" title="Class CalibrationStore" href="classhorus__human__core_1_1CalibrationStore.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            horus_human_core: Jazzy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../__links.html">Links</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://index.ros.org/p/horus_human_core">Rosindex</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#full-c-api">Full C++ API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_horus_human_core.html">Namespace horus_human_core</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_rclcpp_lifecycle.html">Namespace rclcpp_lifecycle</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structhorus__human__core_1_1CalibrationEntry.html">Struct CalibrationEntry</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__human__core_1_1CalibrationPlugin.html">Template Class CalibrationPlugin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__human__core_1_1CalibrationStore.html">Class CalibrationStore</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Template Class ChannelNode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="typedef_calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158.html">Typedef horus_human_core::NodePtr</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#directories">Directories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dir_include.html">Directory include</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_horus_human_core.html">Directory horus_human_core</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#files">Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_human_core_calibration_plugin.hpp.html">File calibration_plugin.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_human_core_calibration_store.hpp.html">File calibration_store.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_human_core_channel_node.hpp.html">File channel_node.hpp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../__standards.html">Standard Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../__README.html#horus-human-core">horus_human_core</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#ros2-api-every-channelnode">ROS2 API (every ChannelNode)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#writing-a-new-node">Writing a new node</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#tests">Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../__ros_package_dependencies.html">ROS Package Dependencies</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rclcpp/">rclcpp</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rclcpp_lifecycle/">rclcpp_lifecycle</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rclcpp_action/">rclcpp_action</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/lifecycle_msgs/">lifecycle_msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/pluginlib/">pluginlib</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/diagnostic_updater/">diagnostic_updater</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">horus_human_core: Jazzy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">C++ API</a></li>
+      <li class="breadcrumb-item active">Template Class ChannelNode</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/classhorus__human__core_1_1ChannelNode.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="template-class-channelnode">
+<span id="exhale-class-classhorus-human-core-1-1channelnode"></span><h1>Template Class ChannelNode<a class="headerlink" href="#template-class-channelnode" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_horus_human_core_channel_node.hpp.html#file-include-horus-human-core-channel-node-hpp"><span class="std std-ref">File channel_node.hpp</span></a></p></li>
+</ul>
+<section id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Link to this heading"></a></h2>
+<section id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">rclcpp_lifecycle::LifecycleNode</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Link to this heading"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN16horus_human_core11ChannelNodeE">
+<span id="_CPPv3I0EN16horus_human_core11ChannelNodeE"></span><span id="_CPPv2I0EN16horus_human_core11ChannelNodeE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MsgT</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classhorus__human__core_1_1ChannelNode"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ChannelNode</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp_lifecycle</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">LifecycleNode</span></span><a class="headerlink" href="#_CPPv4I0EN16horus_human_core11ChannelNodeE" title="Link to this definition"></a><br /></dt>
+<dd><p>Lifecycle node hosting N channels of <code class="docutils literal notranslate"><span class="pre">MsgT</span></code>, a calibration plugin and its file handling. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode6PluginE">
+<span id="_CPPv3N16horus_human_core11ChannelNode6PluginE"></span><span id="_CPPv2N16horus_human_core11ChannelNode6PluginE"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a744f6a843f21108e5f129b256ac925fc"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Plugin</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="classhorus__human__core_1_1CalibrationPlugin.html#_CPPv4I0EN16horus_human_core17CalibrationPluginE" title="horus_human_core::CalibrationPlugin"><span class="n"><span class="pre">CalibrationPlugin</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN16horus_human_core11ChannelNodeE" title="horus_human_core::ChannelNode::MsgT"><span class="n"><span class="pre">MsgT</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode6PluginE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode9CalibrateE">
+<span id="_CPPv3N16horus_human_core11ChannelNode9CalibrateE"></span><span id="_CPPv2N16horus_human_core11ChannelNode9CalibrateE"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a3f9da5b1f0d59f8d0556170aceb55786"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Calibrate</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">horus_msgs</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">action</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Calibrate</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode9CalibrateE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode10GoalHandleE">
+<span id="_CPPv3N16horus_human_core11ChannelNode10GoalHandleE"></span><span id="_CPPv2N16horus_human_core11ChannelNode10GoalHandleE"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a9435676b728ebfebeae33b670d760296"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GoalHandle</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp_action</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ServerGoalHandle</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N16horus_human_core11ChannelNode9CalibrateE" title="horus_human_core::ChannelNode::Calibrate"><span class="n"><span class="pre">Calibrate</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode10GoalHandleE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode14CallbackReturnE">
+<span id="_CPPv3N16horus_human_core11ChannelNode14CallbackReturnE"></span><span id="_CPPv2N16horus_human_core11ChannelNode14CallbackReturnE"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1ac3f6ac10c61781ec33cc684d176828c9"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CallbackReturn</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp_lifecycle</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">node_interfaces</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">LifecycleNodeInterface</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">CallbackReturn</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode14CallbackReturnE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode11ChannelNodeERKNSt6stringERKN6rclcpp11NodeOptionsERKNSt6stringERKNSt6stringE">
+<span id="_CPPv3N16horus_human_core11ChannelNode11ChannelNodeERKNSt6stringERKN6rclcpp11NodeOptionsERKNSt6stringERKNSt6stringE"></span><span id="_CPPv2N16horus_human_core11ChannelNode11ChannelNodeERKNSt6stringERKN6rclcpp11NodeOptionsERKNSt6stringERKNSt6stringE"></span><span id="horus_human_core::ChannelNode::ChannelNode__ssCR.rclcpp::NodeOptionsCR.ssCR.ssCR"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1aa26a2d6292d7d7f39b5c563b71d62058"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ChannelNode</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">NodeOptions</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">options</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">plugin_package</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">plugin_base</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode11ChannelNodeERKNSt6stringERKN6rclcpp11NodeOptionsERKNSt6stringERKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Create the node and its always-available interfaces. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Default node name (overridden by the launch / rig file). </p></li>
+<li><p><strong>options</strong> – Node options (composition, remapping, parameter overrides). </p></li>
+<li><p><strong>plugin_package</strong> – Package declaring the plugin base class (for pluginlib). </p></li>
+<li><p><strong>plugin_base</strong> – Fully-qualified plugin base class name (for pluginlib). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNodeD0Ev">
+<span id="_CPPv3N16horus_human_core11ChannelNodeD0Ev"></span><span id="_CPPv2N16horus_human_core11ChannelNodeD0Ev"></span><span id="horus_human_core::ChannelNode::~ChannelNode"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a96e6d1ea90b0a92031ae61c01288b200"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~ChannelNode</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNodeD0Ev" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode12on_configureERKN16rclcpp_lifecycle5StateE">
+<span id="_CPPv3N16horus_human_core11ChannelNode12on_configureERKN16rclcpp_lifecycle5StateE"></span><span id="_CPPv2N16horus_human_core11ChannelNode12on_configureERKN16rclcpp_lifecycle5StateE"></span><span id="horus_human_core::ChannelNode::on_configure__rclcpp_lifecycle::StateCR"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a18c979395c59478e97bfbda6c9322a07"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N16horus_human_core11ChannelNode14CallbackReturnE" title="horus_human_core::ChannelNode::CallbackReturn"><span class="n"><span class="pre">CallbackReturn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">on_configure</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp_lifecycle</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">State</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode12on_configureERKN16rclcpp_lifecycle5StateE" title="Link to this definition"></a><br /></dt>
+<dd><p>Read the YAML, load the plugin, create outputs, auto-load the subject’s calibration. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – Previous state (unused). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SUCCESS, or FAILURE with the reason logged. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode11on_activateERKN16rclcpp_lifecycle5StateE">
+<span id="_CPPv3N16horus_human_core11ChannelNode11on_activateERKN16rclcpp_lifecycle5StateE"></span><span id="_CPPv2N16horus_human_core11ChannelNode11on_activateERKN16rclcpp_lifecycle5StateE"></span><span id="horus_human_core::ChannelNode::on_activate__rclcpp_lifecycle::StateCR"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1ac01b0cdda7c9b3af379e2f50ff137125"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N16horus_human_core11ChannelNode14CallbackReturnE" title="horus_human_core::ChannelNode::CallbackReturn"><span class="n"><span class="pre">CallbackReturn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">on_activate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp_lifecycle</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">State</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode11on_activateERKN16rclcpp_lifecycle5StateE" title="Link to this definition"></a><br /></dt>
+<dd><p>Subscribe to every channel and start the outputs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – Previous state (unused). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SUCCESS. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode13on_deactivateERKN16rclcpp_lifecycle5StateE">
+<span id="_CPPv3N16horus_human_core11ChannelNode13on_deactivateERKN16rclcpp_lifecycle5StateE"></span><span id="_CPPv2N16horus_human_core11ChannelNode13on_deactivateERKN16rclcpp_lifecycle5StateE"></span><span id="horus_human_core::ChannelNode::on_deactivate__rclcpp_lifecycle::StateCR"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1adf9f9cc4f2a98bc8a46735694b5fff86"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N16horus_human_core11ChannelNode14CallbackReturnE" title="horus_human_core::ChannelNode::CallbackReturn"><span class="n"><span class="pre">CallbackReturn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">on_deactivate</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp_lifecycle</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">State</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode13on_deactivateERKN16rclcpp_lifecycle5StateE" title="Link to this definition"></a><br /></dt>
+<dd><p>Stop subscriptions and outputs; a running calibration is aborted. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – Previous state (unused). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SUCCESS. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode10on_cleanupERKN16rclcpp_lifecycle5StateE">
+<span id="_CPPv3N16horus_human_core11ChannelNode10on_cleanupERKN16rclcpp_lifecycle5StateE"></span><span id="_CPPv2N16horus_human_core11ChannelNode10on_cleanupERKN16rclcpp_lifecycle5StateE"></span><span id="horus_human_core::ChannelNode::on_cleanup__rclcpp_lifecycle::StateCR"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a21a0d1930fd5d23b588ba6d6835ca0bb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N16horus_human_core11ChannelNode14CallbackReturnE" title="horus_human_core::ChannelNode::CallbackReturn"><span class="n"><span class="pre">CallbackReturn</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">on_cleanup</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp_lifecycle</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">State</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode10on_cleanupERKN16rclcpp_lifecycle5StateE" title="Link to this definition"></a><br /></dt>
+<dd><p>Release the plugin and outputs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – Previous state (unused). </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>SUCCESS. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode15validateChannelERKNSt6stringERNSt6stringE">
+<span id="_CPPv3N16horus_human_core11ChannelNode15validateChannelERKNSt6stringERNSt6stringE"></span><span id="_CPPv2N16horus_human_core11ChannelNode15validateChannelERKNSt6stringERNSt6stringE"></span><span id="horus_human_core::ChannelNode::validateChannel__ssCR.ssR"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a365fd6c79c0535c9a74cf6a63291c8cc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">validateChannel</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&amp;</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode15validateChannelERKNSt6stringERNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Check a channel name (e.g. against the human_msgs segment list). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – Channel name from the YAML. </p></li>
+<li><p><strong>why</strong> – Receives the reason when invalid. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the channel is acceptable. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode16configureOutputsERKNSt6vectorINSt6stringEEE">
+<span id="_CPPv3N16horus_human_core11ChannelNode16configureOutputsERKNSt6vectorINSt6stringEEE"></span><span id="_CPPv2N16horus_human_core11ChannelNode16configureOutputsERKNSt6vectorINSt6stringEEE"></span><span id="horus_human_core::ChannelNode::configureOutputs__std::vector:ss:CR"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a466fe24ee1100480a1558611dc1445c1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">configureOutputs</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">channels</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode16configureOutputsERKNSt6vectorINSt6stringEEE" title="Link to this definition"></a><br /></dt>
+<dd><p>Create the node’s publishers (called on configure). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>channels</strong> – The configured channel names. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode15activateOutputsEb">
+<span id="_CPPv3N16horus_human_core11ChannelNode15activateOutputsEb"></span><span id="_CPPv2N16horus_human_core11ChannelNode15activateOutputsEb"></span><span id="horus_human_core::ChannelNode::activateOutputs__b"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a155a753d2391e3752d62b4a99a61a948"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">activateOutputs</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">active</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode15activateOutputsEb" title="Link to this definition"></a><br /></dt>
+<dd><p>Activate or deactivate the node’s publishers and timers. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>active</strong> – True on activate, false on deactivate. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode14cleanupOutputsEv">
+<span id="_CPPv3N16horus_human_core11ChannelNode14cleanupOutputsEv"></span><span id="_CPPv2N16horus_human_core11ChannelNode14cleanupOutputsEv"></span><span id="horus_human_core::ChannelNode::cleanupOutputs"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1ae1fee3345d3906f0867de19fd907e476"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cleanupOutputs</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode14cleanupOutputsEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Destroy the node’s publishers (called on cleanup). </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode9conditionERKNSt6stringER4MsgT">
+<span id="_CPPv3N16horus_human_core11ChannelNode9conditionERKNSt6stringER4MsgT"></span><span id="_CPPv2N16horus_human_core11ChannelNode9conditionERKNSt6stringER4MsgT"></span><span id="horus_human_core::ChannelNode::condition__ssCR.MsgTR"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a364eba3c9502e946e4cb528acbd3cc77"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">condition</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&amp;</span></span>, <a class="reference internal" href="#_CPPv4I0EN16horus_human_core11ChannelNodeE" title="horus_human_core::ChannelNode::MsgT"><span class="n"><span class="pre">MsgT</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode9conditionERKNSt6stringER4MsgT" title="Link to this definition"></a><br /></dt>
+<dd><p>Optional conditioning before calibration (filtering, envelope). Default: none. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – Channel name. </p></li>
+<li><p><strong>msg</strong> – The raw sample, modified in place. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode7publishERKNSt6stringERK4MsgT">
+<span id="_CPPv3N16horus_human_core11ChannelNode7publishERKNSt6stringERK4MsgT"></span><span id="_CPPv2N16horus_human_core11ChannelNode7publishERKNSt6stringERK4MsgT"></span><span id="horus_human_core::ChannelNode::publish__ssCR.MsgTCR"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a73f726d5852bd68c1ab07c62ddc7827f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">publish</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">channel</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN16horus_human_core11ChannelNodeE" title="horus_human_core::ChannelNode::MsgT"><span class="n"><span class="pre">MsgT</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">msg</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode7publishERKNSt6stringERK4MsgT" title="Link to this definition"></a><br /></dt>
+<dd><p>Publish one corrected sample. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – Channel name. </p></li>
+<li><p><strong>msg</strong> – The conditioned + calibrated sample. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN16horus_human_core11ChannelNode16declareIfMissingE1TRKNSt6stringERK1T">
+<span id="_CPPv3I0EN16horus_human_core11ChannelNode16declareIfMissingERKNSt6stringERK1T"></span><span id="_CPPv2I0EN16horus_human_core11ChannelNode16declareIfMissingERKNSt6stringERK1T"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN16horus_human_core11ChannelNode16declareIfMissingE1TRKNSt6stringERK1T" title="horus_human_core::ChannelNode::declareIfMissing::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">declareIfMissing</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4I0EN16horus_human_core11ChannelNode16declareIfMissingE1TRKNSt6stringERK1T" title="horus_human_core::ChannelNode::declareIfMissing::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">fallback</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN16horus_human_core11ChannelNode16declareIfMissingE1TRKNSt6stringERK1T" title="Link to this definition"></a><br /></dt>
+<dd><p>Declare a parameter once, then read it (channel keys are only known at configure). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – Parameter name. </p></li>
+<li><p><strong>fallback</strong> – Default value. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The parameter’s value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N16horus_human_core11ChannelNode9channels_E">
+<span id="_CPPv3N16horus_human_core11ChannelNode9channels_E"></span><span id="_CPPv2N16horus_human_core11ChannelNode9channels_E"></span><span id="horus_human_core::ChannelNode::channels___std::vector:ss:"></span><span class="target" id="classhorus__human__core_1_1ChannelNode_1a0638b606d54016d6bfeae516f3a4bd87"></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">channels_</span></span></span><a class="headerlink" href="#_CPPv4N16horus_human_core11ChannelNode9channels_E" title="Link to this definition"></a><br /></dt>
+<dd><p>configured channel (unit) names, in YAML order </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classhorus__human__core_1_1CalibrationStore.html" class="btn btn-neutral float-left" title="Class CalibrationStore" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="typedef_calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158.html" class="btn btn-neutral float-right" title="Typedef horus_human_core::NodePtr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The &lt;horus_human_core&gt; Contributors. License: MIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

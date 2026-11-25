@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classhorus__control_1_1GravityModel" kind="class"><name>horus_control::GravityModel</name>
+    <member refid="classhorus__control_1_1GravityModel_1a91acdb02e8106fd720eb897a3aa24b31" kind="variable"><name>chain_</name></member>
+    <member refid="classhorus__control_1_1GravityModel_1a54110cb8d5977e2a93e78eb8b0d1dc3d" kind="variable"><name>dyn_</name></member>
+    <member refid="classhorus__control_1_1GravityModel_1a9abdd01dba0d32990d64010475bb4e45" kind="variable"><name>q_</name></member>
+    <member refid="classhorus__control_1_1GravityModel_1a37a0acd436138c8194fc0ebe20a73abb" kind="variable"><name>g_</name></member>
+    <member refid="classhorus__control_1_1GravityModel_1af5542262f85952df340e7bf5be2931f5" kind="variable"><name>index_</name></member>
+    <member refid="classhorus__control_1_1GravityModel_1ae7f6002dba8f40821008de258e11b626" kind="function"><name>load</name></member>
+    <member refid="classhorus__control_1_1GravityModel_1abb67e19f1df8f7a5b695224690a6acaa" kind="function"><name>compute</name></member>
+    <member refid="classhorus__control_1_1GravityModel_1a39f2383ba81cd0b412115abdb38feb24" kind="function"><name>size</name></member>
+  </compound>
+  <compound refid="namespacehorus__control" kind="namespace"><name>horus_control</name>
+  </compound>
+  <compound refid="gravity__model_8hpp" kind="file"><name>gravity_model.hpp</name>
+  </compound>
+  <compound refid="dir_cebe3b7e075d8c5983cc113cadc6eb79" kind="dir"><name>include/horus_control</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

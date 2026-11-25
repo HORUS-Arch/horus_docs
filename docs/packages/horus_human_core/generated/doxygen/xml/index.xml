@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="structhorus__human__core_1_1CalibrationEntry" kind="struct"><name>horus_human_core::CalibrationEntry</name>
+    <member refid="structhorus__human__core_1_1CalibrationEntry_1a3192b874336511a60fd18a0888added4" kind="variable"><name>unit</name></member>
+    <member refid="structhorus__human__core_1_1CalibrationEntry_1a9b97c262b191a3544841ab7d8f93a516" kind="variable"><name>stamp</name></member>
+    <member refid="structhorus__human__core_1_1CalibrationEntry_1ab8e6355078c5b433150e6675be817966" kind="variable"><name>path</name></member>
+  </compound>
+  <compound refid="classhorus__human__core_1_1CalibrationPlugin" kind="class"><name>horus_human_core::CalibrationPlugin</name>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1a41a68ec75101194e1d3b620c3c0e6b05" kind="typedef"><name>Ptr</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1aca53262ad9d5c9b4d5563d6f462248bb" kind="function"><name>~CalibrationPlugin</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1a8d411ae09c9e2a2475dcceb383609dba" kind="function"><name>configure</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1a9efdc8148283993544190168f4dce60f" kind="function"><name>defaultDuration</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1a4cfa431e1d28d1b325a1d1f691a4b829" kind="function"><name>begin</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1a86627e6a1104d74382ccc704ea38f879" kind="function"><name>add</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1ad2a49a5d1de943d4da284e6a7a68c5b0" kind="function"><name>finish</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1ad2bda94d7fc38c675e14b4808f10447d" kind="function"><name>load</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1aacc85ccaecff7160554cf89892830777" kind="function"><name>calibrated</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationPlugin_1a47101c0c7e30fc2eb2136c26ec93454f" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="classhorus__human__core_1_1CalibrationStore" kind="class"><name>horus_human_core::CalibrationStore</name>
+    <member refid="classhorus__human__core_1_1CalibrationStore_1a850d16e681732d68eaee13ffeba3cd72" kind="variable"><name>root_</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationStore_1aedbb37658cc881e52fefb40d5d549a21" kind="function"><name>CalibrationStore</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationStore_1a7c258388ca40ad9e03e5a5fb840645c0" kind="function"><name>save</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationStore_1a3b54477af7c6f26d9236a6d524e0a5d9" kind="function"><name>list</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationStore_1afeddeb24ad8cfa3e2766124b28e258a1" kind="function"><name>latest</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationStore_1a6a44df43b1bf6f9535bfbd170f1a6b81" kind="function"><name>root</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationStore_1a446e1888c20ca8c905e86b5077cb3607" kind="function"><name>read</name></member>
+    <member refid="classhorus__human__core_1_1CalibrationStore_1aacbc41e0a501c5e0e7679cbaf31ff88e" kind="function"><name>dir</name></member>
+  </compound>
+  <compound refid="classhorus__human__core_1_1ChannelNode" kind="class"><name>horus_human_core::ChannelNode</name>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adb" kind="enum"><name>Mode</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adbaf202734de4662e0d19d14c7e63a59f9c" kind="enumvalue"><name>CALIBRATED</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adba654c3d2627444067cc33d3125235fde6" kind="enumvalue"><name>CONDITIONED</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adba4625ccfa583f3094a1e4cdf8fde961ab" kind="enumvalue"><name>BYPASS</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a744f6a843f21108e5f129b256ac925fc" kind="typedef"><name>Plugin</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a3f9da5b1f0d59f8d0556170aceb55786" kind="typedef"><name>Calibrate</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a9435676b728ebfebeae33b670d760296" kind="typedef"><name>GoalHandle</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ac3f6ac10c61781ec33cc684d176828c9" kind="typedef"><name>CallbackReturn</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a0638b606d54016d6bfeae516f3a4bd87" kind="variable"><name>channels_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1adee62c0c29e15dea0861c5c915c173f6" kind="variable"><name>mode_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ae880be57781c79ae67af3438beee4f13" kind="variable"><name>param_cb_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a0c5ddd5a8550bce37897d1c0e3bee3bf" kind="variable"><name>loader_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a6a27617f7014e9d000a3235c6cc10c54" kind="variable"><name>plugin_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ae0b2e8460d85cc6316a41a888ccf8069" kind="variable"><name>plugin_name_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1aadaad1df837d703bd31e340219da1e47" kind="variable"><name>store_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1adb1f0159cffaf07cceb1150d6f307144" kind="variable"><name>topics_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a4e1b55ce6fa778fbca4b43510f2e9605" kind="variable"><name>subscriptions_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a397f8050334929a1b5026b25b3319dfe" kind="variable"><name>mutex_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1aa8ae65682ccf5af089fe18e4f35e70c6" kind="variable"><name>collecting_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ada928245b6efc47f0f1957d2500770df" kind="variable"><name>collected_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a87e19b265a3c4d721195d8edc45820ce" kind="variable"><name>pending_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a6336d5fd90b2562ed35babeda9ea6acd" kind="variable"><name>sources_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1abe22c74b56ad81688491d804770d3a1a" kind="variable"><name>calibration_thread_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a9501acb6ab428f5d6abb8fff8a1cef2d" kind="variable"><name>calibrating_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a61ed3d5e4257bb2079bcc46702d110a9" kind="variable"><name>stop_calibration_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a38138823e922d590da69c92bb914b686" kind="variable"><name>diagnostics_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a248755ae3cc166b31b303453c3d231ba" kind="variable"><name>calibrate_server_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a41e866b9a2526549b041bf9c92a73ab2" kind="variable"><name>save_srv_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a5d6b81ff93efa8f1ae06477e92e1cbde" kind="variable"><name>load_srv_</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1aa26a2d6292d7d7f39b5c563b71d62058" kind="function"><name>ChannelNode</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a96e6d1ea90b0a92031ae61c01288b200" kind="function"><name>~ChannelNode</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a18c979395c59478e97bfbda6c9322a07" kind="function"><name>on_configure</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ac01b0cdda7c9b3af379e2f50ff137125" kind="function"><name>on_activate</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1adf9f9cc4f2a98bc8a46735694b5fff86" kind="function"><name>on_deactivate</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a21a0d1930fd5d23b588ba6d6835ca0bb" kind="function"><name>on_cleanup</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a365fd6c79c0535c9a74cf6a63291c8cc" kind="function"><name>validateChannel</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a466fe24ee1100480a1558611dc1445c1" kind="function"><name>configureOutputs</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a155a753d2391e3752d62b4a99a61a948" kind="function"><name>activateOutputs</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1ae1fee3345d3906f0867de19fd907e476" kind="function"><name>cleanupOutputs</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a364eba3c9502e946e4cb528acbd3cc77" kind="function"><name>condition</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a73f726d5852bd68c1ab07c62ddc7827f" kind="function"><name>publish</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kind="function"><name>declareIfMissing</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a2f1dc5c59552f1485cca5c95dd1a9e26" kind="function"><name>parseMode</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a877e880562195b93219b58819dd38207" kind="function"><name>onSample</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a036dcc27a6749b313485c9dc10585c4f" kind="function"><name>onGoal</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a0669a6b629018df821ef769848bde1a4" kind="function"><name>startCalibration</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1aa0fe91983d96b3495721e1114ea7d441" kind="function"><name>runCalibration</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1abf247cb229eae24cc23f44f58c8a10b8" kind="function"><name>onSave</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a37fcd12482c827ea1311328262e510d4" kind="function"><name>onLoad</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1a7e4dc95769139a9adf72fa7ca5d01dc2" kind="function"><name>loadLatest</name></member>
+    <member refid="classhorus__human__core_1_1ChannelNode_1af7cc965986ebbd2e3f5a5f283ec0981c" kind="function"><name>reportDiagnostics</name></member>
+  </compound>
+  <compound refid="namespacehorus__human__core" kind="namespace"><name>horus_human_core</name>
+    <member refid="calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158" kind="typedef"><name>NodePtr</name></member>
+  </compound>
+  <compound refid="namespacerclcpp__lifecycle" kind="namespace"><name>rclcpp_lifecycle</name>
+  </compound>
+  <compound refid="calibration__plugin_8hpp" kind="file"><name>calibration_plugin.hpp</name>
+  </compound>
+  <compound refid="calibration__store_8hpp" kind="file"><name>calibration_store.hpp</name>
+  </compound>
+  <compound refid="channel__node_8hpp" kind="file"><name>channel_node.hpp</name>
+  </compound>
+  <compound refid="dir_f7fe6a10412d4c294a3b18a1c0fe6d22" kind="dir"><name>include/horus_human_core</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

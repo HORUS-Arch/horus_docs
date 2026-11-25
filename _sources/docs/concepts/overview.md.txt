@@ -1,0 +1,75 @@
+# Architecture overview
+
+HORUS is to human-interacting robotics what nav2 is to mobile navigation: a set of servers that
+host plugins, behavior trees that are data, a lifecycle manager that brings the system up in order,
+and actions between the brain and the servers. The real-time loop is ros2_control.
+
+## Five blocks
+
+```{mermaid}
+flowchart TB
+  subgraph UI["User interface (separate device)"]
+    W["Web UI"] <--> RB["rosbridge + web server"]
+  end
+  subgraph BRAIN["Brain"]
+    SUP["supervisor: global mode + the tree of that mode"]
+    SES["session: subjects, calibrations, trials"]
+  end
+  subgraph SE["Sensing and state estimation"]
+    DRV["sensor drivers /sensors"] --> HN["horus_imu, horus_insole, horus_emg /human"]
+  end
+  subgraph MOT["Motion"]
+    GEN["generator_server ~100 Hz"] --> CM["controller_manager ~1 kHz<br/>SafetyController last"] <--> HW["hardware interface"]
+  end
+  subgraph INF["Infrastructure"]
+    LM["lifecycle_manager, rig.launch.py"]
+    HM["health monitor"]
+  end
+  RB --> SUP
+  RB --> SES
+  SUP -->|ExecuteBehavior| GEN
+  SUP -->|Calibrate| HN
+  SUP -->|state| SES
+  SES -.->|subject, calibrations| HN
+  HN -->|human state| GEN
+  HW -.->|/diagnostics| SUP
+  SUP -.->|estop, EMERGENCY_STOP| CM
+  LM -.-> SE
+  LM -.-> GEN
+```
+
+| Block | Role | Packages |
+|---|---|---|
+| User interface | show, configure, command; never in the safety path | `horus_ui` (own repo), rosbridge |
+| Brain | decide the mode, sequence the protocol, record | `horus_supervisor`, `horus_bt`, `horus_session` |
+| Sensing and state estimation | calibrated human and robot state | `horus_human_core`, `horus_human`, `horus_estimator_core`, `horus_human_description` |
+| Motion | generate the reference, track it in real time | `horus_generator_*`, `horus_control`, ros2_control |
+| Infrastructure | bring-up, ordering, health, data | `horus_bringup`, `horus_lifecycle_manager`, `horus_health_monitor` |
+
+## Correspondence with nav2
+
+| nav2 | HORUS | Role |
+|---|---|---|
+| `bt_navigator` | `supervisor` | global operating mode (safety first) and the behavior tree of that mode, in-process |
+| `nav2_behavior_tree` | `horus_bt` | the tree leaves, as a library |
+| `controller_server` | `generator_server` | rate loop that emits the reference |
+| `collision_monitor` | `horus_control/SafetyController` | last stop before the actuators |
+| base wheel loop | ros2_control | real-time tracking |
+| `lifecycle_manager` | `lifecycle_manager` | ordered bring-up |
+| state estimation | sensing and state estimation | the state of the person and of the robot |
+
+## Four ROS 2 building blocks
+
+- **Lifecycle nodes**: configure (read parameters, load plugins, connect) is separate from activate
+  (start publishing).
+- **Plugin servers**: a server owns the loop and the ROS interfaces; a plugin owns only its algorithm.
+- **Actions**: long tasks with feedback and cancellation (`ExecuteBehavior`, `Calibrate`).
+- **Components**: every C++ node runs as its own process or composed into one.
+
+## Rules that hold everywhere
+
+- The core never depends on a device or a sensor; they depend on the core (see {doc}`../extend/device`).
+- Topics are named `/sensors/<name>` (raw), `/human/<name>` (processed), `/horus/<node>` (system),
+  plus the robot's own ros2_control topics.
+- Idle means silent: nothing drives the device unless a behavior is running.
+- One controller runs for the whole session; controllers are never switched by a tree.

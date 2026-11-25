@@ -1,0 +1,31 @@
+# Hardware
+
+## Exoskeletons
+
+| Device | Type | Integration |
+|---|---|---|
+| HANK | lower-limb exoskeleton | ros2_control hardware interface (CSIC family driver) |
+| H3 (Technaid) | lower-limb exoskeleton | same driver family, selected by a hardware parameter |
+| mock leg | three-joint leg (hip, knee, ankle) | `horus_mock_device`: mock hardware and MuJoCo |
+
+## Sensors
+
+Drivers developed with HORUS follow the sensor contract ({doc}`../extend/sensor`): each works standalone
+and connects to HORUS without code changes. Open-source drivers *(names provisional)*:
+
+| Driver | Sensor | Publishes |
+|---|---|---|
+| `xsens_mtw_ros2` | Xsens MTw Awinda inertial units | `sensor_msgs/Imu` per unit |
+| `xsens_mvn_ros2` | Xsens MVN real-time stream | `human_msgs/SegmentState`, `JointAngles` |
+| `delsys_trigno_ros2` | Delsys Trigno EMG (Trigno API) | `human_msgs/Emg(s)`, `sensor_msgs/Imu` |
+| `delsys_sdk_ros2` | Delsys systems (vendor SDK) | `human_msgs/Emg(s)` |
+
+Laboratory-built insoles and inertial units are integrated the same way. Drivers whose vendor SDK
+license does not allow redistribution stay private; the split model needs no change for them. More
+sensors will be added as licenses permit.
+
+## Computer
+
+The reference computer is an ASRock mini PC *(model to be added)* running Ubuntu 24.04 with a
+PREEMPT_RT kernel: the controller manager uses FIFO scheduling and the CPU governor is set to
+`performance`. The operator interface runs on a separate phone, tablet or laptop.

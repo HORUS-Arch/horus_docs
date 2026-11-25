@@ -1,0 +1,528 @@
+[rosdoc2] [INFO] Found C/C++ include file in include, using that path for Doxygen
+[rosdoc2] [INFO] No Doxyfile specified by user, and no Doxyfile found in the package at '/home/drscodex/Development/horus/system/horus_bt/Doxyfile', but a standard include directory was found at 'include', therefore a default Doxyfile will be generated and used.
+[rosdoc2] [INFO] Trying to run doxygen
+[rosdoc2] [INFO] Running Doxygen: 'doxygen /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt-public-cc-api/Doxyfile.rosdoc2' in '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt-public-cc-api'
+warning: Invalid value for 'PROJECT_BRIEF' tag at line 8, file Doxyfile.rosdoc2_default: Value '"HORUS behavior-tree library: the BT leaves (behaviors, calibration, conditions,' is not properly quoted
+warning: ignoring unknown tag 'recording' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown character ',' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'notes' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown character ',' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'speed' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown character ',' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'emergency' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'stop' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown character ')' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'and' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'the' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'TreeRunner' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'the' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'supervisor' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'runs' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'one' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'tree' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'per' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'mode' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'with' at line 9, file Doxyfile.rosdoc2_default
+warning: ignoring unknown character '(' at line 10, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'nav2_behavior_tree' at line 10, file Doxyfile.rosdoc2_default
+warning: ignoring unknown tag 'analog' at line 10, file Doxyfile.rosdoc2_default
+warning: ignoring unknown character ')' at line 10, file Doxyfile.rosdoc2_default
+warning: ignoring unknown character '.' at line 10, file Doxyfile.rosdoc2_default
+warning: ignoring unknown character '"' at line 10, file Doxyfile.rosdoc2_default
+Doxygen version used: 1.9.8
+Searching for include files...
+Searching for example files...
+Searching for images...
+Searching for dot files...
+Searching for msc files...
+Searching for dia files...
+Searching for files to exclude
+Searching INPUT for files to process...
+Searching for files in directory /home/drscodex/Development/horus/system/horus_bt/include
+Searching for files in directory /home/drscodex/Development/horus/system/horus_bt/include/horus_bt
+Reading and parsing tag files
+Reading tag file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human/horus_human.tag', location 'http://docs.ros.org/en/latest/p/horus_human/generated/doxygen/html'...
+Reading tag file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_control/horus_control.tag', location 'http://docs.ros.org/en/latest/p/horus_control/generated/doxygen/html'...
+Reading tag file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_core/horus_generator_core.tag', location 'http://docs.ros.org/en/latest/p/horus_generator_core/generated/doxygen/html'...
+Reading tag file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_supervisor/horus_supervisor.tag', location 'http://docs.ros.org/en/latest/p/horus_supervisor/generated/doxygen/html'...
+Reading tag file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_estimator_core/horus_estimator_core.tag', location 'http://docs.ros.org/en/latest/p/horus_estimator_core/generated/doxygen/html'...
+Reading tag file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human_core/horus_human_core.tag', location 'http://docs.ros.org/en/latest/p/horus_human_core/generated/doxygen/html'...
+Reading tag file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_pattern/horus_generator_pattern.tag', location 'http://docs.ros.org/en/latest/p/horus_generator_pattern/generated/doxygen/html'...
+Parsing files
+Preprocessing /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/calibrate_node.hpp...
+Parsing file /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/calibrate_node.hpp...
+Preprocessing /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp...
+Parsing file /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp...
+Preprocessing /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp...
+Parsing file /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp...
+Preprocessing /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/node_ptr.hpp...
+Parsing file /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/node_ptr.hpp...
+Preprocessing /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp...
+Parsing file /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp...
+Preprocessing /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/tree_runner.hpp...
+Parsing file /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/tree_runner.hpp...
+Building macro definition list...
+Building group list...
+Building directory list...
+Building namespace list...
+Building file list...
+Building class list...
+Building concept list...
+Computing nesting relations for classes...
+Associating documentation with classes...
+Associating documentation with concepts...
+Associating documentation with modules...
+Building example list...
+Searching for enumerations...
+Searching for documented typedefs...
+Searching for members imported via using declarations...
+Searching for included using directives...
+Searching for documented variables...
+Building interface member list...
+Building member list...
+Searching for friends...
+Searching for documented defines...
+Computing class inheritance relations...
+Computing class usage relations...
+Flushing cached temp/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:60: warning: Compound horus_bt::ExecuteBehaviorNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/tree_runner.hpp:33: warning: Compound horus_bt::TreeRunner is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/calibrate_node.hpp:6: warning: Unsupported xml/html tag <Calibrate> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/calibrate_node.hpp:7: warning: Unsupported xml/html tag <Calibrate> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp:5: warning: Unsupported xml/html tag <IsAtPose> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp:6: warning: Unsupported xml/html tag <IsHealthy> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp:7: warning: Unsupported xml/html tag <WaitForMessage> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:5: warning: Unsupported xml/html tag <EmergencyStop> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:6: warning: Unsupported xml/html tag <StartRecording> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:6: warning: Unsupported xml/html tag <StopRecording> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:7: warning: Unsupported xml/html tag <AddTrialNote> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:8: warning: Unsupported xml/html tag <SetSpeedScale> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:158: warning: Member AddTrialNoteNode(const std::string &name, const BT::NodeConfig &config, const NodePtr &node) (function) of class horus_bt::AddTrialNoteNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:62: warning: Member ServiceLeaf(const std::string &name, const BT::NodeConfig &config, const NodePtr &node, const std::string &service) (function) of class ServiceLeaf< horus_msgs::srv::AddTrialNote > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:72: warning: Member onStart() override (function) of class ServiceLeaf< horus_msgs::srv::AddTrialNote > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:88: warning: Member onRunning() override (function) of class ServiceLeaf< horus_msgs::srv::AddTrialNote > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:106: warning: Member onHalted() override (function) of class ServiceLeaf< horus_msgs::srv::AddTrialNote > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:160: warning: Member providedPorts() (function) of class horus_bt::AddTrialNoteNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:70: warning: Member basePorts() (function) of class ServiceLeaf< horus_msgs::srv::AddTrialNote > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:168: warning: Member fill(horus_msgs::srv::AddTrialNote::Request &req) override (function) of class horus_bt::AddTrialNoteNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:112: warning: Member node_ (variable) of class ServiceLeaf< horus_msgs::srv::AddTrialNote > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:30: warning: Member Action (typedef) of struct horus_bt::BehaviorChannel is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:31: warning: Member group (variable) of struct horus_bt::BehaviorChannel is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:32: warning: Member exec (variable) of struct horus_bt::BehaviorChannel is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:33: warning: Member client (variable) of struct horus_bt::BehaviorChannel is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/calibrate_node.hpp:31: warning: Member Action (typedef) of class horus_bt::CalibrateNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/calibrate_node.hpp:32: warning: Member GoalHandle (typedef) of class horus_bt::CalibrateNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/calibrate_node.hpp:33: warning: Member Save (typedef) of class horus_bt::CalibrateNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:35: warning: Member EmergencyStopNode(const std::string &name, const BT::NodeConfig &config, const NodePtr &node) (function) of class horus_bt::EmergencyStopNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:43: warning: Member tick() override (function) of class horus_bt::EmergencyStopNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:41: warning: Member providedPorts() (function) of class horus_bt::EmergencyStopNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:63: warning: Member Action (typedef) of class horus_bt::ExecuteBehaviorNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:64: warning: Member GoalHandle (typedef) of class horus_bt::ExecuteBehaviorNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:66: warning: Member ExecuteBehaviorNode(const std::string &name, const BT::NodeConfig &config, const NodePtr &node) (function) of class horus_bt::ExecuteBehaviorNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:80: warning: Member onStart() override (function) of class horus_bt::ExecuteBehaviorNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:109: warning: Member onRunning() override (function) of class horus_bt::ExecuteBehaviorNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:126: warning: Member onHalted() override (function) of class horus_bt::ExecuteBehaviorNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/execute_behavior_node.hpp:75: warning: Member providedPorts() (function) of class horus_bt::ExecuteBehaviorNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:62: warning: Member ServiceLeaf(const std::string &name, const BT::NodeConfig &config, const NodePtr &node, const std::string &service) (function) of class horus_bt::ServiceLeaf is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:72: warning: Member onStart() override (function) of class horus_bt::ServiceLeaf is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:88: warning: Member onRunning() override (function) of class horus_bt::ServiceLeaf is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:106: warning: Member onHalted() override (function) of class horus_bt::ServiceLeaf is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:70: warning: Member basePorts() (function) of class horus_bt::ServiceLeaf is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:112: warning: Member node_ (variable) of class horus_bt::ServiceLeaf is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:179: warning: Member SetSpeedScaleNode(const std::string &name, const BT::NodeConfig &config, const NodePtr &node) (function) of class horus_bt::SetSpeedScaleNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:192: warning: Member onStart() override (function) of class horus_bt::SetSpeedScaleNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:216: warning: Member onRunning() override (function) of class horus_bt::SetSpeedScaleNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:224: warning: Member onHalted() override (function) of class horus_bt::SetSpeedScaleNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:186: warning: Member providedPorts() (function) of class horus_bt::SetSpeedScaleNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:126: warning: Member StartRecordingNode(const std::string &name, const BT::NodeConfig &config, const NodePtr &node) (function) of class horus_bt::StartRecordingNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:62: warning: Member ServiceLeaf(const std::string &name, const BT::NodeConfig &config, const NodePtr &node, const std::string &service) (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:72: warning: Member onStart() override (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:88: warning: Member onRunning() override (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:106: warning: Member onHalted() override (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:128: warning: Member providedPorts() (function) of class horus_bt::StartRecordingNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:70: warning: Member basePorts() (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:131: warning: Member fill(horus_msgs::srv::SessionControl::Request &req) override (function) of class horus_bt::StartRecordingNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:112: warning: Member node_ (variable) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:142: warning: Member StopRecordingNode(const std::string &name, const BT::NodeConfig &config, const NodePtr &node) (function) of class horus_bt::StopRecordingNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:62: warning: Member ServiceLeaf(const std::string &name, const BT::NodeConfig &config, const NodePtr &node, const std::string &service) (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:72: warning: Member onStart() override (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:88: warning: Member onRunning() override (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:106: warning: Member onHalted() override (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:144: warning: Member providedPorts() (function) of class horus_bt::StopRecordingNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:70: warning: Member basePorts() (function) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:147: warning: Member fill(horus_msgs::srv::SessionControl::Request &req) override (function) of class horus_bt::StopRecordingNode is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:112: warning: Member node_ (variable) of class ServiceLeaf< horus_msgs::srv::SessionControl > is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp:55: warning: Member LeafExecutor(const NodePtr &node) (function) of struct horus_bt::detail::LeafExecutor is not documented.
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp:60: warning: Member drain() (function) of struct horus_bt::detail::LeafExecutor is not documented.
+late relations that have become invalid...
+Computing class relations...
+Add enum values to enums...
+Searching for member function documentation...
+Creating members for template instances...
+Building page list...
+Search for main page...
+Computing page relations...
+Determining the scope of groups...
+Computing module relations...
+Sorting lists...
+Determining which enums are documented
+Computing member relations...
+Building full member lists recursively...
+Adding members to member groups.
+Computing member references...
+Inheriting documentation...
+Generating disk names...
+Adding source references...
+Adding xrefitems...
+Sorting member lists...
+Setting anonymous enum type...
+Computing dependencies between directories...
+Generating citations page...
+Counting members...
+Counting data structures...
+Resolving user defined references...
+Finding anchors and sections in the documentation...
+Transferring function references...
+Combining using relations...
+Adding members to index pages...
+Correcting members for VHDL...
+Computing tooltip texts...
+Generating style sheet...
+Generating search indices...
+Generating example documentation...
+Generating file sources...
+Generating code for file include/horus_bt/calibrate_node.hpp...
+Generating code for file include/horus_bt/condition_nodes.hpp...
+Generating code for file include/horus_bt/execute_behavior_node.hpp...
+Generating code for file include/horus_bt/node_ptr.hpp...
+Generating code for file include/horus_bt/system_nodes.hpp...
+Generating code for file include/horus_bt/tree_runner.hpp...
+Generating file documentation...
+Generating docs for file include/horus_bt/calibrate_node.hpp...
+Generating docs for file include/horus_bt/condition_nodes.hpp...
+Generating docs for file include/horus_bt/node_ptr.hpp...
+Generating docs for file include/horus_bt/system_nodes.hpp...
+Generating docs for file include/horus_bt/tree_runner.hpp...
+Generating page documentation...
+Generating group documentation...
+Generating class documentation...
+Generating concept documentation...
+Generating module documentation...
+Generating namespace documentation...
+Generating docs for compound horus_bt::AddTrialNoteNode...
+Generating docs for compound horus_bt::BehaviorChannel...
+Generating docs for compound horus_bt::CalibrateNode...
+Generating docs for compound horus_bt::EmergencyStopNode...
+Generating docs for compound horus_bt::ExecuteBehaviorNode...
+Generating docs for compound horus_bt::IsAtPoseNode...
+Generating docs for compound horus_bt::IsHealthyNode...
+Generating docs for compound horus_bt::ServiceLeaf...
+Generating docs for compound horus_bt::SetSpeedScaleNode...
+Generating docs for compound horus_bt::StartRecordingNode...
+Generating docs for compound horus_bt::StopRecordingNode...
+Generating docs for compound horus_bt::TreeRunner...
+Generating docs for compound horus_bt::WaitForMessageNode...
+Generating docs for compound horus_bt::detail::LeafExecutor...
+Generating graph info page...
+Generating directory documentation...
+Generating dependency graph for directory include/horus_bt
+Generating index page...
+Generating page index...
+Generating topic index...
+Generating module index...
+Generating module member index...
+Generating namespace index...
+Generating namespace member index...
+Generating concept index...
+Generating annotated compound index...
+Generating alphabetical compound index...
+Generating hierarchical class index...
+Generating graphical class hierarchy...
+Generating member index...
+Generating file index...
+Generating file member index...
+Generating example index...
+finalizing index lists...
+writing tag file...
+Generating XML output...
+Generating XML output for class horus_bt::AddTrialNoteNode
+Generating XML output for class horus_bt::BehaviorChannel
+Generating XML output for class horus_bt::CalibrateNode
+Generating XML output for class horus_bt::EmergencyStopNode
+Generating XML output for class horus_bt::ExecuteBehaviorNode
+Generating XML output for class horus_bt::IsAtPoseNode
+Generating XML output for class horus_bt::IsHealthyNode
+Generating XML output for class horus_bt::detail::LeafExecutor
+Generatin/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/calibrate_node.hpp:6: warning: Unsupported xml/html tag <Calibrate> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/calibrate_node.hpp:7: warning: Unsupported xml/html tag <Calibrate> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp:5: warning: Unsupported xml/html tag <IsAtPose> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp:6: warning: Unsupported xml/html tag <IsHealthy> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/condition_nodes.hpp:7: warning: Unsupported xml/html tag <WaitForMessage> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:5: warning: Unsupported xml/html tag <EmergencyStop> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:6: warning: Unsupported xml/html tag <StartRecording> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:6: warning: Unsupported xml/html tag <StopRecording> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:7: warning: Unsupported xml/html tag <AddTrialNote> found
+/home/drscodex/Development/horus/system/horus_bt/include/horus_bt/system_nodes.hpp:8: warning: Unsupported xml/html tag <SetSpeedScale> found
+g XML output for class horus_bt::ExecuteBehaviorNode::Outcome
+Generating XML output for class horus_bt::TreeRunner::Request
+Generating XML output for class horus_bt::ServiceLeaf
+Generating XML output for class horus_bt::SetSpeedScaleNode
+Generating XML output for class horus_bt::StartRecordingNode
+Generating XML output for class horus_bt::StopRecordingNode
+Generating XML output for class horus_bt::TreeRunner
+Generating XML output for class horus_bt::WaitForMessageNode
+Generating XML output for namespace BT
+Generating XML output for namespace horus_bt
+Generating XML output for namespace horus_bt::detail
+Generating XML output for namespace horus_control
+Generating XML output for namespace horus_estimator_core
+Generating XML output for namespace horus_generator_core
+Generating XML output for namespace horus_generator_pattern
+Generating XML output for namespace horus_human
+Generating XML output for namespace horus_human_core
+Generating XML output for namespace horus_supervisor
+Generating XML output for file calibrate_node.hpp
+Generating XML output for file condition_nodes.hpp
+Generating XML output for file execute_behavior_node.hpp
+Generating XML output for file node_ptr.hpp
+Generating XML output for file system_nodes.hpp
+Generating XML output for file tree_runner.hpp
+Generating XML output for file calibrations.hpp
+Generating XML output for file default_calibrations.hpp
+Generating XML output for file gravity_model.hpp
+Generating XML output for file generator.hpp
+Generating XML output for file mode_machine.hpp
+Generating XML output for file estimator.hpp
+Generating XML output for file calibration_plugin.hpp
+Generating XML output for file calibration_store.hpp
+Generating XML output for file channel_node.hpp
+Generating XML output for file manual.hpp
+Generating XML output for file pattern.hpp
+Generating XML output for file waypoints.hpp
+Generate XML output for dir /home/drscodex/Development/horus/system/horus_bt/include/horus_bt/
+Generate XML output for dir /home/drscodex/Development/horus/system/horus_bt/include/
+Running plantuml with JAVA...
+Running dot...
+Generating dot graphs using 9 parallel threads...
+Running dot for graph 1/36
+Running dot for graph 2/36
+Running dot for graph 3/36
+Running dot for graph 4/36
+Running dot for graph 5/36
+Running dot for graph 6/36
+Running dot for graph 7/36
+Running dot for graph 8/36
+Running dot for graph 9/36
+Running dot for graph 10/36
+Running dot for graph 11/36
+Running dot for graph 12/36
+Running dot for graph 13/36
+Running dot for graph 14/36
+Running dot for graph 15/36
+Running dot for graph 16/36
+Running dot for graph 17/36
+Running dot for graph 18/36
+Running dot for graph 19/36
+Running dot for graph 20/36
+Running dot for graph 21/36
+Running dot for graph 22/36
+Running dot for graph 23/36
+Running dot for graph 24/36
+Running dot for graph 25/36
+Running dot for graph 26/36
+Running dot for graph 27/36
+Running dot for graph 28/36
+Running dot for graph 29/36
+Running dot for graph 30/36
+Running dot for graph 31/36
+Running dot for graph 32/36
+Running dot for graph 33/36
+Running dot for graph 34/36
+Running dot for graph 35/36
+Running dot for graph 36/36
+Patching output file 1/18
+Patching output file 2/18
+Patching output file 3/18
+Patching output file 4/18
+Patching output file 5/18
+Patching output file 6/18
+Patching output file 7/18
+Patching output file 8/18
+Patching output file 9/18
+Patching output file 10/18
+Patching output file 11/18
+Patching output file 12/18
+Patching output file 13/18
+Patching output file 14/18
+Patching output file 15/18
+Patching output file 16/18
+Patching output file 17/18
+Patching output file 18/18
+type lookup cache used 265/65536 hits=1037 misses=290
+symbol lookup cache used 250/65536 hits=3749 misses=250
+finished...
+[rosdoc2] [INFO] Doxygen exited with return code '0'
+[rosdoc2] [INFO] Moving tag file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt-public-cc-api/doxygen_output/horus_bt.tag' into cross-reference directory '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_bt/horus_bt.tag'
+[rosdoc2] [INFO] Moving files for 'horus_bt Public C/C++ API (doxygen)' from '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt-public-cc-api/doxygen_output' into '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/output_staging/generated/doxygen'.
+[rosdoc2] [INFO] Moved 319 files.
+[rosdoc2] [INFO] /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/output_staging/generated/doxygen/xml
+[rosdoc2] [INFO] interface_counts: {'msg': 0, 'srv': 0, 'action': 0}
+[rosdoc2] [INFO] standard_docs: {'readme': {'path': '/home/drscodex/Development/horus/system/horus_bt/README.md', 'filename': 'README.md', 'type': 'md'}, 'package': {'path': '/home/drscodex/Development/horus/system/horus_bt/package.xml', 'filename': 'package.xml', 'type': 'xml'}}
+[rosdoc2] [INFO] generating ros package dependencies with depends: ['rclcpp', 'rclcpp_action', 'sensor_msgs', 'diagnostic_msgs', 'std_msgs', 'behaviortree_cpp', 'ament_index_cpp']
+[rosdoc2] [INFO] No package repo url found from rosdistro
+[rosdoc2] [INFO] Note: no conf.py provided by the user, therefore using a default Sphinx configuration.
+[rosdoc2] [INFO] Using a default index.rst.jinja
+[rosdoc2] [INFO] Running Sphinx-build: 'sphinx-build /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt/wrapped_sphinx_directory /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt/wrapped_sphinx_directory/sphinx_output' in '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt/wrapped_sphinx_directory'
+Running Sphinx v8.2.3
+[rosdoc2] user conf.py specified allowed extensions: ['sphinx_rtd_theme']
+[rosdoc2] enabling autodoc
+[rosdoc2] autodoc mock imports: 'rclcpp', 'rclcpp_action', 'behaviortree_cpp', 'ament_index_cpp', 'horus_msgs'
+[rosdoc2] enabling intersphinx
+[rosdoc2] enabling breathe
+[rosdoc2] enabling exhale
+[rosdoc2] overriding theme to be 'sphinx_rtd_theme'
+[rosdoc2] extending intersphinx mapping
+[rosdoc2] adding markdown parser
+loading translations [en]... done
+loading intersphinx inventory 'horus_human' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human/objects.inv ...
+loading intersphinx inventory 'horus_bringup' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_bringup/objects.inv ...
+loading intersphinx inventory 'horus_control' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_control/objects.inv ...
+loading intersphinx inventory 'horus_setup_assistant' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_setup_assistant/objects.inv ...
+loading intersphinx inventory 'horus_generator_core' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_core/objects.inv ...
+loading intersphinx inventory 'horus_supervisor' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_supervisor/objects.inv ...
+loading intersphinx inventory 'horus_estimator_core' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_estimator_core/objects.inv ...
+loading intersphinx inventory 'horus_human_description' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human_description/objects.inv ...
+loading intersphinx inventory 'horus_human_core' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human_core/objects.inv ...
+loading intersphinx inventory 'horus_msgs' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_msgs/objects.inv ...
+loading intersphinx inventory 'horus_generator_pattern' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_pattern/objects.inv ...
+loading intersphinx inventory 'horus_generator_server' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_server/objects.inv ...
+[34;1m[~] Exhale: adding tree view css / javascript.[0m
+[32;1m[+] Exhale: added tree view css / javascript.[0m
+[34;1m[~] Exhale: parsing Doxygen XML.[0m
+[32;1m[+] Exhale: finished parsing Doxygen XML in 0.23 seconds.[0m
+[34;1m[~] Exhale: generating reStructuredText documents.[0m
+[32;1m[+] Exhale: generated reStructuredText documents in 0.17 seconds.[0m
+myst v4.0.1: MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions=set(), disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=('http', 'https', 'mailto', 'ftp'), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_sort=True, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes='tex2jax_process|mathjax_process|math|output_area', enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [html]: targets for 9 source files that are out of date
+updating environment: [new config] 46 added, 0 changed, 0 removed
+reading sources... [  2%] README
+reading sources... [  4%] __PACKAGE
+reading sources... [  7%] __README
+reading sources... [  9%] __links
+reading sources... [ 11%] __readme_include
+reading sources... [ 13%] __ros_package_dependencies
+reading sources... [ 15%] __standards
+reading sources... [ 17%] generated/classhorus__bt_1_1AddTrialNoteNode
+reading sources... [ 20%] generated/classhorus__bt_1_1CalibrateNode
+reading sources... [ 22%] generated/classhorus__bt_1_1EmergencyStopNode
+reading sources... [ 24%] generated/classhorus__bt_1_1ExecuteBehaviorNode
+reading sources... [ 26%] generated/classhorus__bt_1_1IsAtPoseNode
+reading sources... [ 28%] generated/classhorus__bt_1_1IsHealthyNode
+reading sources... [ 30%] generated/classhorus__bt_1_1ServiceLeaf
+reading sources... [ 33%] generated/classhorus__bt_1_1SetSpeedScaleNode
+reading sources... [ 35%] generated/classhorus__bt_1_1StartRecordingNode
+reading sources... [ 37%] generated/classhorus__bt_1_1StopRecordingNode
+reading sources... [ 39%] generated/classhorus__bt_1_1TreeRunner
+reading sources... [ 41%] generated/classhorus__bt_1_1WaitForMessageNode
+reading sources... [ 43%] generated/dir_include
+reading sources... [ 46%] generated/dir_include_horus_bt
+reading sources... [ 48%] generated/file_include_horus_bt_calibrate_node.hpp
+reading sources... [ 50%] generated/file_include_horus_bt_condition_nodes.hpp
+reading sources... [ 52%] generated/file_include_horus_bt_execute_behavior_node.hpp
+reading sources... [ 54%] generated/file_include_horus_bt_node_ptr.hpp
+reading sources... [ 57%] generated/file_include_horus_bt_system_nodes.hpp
+reading sources... [ 59%] generated/file_include_horus_bt_tree_runner.hpp
+reading sources... [ 61%] generated/function_condition__nodes_8hpp_1a1ec045cedef67f2015b41d17c9702eaa
+reading sources... [ 63%] generated/function_execute__behavior__node_8hpp_1a1d030667a149c79a0712b69f3a27dff5
+reading sources... [ 65%] generated/index
+reading sources... [ 67%] generated/namespace_BT
+reading sources... [ 70%] generated/namespace_horus_bt
+reading sources... [ 72%] generated/namespace_horus_bt__detail
+reading sources... [ 74%] generated/program_listing_file_include_horus_bt_calibrate_node.hpp
+reading sources... [ 76%] generated/program_listing_file_include_horus_bt_condition_nodes.hpp
+reading sources... [ 78%] generated/program_listing_file_include_horus_bt_execute_behavior_node.hpp
+reading sources... [ 80%] generated/program_listing_file_include_horus_bt_node_ptr.hpp
+reading sources... [ 83%] generated/program_listing_file_include_horus_bt_system_nodes.hpp
+reading sources... [ 85%] generated/program_listing_file_include_horus_bt_tree_runner.hpp
+reading sources... [ 87%] generated/structhorus__bt_1_1BehaviorChannel
+reading sources... [ 89%] generated/structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome
+reading sources... [ 91%] generated/structhorus__bt_1_1TreeRunner_1_1Request
+reading sources... [ 93%] generated/structhorus__bt_1_1detail_1_1LeafExecutor
+reading sources... [ 96%] generated/typedef_node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7
+reading sources... [ 98%] genindex
+reading sources... [100%] index
+
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... done
+preparing documents... done
+copying assets... 
+copying static files... 
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt/wrapped_sphinx_directory/sphinx_output/_static/basic.css
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt/wrapped_sphinx_directory/sphinx_output/_static/language_data.js
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt/wrapped_sphinx_directory/sphinx_output/_static/documentation_options.js
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt/wrapped_sphinx_directory/sphinx_output/_static/js/versions.js
+copying static files: done
+copying extra files... 
+copying extra files: done
+copying assets: done
+writing output... [  2%] README
+writing output... [  4%] __PACKAGE
+writing output... [  7%] __README
+writing output... [  9%] __links
+writing output... [ 11%] __readme_include
+writing output... [ 13%] __ros_package_dependencies
+writing output... [ 15%] __standards
+writing output... [ 17%] generated/classhorus__bt_1_1AddTrialNoteNode
+writing output... [ 20%] generated/classhorus__bt_1_1CalibrateNode
+writing output... [ 22%] generated/classhorus__bt_1_1EmergencyStopNode
+writing output... [ 24%] generated/classhorus__bt_1_1ExecuteBehaviorNode
+writing output... [ 26%] generated/classhorus__bt_1_1IsAtPoseNode
+writing output... [ 28%] generated/classhorus__bt_1_1IsHealthyNode
+writing output... [ 30%] generated/classhorus__bt_1_1ServiceLeaf
+writing output... [ 33%] generated/classhorus__bt_1_1SetSpeedScaleNode
+writing output... [ 35%] generated/classhorus__bt_1_1StartRecordingNode
+writing output... [ 37%] generated/classhorus__bt_1_1StopRecordingNode
+writing output... [ 39%] generated/classhorus__bt_1_1TreeRunner
+writing output... [ 41%] generated/classhorus__bt_1_1WaitForMessageNode
+writing output... [ 43%] generated/dir_include
+writing output... [ 46%] generated/dir_include_horus_bt
+writing output... [ 48%] generated/file_include_horus_bt_calibrate_node.hpp
+writing output... [ 50%] generated/file_include_horus_bt_condition_nodes.hpp
+writing output... [ 52%] generated/file_include_horus_bt_execute_behavior_node.hpp
+writing output... [ 54%] generated/file_include_horus_bt_node_ptr.hpp
+writing output... [ 57%] generated/file_include_horus_bt_system_nodes.hpp
+writing output... [ 59%] generated/file_include_horus_bt_tree_runner.hpp
+writing output... [ 61%] generated/function_condition__nodes_8hpp_1a1ec045cedef67f2015b41d17c9702eaa
+writing output... [ 63%] generated/function_execute__behavior__node_8hpp_1a1d030667a149c79a0712b69f3a27dff5
+writing output... [ 65%] generated/index
+writing output... [ 67%] generated/namespace_BT
+writing output... [ 70%] generated/namespace_horus_bt
+writing output... [ 72%] generated/namespace_horus_bt__detail
+writing output... [ 74%] generated/program_listing_file_include_horus_bt_calibrate_node.hpp
+writing output... [ 76%] generated/program_listing_file_include_horus_bt_condition_nodes.hpp
+writing output... [ 78%] generated/program_listing_file_include_horus_bt_execute_behavior_node.hpp
+writing output... [ 80%] generated/program_listing_file_include_horus_bt_node_ptr.hpp
+writing output... [ 83%] generated/program_listing_file_include_horus_bt_system_nodes.hpp
+writing output... [ 85%] generated/program_listing_file_include_horus_bt_tree_runner.hpp
+writing output... [ 87%] generated/structhorus__bt_1_1BehaviorChannel
+writing output... [ 89%] generated/structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome
+writing output... [ 91%] generated/structhorus__bt_1_1TreeRunner_1_1Request
+writing output... [ 93%] generated/structhorus__bt_1_1detail_1_1LeafExecutor
+writing output... [ 96%] generated/typedef_node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7
+writing output... [ 98%] genindex
+writing output... [100%] index
+
+generating indices... genindex done
+writing additional pages... search done
+dumping search index in English (code: en)... done
+dumping object inventory... done
+build succeeded.
+
+The HTML pages are in sphinx_output.
+[rosdoc2] [INFO] Sphinx-build exited with return code '0'
+[rosdoc2] [INFO] Moving inventory file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt/wrapped_sphinx_directory/sphinx_output/objects.inv' into cross-reference directory '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_bt/objects.inv'
+[rosdoc2] [INFO] Moving files for 'horus_bt (sphinx)' from '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/horus_bt/wrapped_sphinx_directory/sphinx_output' into '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_bt/output_staging/'.
+[rosdoc2] [INFO] Moved 168 files.
+[rosdoc2] [INFO] Moving files to final destination in '/home/drscodex/Development/horus_docs/_build/html/docs/packages/horus_bt'.

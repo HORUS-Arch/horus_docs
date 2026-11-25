@@ -1,0 +1,119 @@
+
+.. _program_listing_file_include_horus_human_default_calibrations.hpp:
+
+Program Listing for File default_calibrations.hpp
+=================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_human_default_calibrations.hpp>` (``include/horus_human/default_calibrations.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <map>
+   #include <string>
+   #include <vector>
+   
+   #include "horus_human/calibrations.hpp"
+   #include "tf2/LinearMath/Quaternion.h"
+   #include "tf2/LinearMath/Vector3.h"
+   
+   namespace horus_human
+   {
+   
+   class ImuStaticPose : public ImuCalibration
+   {
+      public:
+       void configure(const horus_human_core::NodePtr& node, const std::string& name,
+                      const std::vector<std::string>& units) override;
+       double defaultDuration() const override { return duration_; }
+       void begin(const std::string& unit) override;
+       void add(const std::string& unit, const sensor_msgs::msg::Imu& raw) override;
+       bool finish(const std::string& unit, YAML::Node& out, std::string& summary) override;
+       bool load(const std::string& unit, const YAML::Node& data) override;
+       bool calibrated(const std::string& unit) const override;
+       void apply(const std::string& unit, sensor_msgs::msg::Imu& msg) const override;
+   
+      private:
+       struct Window
+       {
+           tf2::Quaternion first{0, 0, 0, 1}; 
+           double q[4]{0, 0, 0, 0};           
+           std::size_t q_count{0};            
+           tf2::Vector3 gyro{0, 0, 0};        
+           double gyro_sq{0};                 
+           std::size_t count{0};              
+       };
+       struct Result
+       {
+           tf2::Quaternion offset{0, 0, 0, 1}; 
+           tf2::Vector3 bias{0, 0, 0};         
+           bool valid{false};
+       };
+   
+       double duration_{3.0};                          
+       double max_motion_{0.1};                        
+       bool estimate_bias_{true};                      
+       std::map<std::string, tf2::Quaternion> reference_; 
+       std::map<std::string, Window> windows_;
+       std::map<std::string, Result> results_;
+   };
+   
+   class InsoleZeroOffset : public InsoleCalibration
+   {
+      public:
+       void configure(const horus_human_core::NodePtr& node, const std::string& name,
+                      const std::vector<std::string>& units) override;
+       double defaultDuration() const override { return duration_; }
+       void begin(const std::string& unit) override;
+       void add(const std::string& unit, const human_msgs::msg::Insole& raw) override;
+       bool finish(const std::string& unit, YAML::Node& out, std::string& summary) override;
+       bool load(const std::string& unit, const YAML::Node& data) override;
+       bool calibrated(const std::string& unit) const override;
+       void apply(const std::string& unit, human_msgs::msg::Insole& msg) const override;
+   
+      private:
+       struct Window
+       {
+           std::vector<double> sum;          
+           std::vector<std::size_t> n;       
+           double force_sum{0};
+           std::size_t force_n{0};
+       };
+       struct Result
+       {
+           std::vector<double> pressure;     
+           double force{0};                  
+           bool valid{false};
+       };
+   
+       double duration_{2.0};                
+       double max_force_{-1.0};              
+       std::map<std::string, Window> windows_;
+       std::map<std::string, Result> results_;
+   };
+   
+   class EmgMvc : public EmgCalibration
+   {
+      public:
+       void configure(const horus_human_core::NodePtr& node, const std::string& name,
+                      const std::vector<std::string>& units) override;
+       double defaultDuration() const override { return duration_; }
+       void begin(const std::string& unit) override;
+       void add(const std::string& unit, const human_msgs::msg::Emg& raw) override;
+       bool finish(const std::string& unit, YAML::Node& out, std::string& summary) override;
+       bool load(const std::string& unit, const YAML::Node& data) override;
+       bool calibrated(const std::string& unit) const override;
+       void apply(const std::string& unit, human_msgs::msg::Emg& msg) const override;
+   
+      private:
+       double duration_{5.0};                 
+       double min_mvc_{1e-6};                 
+       std::map<std::string, double> peak_;   
+       std::map<std::string, double> mvc_;    
+   };
+   
+   }  // namespace horus_human

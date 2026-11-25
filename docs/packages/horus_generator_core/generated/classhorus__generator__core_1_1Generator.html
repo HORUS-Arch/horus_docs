@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class Generator &mdash; horus_generator_core: Jazzy 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+      <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Typedef horus_generator_core::NodePtr" href="typedef_generator_8hpp_1afe53c3d4c2386c3c6c304d9929c5db0d.html" />
+    <link rel="prev" title="Namespace horus_generator_core" href="namespace_horus_generator_core.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            horus_generator_core: Jazzy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../__links.html">Links</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://index.ros.org/p/horus_generator_core">Rosindex</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#full-c-api">Full C++ API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_horus_generator_core.html">Namespace horus_generator_core</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Class Generator</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="typedef_generator_8hpp_1afe53c3d4c2386c3c6c304d9929c5db0d.html">Typedef horus_generator_core::NodePtr</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#directories">Directories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dir_include.html">Directory include</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_horus_generator_core.html">Directory horus_generator_core</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#files">Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_generator_core_generator.hpp.html">File generator.hpp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../__standards.html">Standard Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../__README.html#horus-generator-core">horus_generator_core</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#architecture">Architecture</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#the-interface-generator-hpp">The interface (<code class="docutils literal notranslate"><span class="pre">generator.hpp</span></code>)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../__ros_package_dependencies.html">ROS Package Dependencies</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rclcpp/">rclcpp</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rclcpp_lifecycle/">rclcpp_lifecycle</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">horus_generator_core: Jazzy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">C++ API</a></li>
+      <li class="breadcrumb-item active">Class Generator</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/classhorus__generator__core_1_1Generator.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="class-generator">
+<span id="exhale-class-classhorus-generator-core-1-1generator"></span><h1>Class Generator<a class="headerlink" href="#class-generator" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_horus_generator_core_generator.hpp.html#file-include-horus-generator-core-generator-hpp"><span class="std std-ref">File generator.hpp</span></a></p></li>
+</ul>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Link to this heading"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N20horus_generator_core9GeneratorE">
+<span id="_CPPv3N20horus_generator_core9GeneratorE"></span><span id="_CPPv2N20horus_generator_core9GeneratorE"></span><span id="horus_generator_core::Generator"></span><span class="target" id="classhorus__generator__core_1_1Generator"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Generator</span></span></span><a class="headerlink" href="#_CPPv4N20horus_generator_core9GeneratorE" title="Link to this definition"></a><br /></dt>
+<dd><p>Base class for a reference generator, the algorithm behind one named behavior. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N20horus_generator_core9Generator3PtrE">
+<span id="_CPPv3N20horus_generator_core9Generator3PtrE"></span><span id="_CPPv2N20horus_generator_core9Generator3PtrE"></span><span class="target" id="classhorus__generator__core_1_1Generator_1aa90c9b265b171f18e5227a684b620042"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Ptr</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4N20horus_generator_core9GeneratorE" title="horus_generator_core::Generator"><span class="n"><span class="pre">Generator</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4N20horus_generator_core9Generator3PtrE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N20horus_generator_core9GeneratorD0Ev">
+<span id="_CPPv3N20horus_generator_core9GeneratorD0Ev"></span><span id="_CPPv2N20horus_generator_core9GeneratorD0Ev"></span><span id="horus_generator_core::Generator::~Generator"></span><span class="target" id="classhorus__generator__core_1_1Generator_1ad32b37c0dcce4b07ddb1121a853ce753"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">~Generator</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><a class="headerlink" href="#_CPPv4N20horus_generator_core9GeneratorD0Ev" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N20horus_generator_core9Generator9configureERK7NodePtrRKNSt6stringE">
+<span id="_CPPv3N20horus_generator_core9Generator9configureERK7NodePtrRKNSt6stringE"></span><span id="_CPPv2N20horus_generator_core9Generator9configureERK7NodePtrRKNSt6stringE"></span><span id="horus_generator_core::Generator::configure__NodePtrCR.ssCR"></span><span class="target" id="classhorus__generator__core_1_1Generator_1a186b7873eed1152d97480a06e37311a3"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">configure</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="typedef_generator_8hpp_1afe53c3d4c2386c3c6c304d9929c5db0d.html#_CPPv4N20horus_generator_core7NodePtrE" title="horus_generator_core::NodePtr"><span class="n"><span class="pre">NodePtr</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">node</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N20horus_generator_core9Generator9configureERK7NodePtrRKNSt6stringE" title="Link to this definition"></a><br /></dt>
+<dd><p>Read this instance’s parameters and subscribe whatever inputs the algorithm needs. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>node</strong> – The hosting lifecycle node, used for parameters, logging and subscriptions. </p></li>
+<li><p><strong>name</strong> – This instance’s parameter namespace; parameters live under <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;.*</span></code>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N20horus_generator_core9Generator8activateEv">
+<span id="_CPPv3N20horus_generator_core9Generator8activateEv"></span><span id="_CPPv2N20horus_generator_core9Generator8activateEv"></span><span id="horus_generator_core::Generator::activate"></span><span class="target" id="classhorus__generator__core_1_1Generator_1a8ba4fe18eef6b597af8a554c6fa97a0e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">activate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N20horus_generator_core9Generator8activateEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Called when this generator becomes the active one, before the first <a class="reference internal" href="#classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea"><span class="std std-ref">update()</span></a>. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N20horus_generator_core9Generator10deactivateEv">
+<span id="_CPPv3N20horus_generator_core9Generator10deactivateEv"></span><span id="_CPPv2N20horus_generator_core9Generator10deactivateEv"></span><span id="horus_generator_core::Generator::deactivate"></span><span class="target" id="classhorus__generator__core_1_1Generator_1ae533309152199cd26ba7048d5763ba2b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deactivate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N20horus_generator_core9Generator10deactivateEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Called when this generator stops being the active one. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N20horus_generator_core9Generator5resetEv">
+<span id="_CPPv3N20horus_generator_core9Generator5resetEv"></span><span id="_CPPv2N20horus_generator_core9Generator5resetEv"></span><span id="horus_generator_core::Generator::reset"></span><span class="target" id="classhorus__generator__core_1_1Generator_1a29b0093aed724a059d09a9de93ae39a7"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">reset</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N20horus_generator_core9Generator5resetEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Return internal state (phase, elapsed time) to its starting point. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N20horus_generator_core9Generator6updateERKN6rclcpp4TimeERKN6rclcpp8DurationE">
+<span id="_CPPv3N20horus_generator_core9Generator6updateERKN6rclcpp4TimeERKN6rclcpp8DurationE"></span><span id="_CPPv2N20horus_generator_core9Generator6updateERKN6rclcpp4TimeERKN6rclcpp8DurationE"></span><span id="horus_generator_core::Generator::update__rclcpp::TimeCR.rclcpp::DurationCR"></span><span class="target" id="classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">update</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Time</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">time</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">rclcpp</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Duration</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">period</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4N20horus_generator_core9Generator6updateERKN6rclcpp4TimeERKN6rclcpp8DurationE" title="Link to this definition"></a><br /></dt>
+<dd><p>Produce the reference for this tick. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>time</strong> – Current time from the hosting node’s clock. </p></li>
+<li><p><strong>period</strong> – Time since the previous tick. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The reference vector, ordered to match the target controller’s joints. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK20horus_generator_core9Generator8finishedEv">
+<span id="_CPPv3NK20horus_generator_core9Generator8finishedEv"></span><span id="_CPPv2NK20horus_generator_core9Generator8finishedEv"></span><span id="horus_generator_core::Generator::finishedC"></span><span class="target" id="classhorus__generator__core_1_1Generator_1a2d142582f4e25f6cc24f542aeeffcf36"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">finished</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK20horus_generator_core9Generator8finishedEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Whether a finite motion has completed, which is what lets a behavior action succeed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True once a finite generator (a sit / stand / home player) is done. Continuous generators (sine, walk, CPG) keep the default and run until canceled. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK20horus_generator_core9Generator8progressEv">
+<span id="_CPPv3NK20horus_generator_core9Generator8progressEv"></span><span id="_CPPv2NK20horus_generator_core9Generator8progressEv"></span><span id="horus_generator_core::Generator::progressC"></span><span class="target" id="classhorus__generator__core_1_1Generator_1aab97360799bfef185b3789e98428f3e8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">progress</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK20horus_generator_core9Generator8progressEv" title="Link to this definition"></a><br /></dt>
+<dd><p>How far a finite motion has got, for action feedback. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>0.0 .. 1.0 for finite generators; continuous generators keep the default 0. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK20horus_generator_core9Generator10jointNamesEv">
+<span id="_CPPv3NK20horus_generator_core9Generator10jointNamesEv"></span><span id="_CPPv2NK20horus_generator_core9Generator10jointNamesEv"></span><span id="horus_generator_core::Generator::jointNamesC"></span><span class="target" id="classhorus__generator__core_1_1Generator_1ad3fbc23d20d533b7278714729b49241f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">jointNames</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK20horus_generator_core9Generator10jointNamesEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Names of the joints the output vector is ordered by, if the generator knows them. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Joint names (needed for trajectory output); empty = the server’s <code class="docutils literal notranslate"><span class="pre">joint_names</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK20horus_generator_core9Generator8quantityEv">
+<span id="_CPPv3NK20horus_generator_core9Generator8quantityEv"></span><span id="_CPPv2NK20horus_generator_core9Generator8quantityEv"></span><span id="horus_generator_core::Generator::quantityC"></span><span class="target" id="classhorus__generator__core_1_1Generator_1a42aba85d6daebc7479a884d46362d316"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">quantity</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK20horus_generator_core9Generator8quantityEv" title="Link to this definition"></a><br /></dt>
+<dd><p>What the output vector is, so the server fills the matching trajectory field. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>“position” (default), “velocity” or “effort”. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N20horus_generator_core9Generator13setSpeedScaleEd">
+<span id="_CPPv3N20horus_generator_core9Generator13setSpeedScaleEd"></span><span id="_CPPv2N20horus_generator_core9Generator13setSpeedScaleEd"></span><span id="horus_generator_core::Generator::setSpeedScale__double"></span><span class="target" id="classhorus__generator__core_1_1Generator_1aac97a06d1cdf642b3bb1b3993cc724c4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setSpeedScale</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N20horus_generator_core9Generator13setSpeedScaleEd" title="Link to this definition"></a><br /></dt>
+<dd><p>The server’s live speed scale, given before every <a class="reference internal" href="#classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea"><span class="std std-ref">update()</span></a>; time-derivative outputs (velocities) must be multiplied by it. Time itself already arrives scaled. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>scale</strong> – Current speed_scale (0 = hold). </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="namespace_horus_generator_core.html" class="btn btn-neutral float-left" title="Namespace horus_generator_core" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="typedef_generator_8hpp_1afe53c3d4c2386c3c6c304d9929c5db0d.html" class="btn btn-neutral float-right" title="Typedef horus_generator_core::NodePtr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The &lt;horus_generator_core&gt; Contributors. License: MIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

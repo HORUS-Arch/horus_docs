@@ -1,0 +1,49 @@
+# Add a device
+
+A device lives in its own repository, `<device>_ros2`, which depends on HORUS and never the reverse.
+
+```bash
+ros2 run horus_setup_assistant generate --name mydevice --joints hip_r knee_r ankle_r
+```
+
+generates the skeleton: description, controllers, package files, README.
+
+## The contract
+
+A device is integrated entirely through **ros2_control**.
+
+1. **Describe it.** The URDF holds links, joints, `<inertial>` data and a `<ros2_control>` element with
+   the hardware plugin and, per joint, the command and state interfaces it offers (`position`,
+   `velocity`, `effort`, `stiffness`, `damping`), an interaction sensor (sagittal, frontal,
+   transverse) and a GPIO block for device status (battery, temperature, errors).
+2. **Drive it.** The hardware plugin (`<device>_hardware`) implements `read()` and `write()`. Arming
+   and disarming are its lifecycle (inactive/active).
+3. **Report it.** Status and errors are state interfaces, published by a broadcaster to
+   `/diagnostics`, where a fault reaches the supervisor. Reserve `return_type::ERROR` for fatal faults
+   (ros2_control then deactivates the controllers).
+4. **Stop it.** Define what the device does on deactivate and on a read/write error (hold, or zero
+   torque), and keep a watchdog in the firmware that stops it when commands stop arriving.
+5. **Configure it.** A controllers YAML from {doc}`../configuration/controllers`, with
+   `horus_control/SafetyController` as the last controller before the hardware, and a launch file
+   the rig file can include.
+
+How the supervisor reacts to each diagnostic level:
+
+| Level | Reaction |
+|---|---|
+| OK | nothing |
+| WARN | warning (UI banner, event in `trial.yaml`) |
+| ERROR or STALE from a critical source | EMERGENCY_STOP; RESET refused until it clears |
+| ERROR or STALE from a non-critical source | warning and event in `trial.yaml`; the run continues |
+| silent for `stale_timeout` | ERROR while the device moves, a warning when idle |
+
+Mark the device's sources critical with `robot.critical_sources` in the rig file (e.g.
+`[controller_manager]`), see {doc}`../configuration/rig_file`.
+
+HORUS needs no other service. Device-specific services (control modes, register access) stay in the
+device repository; HORUS never calls them.
+
+## Simulate it
+
+Select the MuJoCo hardware backend with the xacro argument and provide an MJCF scene; everything above
+ros2_control is unchanged (see {doc}`../concepts/simulation`).

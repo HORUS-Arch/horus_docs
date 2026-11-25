@@ -1,0 +1,16 @@
+# Roadmap
+
+| Area | Status |
+|---|---|
+| Supervisor, behavior trees, condition leaves | done |
+| Generation: Pattern, Waypoints (position, velocity, effort), live speed, preemption | done |
+| Control: stock controllers, gravity compensation | done |
+| Sensing: IMU, insole, EMG with pluggable calibration | done |
+| Human model scaled from body measurements | done |
+| Rig file, rosbridge interface, recording and replay | done |
+| Stage-2 estimation: joint kinematics, gait events and phases | planned |
+| Robot state: base orientation for gravity compensation on a worn device | planned |
+| Interaction estimation (human joint torque) | planned |
+| Perception of the environment (terrain, stairs) | future |
+| Human-in-the-loop optimization (`Optimize` action reserved) | future |
+| Timing on PREEMPT_RT hardware, participant validation | in progress |

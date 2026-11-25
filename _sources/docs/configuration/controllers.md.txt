@@ -1,0 +1,62 @@
+# Controllers
+
+HORUS uses the stock ros2_controllers and adds generic model-based ones in `horus_control`. Copy one
+of `horus_control/config/*.yaml` into your device's controllers file and set your joint names. One
+controller runs for the whole session.
+
+| File | Controller | Generator output |
+|---|---|---|
+| `forward_position.yaml` | `forward_command_controller` (position) | `float64_array` → `/position_controller/commands` |
+| `forward_velocity.yaml` | `forward_command_controller` (velocity) | `float64_array` (Waypoints `quantity: velocity`) |
+| `joint_trajectory.yaml` | `joint_trajectory_controller` | `joint_trajectory` → `/joint_trajectory_controller/joint_trajectory` |
+| `gravity_compensation.yaml` | `horus_control/GravityCompensation` | optional effort reference → `/gravity_compensation/effort_reference` |
+| `safety.yaml` | `horus_control/SafetyController` | `float64_array` → `/safety_controller/commands` (direct), or chained under another controller |
+
+## Gravity compensation
+
+Commands τ = γ·G(q) + τ_ref on the effort interfaces, with G(q) from the URDF inertias (KDL).
+
+| Parameter | Default | Meaning |
+|---|---|---|
+| `joints` | — | effort-commanded joints (any order) |
+| `root_link`, `tip_link` | — | the chain; its movable joints must equal `joints` |
+| `gravity` | `[0, 0, -9.81]` | in the root link's frame |
+| `gain` | `1.0` | γ, share of the weight compensated |
+| `reference_timeout` | `0.2` | s; an older effort reference is ignored |
+| `max_effort` | `0.0` | N m clamp per joint (0 = none) |
+
+The links of the chain need `<inertial>` data. On a worn device whose pelvis tilts, the base
+orientation must rotate `gravity` (planned).
+
+## Safety controller
+
+`horus_control/SafetyController` is the last controller before the hardware (the role of nav2's
+`collision_monitor`). Every command to the device passes through it, so it acts within one control
+cycle without waiting for the supervisor, the trees or the generators.
+
+It stops, latched, when a message arrives on `estop_topic` (the same topic as the UI and hardware
+button), when the supervisor reports EMERGENCY_STOP, or (direct wiring only) when no command arrives
+for `command_timeout` while commands were flowing. While stopped, a position interface holds the pose
+measured at the stop; velocity and effort interfaces command 0. It releases when the supervisor
+reports a mode entered after the stop (RESET), or, after a command timeout, when commands flow
+again. At all times it clamps commands to the limits below and replaces a NaN command by the stop
+value. `~/stopped` (`std_msgs/Bool`, latched) reports the state.
+
+Two ways to wire it (`horus_control/config/safety.yaml`):
+
+- **direct** (recommended): the generator server's `output_topic` is `/safety_controller/commands`;
+  the command timeout is active.
+- **chained**: an upstream controller (forward, trajectory) commands the joints
+  `safety_controller/<joint>`, the reference interfaces it exports; the emergency stop, supervisor
+  and limits are active, the upstream controller's own timeout applies.
+
+| Parameter | Default | Meaning |
+|---|---|---|
+| `joints` | — | URDF joint names, in the generator's output order |
+| `interface` | `position` | `position` (hold the pose on stop), `velocity` or `effort` (0 on stop) |
+| `min`, `max` | `[]` | position clamp per joint; `[]` = none |
+| `max_effort` | `0.0` | N m clamp for `interface: effort` (0 = none) |
+| `max_velocity` | `0.0` | rad/s clamp for `interface: velocity` (0 = none) |
+| `command_timeout` | `0.5` | s without a command, while commands were flowing, before it stops |
+| `estop_topic` | `/horus/supervisor/estop` | emergency stop topic, read directly |
+| `supervisor_state_topic` | `/horus/supervisor/state` | supervisor mode |

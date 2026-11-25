@@ -1,0 +1,71 @@
+
+.. _file_include_horus_bt_node_ptr.hpp:
+
+File node_ptr.hpp
+=================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_bt>` (``include/horus_bt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+The node handle every HORUS BT leaf receives: the supervisor, which runs the trees. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_bt/node_ptr.hpp``)
+----------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_bt_node_ptr.hpp.rst
+
+
+
+
+
+Includes
+--------
+
+
+- ``rclcpp/rclcpp.hpp``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_horus_bt_calibrate_node.hpp`
+
+- :ref:`file_include_horus_bt_condition_nodes.hpp`
+
+- :ref:`file_include_horus_bt_execute_behavior_node.hpp`
+
+- :ref:`file_include_horus_bt_system_nodes.hpp`
+
+- :ref:`file_include_horus_bt_tree_runner.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_bt`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7`
+

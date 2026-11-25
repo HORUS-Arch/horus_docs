@@ -1,0 +1,134 @@
+
+.. _program_listing_file_include_horus_bt_calibrate_node.hpp:
+
+Program Listing for File calibrate_node.hpp
+===========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_bt_calibrate_node.hpp>` (``include/horus_bt/calibrate_node.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <chrono>
+   #include <future>
+   #include <memory>
+   #include <string>
+   
+   #include "behaviortree_cpp/action_node.h"
+   #include "horus_msgs/action/calibrate.hpp"
+   #include "horus_msgs/srv/save_calibration.hpp"
+   #include "horus_bt/node_ptr.hpp"
+   #include "rclcpp/rclcpp.hpp"
+   #include "rclcpp_action/rclcpp_action.hpp"
+   
+   namespace horus_bt
+   {
+   
+   class CalibrateNode : public BT::StatefulActionNode
+   {
+      public:
+       using Action = horus_msgs::action::Calibrate;
+       using GoalHandle = rclcpp_action::ClientGoalHandle<Action>;
+       using Save = horus_msgs::srv::SaveCalibration;
+   
+       CalibrateNode(const std::string& name, const BT::NodeConfig& config, const NodePtr& node)
+           : BT::StatefulActionNode(name, config), node_(node)
+       {
+           cbg_ = node_->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive, false);
+           exec_.add_callback_group(cbg_, node_->get_node_base_interface());
+       }
+   
+       static BT::PortsList providedPorts()
+       {
+           return {BT::InputPort<std::string>("node", "processing node, e.g. /human/imus_a"),
+                   BT::InputPort<std::string>("unit", "", "unit to calibrate; empty = all"),
+                   BT::InputPort<double>("duration", 0.0, "s; 0 = the plugin's default"),
+                   BT::InputPort<std::string>("subject_id", "", "save for this subject; empty = the node's selected subject"),
+                   BT::InputPort<bool>("save", true, "save the result (false = keep it pending)")};
+       }
+   
+       BT::NodeStatus onStart() override
+       {
+           std::string target;
+           if (!getInput("node", target) || target.empty())
+           {
+               RCLCPP_ERROR(node_->get_logger(), "Calibrate: missing 'node' port");
+               return BT::NodeStatus::FAILURE;
+           }
+           target_ = target;
+           subject_ = getInput<std::string>("subject_id").value_or("");
+           save_ = getInput<bool>("save").value_or(true);
+           client_ = rclcpp_action::create_client<Action>(node_, target_ + "/calibrate", cbg_);
+           if (!client_->wait_for_action_server(std::chrono::seconds(2)))
+           {
+               RCLCPP_ERROR(node_->get_logger(), "Calibrate: '%s/calibrate' not up", target_.c_str());
+               return BT::NodeStatus::FAILURE;
+           }
+           Action::Goal goal;
+           goal.unit = getInput<std::string>("unit").value_or("");
+           goal.duration = static_cast<float>(getInput<double>("duration").value_or(0.0));
+           done_ = false;
+           succeeded_ = false;
+           saving_ = false;
+           goal_handle_.reset();
+           auto opts = rclcpp_action::Client<Action>::SendGoalOptions();
+           opts.result_callback = [this](const GoalHandle::WrappedResult& r)
+           {
+               done_ = true;
+               succeeded_ = r.code == rclcpp_action::ResultCode::SUCCEEDED;
+               if (!succeeded_ && r.result)
+                   RCLCPP_WARN(node_->get_logger(), "Calibrate %s: %s", target_.c_str(), r.result->error_msg.c_str());
+           };
+           goal_future_ = client_->async_send_goal(goal, opts);
+           return BT::NodeStatus::RUNNING;
+       }
+   
+       BT::NodeStatus onRunning() override
+       {
+           exec_.spin_all(std::chrono::milliseconds(5)); /* drain everything queued (feedback can back up) */
+           if (!goal_handle_ && goal_future_.valid() &&
+               goal_future_.wait_for(std::chrono::seconds(0)) == std::future_status::ready)
+           {
+               goal_handle_ = goal_future_.get();
+               if (!goal_handle_) return BT::NodeStatus::FAILURE; /* rejected (node not active?) */
+           }
+           if (!done_) return BT::NodeStatus::RUNNING;
+           if (!succeeded_) return BT::NodeStatus::FAILURE;
+           if (!save_) return BT::NodeStatus::SUCCESS;
+           if (!saving_)
+           {
+               save_client_ = node_->create_client<Save>(target_ + "/save_calibration", rclcpp::ServicesQoS(), cbg_);
+               if (!save_client_->wait_for_service(std::chrono::seconds(2))) return BT::NodeStatus::FAILURE;
+               auto req = std::make_shared<Save::Request>();
+               req->subject_id = subject_;
+               save_future_ = save_client_->async_send_request(req).future.share();
+               saving_ = true;
+           }
+           if (save_future_.wait_for(std::chrono::seconds(0)) != std::future_status::ready) return BT::NodeStatus::RUNNING;
+           return save_future_.get()->success ? BT::NodeStatus::SUCCESS : BT::NodeStatus::FAILURE;
+       }
+   
+       void onHalted() override
+       {
+           if (goal_handle_ && !done_) client_->async_cancel_goal(goal_handle_);
+           exec_.spin_all(std::chrono::milliseconds(5)); /* drain everything queued (feedback can back up) */
+       }
+   
+      private:
+       NodePtr node_;
+       rclcpp::CallbackGroup::SharedPtr cbg_;
+       rclcpp::executors::SingleThreadedExecutor exec_;     
+       rclcpp_action::Client<Action>::SharedPtr client_;
+       rclcpp::Client<Save>::SharedPtr save_client_;
+       std::shared_future<GoalHandle::SharedPtr> goal_future_;
+       std::shared_future<Save::Response::SharedPtr> save_future_;
+       GoalHandle::SharedPtr goal_handle_;
+       std::string target_, subject_;                       
+       bool done_{false}, succeeded_{false}, saving_{false}, save_{true};
+   };
+   
+   }  // namespace horus_bt

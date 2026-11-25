@@ -1,0 +1,27 @@
+
+.. _namespace_horus_estimator_core:
+
+Namespace horus_estimator_core
+==============================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__estimator__core_1_1Estimator`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_estimator_8hpp_1a43ff1c092d8ecf8eb49f8f05d0ad89a3`

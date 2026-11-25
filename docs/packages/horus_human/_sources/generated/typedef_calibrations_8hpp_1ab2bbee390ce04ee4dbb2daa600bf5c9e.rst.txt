@@ -1,0 +1,14 @@
+.. _exhale_typedef_calibrations_8hpp_1ab2bbee390ce04ee4dbb2daa600bf5c9e:
+
+Typedef horus_human::EmgCalibration
+===================================
+
+- Defined in :ref:`file_include_horus_human_calibrations.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: horus_human::EmgCalibration
+   :project: horus_human Doxygen Project

@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__human_1_1EmgMvc" kind="class" language="C++" prot="public">
+    <compoundname>horus_human::EmgMvc</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">EmgCalibration</basecompoundref>
+    <includes refid="default__calibrations_8hpp" local="no">default_calibrations.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__human_1_1EmgMvc_1a509b33f97aa6b13ac0e14fe94e9f9199" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_human::EmgMvc::duration_</definition>
+        <argsstring></argsstring>
+        <name>duration_</name>
+        <qualifiedname>horus_human::EmgMvc::duration_</qualifiedname>
+        <initializer>{5.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>s, default window </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="120" column="12" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="120" bodyend="120"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human_1_1EmgMvc_1a414cfd122cdf8259a855f6ef3b3cf344" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_human::EmgMvc::min_mvc_</definition>
+        <argsstring></argsstring>
+        <name>min_mvc_</name>
+        <qualifiedname>horus_human::EmgMvc::min_mvc_</qualifiedname>
+        <initializer>{1e-6}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>reject a flat signal </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="121" column="12" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="121" bodyend="121"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human_1_1EmgMvc_1a74b92a591ea3f4b83f45a7f9c9181070" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, double &gt;</type>
+        <definition>std::map&lt;std::string, double&gt; horus_human::EmgMvc::peak_</definition>
+        <argsstring></argsstring>
+        <name>peak_</name>
+        <qualifiedname>horus_human::EmgMvc::peak_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>window peak per unit </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="122" column="14" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="122" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human_1_1EmgMvc_1a6e4a0be399301c719aab5118140d4187" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, double &gt;</type>
+        <definition>std::map&lt;std::string, double&gt; horus_human::EmgMvc::mvc_</definition>
+        <argsstring></argsstring>
+        <name>mvc_</name>
+        <qualifiedname>horus_human::EmgMvc::mvc_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>applied MVC per unit (&gt; 0 = calibrated) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="123" column="14" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="123" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__human_1_1EmgMvc_1afb5a429a96708c9d28586730e7354169" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_human::EmgMvc::configure</definition>
+        <argsstring>(const horus_human_core::NodePtr &amp;node, const std::string &amp;name, const std::vector&lt; std::string &gt; &amp;units) override</argsstring>
+        <name>configure</name>
+        <qualifiedname>horus_human::EmgMvc::configure</qualifiedname>
+        <param>
+          <type>const horus_human_core::NodePtr &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>units</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="109" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1EmgMvc_1af49e983ef93a87d98e2ec4dc8c513317" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double horus_human::EmgMvc::defaultDuration</definition>
+        <argsstring>() const override</argsstring>
+        <name>defaultDuration</name>
+        <qualifiedname>horus_human::EmgMvc::defaultDuration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="111" column="12" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="111" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1EmgMvc_1acb930e5dff3acfc9b1140824ae378431" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_human::EmgMvc::begin</definition>
+        <argsstring>(const std::string &amp;unit) override</argsstring>
+        <name>begin</name>
+        <qualifiedname>horus_human::EmgMvc::begin</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="112" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1EmgMvc_1a24e73557280f40fb645ef1c404ee1d6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_human::EmgMvc::add</definition>
+        <argsstring>(const std::string &amp;unit, const human_msgs::msg::Emg &amp;raw) override</argsstring>
+        <name>add</name>
+        <qualifiedname>horus_human::EmgMvc::add</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>const human_msgs::msg::Emg &amp;</type>
+          <declname>raw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="113" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1EmgMvc_1a6287f790287a9c56dd9e2dd9453a3134" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_human::EmgMvc::finish</definition>
+        <argsstring>(const std::string &amp;unit, YAML::Node &amp;out, std::string &amp;summary) override</argsstring>
+        <name>finish</name>
+        <qualifiedname>horus_human::EmgMvc::finish</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>YAML::Node &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>summary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="114" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1EmgMvc_1aad849e15066cff21715a9ed76c804446" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_human::EmgMvc::load</definition>
+        <argsstring>(const std::string &amp;unit, const YAML::Node &amp;data) override</argsstring>
+        <name>load</name>
+        <qualifiedname>horus_human::EmgMvc::load</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>const YAML::Node &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="115" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1EmgMvc_1ab11621c5d27deb0d48c76f31c61192cb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_human::EmgMvc::calibrated</definition>
+        <argsstring>(const std::string &amp;unit) const override</argsstring>
+        <name>calibrated</name>
+        <qualifiedname>horus_human::EmgMvc::calibrated</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="116" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1EmgMvc_1a4844e0a419ed876df0ee535b59d4e616" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_human::EmgMvc::apply</definition>
+        <argsstring>(const std::string &amp;unit, human_msgs::msg::Emg &amp;msg) const override</argsstring>
+        <name>apply</name>
+        <qualifiedname>horus_human::EmgMvc::apply</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>human_msgs::msg::Emg &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="117" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Maximum voluntary contraction: normalise the envelope by its peak. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>EmgCalibration</label>
+      </node>
+      <node id="1">
+        <label>horus_human::EmgMvc</label>
+        <link refid="classhorus__human_1_1EmgMvc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>EmgCalibration</label>
+      </node>
+      <node id="1">
+        <label>horus_human::EmgMvc</label>
+        <link refid="classhorus__human_1_1EmgMvc"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/horus_human/default_calibrations.hpp" line="106" column="1" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="107" bodyend="124"/>
+    <listofallmembers>
+      <member refid="classhorus__human_1_1EmgMvc_1a24e73557280f40fb645ef1c404ee1d6b" prot="public" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>add</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1a4844e0a419ed876df0ee535b59d4e616" prot="public" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>apply</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1acb930e5dff3acfc9b1140824ae378431" prot="public" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>begin</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1ab11621c5d27deb0d48c76f31c61192cb" prot="public" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>calibrated</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1afb5a429a96708c9d28586730e7354169" prot="public" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>configure</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1af49e983ef93a87d98e2ec4dc8c513317" prot="public" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>defaultDuration</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1a509b33f97aa6b13ac0e14fe94e9f9199" prot="private" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>duration_</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1a6287f790287a9c56dd9e2dd9453a3134" prot="public" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>finish</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1aad849e15066cff21715a9ed76c804446" prot="public" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>load</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1a414cfd122cdf8259a855f6ef3b3cf344" prot="private" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>min_mvc_</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1a6e4a0be399301c719aab5118140d4187" prot="private" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>mvc_</name></member>
+      <member refid="classhorus__human_1_1EmgMvc_1a74b92a591ea3f4b83f45a7f9c9181070" prot="private" virt="non-virtual"><scope>horus_human::EmgMvc</scope><name>peak_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

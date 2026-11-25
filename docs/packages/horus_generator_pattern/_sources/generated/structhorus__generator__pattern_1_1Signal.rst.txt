@@ -1,0 +1,17 @@
+.. _exhale_struct_structhorus__generator__pattern_1_1Signal:
+
+Struct Signal
+=============
+
+- Defined in :ref:`file_include_horus_generator_pattern_pattern.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: horus_generator_pattern::Signal
+   :project: horus_generator_pattern Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

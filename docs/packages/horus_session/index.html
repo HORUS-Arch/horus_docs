@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>horus_session &mdash; horus_session: Jazzy 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Links" href="__links.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            horus_session: Jazzy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="__links.html">Links</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://index.ros.org/p/horus_session">Rosindex</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="horus_session.html">horus_session package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="horus_session.html#submodules">Submodules</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="horus_session.recorder.html">horus_session.recorder module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="horus_session.session.html">horus_session.session module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="horus_session.session_client.html">horus_session.session_client module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="horus_session.subjects.html">horus_session.subjects module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="horus_session.html#module-horus_session">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="__standards.html">Standard Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="__README.html">README</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="__README.html#horus-session">horus_session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#nodes">Nodes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#behaviour">Behaviour</a></li>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#ros2-api">ROS2 API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#tests">Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="__ros_package_dependencies.html">ROS Package Dependencies</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/ros2bag/">ros2bag</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rosbag2_storage_default_plugins/">rosbag2_storage_default_plugins</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rclpy/">rclpy</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/builtin_interfaces/">builtin_interfaces</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rcl_interfaces/">rcl_interfaces</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">horus_session: Jazzy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">horus_session</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="horus-session">
+<h1>horus_session<a class="headerlink" href="#horus-session" title="Link to this heading"></a></h1>
+<p>HORUS session node: subjects, calibration index and recorded trials (one owner of the data folder)</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="__links.html">Links</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://index.ros.org/p/horus_session">Rosindex</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Python API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="horus_session.html">horus_session package</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="__standards.html">Standard Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="__README.html">README</a></li>
+<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="__ros_package_dependencies.html">ROS Package Dependencies</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/ros2bag/">ros2bag</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rosbag2_storage_default_plugins/">rosbag2_storage_default_plugins</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rclpy/">rclpy</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/builtin_interfaces/">builtin_interfaces</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rcl_interfaces/">rcl_interfaces</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="readme">
+<h1>README<a class="headerlink" href="#readme" title="Link to this heading"></a></h1>
+<section id="horus-session">
+<h2>horus_session<a class="headerlink" href="#horus-session" title="Link to this heading"></a></h2>
+<p>The <strong>session + data</strong> layer: one node, <code class="docutils literal notranslate"><span class="pre">session</span></code> (<code class="docutils literal notranslate"><span class="pre">/horus/session</span></code>), that owns the subjects, their
+calibration index and the recorded trials, exposed as services so a web UI (which can’t touch the
+local filesystem) can drive it. A trial is recording or it is not; there is no phase machine. It never
+runs a tree: sequencing is the supervisor’s job. It follows the supervisor’s state to open and close
+trials (<code class="docutils literal notranslate"><span class="pre">record:</span> <span class="pre">per_run</span></code>) and to log events into them.</p>
+<p>On-disk layout under <code class="docutils literal notranslate"><span class="pre">data_root</span></code> (default <code class="docutils literal notranslate"><span class="pre">~/horus_data</span></code>, a visible persistent folder):
+<code class="docutils literal notranslate"><span class="pre">subjects/&lt;id&gt;/{profile.yaml,</span> <span class="pre">calibration/&lt;node&gt;/&lt;unit&gt;_&lt;time&gt;.yaml,</span> <span class="pre">trials/&lt;tid&gt;/{bag/,</span> <span class="pre">trial.yaml}}</span></code>,
+plus <code class="docutils literal notranslate"><span class="pre">trash/</span></code> for deleted subjects (delete moves, never erases).</p>
+<section id="dependencies">
+<h3>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">rclpy</span></code>, <code class="docutils literal notranslate"><span class="pre">horus_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">human_msgs</span></code>, <code class="docutils literal notranslate"><span class="pre">rcl_interfaces</span></code>, <code class="docutils literal notranslate"><span class="pre">rosbag2</span></code> (<code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span></code> CLI), <code class="docutils literal notranslate"><span class="pre">pyyaml</span></code>.</p>
+</section>
+<section id="nodes">
+<h3>Nodes<a class="headerlink" href="#nodes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">session</span></code>, the node. Plain helpers it owns: <code class="docutils literal notranslate"><span class="pre">SubjectStore</span></code> (<code class="docutils literal notranslate"><span class="pre">subjects.py</span></code>: profiles, calibration
+index, trash) and <code class="docutils literal notranslate"><span class="pre">TrialRecorder</span></code> (<code class="docutils literal notranslate"><span class="pre">recorder.py</span></code>: runs <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span> <span class="pre">record</span></code> as a subprocess into
+<code class="docutils literal notranslate"><span class="pre">trials/&lt;tid&gt;/bag/</span></code> and keeps <code class="docutils literal notranslate"><span class="pre">trial.yaml</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">session_client</span></code>, a CLI to START, hold, STOP a trial (smoke test without the UI or the supervisor).</p></li>
+</ul>
+</section>
+<section id="behaviour">
+<h3>Behaviour<a class="headerlink" href="#behaviour" title="Link to this heading"></a></h3>
+<ul>
+<li><p><strong>SELECT</strong> (<code class="docutils literal notranslate"><span class="pre">SessionControl</span></code> command 2) selects the subject for the whole system: it sets the
+parameter <code class="docutils literal notranslate"><span class="pre">subject_id</span></code> on every <code class="docutils literal notranslate"><span class="pre">&lt;human_namespace&gt;/&lt;name&gt;</span></code> node that serves <code class="docutils literal notranslate"><span class="pre">load_calibration</span></code>, and
+calls <code class="docutils literal notranslate"><span class="pre">load_calibration</span></code> on it so its newest calibration files apply. <code class="docutils literal notranslate"><span class="pre">SessionState.subject_id</span></code> is
+the selected subject, also when no trial is open. The subject cannot change while a trial records.</p></li>
+<li><p><strong>Recording</strong> follows <code class="docutils literal notranslate"><span class="pre">record</span></code>:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">record</span></code></p></th>
+<th class="head"><p>Opens a trial</p></th>
+<th class="head"><p>Closes it</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">per_run</span></code> (default)</p></td>
+<td><p>the supervisor enters RUN</p></td>
+<td><p>the supervisor is back in STANDBY</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">manual</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SessionControl</span></code> START (UI, <code class="docutils literal notranslate"><span class="pre">StartRecording</span></code> leaf)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">SessionControl</span></code> STOP (UI, <code class="docutils literal notranslate"><span class="pre">StopRecording</span></code> leaf)</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p><strong>An emergency stop never stops a recording.</strong> It is logged; the trial closes on RESET or
+<code class="docutils literal notranslate"><span class="pre">post_stop_record</span></code> s later, whichever comes first, with outcome <code class="docutils literal notranslate"><span class="pre">emergency_stop</span></code>.</p></li>
+<li><p><strong><code class="docutils literal notranslate"><span class="pre">trial.yaml</span></code></strong>: <code class="docutils literal notranslate"><span class="pre">trial_id</span></code>, <code class="docutils literal notranslate"><span class="pre">subject_id</span></code>, <code class="docutils literal notranslate"><span class="pre">devices</span></code>, <code class="docutils literal notranslate"><span class="pre">start_time</span></code>, <code class="docutils literal notranslate"><span class="pre">stop_time</span></code>, <code class="docutils literal notranslate"><span class="pre">outcome</span></code>
+(<code class="docutils literal notranslate"><span class="pre">completed</span></code> | <code class="docutils literal notranslate"><span class="pre">stopped</span></code> | <code class="docutils literal notranslate"><span class="pre">emergency_stop</span></code> | <code class="docutils literal notranslate"><span class="pre">interrupted</span></code>), <code class="docutils literal notranslate"><span class="pre">topics</span></code>, <code class="docutils literal notranslate"><span class="pre">calibrations</span></code> (paths of the
+subject’s newest calibration files at start), <code class="docutils literal notranslate"><span class="pre">events</span></code> (mode changes, device problems and
+recoveries from <code class="docutils literal notranslate"><span class="pre">SupervisorState.faults</span></code> / <code class="docutils literal notranslate"><span class="pre">warnings</span></code>, the auto-close), <code class="docutils literal notranslate"><span class="pre">notes</span></code>.</p></li>
+<li><p>Deleting the subject that is recording is refused.</p></li>
+</ul>
+</section>
+<section id="ros2-api">
+<h3>ROS2 API<a class="headerlink" href="#ros2-api" title="Link to this heading"></a></h3>
+<section id="services">
+<h4>Services<a class="headerlink" href="#services" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~/create_subject</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/CreateSubject</span></code></p></td>
+<td><p>write a profile (explicit id must be unique; empty id auto-generates)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~/get_subject</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/GetSubject</span></code></p></td>
+<td><p>read one profile</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~/list_subjects</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/ListSubjects</span></code></p></td>
+<td><p>every profile (the UI’s picker)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~/update_subject</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/UpdateSubject</span></code></p></td>
+<td><p>replace a profile (keeps <code class="docutils literal notranslate"><span class="pre">created_at</span></code>)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~/delete_subject</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/DeleteSubject</span></code></p></td>
+<td><p>move a subject to <code class="docutils literal notranslate"><span class="pre">trash/</span></code>; refused if it has trials unless <code class="docutils literal notranslate"><span class="pre">force</span></code>, and while it is recording</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~/list_calibrations</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/ListCalibrations</span></code></p></td>
+<td><p>a subject’s calibration files, newest first, <code class="docutils literal notranslate"><span class="pre">latest</span></code> per node + unit</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~/session_control</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/SessionControl</span></code></p></td>
+<td><p>SELECT a subject; START a trial (optional <code class="docutils literal notranslate"><span class="pre">subject_id</span></code> selects it first, optional <code class="docutils literal notranslate"><span class="pre">topics</span></code>); STOP it</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">~/add_trial_note</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/AddTrialNote</span></code></p></td>
+<td><p>append a timestamped note to the open trial</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="published-topics">
+<h4>Published topics<a class="headerlink" href="#published-topics" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Topic</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">~/state</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/SessionState</span></code> (latched)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">active</span></code>, selected <code class="docutils literal notranslate"><span class="pre">subject_id</span></code>, <code class="docutils literal notranslate"><span class="pre">trial_id</span></code>, <code class="docutils literal notranslate"><span class="pre">started_at</span></code>, <code class="docutils literal notranslate"><span class="pre">record_mode</span></code>, <code class="docutils literal notranslate"><span class="pre">message</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="subscribed-topics">
+<h4>Subscribed topics<a class="headerlink" href="#subscribed-topics" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Topic</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supervisor_state_topic</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/SupervisorState</span></code> (latched)</p></td>
+<td><p>opens / closes <code class="docutils literal notranslate"><span class="pre">per_run</span></code> trials, logs mode changes and device problems into the open trial</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="service-clients">
+<h4>Service clients<a class="headerlink" href="#service-clients" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;human_namespace&gt;/&lt;name&gt;/set_parameters</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">rcl_interfaces/SetParameters</span></code></p></td>
+<td><p>SELECT: set <code class="docutils literal notranslate"><span class="pre">subject_id</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&lt;human_namespace&gt;/&lt;name&gt;/load_calibration</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">horus_msgs/LoadCalibration</span></code></p></td>
+<td><p>SELECT: load the subject’s newest calibrations</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="parameters">
+<h4>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h4>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data_root</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">~/horus_data</span></code></p></td>
+<td><p>root of the on-disk store</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">devices</span></code></p></td>
+<td><p>string[]</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code></p></td>
+<td><p>devices on this rig, written into <code class="docutils literal notranslate"><span class="pre">trial.yaml</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">record</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">per_run</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">per_run</span></code> or <code class="docutils literal notranslate"><span class="pre">manual</span></code>, see above</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">post_stop_record</span></code></p></td>
+<td><p>double</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">30.0</span></code></p></td>
+<td><p>s a trial keeps recording after an emergency stop</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">record_all</span></code></p></td>
+<td><p>bool</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">true</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span> <span class="pre">record</span> <span class="pre">-a</span></code> minus <code class="docutils literal notranslate"><span class="pre">exclude</span></code>; else the <code class="docutils literal notranslate"><span class="pre">topics</span></code> subset</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">exclude</span></code></p></td>
+<td><p>string[]</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/parameter_events</span></code>, <code class="docutils literal notranslate"><span class="pre">/rosout</span></code>, <code class="docutils literal notranslate"><span class="pre">/rosout_agg</span></code></p></td>
+<td><p>regexes dropped when <code class="docutils literal notranslate"><span class="pre">record_all</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">topics</span></code></p></td>
+<td><p>string[]</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code></p></td>
+<td><p>explicit subset when <code class="docutils literal notranslate"><span class="pre">record_all</span></code> is false</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">human_namespace</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/human</span></code></p></td>
+<td><p>where SELECT looks for sensing nodes</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">supervisor_state_topic</span></code></p></td>
+<td><p>string</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/horus/supervisor/state</span></code></p></td>
+<td><p>supervisor state input</p></td>
+</tr>
+</tbody>
+</table>
+<p>Topic selection, highest first: START’s <code class="docutils literal notranslate"><span class="pre">topics</span></code> &gt; <code class="docutils literal notranslate"><span class="pre">record_all</span></code> (minus <code class="docutils literal notranslate"><span class="pre">exclude</span></code>) &gt; <code class="docutils literal notranslate"><span class="pre">topics</span></code>.
+Example config: <code class="docutils literal notranslate"><span class="pre">config/recording.yaml</span></code> (the rig’s <code class="docutils literal notranslate"><span class="pre">system.recording</span></code>).</p>
+</section>
+</section>
+<section id="usage">
+<h3>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>horus_bringup<span class="w"> </span>managed.launch.py<span class="w">            </span><span class="c1"># mock + this node (record: manual)</span>
+ros2<span class="w"> </span>run<span class="w"> </span>horus_session<span class="w"> </span>session_client<span class="w"> </span>--subject<span class="w"> </span>s1<span class="w"> </span>--hold<span class="w"> </span><span class="m">5</span>
+ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/horus/session/session_control<span class="w"> </span>horus_msgs/srv/SessionControl<span class="w"> </span><span class="s2">&quot;{command: 2, subject_id: s1}&quot;</span><span class="w">   </span><span class="c1"># SELECT</span>
+</pre></div>
+</div>
+</section>
+<section id="tests">
+<h3>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">test/test_session.py</span></code>, <code class="docutils literal notranslate"><span class="pre">test/test_recorder.py</span></code> (pytest): subject create / duplicate / list / update /
+delete, the calibration index, SELECT of an unknown subject, <code class="docutils literal notranslate"><span class="pre">per_run</span></code> trials with an emergency stop,
+completed runs and <code class="docutils literal notranslate"><span class="pre">manual</span></code> mode, the <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">bag</span> <span class="pre">record</span></code> command builder, and trial notes. Run with
+<code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">test</span> <span class="pre">--packages-select</span> <span class="pre">horus_session</span></code>.</p>
+</section>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="__links.html" class="btn btn-neutral float-right" title="Links" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The &lt;horus_session&gt; Contributors. License: MIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+
+.. _program_listing_file_include_horus_human_core_calibration_store.hpp:
+
+Program Listing for File calibration_store.hpp
+==============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_human_core_calibration_store.hpp>` (``include/horus_human_core/calibration_store.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <optional>
+   #include <string>
+   #include <vector>
+   
+   #include <yaml-cpp/yaml.h>
+   
+   namespace horus_human_core
+   {
+   
+   struct CalibrationEntry
+   {
+       std::string unit;       
+       std::string stamp;      
+       std::string path;       
+   };
+   
+   class CalibrationStore
+   {
+      public:
+       explicit CalibrationStore(const std::string& data_root);
+   
+       std::string save(const std::string& subject, const std::string& node, const std::string& unit,
+                        const std::string& plugin, const YAML::Node& data) const;
+   
+       std::vector<CalibrationEntry> list(const std::string& subject, const std::string& node) const;
+   
+       std::optional<std::string> latest(const std::string& subject, const std::string& node,
+                                         const std::string& unit) const;
+   
+       static YAML::Node read(const std::string& path);
+   
+       const std::string& root() const { return root_; }
+   
+      private:
+       std::string dir(const std::string& subject, const std::string& node) const;
+   
+       std::string root_; 
+   };
+   
+   }  // namespace horus_human_core

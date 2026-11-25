@@ -1,0 +1,93 @@
+
+.. _file_include_horus_bt_system_nodes.hpp:
+
+File system_nodes.hpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_bt>` (``include/horus_bt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+HORUS BT leaves that act on the system rather than on the robot: 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_bt/system_nodes.hpp``)
+--------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_bt_system_nodes.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+<EmergencyStop reason="pain reported"> supervisor -> EMERGENCY_STOP (always SUCCESS) <StartRecording> <StopRecording> open / close a trial on /horus/session <AddTrialNote text="rest 60 s"> note in the running trial <SetSpeedScale value="0.8"> live speed of every generator behavior
+
+Service leaves call on a private callback group drained on every tick (container-agnostic, like the other leaves) and fail after ``timeout`` s without a reply. 
+
+
+
+
+Includes
+--------
+
+
+- ``behaviortree_cpp/action_node.h``
+
+- ``chrono``
+
+- ``future``
+
+- ``horus_bt/node_ptr.hpp`` (:ref:`file_include_horus_bt_node_ptr.hpp`)
+
+- ``horus_msgs/srv/add_trial_note.hpp``
+
+- ``horus_msgs/srv/session_control.hpp``
+
+- ``memory``
+
+- ``rclcpp/rclcpp.hpp``
+
+- ``std_msgs/msg/string.hpp``
+
+- ``string``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_bt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__bt_1_1AddTrialNoteNode`
+
+- :ref:`exhale_class_classhorus__bt_1_1EmergencyStopNode`
+
+- :ref:`exhale_class_classhorus__bt_1_1ServiceLeaf`
+
+- :ref:`exhale_class_classhorus__bt_1_1SetSpeedScaleNode`
+
+- :ref:`exhale_class_classhorus__bt_1_1StartRecordingNode`
+
+- :ref:`exhale_class_classhorus__bt_1_1StopRecordingNode`
+

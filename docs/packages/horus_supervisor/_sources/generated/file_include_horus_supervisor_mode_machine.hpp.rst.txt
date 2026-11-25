@@ -1,0 +1,74 @@
+
+.. _file_include_horus_supervisor_mode_machine.hpp:
+
+File mode_machine.hpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_supervisor>` (``include/horus_supervisor``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+The HORUS global-mode state machine: modes, events, priorities, transitions. Pure C++, no ROS, so the whole safety logic is unit-testable. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_supervisor/mode_machine.hpp``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_supervisor_mode_machine.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+A mode answers one question: who may move the device right now? INIT, STANDBY nobody (setup, calibration and recording happen in STANDBY) RUN the protocol tree MANUAL the operator (joint sliders) RECOVERY the recovery tree, after the protocol failed EMERGENCY_STOP nobody; latched until RESET, which is refused while a fault is active Events are handled the moment they arrive (no tick queue). Classes, from highest priority: 0 safety ESTOP, FAULT, OPERATOR_LOST -> EMERGENCY_STOP, always accepted 1 escalation TREE_FAILED -> RUN: RECOVERY, RECOVERY: EMERGENCY_STOP 2 operator READY, START, STOP, MANUAL, RESET -> arbitrated, rejected if not allowed 3 progress TREE_SUCCEEDED -> RUN / MANUAL / RECOVERY: STANDBY Because safety transitions are valid in every mode, any interleaving of a safety event with a request ends in EMERGENCY_STOP. A request that is not allowed is rejected, never an error. 
+
+
+
+
+Includes
+--------
+
+
+- ``string``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_supervisor`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhorus__supervisor_1_1Outcome`
+
+- :ref:`exhale_class_classhorus__supervisor_1_1ModeMachine`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154`
+
+- :ref:`exhale_enum_mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169`
+

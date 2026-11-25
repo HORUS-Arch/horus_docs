@@ -1,0 +1,17 @@
+.. _exhale_class_classhorus__human__core_1_1CalibrationStore:
+
+Class CalibrationStore
+======================
+
+- Defined in :ref:`file_include_horus_human_core_calibration_store.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_human_core::CalibrationStore
+   :project: horus_human_core Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

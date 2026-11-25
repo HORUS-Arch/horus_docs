@@ -1,0 +1,17 @@
+.. _exhale_class_classhorus__estimator__core_1_1Estimator:
+
+Class Estimator
+===============
+
+- Defined in :ref:`file_include_horus_estimator_core_estimator.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_estimator_core::Estimator
+   :project: horus_estimator_core Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

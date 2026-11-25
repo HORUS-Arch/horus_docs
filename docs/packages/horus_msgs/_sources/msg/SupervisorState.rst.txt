@@ -1,0 +1,8 @@
+SupervisorState
+===============
+This is a ROS message definition.
+
+**Source**
+
+.. literalinclude:: SupervisorState.msg
+

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome" kind="struct" language="C++" prot="private">
+    <compoundname>horus_bt::ExecuteBehaviorNode::Outcome</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome_1ad4926d25d17491341b177a3b40f7aa9f" prot="public" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; horus_bt::ExecuteBehaviorNode::Outcome::done</definition>
+        <argsstring></argsstring>
+        <name>done</name>
+        <qualifiedname>horus_bt::ExecuteBehaviorNode::Outcome::done</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/execute_behavior_node.hpp" line="158" column="21" bodyfile="include/horus_bt/execute_behavior_node.hpp" bodystart="158" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome_1a004e775e5910e80e1ef5889ea0017b4b" prot="public" static="no" mutable="no">
+        <type>std::atomic&lt; bool &gt;</type>
+        <definition>std::atomic&lt;bool&gt; horus_bt::ExecuteBehaviorNode::Outcome::succeeded</definition>
+        <argsstring></argsstring>
+        <name>succeeded</name>
+        <qualifiedname>horus_bt::ExecuteBehaviorNode::Outcome::succeeded</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/execute_behavior_node.hpp" line="159" column="21" bodyfile="include/horus_bt/execute_behavior_node.hpp" bodystart="159" bodyend="159"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Result of one goal, shared with its callbacks (outlives the leaf if needed). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_bt/execute_behavior_node.hpp" line="156" column="5" bodyfile="include/horus_bt/execute_behavior_node.hpp" bodystart="157" bodyend="160"/>
+    <listofallmembers>
+      <member refid="structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome_1ad4926d25d17491341b177a3b40f7aa9f" prot="public" virt="non-virtual"><scope>horus_bt::ExecuteBehaviorNode::Outcome</scope><name>done</name></member>
+      <member refid="structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome_1a004e775e5910e80e1ef5889ea0017b4b" prot="public" virt="non-virtual"><scope>horus_bt::ExecuteBehaviorNode::Outcome</scope><name>succeeded</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

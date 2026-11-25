@@ -1,0 +1,23 @@
+.. _exhale_struct_structhorus__human_1_1InsoleZeroOffset_1_1Window:
+
+Struct InsoleZeroOffset::Window
+===============================
+
+- Defined in :ref:`file_include_horus_human_default_calibrations.hpp`
+
+
+Nested Relationships
+--------------------
+
+This struct is a nested type of :ref:`exhale_class_classhorus__human_1_1InsoleZeroOffset`.
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: horus_human::InsoleZeroOffset::Window
+   :project: horus_human Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

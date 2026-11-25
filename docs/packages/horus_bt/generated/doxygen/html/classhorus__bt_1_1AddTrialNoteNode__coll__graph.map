@@ -1,0 +1,7 @@
+<map id="horus_bt::AddTrialNoteNode" name="horus_bt::AddTrialNoteNode">
+<area shape="rect" id="Node000001" title="Add a note to the running trial." alt="" coords="5,181,208,207"/>
+<area shape="rect" id="Node000002" href="$classhorus__bt_1_1ServiceLeaf.html" title=" " alt="" coords="5,79,208,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,147,109,181,104,181,104,147"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="21,5,193,31"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="109,44,109,79,104,79,104,44"/>
+</map>

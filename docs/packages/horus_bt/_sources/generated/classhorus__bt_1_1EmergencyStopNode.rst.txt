@@ -1,0 +1,26 @@
+.. _exhale_class_classhorus__bt_1_1EmergencyStopNode:
+
+Class EmergencyStopNode
+=======================
+
+- Defined in :ref:`file_include_horus_bt_system_nodes.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public BT::SyncActionNode``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_bt::EmergencyStopNode
+   :project: horus_bt Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

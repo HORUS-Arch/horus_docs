@@ -1,0 +1,31 @@
+
+.. _namespace_horus_supervisor:
+
+Namespace horus_supervisor
+==========================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhorus__supervisor_1_1Outcome`
+
+- :ref:`exhale_class_classhorus__supervisor_1_1ModeMachine`
+
+
+Enums
+-----
+
+
+- :ref:`exhale_enum_mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154`
+
+- :ref:`exhale_enum_mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169`

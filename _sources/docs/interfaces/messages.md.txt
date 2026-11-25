@@ -1,0 +1,979 @@
+# Messages, services and actions
+
+Generated from the interface files by `scripts/gen_messages.py`; do not edit by hand.
+
+Standard ROS 2 messages are used wherever one exists (`sensor_msgs`, `diagnostic_msgs`, `std_srvs`, `lifecycle_msgs`, `trajectory_msgs`). `horus_msgs` holds the framework's own interfaces; `human_msgs` holds neutral human-state messages that sensor repositories can use without HORUS.
+
+## horus_msgs actions
+
+### Calibrate
+
+Run a calibration on a HORUS processing node (horus_imu, horus_insole, horus_emg, ...). The node collects data for `duration` seconds and computes the calibration with its configured plugin; the result stays PENDING in the node until ~/save_calibration writes it for a subject.
+
+**Goal**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `unit` | `string` | channel to calibrate (a segment, a muscle, a side); "" = all channels at once |
+| `duration` | `float32` | seconds of data to collect (0 = the plugin's default) |
+
+**Result**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `error_code` | `uint16` |  |
+| `error_msg` | `string` |  |
+| `units` | `string[]` | units that were calibrated (pending save) |
+| `summary` | `string` | short human-readable result, e.g. "mvc 0.42 mV" |
+
+Constants: `NONE = 0`, `UNKNOWN = 1100`, `UNIT_NOT_FOUND = 1101`, `NOT_ACTIVE = 1102`, `NO_DATA = 1103`, `CALIBRATION_FAILED = 1104`
+
+**Feedback**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `unit` | `string` | unit being collected |
+| `progress` | `float32` | 0.0 .. 1.0 |
+| `message` | `string` |  |
+
+### ExecuteBehavior
+
+Run a named generator behavior (home / sit / stand / walk / follow_trajectory / ...) on the generator_server. The name selects a generator (+ params) from the server's `generator_plugins`; finite behaviors (sit/stand/home) complete when their generator finishes, continuous ones (walk) run until canceled. Long-running, with feedback + cancel.
+
+**Goal**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `behavior` | `string` | behavior name (key in the server's `generator_plugins`) |
+| `parameters` | `rcl_interfaces/Parameter[]` | optional per-goal overrides of the generator's `<name>.*` params |
+
+**Result**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `error_code` | `uint16` |  |
+| `error_msg` | `string` |  |
+
+Constants: `NONE = 0`, `UNKNOWN = 800`, `BEHAVIOR_NOT_FOUND = 801`, `BEHAVIOR_FAILED = 802`
+
+**Feedback**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `progress` | `float32` | 0.0 .. 1.0 (finite behaviors); ~0 for continuous |
+| `state` | `string` | human-readable phase ("standing up", "walking") |
+
+### Optimize
+
+Run a human-in-the-loop optimization of a behavior's parameters. The optimization server proposes candidates, applies each to `behavior`, collects CostSample's for `cycles_per_candidate` cycles and iterates until the optimizer converges, `max_candidates` is reached, or the goal is canceled.
+
+**Goal**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `behavior` | `string` | generator behavior whose parameters are optimized |
+| `optimizer` | `string` | optimizer plugin name (key in the server's `optimizer_plugins`) |
+| `cost` | `string` | cost plugin name (key in the server's `cost_plugins`) |
+| `cycles_per_candidate` | `uint32` | cost samples averaged per candidate (0 = server default) |
+| `max_candidates` | `uint32` | stop after this many candidates (0 = optimizer decides) |
+
+**Result**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `error_code` | `uint16` |  |
+| `error_msg` | `string` |  |
+| `best` | `Candidate` | best candidate found |
+| `best_cost` | `float64` |  |
+| `results_path` | `string` | where the full history was saved |
+
+Constants: `NONE = 0`, `UNKNOWN = 1000`, `BEHAVIOR_NOT_FOUND = 1001`, `OPTIMIZER_NOT_FOUND = 1002`, `COST_NOT_FOUND = 1003`, `OPTIMIZATION_FAILED = 1004`
+
+**Feedback**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `current` | `Candidate` | candidate being evaluated |
+| `cycles_done` | `uint32` | cost samples collected for it so far |
+| `best` | `Candidate` | best so far |
+| `best_cost` | `float64` |  |
+
+## horus_msgs messages
+
+### BehaviorState
+
+The generator_server's current behavior (latched, published on every change), for the UI and for behavior-tree conditions.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `behavior` | `string` | active behavior name ("" = none) |
+| `plugin` | `string` | generator plugin class running it |
+| `active` | `bool` | true while a behavior is running |
+| `finished` | `bool` | true once a finite behavior has completed |
+
+### CalibrationFile
+
+One saved calibration file (see SaveCalibration for the on-disk layout).
+
+| Field | Type | Meaning |
+|---|---|---|
+| `node` | `string` | node (instance) name that produced it, e.g. "imus_a" |
+| `unit` | `string` | channel it calibrates, e.g. "right_upper_leg" |
+| `plugin` | `string` | calibration plugin class that computed it |
+| `path` | `string` |  |
+| `created_at` | `string` | ISO-8601 |
+| `latest` | `bool` | newest file for this node + unit |
+
+### Candidate
+
+One parameter set proposed by an optimizer (human-in-the-loop personalization). Every cost sample refers back to the candidate that produced it by `id`.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `id` | `uint32` | unique within one optimization run |
+| `generation` | `uint32` | optimizer iteration / generation the candidate belongs to |
+| `names` | `string[]` | parameter names, index-aligned with values |
+| `values` | `float64[]` |  |
+
+### CostSample
+
+One cost evaluation of a candidate, typically once per gait cycle.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `candidate_id` | `uint32` | Candidate.id that was active while this cost was measured |
+| `cycle` | `uint32` | cycle index within that candidate's evaluation window |
+| `cost` | `float64` |  |
+
+### SessionState
+
+Session state (latched), the UI's session banner: the selected subject and whether a trial is open.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `active` | `bool` | a trial is recording |
+| `subject_id` | `string` | the selected subject ("" = none) |
+| `trial_id` | `string` | the open trial ("" when idle) |
+| `started_at` | `builtin_interfaces/Time` | when the open trial started (zero when idle) |
+| `record_mode` | `string` | "per_run" / "manual" |
+| `message` | `string` | human-readable detail / error |
+
+### SubjectProfile
+
+A study subject / patient: identity, demographics and body measurements. `id` is auto-generated by the session node when left empty.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `id` | `string` |  |
+| `name` | `string` |  |
+| `sex` | `string` | M / F / other / "" |
+| `age` | `uint8` | years |
+| `body` | `human_msgs/Anthropometrics` |  |
+| `notes` | `string` |  |
+| `created_at` | `string` | ISO-8601 |
+
+### SupervisorState
+
+The supervisor's global mode (latched, published on every change). A mode answers one question: who may move the device right now? Safety events always win: an emergency stop, a fault of a critical device or a lost operator drive the supervisor to EMERGENCY_STOP from any mode.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `mode` | `uint8` |  |
+| `previous_mode` | `uint8` |  |
+| `mode_name` | `string` | "RUN", ... |
+| `reason` | `string` | why the last transition happened |
+| `tree` | `string` | tree running for this mode ("" = none) |
+| `since` | `builtin_interfaces/Time` | when the current mode was entered |
+| `faults` | `string[]` | critical sources in ERROR / STALE (block RESET) |
+| `warnings` | `string[]` | non-critical sources in ERROR / STALE, or any source in WARN |
+| `operator_connected` | `bool` | operator heartbeat alive (true when heartbeat is disabled) |
+| `protocols` | `string[]` | registered tree ids the operator can START |
+
+Constants: `INIT = 0`, `STANDBY = 1`, `RUN = 2`, `MANUAL = 3`, `RECOVERY = 4`, `EMERGENCY_STOP = 5`
+
+### TrialInfo
+
+Metadata for one recorded trial (written to trial.yaml alongside the bag). The session populates it; `notes` are live annotations the user adds while the trial is running.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `trial_id` | `string` |  |
+| `subject_id` | `string` |  |
+| `devices` | `string[]` | devices used in the trial (a rig can have several) |
+| `start_time` | `builtin_interfaces/Time` |  |
+| `stop_time` | `builtin_interfaces/Time` | zero while the trial is running |
+| `notes` | `TrialNote[]` | timestamped notes written during the trial |
+
+### TrialNote
+
+A timestamped note a user writes live during a trial (saved into trial.yaml with the trial).
+
+| Field | Type | Meaning |
+|---|---|---|
+| `stamp` | `builtin_interfaces/Time` | when the note was written |
+| `text` | `string` | the note itself |
+
+## horus_msgs services
+
+### AddTrialNote
+
+Add a timestamped note to the running trial (saved into its trial.yaml). The server stamps it.
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `text` | `string` |  |
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` |  |
+
+### CreateSubject
+
+
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `profile` | `SubjectProfile` |  |
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` |  |
+| `id` | `string` |  |
+
+### DeleteSubject
+
+Delete a subject. The subject folder is MOVED to <data_root>/trash/ (never erased), and a subject with recorded trials is refused unless `force` is set, so data is never lost by accident.
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `id` | `string` |  |
+| `force` | `bool` | also delete a subject that has recorded trials |
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` |  |
+
+### GetSubject
+
+
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `id` | `string` |  |
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `profile` | `SubjectProfile` |  |
+| `message` | `string` |  |
+
+### ListCalibrations
+
+List a subject's saved calibration files, newest first.
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `subject_id` | `string` |  |
+| `node` | `string` | optional filter: one node / instance ("" = all) |
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` |  |
+| `files` | `CalibrationFile[]` |  |
+
+### ListSubjects
+
+
+
+**Request**
+
+_(empty)_
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `profiles` | `SubjectProfile[]` | every subject on disk, full record (the UI's subject picker) |
+
+### LoadCalibration
+
+Apply a saved calibration file to the node. An empty path loads the latest file of every unit for `subject_id` (what the node also does on configure when its `subject_id` parameter is set).
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `path` | `string` |  |
+| `subject_id` | `string` |  |
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` |  |
+| `units` | `string[]` | units now calibrated from file |
+
+### ManageLifecycleNodes
+
+Drive an ordered set of lifecycle nodes through their state machine.
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `command` | `uint8` |  |
+| `node_name` | `string` | optional: target ONE managed node (empty = the whole ordered set) |
+
+Constants: `STARTUP = 0`, `PAUSE = 1`, `RESUME = 2`, `RESET = 3`, `SHUTDOWN = 4`, `CONFIGURE = 5`, `CLEANUP = 6`
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` | why it failed, or a short summary |
+
+### SaveCalibration
+
+Save the node's pending calibration result(s) for a subject, to <data_root>/subjects/<subject_id>/calibration/<node>/<unit>_<YYYYmmdd_HHMMSS>.yaml
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `subject_id` | `string` |  |
+| `unit` | `string` | "" = every pending unit |
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` |  |
+| `paths` | `string[]` | one file per saved unit |
+
+### SessionControl
+
+The session: which subject is selected, and whether a trial (recording) is open. SELECT pushes the subject to every HORUS sensing node, which loads its newest calibrations. START opens a trial for the selected subject (or `subject_id`); STOP closes it. With `record: per_run` the session also opens a trial when the supervisor enters RUN and closes it back in STANDBY.
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `command` | `uint8` |  |
+| `subject_id` | `string` | SELECT: the subject ("" = none); START: optional, selects it first |
+| `topics` | `string[]` | START: optional topics to record (empty = the recorder's configured set) |
+
+Constants: `START = 0`, `STOP = 1`, `SELECT = 2`
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` |  |
+| `trial_id` | `string` | set on START |
+
+### SupervisorCommand
+
+Operator request to the supervisor. Requests are arbitrated: a request not allowed in the current mode is rejected (success = false) and the mode does not change.
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `command` | `uint8` |  |
+| `tree` | `string` | START: protocol tree to run instead of trees.run |
+
+Constants: `START = 0`, `STOP = 1`, `MANUAL = 2`, `RESET = 3`, `EMERGENCY_STOP = 4`
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` |  |
+
+### UpdateSubject
+
+Replace an existing subject's profile (matched by profile.id; created_at is preserved).
+
+**Request**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `profile` | `SubjectProfile` |  |
+
+**Response**
+
+| Field | Type | Meaning |
+|---|---|---|
+| `success` | `bool` |  |
+| `message` | `string` |  |
+
+## human_msgs
+
+Segment and joint names follow the Xsens MVN model (23 segments, 22 joints, ISB conventions). Multi-channel sources use the `X` / `XInfo` / `Xs` pattern: data, latched metadata, collection.
+
+### biosignals
+
+#### Bcg
+
+Bcg — ballistocardiography Whole-body recoil samples from body-motion sensors.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `sensor_reading` | `uint16[]` |  |
+
+#### BcgInfo
+
+BcgInfo — static BCG metadata (latched)
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `number_of_sensors` | `uint16` |  |
+| `sensor_location` | `string[]` |  |
+| `sensing_direction` | `string` | e.g. "dorso-ventral" |
+| `sensing_modality` | `string` | e.g. "piezoelectric", "force-plate" |
+| `device` | `human_msgs/DeviceInfo` |  |
+
+#### Co
+
+Co — cardiac output
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `co` | `float32` | L/min |
+
+#### Ecg
+
+Ecg — one ECG lead One lead's samples. Aggregate all leads for a tick in Ecgs.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `ecg` | `float32[]` | amplitude, mV |
+| `signal_quality` | `float32[]` | 0-1 per sample |
+
+#### EcgInfo
+
+EcgInfo — static ECG lead metadata (latched)
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `lead_number` | `uint8` |  |
+| `location_lead` | `string` | e.g. "II", "V1" |
+| `device` | `human_msgs/DeviceInfo` |  |
+
+#### Ecgs
+
+Ecgs — all ECG leads for one tick
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `leads` | `Ecg[]` |  |
+
+#### Eda
+
+Eda — electrodermal activity Skin conductance (SCR + SCL).
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `eda` | `float32[]` | skin conductance |
+| `signal_quality` | `float32[]` | 0-1 |
+
+#### EdaInfo
+
+EdaInfo — static EDA metadata (latched)
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `location` | `string[]` |  |
+| `measuring_technique` | `string` | endosomatic / exosomatic |
+| `current_form` | `string` | "AC" / "DC" |
+| `device` | `human_msgs/DeviceInfo` |  |
+
+#### Eeg
+
+Eeg — one EEG channel Electroencephalography samples for one electrode. Aggregate in Eegs.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `eeg` | `float32[]` | mV |
+| `signal_quality` | `uint8[]` | 0-100 |
+
+#### EegInfo
+
+EegInfo — static EEG channel metadata (latched)
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `channel_number` | `uint8` |  |
+| `electrode_name` | `string` | 10-20 nomenclature, e.g. "Cz" |
+| `placement_standard` | `string` | "10-20" / "10-10" / "10-5" |
+| `signal_gain` | `uint8` |  |
+| `device` | `human_msgs/DeviceInfo` |  |
+
+#### Eegs
+
+Eegs — all EEG channels for one tick
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `channels` | `Eeg[]` |  |
+
+#### Emg
+
+Emg — one EMG sensor's sample batch Surface EMG streams per sensor in batches (~20 samples per poll cycle), so each message carries one batch for one muscle/channel — no downsampling, no loss. Aggregate all sensors for a tick in Emgs. Per-sample time = header.stamp - (N-1-i)/sample_rate.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` | stamp = time of the batch (last sample) |
+| `muscle_name` | `string` | anatomical label, e.g. "rectus_femoris_r" |
+| `sensor_id` | `uint16` | hardware sensor/pair index (0 if unused) |
+| `samples` | `float32[]` | raw EMG samples in this batch, oldest first (mV) |
+| `sample_rate` | `float32` | per-sample rate within the batch, Hz |
+| `signal_quality` | `float32` | 0-1 batch signal quality (-1 if unknown) |
+
+#### EmgInfo
+
+EmgInfo — static EMG channel metadata (latched) Publish ONCE with transient_local (latched) QoS, like sensor_msgs/CameraInfo. Pairs with Emg by sensor_id / muscle_name so static config isn't repeated every batch.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `muscle_name` | `string` | anatomical label |
+| `sensor_id` | `uint16` | pairs with Emg.sensor_id |
+| `electrode_type` | `string` | "surface" / "needle" |
+| `electrode_location` | `string` | anatomical placement notes |
+| `device` | `human_msgs/DeviceInfo` |  |
+
+#### Emgs
+
+Emgs — all EMG sensors for one tick Collection of per-sensor batches.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `sensors` | `Emg[]` |  |
+
+#### Eog
+
+Eog — electrooculography Eye-movement potential samples.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `eog` | `float32[]` | amplitude, mV |
+| `signal_quality` | `float32[]` | 0-1 |
+
+#### EogInfo
+
+EogInfo — static EOG metadata (latched)
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `electrode_placement` | `string[]` |  |
+| `device` | `human_msgs/DeviceInfo` |  |
+
+#### Hr
+
+Hr — heart rate
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `hr` | `int32` | beats/min |
+| `hr_quality` | `int32` |  |
+
+#### Hrv
+
+Hrv — heart-rate variability
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `hrv` | `float32` | ms (RR-interval variability) |
+
+#### Icg
+
+Icg — one ICG lead Impedance cardiography samples for one lead. Aggregate in Icgs.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `icg` | `float32[]` | amplitude |
+| `signal_quality` | `float32[]` | 0-1 |
+
+#### IcgInfo
+
+IcgInfo — static ICG lead metadata (latched)
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `lead_number` | `uint8` |  |
+| `location_lead` | `string` |  |
+| `device` | `human_msgs/DeviceInfo` |  |
+
+#### Icgs
+
+Icgs — all ICG leads for one tick
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `leads` | `Icg[]` |  |
+
+#### Ppg
+
+Ppg — one PPG channel Photoplethysmography samples for one wavelength/channel. Aggregate in Ppgs.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `ppg` | `float32[]` | a.u. |
+| `signal_quality` | `float32[]` | 0-1 |
+
+#### PpgInfo
+
+PpgInfo — static PPG channel metadata (latched)
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `wavelength_nm` | `uint16` |  |
+| `location` | `string` |  |
+| `measuring_mode` | `string` | "transmissive" / "reflective" |
+| `signal_gain` | `float32` |  |
+| `device` | `human_msgs/DeviceInfo` |  |
+
+#### Ppgs
+
+Ppgs — all PPG channels for one tick
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `channels` | `Ppg[]` |  |
+
+#### Rr
+
+Rr — respiratory rate
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `rr` | `float32` | breaths/min |
+| `rr_quality` | `int32` |  |
+
+#### Sv
+
+Sv — stroke volume
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `sv` | `float32` | mL |
+
+### common
+
+#### Anthropometrics
+
+Anthropometrics — body measurements of one person Static description of a body, embedded where a person is described (e.g. a subject profile) and consumed by body-model generators and estimators. SI units: metres and kilograms. 0.0 = not measured, so the consumer falls back to its own default. The set follows the Xsens MVN body-measurement list.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `body_mass` | `float64` | kg |
+| `body_height` | `float64` | m, floor to top of head, barefoot |
+| `foot_length` | `float64` | m, heel to tip of the longest toe (or shoe length when shod) |
+| `sole_thickness` | `float64` | m, extra height added by the shoe sole |
+| `shoulder_height` | `float64` | m, floor to acromion |
+| `shoulder_width` | `float64` | m, acromion to acromion |
+| `elbow_span` | `float64` | m, elbow tip to elbow tip, arms abducted 90 deg |
+| `wrist_span` | `float64` | m, wrist to wrist, arms abducted 90 deg |
+| `arm_span` | `float64` | m, fingertip to fingertip, arms abducted 90 deg |
+| `hip_height` | `float64` | m, floor to greater trochanter |
+| `hip_width` | `float64` | m, left to right anterior superior iliac spine |
+| `knee_height` | `float64` | m, floor to lateral femoral epicondyle |
+| `ankle_height` | `float64` | m, floor to lateral malleolus |
+
+#### DerivedInfo
+
+DerivedInfo — static metadata for a derived (processed) stream Publish ONCE with transient_local (latched) QoS beside any stream computed from other signals (heart rate, gait parameters, joint moments, ...), so readers know how it was produced.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `method` | `string` | algorithm name, e.g. "pan_tompkins", "fsr_threshold" |
+| `source_topics` | `string[]` | input topics the stream is derived from |
+| `window_size` | `float32` | s, analysis window length (-1 if not windowed) |
+| `window_stride` | `float32` | s, step between successive windows (-1 if not windowed) |
+| `output_rate` | `float32` | Hz (-1 if event-driven) |
+| `device` | `human_msgs/DeviceInfo` | device that computes it on board (empty if computed on the host) |
+
+#### DeviceInfo
+
+DeviceInfo — static sensor metadata Lives inside *Info messages (latched, published once), never in a high-rate data message.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `device` | `string` | device name / identifier |
+| `measuring_unit` | `string` | unit of the output, e.g. "mV", "kPa" |
+| `sampling_frequency_hz` | `uint16` |  |
+| `resolution` | `float32` | output resolution in the measuring unit |
+| `accuracy` | `float32` | manufacturer-tested accuracy, 0-1 |
+| `max_range` | `float32` | max detectable input, measuring unit |
+| `min_range` | `float32` | min detectable input, measuring unit |
+
+### kinematics
+
+#### GaitEvent
+
+GaitEvent — one discrete gait event for one foot Published once per detected event. GaitPhase is the continuous state between events; GaitEvent is the instant itself, which is what triggers event-locked assistance and per-cycle analysis.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` | stamp = when the event OCCURRED (not when it was detected) |
+| `foot` | `uint8` | RIGHT or LEFT |
+| `event` | `uint8` |  |
+| `label` | `string` | name for CUSTOM events, e.g. "hip_flexion_start" ("" otherwise) |
+| `confidence` | `float32` | 0-1 (-1 if not provided) |
+
+Constants: `RIGHT = 0`, `LEFT = 1`, `HEEL_STRIKE = 1`, `FOOT_FLAT = 2`, `HEEL_OFF = 3`, `TOE_OFF = 4`, `CUSTOM = 255`
+
+#### GaitParameters
+
+GaitParameters — spatiotemporal gait parameters (+ phase) Per foot / most-recent stride, from a gait-analysis node. Embeds the current GaitPhase. Fields not measured = -1.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` | stamp = end of the stride |
+| `foot` | `uint8` | RIGHT or LEFT |
+| `phase` | `GaitPhase` | current gait-cycle phase |
+| `stride_length` | `float32` |  |
+| `step_length` | `float32` |  |
+| `step_width` | `float32` |  |
+| `step_height` | `float32` | peak foot clearance during swing |
+| `stride_length_at_com` | `float32` |  |
+| `gait_cycle_duration` | `float32` |  |
+| `step_duration` | `float32` |  |
+| `stance_duration` | `float32` |  |
+| `swing_duration` | `float32` |  |
+| `single_stance_duration` | `float32` |  |
+| `double_stance_duration` | `float32` |  |
+| `cadence` | `float32` | steps/min |
+| `stride_speed` | `float32` | m/s |
+| `length_of_com_trajectory` | `float32` |  |
+| `lateral_movement_during_swing` | `float32` |  |
+| `max_hip_vertical_amplitude` | `float32` |  |
+
+Constants: `RIGHT = 0`, `LEFT = 1`
+
+#### GaitPhase
+
+GaitPhase — gait-cycle phase for one foot Output of a gait event / state-machine node (needs previous contacts + timing). Usable standalone on its own topic, and embedded inside GaitParameters.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `foot` | `uint8` | RIGHT or LEFT |
+| `phase` | `uint8` |  |
+| `confidence` | `float32` | 0-1 (-1 if not provided) |
+
+Constants: `RIGHT = 0`, `LEFT = 1`, `UNKNOWN = 0`, `SWING = 1`, `HEEL_STRIKE = 2`, `FLAT_FOOT = 3`, `HEEL_OFF = 4`, `TOE_OFF = 5`
+
+#### JointAngles
+
+JointAngles — human joint angles (3-DOF per joint, rad) One index-aligned entry per joint (Xsens MVN / ISB 22-joint model). Each `angle` is a Vector3, ISB convention:  x = flexion(+)/extension(-),  y = abduction(+)/adduction(-), z = internal(+)/external(-) rotation. 1-DOF analysis: use only .x. Canonical home of the joint name constants — JointVelocity / JointMoments reuse them. Use ONLY these constants in `name[]`. --- joints: spine + neck ---
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `name` | `string[]` | joint labels from the constants above |
+| `angle` | `geometry_msgs/Vector3[]` | per-joint angle, rad: x=flex, y=abd, z=rot |
+
+Constants: `L5_S1 = l5_s1`, `L4_L3 = l4_l3`, `L1_T12 = l1_t12`, `T9_T8 = t9_t8`, `T1_C7 = t1_c7`, `C1_HEAD = c1_head`, `RIGHT_C7_SHOULDER = right_c7_shoulder`, `RIGHT_SHOULDER = right_shoulder`, `RIGHT_ELBOW = right_elbow`, `RIGHT_WRIST = right_wrist`, `LEFT_C7_SHOULDER = left_c7_shoulder`, `LEFT_SHOULDER = left_shoulder`, `LEFT_ELBOW = left_elbow`, `LEFT_WRIST = left_wrist`, `RIGHT_HIP = right_hip`, `RIGHT_KNEE = right_knee`, `RIGHT_ANKLE = right_ankle`, `RIGHT_BALL_FOOT = right_ball_foot`, `LEFT_HIP = left_hip`, `LEFT_KNEE = left_knee`, `LEFT_ANKLE = left_ankle`, `LEFT_BALL_FOOT = left_ball_foot`
+
+#### JointVelocity
+
+JointVelocity — human joint angular velocities (3-DOF per joint, rad/s) Index-aligned with `name` (Xsens MVN / ISB 22-joint model). Reuse the joint name constants from JointAngles. Vector3 axes = ISB: x=flexion, y=abduction, z=rotation.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `name` | `string[]` | joint labels (see JointAngles constants) |
+| `velocity` | `geometry_msgs/Vector3[]` | rad/s: x=flex, y=abd, z=rot |
+
+#### SegmentState
+
+SegmentState — whole-body segment kinematics One index-aligned entry per body segment (Xsens MVN / ISB 23-segment model). `orientation` is required; position / velocities are optional (length N, or empty). Use ONLY the constants below in `name[]`. --- segments: spine + head ---
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` | frame_id = reference frame, e.g. "world" |
+| `name` | `string[]` | segment labels from the constants above |
+| `orientation` | `geometry_msgs/Quaternion[]` | segment orientation in header frame |
+| `position` | `geometry_msgs/Vector3[]` | segment origin, m         (length N, or empty) |
+| `angular_velocity` | `geometry_msgs/Vector3[]` | rad/s                     (length N, or empty) |
+| `linear_acceleration` | `geometry_msgs/Vector3[]` | m/s^2                     (length N, or empty) |
+
+Constants: `PELVIS = pelvis`, `L5 = l5`, `L3 = l3`, `T12 = t12`, `T8 = t8`, `NECK = neck`, `HEAD = head`, `RIGHT_SHOULDER = right_shoulder`, `RIGHT_UPPER_ARM = right_upper_arm`, `RIGHT_FOREARM = right_forearm`, `RIGHT_HAND = right_hand`, `LEFT_SHOULDER = left_shoulder`, `LEFT_UPPER_ARM = left_upper_arm`, `LEFT_FOREARM = left_forearm`, `LEFT_HAND = left_hand`, `RIGHT_UPPER_LEG = right_upper_leg`, `RIGHT_LOWER_LEG = right_lower_leg`, `RIGHT_FOOT = right_foot`, `RIGHT_TOE = right_toe`, `LEFT_UPPER_LEG = left_upper_leg`, `LEFT_LOWER_LEG = left_lower_leg`, `LEFT_FOOT = left_foot`, `LEFT_TOE = left_toe`
+
+### kinetics
+
+#### Insole
+
+Insole — instrumented-insole data for one foot Lean data stream (e.g. 8 FSR cells). Static cell layout/geometry + device live in InsoleInfo (latched); the insole's own IMU is published separately as sensor_msgs/Imu. Both feet: Insoles.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` | stamp; frame_id = insole frame, e.g. "insole_r" |
+| `foot` | `uint8` | RIGHT or LEFT |
+| `pressure` | `float32[]` | per-cell value, kPa (order = InsoleInfo.cell_id; -1 if not computed) |
+| `cop` | `geometry_msgs/Point32` | centre of pressure in the insole frame, m (-1 if not computed) |
+| `total_force` | `float32` | summed vertical force, N (-1 if not computed) |
+| `heel_contact` | `bool` |  |
+| `mid_contact` | `bool` |  |
+| `toe_contact` | `bool` |  |
+
+Constants: `RIGHT = 0`, `LEFT = 1`
+
+#### InsoleInfo
+
+InsoleInfo — static insole geometry + device (latched) Publish ONCE, transient_local. Defines the cell order + positions used by Insole.pressure so RViz / analysis can place each cell.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `foot` | `uint8` |  |
+| `cell_id` | `string[]` | per-cell label (defines pressure[] order) |
+| `cell_position` | `geometry_msgs/Point32[]` | per-cell location in the insole frame, m (same order) |
+| `device` | `human_msgs/DeviceInfo` |  |
+
+Constants: `RIGHT = 0`, `LEFT = 1`
+
+#### Insoles
+
+Insoles — both insoles for one tick
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `feet` | `Insole[]` |  |
+
+#### JointMoments
+
+JointMoments — human joint moments / torques (3-DOF per joint, N*m) Index-aligned with `name` (Xsens MVN / ISB 22-joint model). Reuse the joint name constants from JointAngles. Vector3 axes = ISB: x=flexion, y=abduction, z=rotation.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `name` | `string[]` | joint labels (see JointAngles constants) |
+| `moment` | `geometry_msgs/Vector3[]` | N*m: x=flex, y=abd, z=rot |
+
+#### PressureMat
+
+PressureMat — pressure grid from a mat / force plate For an instrumented insole use Insole instead.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` |  |
+| `rows` | `uint16` |  |
+| `cols` | `uint16` |  |
+| `resolution` | `float32` | metres per cell |
+| `pressure` | `float32[]` | row-major, kPa |
+
+### subjective
+
+#### Comfort
+
+Comfort — self-reported comfort of a worn device
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` | stamp = when the rating was given |
+| `scale` | `uint8` |  |
+| `value` | `float32` |  |
+| `location` | `string` | SegmentState segment name, or "" = overall |
+| `aspect` | `string` | e.g. "fit", "pressure", "temperature", "movement" |
+
+Constants: `VAS_100 = 0`, `LIKERT_5 = 1`, `LIKERT_7 = 2`
+
+#### Pain
+
+Pain — self-reported pain intensity
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` | stamp = when the rating was given |
+| `scale` | `uint8` |  |
+| `value` | `float32` |  |
+| `location` | `string` | SegmentState segment name, or free text |
+| `quality` | `string` | optional descriptor, e.g. "pressure", "sharp", "burning" |
+
+Constants: `VAS_100 = 0`, `NRS_10 = 1`
+
+#### PerceivedExertion
+
+PerceivedExertion — rating of perceived exertion (RPE) Reported by the person, typically entered by the operator during or after a trial.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` | stamp = when the rating was given |
+| `scale` | `uint8` |  |
+| `value` | `float32` |  |
+| `region` | `string` | optional body region (SegmentState name) for a local rating; "" = whole body |
+
+Constants: `BORG_6_20 = 0`, `BORG_CR10 = 1`
+
+#### Questionnaire
+
+Questionnaire — one completed questionnaire instrument Generic container for scored instruments (NASA-TLX, SUS, QUEST, ...). Items and scores are index-aligned; item ids and scoring follow the instrument named in `instrument` + `version`.
+
+| Field | Type | Meaning |
+|---|---|---|
+| `header` | `std_msgs/Header` | stamp = when the questionnaire was completed |
+| `instrument` | `string` | e.g. "nasa_tlx", "sus" |
+| `version` | `string` | instrument version / language variant |
+| `item` | `string[]` | item ids |
+| `score` | `float32[]` | per-item score, index-aligned with item |
+| `total` | `float32` | instrument total (-1 if not computed) |
+

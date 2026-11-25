@@ -1,0 +1,7 @@
+horus_setup_assistant
+=====================
+
+.. toctree::
+   :maxdepth: 4
+
+   horus_setup_assistant

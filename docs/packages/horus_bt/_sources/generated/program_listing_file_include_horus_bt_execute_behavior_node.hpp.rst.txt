@@ -1,0 +1,165 @@
+
+.. _program_listing_file_include_horus_bt_execute_behavior_node.hpp:
+
+Program Listing for File execute_behavior_node.hpp
+==================================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_bt_execute_behavior_node.hpp>` (``include/horus_bt/execute_behavior_node.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   #pragma once
+   
+   #include <atomic>
+   #include <chrono>
+   #include <future>
+   #include <map>
+   #include <memory>
+   #include <mutex>
+   #include <string>
+   
+   #include "behaviortree_cpp/action_node.h"
+   #include "horus_bt/node_ptr.hpp"
+   #include "rclcpp/rclcpp.hpp"
+   #include "rclcpp_action/rclcpp_action.hpp"
+   
+   #include "horus_msgs/action/execute_behavior.hpp"
+   
+   namespace horus_bt
+   {
+   
+   /* BT leaf that runs one generator_server behavior (home/sit/stand/walk) to completion via the
+    * ~/execute_behavior action. StatefulActionNode: onStart sends the goal, onRunning polls the result
+    * (spinning its OWN callback-group executor so it works regardless of the container's executor,
+    * the no-behaviortree_ros2 pattern), onHalted cancels. SUCCESS iff the action SUCCEEDED. */
+   struct BehaviorChannel
+   {
+       using Action = horus_msgs::action::ExecuteBehavior;
+       rclcpp::CallbackGroup::SharedPtr group;
+       std::shared_ptr<rclcpp::executors::SingleThreadedExecutor> exec;
+       rclcpp_action::Client<Action>::SharedPtr client;
+       std::mutex mutex;  
+   };
+   
+   inline std::shared_ptr<BehaviorChannel> behaviorChannel(const NodePtr& node, const std::string& action)
+   {
+       static std::mutex registry_mutex;
+       static std::map<std::pair<const void*, std::string>, std::weak_ptr<BehaviorChannel>> registry;
+       std::lock_guard<std::mutex> lock(registry_mutex);
+       auto& slot = registry[{node.get(), action}];
+       if (auto existing = slot.lock()) return existing;
+       auto ch = std::make_shared<BehaviorChannel>();
+       ch->group = node->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive, false);
+       ch->exec = std::make_shared<rclcpp::executors::SingleThreadedExecutor>();
+       ch->exec->add_callback_group(ch->group, node->get_node_base_interface());
+       ch->client = rclcpp_action::create_client<BehaviorChannel::Action>(node, action, ch->group);
+       slot = ch;
+       return ch;
+   }
+   
+   class ExecuteBehaviorNode : public BT::StatefulActionNode
+   {
+      public:
+       using Action     = horus_msgs::action::ExecuteBehavior;
+       using GoalHandle = rclcpp_action::ClientGoalHandle<Action>;
+   
+       ExecuteBehaviorNode(const std::string& name, const BT::NodeConfig& config,
+                           const NodePtr& node)
+           : BT::StatefulActionNode(name, config), node_(node)
+       {
+           action_name_ = node_->get_parameter("generator_action").as_string();
+           channel_ = behaviorChannel(node_, action_name_);
+           client_ = channel_->client;
+       }
+   
+       static BT::PortsList providedPorts()
+       {
+           return {BT::InputPort<std::string>("behavior", "behavior name to run (home/sit/stand/walk/...)")};
+       }
+   
+       BT::NodeStatus onStart() override
+       {
+           std::string behavior;
+           if (!getInput("behavior", behavior) || behavior.empty())
+           {
+               RCLCPP_ERROR(node_->get_logger(), "ExecuteBehavior: missing 'behavior' port");
+               return BT::NodeStatus::FAILURE;
+           }
+           if (!client_->wait_for_action_server(std::chrono::seconds(2)))
+           {
+               RCLCPP_ERROR(node_->get_logger(), "ExecuteBehavior: '%s' server not up", action_name_.c_str());
+               return BT::NodeStatus::FAILURE;
+           }
+           goal_handle_ = nullptr;
+           outcome_ = std::make_shared<Outcome>(); /* owned by this goal: callbacks never touch the leaf */
+   
+           Action::Goal goal;
+           goal.behavior = behavior;
+           auto opts     = rclcpp_action::Client<Action>::SendGoalOptions();
+           opts.result_callback = [outcome = outcome_](const GoalHandle::WrappedResult& r)
+           {
+               outcome->succeeded = r.code == rclcpp_action::ResultCode::SUCCEEDED;
+               outcome->done = true;
+           };
+           goal_future_ = client_->async_send_goal(goal, opts);
+           RCLCPP_INFO(node_->get_logger(), "ExecuteBehavior('%s') sent", behavior.c_str());
+           return BT::NodeStatus::RUNNING;
+       }
+   
+       BT::NodeStatus onRunning() override
+       {
+           spin();
+           if (goal_future_.valid() &&
+               goal_future_.wait_for(std::chrono::seconds(0)) == std::future_status::ready)
+           {
+               goal_handle_ = goal_future_.get();
+               if (!goal_handle_)
+               {
+                   RCLCPP_ERROR(node_->get_logger(), "ExecuteBehavior: goal rejected");
+                   return BT::NodeStatus::FAILURE;
+               }
+           }
+           if (!outcome_->done) return BT::NodeStatus::RUNNING;
+           return outcome_->succeeded ? BT::NodeStatus::SUCCESS : BT::NodeStatus::FAILURE;
+       }
+   
+       void onHalted() override
+       {
+           if (goal_handle_ && outcome_ && !outcome_->done)
+           {
+               try
+               {
+                   client_->async_cancel_goal(goal_handle_);
+               }
+               catch (const rclcpp_action::exceptions::UnknownGoalHandleError&)
+               {
+                   /* finished in the meantime */
+               }
+           }
+           spin();
+       }
+   
+      private:
+       void spin()
+       {
+           std::lock_guard<std::mutex> lock(channel_->mutex);
+           channel_->exec->spin_all(std::chrono::milliseconds(5)); /* drain everything queued (feedback can back up) */
+       }
+   
+       NodePtr node_;
+       std::shared_ptr<BehaviorChannel> channel_;  
+       std::string action_name_;  
+       rclcpp_action::Client<Action>::SharedPtr client_;
+       std::shared_future<GoalHandle::SharedPtr> goal_future_;
+       GoalHandle::SharedPtr goal_handle_;
+       struct Outcome
+       {
+           std::atomic<bool> done{false};
+           std::atomic<bool> succeeded{false};
+       };
+       std::shared_ptr<Outcome> outcome_{std::make_shared<Outcome>()};
+   };
+   
+   }  // namespace horus_bt

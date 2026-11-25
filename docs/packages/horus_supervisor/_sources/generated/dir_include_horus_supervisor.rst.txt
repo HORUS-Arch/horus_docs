@@ -1,0 +1,21 @@
+.. _dir_include_horus_supervisor:
+
+
+Directory horus_supervisor
+==========================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include>` (``include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``include/horus_supervisor``
+
+
+Files
+-----
+
+- :ref:`file_include_horus_supervisor_mode_machine.hpp`
+
+

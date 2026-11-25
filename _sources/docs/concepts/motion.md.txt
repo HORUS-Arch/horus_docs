@@ -1,0 +1,60 @@
+# Motion: generation and control
+
+Motion is split by rate. **Generation** decides what the joints should do (~100 Hz, ordinary
+nodes). **Control** tracks it in real time (~1 kHz, ros2_control). The reference topic is the only link.
+
+## Generation
+
+`generator_server` hosts **behaviors**: named instances of `Generator` plugins declared in YAML,
+all loaded at configure time. `ExecuteBehavior` runs one; a new goal preempts the running one. A
+cancel stops the output in the cancel callback itself, so a mode change or an emergency stop leaves
+no further command after it.
+
+- **Speed**: `speed_scale` scales time for every behavior, live (0 holds, 2 is twice as fast).
+- **Output**: `float64_array` for forward command controllers, or `joint_trajectory` (one point per
+  tick, positions, velocities or efforts) for the joint trajectory controller.
+- **Per-run overrides**: an `ExecuteBehavior` goal may override the behavior's parameters for that run.
+- **Safety**: idle means silent; one behavior at a time; unknown names are rejected.
+
+Shipped generators:
+
+| Plugin | Does |
+|---|---|
+| `horus_generator_pattern/Pattern` | periodic waveforms per joint (sine, square, triangle, table), finite or cycling |
+| `horus_generator_pattern/Waypoints` | joint waypoints from YAML or CSV, smooth or linear, position, velocity or effort, optionally starting from the measured pose |
+| `horus_generator_pattern/Manual` | MANUAL mode: follows operator targets (`sensor_msgs/JointState` on `~/manual_target`) in position or effort, rate-limited, starting at the measured pose, holding when input stops; continuous |
+
+## Control: ros2_control
+
+```{mermaid}
+flowchart TB
+  GEN["generator_server"] -->|reference topic| CM
+  subgraph CM["controller_manager (RT thread, FIFO)"]
+    C["one active controller<br/>forward / trajectory / GravityCompensation"]
+    S["SafetyController<br/>stop, limits, last before the hardware"]
+    B["broadcasters<br/>joint states, wrench, device status"]
+  end
+  subgraph RM["resource manager"]
+    I["command and state interfaces<br/>knee/position, knee/effort, ..."]
+    H["hardware component: mock | MuJoCo | device"]
+  end
+  C -.->|chained, optional| S
+  S -->|claims| I
+  I -->|read| B
+  URDF["URDF &lt;ros2_control&gt;"] -.->|describes| RM
+```
+
+Each cycle the controller manager calls `read()` on the hardware, `update()` on every active
+controller, then `write()`. The hardware and its interfaces come from the `<ros2_control>` element of
+the URDF, which is why a device must be **described** before it can be controlled. Controllers claim
+command interfaces exclusively, can be chained, and broadcasters publish state for the rest of ROS.
+
+Why ros2_control: it is the ROS 2 standard, separates hardware from algorithms, runs in real time on
+PREEMPT_RT, lets simulation and the device share the same controllers, and ships tested controllers.
+
+| Controller | Interfaces | Use |
+|---|---|---|
+| forward command (stock) | position or velocity | the device closes its own loop |
+| joint trajectory (stock) | position (and velocity) | following waypoints |
+| `horus_control/GravityCompensation` | effort | τ = γ·G(q) + τ_ref from the URDF inertias (KDL): transparency, or assistance on top |
+| `horus_control/SafetyController` | position, velocity or effort | last before the hardware: latched stop on emergency stop, EMERGENCY_STOP or command timeout; clamps to the limits (see {doc}`../configuration/controllers`) |

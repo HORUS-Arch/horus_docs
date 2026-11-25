@@ -1,0 +1,14 @@
+.. _exhale_enum_mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169:
+
+Enum Mode
+=========
+
+- Defined in :ref:`file_include_horus_supervisor_mode_machine.hpp`
+
+
+Enum Documentation
+------------------
+
+
+.. doxygenenum:: horus_supervisor::Mode
+   :project: horus_supervisor Doxygen Project

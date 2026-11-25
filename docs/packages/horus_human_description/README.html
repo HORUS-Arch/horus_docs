@@ -1,0 +1,161 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>horus_human_description &mdash; horus_human_description: Jazzy 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            horus_human_description: Jazzy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="__links.html">Links</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://index.ros.org/p/horus_human_description">Rosindex</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="__standards.html">Standard Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="__README.html">README</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="__README.html#horus-human-description">horus_human_description</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#contents">Contents</a></li>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="__README.html#notes">Notes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="__PACKAGE.html">PACKAGE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="__ros_package_dependencies.html">ROS Package Dependencies</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/robot_state_publisher/">robot_state_publisher</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rviz2/">rviz2</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/ament_index_python/">ament_index_python</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/xacro/">xacro</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">horus_human_description: Jazzy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">horus_human_description</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/README.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="horus-human-description">
+<h1>horus_human_description<a class="headerlink" href="#horus-human-description" title="Link to this heading"></a></h1>
+<p>The <strong>model of the person</strong> (data, not algorithms), a lower-body human/biomech URDF that state estimation
+and estimation reference and that stimulator targets attach to. Kept separate from the device
+description: human and device are <strong>two URDFs joined by a transform</strong> (URDF is a tree and can’t close the
+strap loop; MuJoCo <code class="docutils literal notranslate"><span class="pre">&lt;equality&gt;</span></code> closes it for sim).</p>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">xacro</span></code>, <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code>.</p>
+</section>
+<section id="contents">
+<h2>Contents<a class="headerlink" href="#contents" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">urdf/human.urdf.xacro</span></code>, the lower-body skeleton, <strong>parametric</strong> on the subject’s body measurements
+(<code class="docutils literal notranslate"><span class="pre">hip_height</span></code>, <code class="docutils literal notranslate"><span class="pre">knee_height</span></code>, <code class="docutils literal notranslate"><span class="pre">ankle_height</span></code>, <code class="docutils literal notranslate"><span class="pre">hip_width</span></code>, <code class="docutils literal notranslate"><span class="pre">foot_length</span></code>, <code class="docutils literal notranslate"><span class="pre">sole_thickness</span></code>; 0 = adult
+default). Links and joints use the <code class="docutils literal notranslate"><span class="pre">human_msgs</span></code> names (<code class="docutils literal notranslate"><span class="pre">pelvis</span></code>, <code class="docutils literal notranslate"><span class="pre">right_upper_leg</span></code>, <code class="docutils literal notranslate"><span class="pre">right_knee</span></code>, …).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">profile_to_urdf</span></code>, builds a subject’s URDF from <code class="docutils literal notranslate"><span class="pre">subjects/&lt;id&gt;/profile.yaml</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">launch/human_model.launch.py</span> <span class="pre">subject_id:=&lt;id&gt;</span></code>, publishes it with <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> in <code class="docutils literal notranslate"><span class="pre">/human</span></code>
+(frames prefixed <code class="docutils literal notranslate"><span class="pre">human/</span></code>, joint states from <code class="docutils literal notranslate"><span class="pre">/human/joint_states</span></code>).</p></li>
+</ul>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>Publish the human TF tree with <code class="docutils literal notranslate"><span class="pre">robot_state_publisher</span></code> fed this description; sensors (IMUs, Xsens,
+insoles) publish joint states / transforms into that tree.</p>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Link to this heading"></a></h2>
+<p>Segment lengths: upper leg = hip height − knee height, lower leg = knee height − ankle height; the
+pelvis sits at hip height plus sole thickness. Inertia-free: for TF, visualization and kinematics.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The &lt;horus_human_description&gt; Contributors. License: MIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_de9f0254072df4b4b900398be31863ab" kind="dir">
+    <compoundname>include/horus_human</compoundname>
+    <innerfile refid="calibrations_8hpp">calibrations.hpp</innerfile>
+    <innerfile refid="default__calibrations_8hpp">default_calibrations.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_human/"/>
+  </compounddef>
+</doxygen>

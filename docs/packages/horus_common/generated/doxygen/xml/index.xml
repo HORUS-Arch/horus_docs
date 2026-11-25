@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="namespacehorus__common" kind="namespace"><name>horus_common</name>
+    <member refid="interface__utils_8hpp_1a9c367a34497eaf6a39a456116271c1e2" kind="function"><name>resolve_interface_names</name></member>
+    <member refid="interface__utils_8hpp_1a8861581d8326d5b13f25ccda831ad021" kind="function"><name>param_or_zeros</name></member>
+  </compound>
+  <compound refid="interface__utils_8hpp" kind="file"><name>interface_utils.hpp</name>
+  </compound>
+  <compound refid="dir_a89ebc2a873706f2fd025ccb41233a0c" kind="dir"><name>include/horus_common</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

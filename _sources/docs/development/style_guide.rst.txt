@@ -1,0 +1,226 @@
+.. _style_guide-label:
+
+Style Guide
+===========
+
+All code in the HORUS repositories must follow a consistent set of style guides to ensure clarity, maintainability, and compatibility across the project.
+Your code should comply with the guidelines outlined in this document.
+
+
+The following style guides are used:
+
+- **Python**:
+  - **PEP 8**: https://www.python.org/dev/peps/pep-0008/  
+  - **Google Style Python Docstrings**: https://www.sphinx-doc.org/en/master/usage/extensions/example_google.html  
+
+- **C++**:
+  - **clang-format**: https://clang.llvm.org/docs/ClangFormat.html   
+  - **ROS C++ Format**: https://github.com/PickNikRobotics/roscpp_code_format   
+
+All code follow the current `ROS2 Style Language Guidelines <https://docs.ros.org/en/jazzy/The-ROS2-Project/Contributing/Code-Style-Language-Versions.html>`_.
+
+Style Checkers
+--------------
+
+- **C++**: `clang-format <https://clang.llvm.org/docs/ClangFormat.html>`_  
+- **Python**: `flake8 <https://flake8.pycqa.org/en/latest/>`_  
+
+These tools are configured through the ``.clang-format`` and ``.flake8`` files located in the root directory of each repository.  
+
+clang-format
+^^^^^^^^^^^^
+
+clang-format is a tool for checking and fixing code style. It is configured using the ``.clang-format`` file located in the root directory of each repository.
+To format a C++ file using clang-format, you can run the following command in the terminal from the repository root:
+
+.. code-block:: bash
+
+    clang-format --style=file -i src/some_file.cpp
+
+**VS Code** has a clang-format formater that can be used to format the code in the editor.
+To use it, you need to install the `C/C++ extension <https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools>`_.
+
+.. note::
+
+    To format the document, right-click in the editor and select 'Format Document' or use the shortcut `Ctrl+Shift+I`.
+
+flake8
+^^^^^^
+
+Flake8 checks by default for `PEP 8 <https://www.python.org/dev/peps/pep-0008>`_ style guide.
+
+VS Code already contains a flake8 linter `extension <https://marketplace.visualstudio.com/items?itemName=ms-python.flake8>`_. This extension will automatically lint your code in the editor.
+In order to customize the flake8 configuration, use the ``.flake8`` file in the repository root, and add the following content to (``.vscode/settings.json``):
+
+.. code-block::
+
+    "flake8.args": [
+        "--config=${workspaceFolder}/.flake8"
+    ],
+
+
+In order to enforce the style guide, a style check script is provided in ``scripts/style_check.sh``. This script will check all C++ and Python files in the repository for style violations.
+You can run the script from the repository root:
+
+.. code-block:: bash
+
+    cd ~/ros2_ws/src/horus
+    chmod +x ./scripts/style_check.sh
+    ./scripts/style_check.sh
+    ./scripts/style_check.sh --fix # to auto-fix violations
+    ./scripts/style_check.sh --folder folder_path # to check a specific folder
+
+
+Naming Conventions
+------------------
+This section will explain the different naming schemes and which scheme we use for which type of object.
+
+Conventions
+^^^^^^^^^^^
+.. list-table::
+    :header-rows: 1
+
+    * - Type
+      - Case
+      - Prefix
+      - Postfix
+      - Example
+    * - Repositories
+      - kebab-case
+      -
+      -
+      - motion-controller
+    * - ROS2 Packages
+      - snake_case
+      - horus
+      -
+      - horus_motion_manager
+    * - Nodes
+      - snake_case
+      -
+      -
+      - horus_sensor_interface
+    * - Topics / Services
+      - PascalCase
+      -
+      -
+      - JointStatus.msg
+    * - Files
+      - snake_case
+      -
+      -
+      - horus_sensor_interface_node.cpp
+    * - Classes
+      - PascalCase
+      -
+      -
+      - MotionController
+    * - Variables
+      - snake_case
+      -
+      -
+      - update_rate
+    * - Class fields
+      - snake_case
+      -
+      -
+      - joint_angle
+    * - Private fields (C++)
+      - snake_case
+      -
+      - _
+      - internal_state\_
+    * - Private fields (Python)
+      - snake_case
+      - _
+      -
+      - _internal_state
+    * - Methods / functions (C++)
+      - camelCase
+      -
+      -
+      - computeTrajectory()
+    * - Methods / functions (Python)
+      - snake_case
+      -
+      -
+      - process_data()
+    * - Constants
+      - UPPER_CASE
+      -
+      -
+      - DEFAULT_SPEED
+    * - Namespaces
+      - snake_case
+      -
+      -
+      - horus_control
+
+Packages
+^^^^^^^^
+
+The prefix for all **ROS 2 packages** in HORUS is ``horus_``.  
+For example, if you want to create a package called ``xyz``, it should be named ``horus_xyz``.
+
+Comment Style Guidelines
+------------------------
+
+HORUS favours **self-documenting code + terse, purposeful comments** over boilerplate docblocks.
+Names carry the *what*; comments explain the *why* (non-obvious intent, a gotcha, a design reason).
+Do **not** restate the signature. Keep comments short and next to what they describe.
+
+C++ Comment Style
+^^^^^^^^^^^^^^^^^
+- **NO per-function Doxygen docblocks** (no ``/** @brief ... @param ... */`` above every function).
+  The signature already says what a function takes and returns; a docblock that repeats it is noise.
+- **Inline trailing member comments** use ``/**< ... */``, a Doxygen *trailing* member comment, so
+  rosdoc2 still picks it up. Use it to annotate a member, a param default, or a single line.
+- **Brief block comments** ``/* ... */`` head a file (what the unit is + why) or a tricky block. Keep
+  them a few lines, not a template.
+
+**Example** (the terse, inline-comment style used across HORUS):
+
+.. code-block:: cpp
+
+    /* Reference generator: emits one set-point vector per tick; the server publishes it. A finite
+     * behavior (home/sit/stand) ends via finished(); continuous ones (walk) run until canceled. */
+    class Pattern : public Generator
+    {
+       public:
+        std::vector<double> update(const rclcpp::Time& t, const rclcpp::Duration& period) override;
+
+       private:
+        double duration_{0.0};  /**< finite behaviors end after this many seconds; 0 = continuous */
+        double elapsed_{0.0};   /**< seconds active, accumulated in update() */
+    };
+
+Python Comment Style
+^^^^^^^^^^^^^^^^^^^^
+- A **module docstring** at the top of each file (what the node/tool is + how it fits) and a short
+  **class docstring** where it helps. These render on the docs site.
+- **Inline ``#`` comments** for non-obvious lines. Skip per-function ``Args:``/``Returns:`` docblocks
+  unless a function's contract is genuinely unclear from its name + signature, don't add boilerplate.
+
+**Example**:
+
+.. code-block:: python
+
+    """Session manager: a session is BINARY, a trial is recording, or it is not. START/STOP drive
+    the recorder and latch the running state. It never touches the behavior tree (kept separate)."""
+
+    def start(self, req, res):
+        self.subject = req.subject_id or "unknown"
+        if not self.rec_start.wait_for_service(timeout_sec=5.0):   # recorder not up -> refuse
+            res.success, res.message = False, "recorder not available"
+        return res
+
+Summary
+^^^^^^^
+- **C++**: self-documenting names + inline ``/**<`` trailing comments + brief ``/* */`` block headers.
+  **No per-function docblocks.**
+- **Python**: module/class docstrings + inline ``#`` comments; no boilerplate per-function docstrings.
+
+This keeps the code readable and still lets ``rosdoc2`` generate API pages (``/**<`` is a Doxygen
+trailing member comment; Python docstrings feed ``sphinx.ext.napoleon``).
+
+

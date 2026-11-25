@@ -1,0 +1,54 @@
+
+.. _program_listing_file_include_horus_human_core_calibration_plugin.hpp:
+
+Program Listing for File calibration_plugin.hpp
+===============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_human_core_calibration_plugin.hpp>` (``include/horus_human_core/calibration_plugin.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <memory>
+   #include <string>
+   #include <vector>
+   
+   #include <yaml-cpp/yaml.h>
+   
+   #include "rclcpp_lifecycle/lifecycle_node.hpp"
+   
+   namespace horus_human_core
+   {
+   
+   using NodePtr = rclcpp_lifecycle::LifecycleNode::SharedPtr; 
+   template <class MsgT>
+   class CalibrationPlugin
+   {
+      public:
+       using Ptr = std::shared_ptr<CalibrationPlugin<MsgT>>;
+   
+       virtual ~CalibrationPlugin() = default;
+   
+       virtual void configure(const NodePtr& node, const std::string& name,
+                              const std::vector<std::string>& units) = 0;
+   
+       virtual double defaultDuration() const { return 3.0; }
+   
+       virtual void begin(const std::string& unit) = 0;
+   
+       virtual void add(const std::string& unit, const MsgT& raw) = 0;
+   
+       virtual bool finish(const std::string& unit, YAML::Node& out, std::string& summary) = 0;
+   
+       virtual bool load(const std::string& unit, const YAML::Node& data) = 0;
+   
+       virtual bool calibrated(const std::string& unit) const = 0;
+   
+       virtual void apply(const std::string& unit, MsgT& msg) const = 0;
+   };
+   
+   }  // namespace horus_human_core

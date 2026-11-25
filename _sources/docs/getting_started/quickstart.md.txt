@@ -1,0 +1,56 @@
+# Quick start: the mock rig
+
+This runs the whole system, without hardware, on the mock exoskeleton: a three-joint leg (hip, knee,
+ankle) driven by ros2_control mock hardware.
+
+## Launch
+
+```bash
+source ~/ros2_ws/install/setup.bash
+ros2 launch horus_bringup rig.launch.py \
+  rig:=$(ros2 pkg prefix horus_bringup)/share/horus_bringup/rigs/mock/rig.yaml
+```
+
+One rig file starts everything: the mock's ros2_control, the generator server, the supervisor (which
+runs the trees), the session node, the lifecycle manager and the interface (rosbridge on port 9090 and
+a web page on port 8080). The supervisor reaches STANDBY on its own once its trees are loaded (the mock
+rig disables the operator heartbeat).
+
+## Drive it
+
+From a browser on the same network, open `http://<this-pc>:8080`, or use the command line:
+
+```bash
+# START (0) a protocol: RUN runs the Trial tree (home, walk, home), then back to STANDBY
+ros2 service call /horus/supervisor/command horus_msgs/srv/SupervisorCommand "{command: 0, tree: Trial}"
+ros2 topic echo /horus/supervisor/state --once
+
+# STOP (1) ends the protocol early
+ros2 service call /horus/supervisor/command horus_msgs/srv/SupervisorCommand "{command: 1}"
+
+# change the speed of every behavior, live
+ros2 param set /horus/generator_server speed_scale 1.5
+
+# MANUAL (2): the joints follow targets on /horus/generator_server/manual_target (the UI sliders)
+ros2 service call /horus/supervisor/command horus_msgs/srv/SupervisorCommand "{command: 2}"
+ros2 topic pub -r 10 /horus/generator_server/manual_target sensor_msgs/msg/JointState \
+  "{name: [hipR], position: [0.3]}"   # ramps at max_rate; Ctrl-C, and after `timeout` it holds
+ros2 service call /horus/supervisor/command horus_msgs/srv/SupervisorCommand "{command: 1}"
+
+# emergency stop, then RESET (3) to STANDBY
+ros2 topic pub --once /horus/supervisor/estop std_msgs/msg/Empty
+ros2 service call /horus/supervisor/command horus_msgs/srv/SupervisorCommand "{command: 3}"
+```
+
+## Record
+
+```bash
+ros2 service call /horus/session/create_subject horus_msgs/srv/CreateSubject "{profile: {id: s01}}"
+ros2 service call /horus/session/session_control horus_msgs/srv/SessionControl "{command: 2, subject_id: s01}"   # SELECT
+ros2 service call /horus/supervisor/command horus_msgs/srv/SupervisorCommand "{command: 0, tree: Trial}"
+# RUN opens a trial, STANDBY closes it (record: per_run, the default)
+ls ~/horus_data/subjects/s01/trials/
+cat ~/horus_data/subjects/s01/trials/*/trial.yaml
+```
+
+Next: {doc}`session` for the full workflow, {doc}`../configuration/rig_file` to describe your own rig.

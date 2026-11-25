@@ -1,0 +1,7 @@
+horus\_session.session\_client module
+=====================================
+
+.. automodule:: horus_session.session_client
+   :members:
+   :show-inheritance:
+   :undoc-members:

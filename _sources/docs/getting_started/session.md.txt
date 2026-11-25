@@ -1,0 +1,54 @@
+# Running a session
+
+A session has three stages.
+
+```{mermaid}
+flowchart LR
+  A["1 Bring-up<br/>rig.launch.py starts every node"] --> B["2 Setup (STANDBY)<br/>subject, devices, calibration"]
+  B --> C["3 Run<br/>protocols + recording"]
+  C -->|next trial| C
+  C -->|new subject or devices| B
+```
+
+## 1. Bring-up
+
+Start the rig (`ros2 launch horus_bringup rig.launch.py rig:=<your rig.yaml>`). With
+`system.autostart: true` the lifecycle manager configures and activates every managed node in order:
+sensor drivers, then the HORUS sensing nodes, then the generator server. With `autostart: false`
+they wait, unconfigured, until the operator connects them from the UI.
+
+The supervisor starts in INIT and moves to STANDBY on its own once its trees are loaded and the
+operator interface is connected (or the heartbeat is disabled).
+
+## 2. Setup
+
+Setup happens in STANDBY, where nothing moves the device. In the UI this is the Setup screen; there
+is no separate mode.
+
+1. Select or create the subject (UI, or `/horus/session/create_subject` and `SessionControl`
+   SELECT). SELECT sets `subject_id` on every `/human/*` node and loads its newest calibration files.
+2. Connect the devices (UI Devices section, or `/horus/lifecycle_manager/manage_nodes`).
+3. Calibrate what is missing: the UI calls each node's `~/calibrate` action (hold the pose, lift the
+   foot, maximum contraction), shows the result, and saves it for the selected subject with
+   `~/save_calibration`. A calibration that moves the device is a protocol: write it as a tree with
+   `Calibrate` leaves and run it in RUN.
+4. Check signals: the nodes report on `/diagnostics` whether each channel is calibrated.
+
+## 3. Run
+
+1. **START** a protocol (`SupervisorCommand` START with `tree`, or `trees.run`). With
+   `require_subject: true` START is refused until a subject is selected.
+2. With `record: per_run` (the default) entering RUN opens a trial and returning to STANDBY closes
+   it. With `record: manual` start and stop the recording yourself (`SessionControl` START / STOP, the
+   UI buttons, or the `StartRecording` / `StopRecording` leaves). Add notes while it runs.
+3. When the tree ends the supervisor returns to STANDBY; **STOP** ends it early. If the protocol
+   fails, RECOVERY runs the recovery tree.
+4. **MANUAL** (from STANDBY) lets the operator move the joints with the UI sliders; STOP returns to
+   STANDBY.
+5. An emergency stop, a fault of a critical device or a lost operator goes to EMERGENCY_STOP.
+   **RESET** returns to STANDBY once no fault is active. The recording keeps running through an
+   emergency stop and closes on RESET or `post_stop_record` seconds later.
+6. Each trial is in `~/horus_data/subjects/<id>/trials/<trial>/`, with its `trial.yaml` (outcome,
+   calibrations in use, events, notes), see {doc}`../concepts/sessions_data`.
+
+The on-screen stop is a convenience; a physical emergency stop is mandatory on a real device.

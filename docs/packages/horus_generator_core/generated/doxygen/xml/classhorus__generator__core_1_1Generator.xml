@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__generator__core_1_1Generator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>horus_generator_core::Generator</compoundname>
+    <includes refid="generator_8hpp" local="no">generator.hpp</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhorus__generator__core_1_1Generator_1aa90c9b265b171f18e5227a684b620042" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="classhorus__generator__core_1_1Generator" kindref="compound">Generator</ref> &gt;</type>
+        <definition>using horus_generator_core::Generator::Ptr =  std::shared_ptr&lt;Generator&gt;</definition>
+        <argsstring></argsstring>
+        <name>Ptr</name>
+        <qualifiedname>horus_generator_core::Generator::Ptr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="37" column="5" bodyfile="include/horus_generator_core/generator.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1ad32b37c0dcce4b07ddb1121a853ce753" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual horus_generator_core::Generator::~Generator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Generator</name>
+        <qualifiedname>horus_generator_core::Generator::~Generator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="39" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1a186b7873eed1152d97480a06e37311a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void horus_generator_core::Generator::configure</definition>
+        <argsstring>(const NodePtr &amp;node, const std::string &amp;name)=0</argsstring>
+        <name>configure</name>
+        <qualifiedname>horus_generator_core::Generator::configure</qualifiedname>
+        <param>
+          <type>const NodePtr &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Read this instance&apos;s parameters and subscribe whatever inputs the algorithm needs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hosting lifecycle node, used for parameters, logging and subscriptions. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This instance&apos;s parameter namespace; parameters live under <computeroutput>&lt;name&gt;.*</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="46" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1a8ba4fe18eef6b597af8a554c6fa97a0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void horus_generator_core::Generator::activate</definition>
+        <argsstring>()=0</argsstring>
+        <name>activate</name>
+        <qualifiedname>horus_generator_core::Generator::activate</qualifiedname>
+        <briefdescription>
+<para>Called when this generator becomes the active one, before the first <ref refid="classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea" kindref="member">update()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="49" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1ae533309152199cd26ba7048d5763ba2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void horus_generator_core::Generator::deactivate</definition>
+        <argsstring>()=0</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>horus_generator_core::Generator::deactivate</qualifiedname>
+        <briefdescription>
+<para>Called when this generator stops being the active one. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="52" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1a29b0093aed724a059d09a9de93ae39a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void horus_generator_core::Generator::reset</definition>
+        <argsstring>()=0</argsstring>
+        <name>reset</name>
+        <qualifiedname>horus_generator_core::Generator::reset</qualifiedname>
+        <briefdescription>
+<para>Return internal state (phase, elapsed time) to its starting point. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="55" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>virtual std::vector&lt; double &gt; horus_generator_core::Generator::update</definition>
+        <argsstring>(const rclcpp::Time &amp;time, const rclcpp::Duration &amp;period)=0</argsstring>
+        <name>update</name>
+        <qualifiedname>horus_generator_core::Generator::update</qualifiedname>
+        <param>
+          <type>const rclcpp::Time &amp;</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const rclcpp::Duration &amp;</type>
+          <declname>period</declname>
+        </param>
+        <briefdescription>
+<para>Produce the reference for this tick. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current time from the hosting node&apos;s clock. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time since the previous tick. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The reference vector, ordered to match the target controller&apos;s joints. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="63" column="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1a2d142582f4e25f6cc24f542aeeffcf36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>virtual bool horus_generator_core::Generator::finished</definition>
+        <argsstring>() const</argsstring>
+        <name>finished</name>
+        <qualifiedname>horus_generator_core::Generator::finished</qualifiedname>
+        <briefdescription>
+<para>Whether a finite motion has completed, which is what lets a behavior action succeed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True once a finite generator (a sit / stand / home player) is done. Continuous generators (sine, walk, CPG) keep the default and run until canceled. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="70" column="18" bodyfile="include/horus_generator_core/generator.hpp" bodystart="70" bodyend="70"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1aab97360799bfef185b3789e98428f3e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>double</type>
+        <definition>virtual double horus_generator_core::Generator::progress</definition>
+        <argsstring>() const</argsstring>
+        <name>progress</name>
+        <qualifiedname>horus_generator_core::Generator::progress</qualifiedname>
+        <briefdescription>
+<para>How far a finite motion has got, for action feedback. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0.0 .. 1.0 for finite generators; continuous generators keep the default 0. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="76" column="20" bodyfile="include/horus_generator_core/generator.hpp" bodystart="76" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1ad3fbc23d20d533b7278714729b49241f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>virtual std::vector&lt; std::string &gt; horus_generator_core::Generator::jointNames</definition>
+        <argsstring>() const</argsstring>
+        <name>jointNames</name>
+        <qualifiedname>horus_generator_core::Generator::jointNames</qualifiedname>
+        <briefdescription>
+<para>Names of the joints the output vector is ordered by, if the generator knows them. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Joint names (needed for trajectory output); empty = the server&apos;s <computeroutput>joint_names</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="82" column="25" bodyfile="include/horus_generator_core/generator.hpp" bodystart="82" bodyend="82"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1a42aba85d6daebc7479a884d46362d316" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>virtual std::string horus_generator_core::Generator::quantity</definition>
+        <argsstring>() const</argsstring>
+        <name>quantity</name>
+        <qualifiedname>horus_generator_core::Generator::quantity</qualifiedname>
+        <briefdescription>
+<para>What the output vector is, so the server fills the matching trajectory field. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>&quot;position&quot; (default), &quot;velocity&quot; or &quot;effort&quot;. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="88" column="25" bodyfile="include/horus_generator_core/generator.hpp" bodystart="88" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__core_1_1Generator_1aac97a06d1cdf642b3bb1b3993cc724c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>virtual void horus_generator_core::Generator::setSpeedScale</definition>
+        <argsstring>(double)</argsstring>
+        <name>setSpeedScale</name>
+        <qualifiedname>horus_generator_core::Generator::setSpeedScale</qualifiedname>
+        <param>
+          <type>double</type>
+        </param>
+        <briefdescription>
+<para>The server&apos;s live speed scale, given before every <ref refid="classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea" kindref="member">update()</ref>; time-derivative outputs (velocities) must be multiplied by it. Time itself already arrives scaled. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current speed_scale (0 = hold). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="95" column="18" bodyfile="include/horus_generator_core/generator.hpp" bodystart="95" bodyend="95"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Base class for a reference generator, the algorithm behind one named behavior. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_generator_core/generator.hpp" line="34" column="1" bodyfile="include/horus_generator_core/generator.hpp" bodystart="35" bodyend="96"/>
+    <listofallmembers>
+      <member refid="classhorus__generator__core_1_1Generator_1a8ba4fe18eef6b597af8a554c6fa97a0e" prot="public" virt="pure-virtual"><scope>horus_generator_core::Generator</scope><name>activate</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1a186b7873eed1152d97480a06e37311a3" prot="public" virt="pure-virtual"><scope>horus_generator_core::Generator</scope><name>configure</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1ae533309152199cd26ba7048d5763ba2b" prot="public" virt="pure-virtual"><scope>horus_generator_core::Generator</scope><name>deactivate</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1a2d142582f4e25f6cc24f542aeeffcf36" prot="public" virt="virtual"><scope>horus_generator_core::Generator</scope><name>finished</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1ad3fbc23d20d533b7278714729b49241f" prot="public" virt="virtual"><scope>horus_generator_core::Generator</scope><name>jointNames</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1aab97360799bfef185b3789e98428f3e8" prot="public" virt="virtual"><scope>horus_generator_core::Generator</scope><name>progress</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1aa90c9b265b171f18e5227a684b620042" prot="public" virt="non-virtual"><scope>horus_generator_core::Generator</scope><name>Ptr</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1a42aba85d6daebc7479a884d46362d316" prot="public" virt="virtual"><scope>horus_generator_core::Generator</scope><name>quantity</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1a29b0093aed724a059d09a9de93ae39a7" prot="public" virt="pure-virtual"><scope>horus_generator_core::Generator</scope><name>reset</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1aac97a06d1cdf642b3bb1b3993cc724c4" prot="public" virt="virtual"><scope>horus_generator_core::Generator</scope><name>setSpeedScale</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea" prot="public" virt="pure-virtual"><scope>horus_generator_core::Generator</scope><name>update</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1ad32b37c0dcce4b07ddb1121a853ce753" prot="public" virt="virtual"><scope>horus_generator_core::Generator</scope><name>~Generator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

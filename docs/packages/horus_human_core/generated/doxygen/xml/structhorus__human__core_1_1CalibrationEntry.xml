@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhorus__human__core_1_1CalibrationEntry" kind="struct" language="C++" prot="public">
+    <compoundname>horus_human_core::CalibrationEntry</compoundname>
+    <includes refid="calibration__store_8hpp" local="no">calibration_store.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhorus__human__core_1_1CalibrationEntry_1a3192b874336511a60fd18a0888added4" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string horus_human_core::CalibrationEntry::unit</definition>
+        <argsstring></argsstring>
+        <name>unit</name>
+        <qualifiedname>horus_human_core::CalibrationEntry::unit</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>channel the file calibrates </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="24" column="17" bodyfile="include/horus_human_core/calibration_store.hpp" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__human__core_1_1CalibrationEntry_1a9b97c262b191a3544841ab7d8f93a516" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string horus_human_core::CalibrationEntry::stamp</definition>
+        <argsstring></argsstring>
+        <name>stamp</name>
+        <qualifiedname>horus_human_core::CalibrationEntry::stamp</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>YYYYmmdd_HHMMSS_mmm, sorts chronologically </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="25" column="17" bodyfile="include/horus_human_core/calibration_store.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__human__core_1_1CalibrationEntry_1ab8e6355078c5b433150e6675be817966" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string horus_human_core::CalibrationEntry::path</definition>
+        <argsstring></argsstring>
+        <name>path</name>
+        <qualifiedname>horus_human_core::CalibrationEntry::path</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>absolute path </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="26" column="17" bodyfile="include/horus_human_core/calibration_store.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>One calibration file found on disk. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_human_core/calibration_store.hpp" line="22" column="1" bodyfile="include/horus_human_core/calibration_store.hpp" bodystart="23" bodyend="27"/>
+    <listofallmembers>
+      <member refid="structhorus__human__core_1_1CalibrationEntry_1ab8e6355078c5b433150e6675be817966" prot="public" virt="non-virtual"><scope>horus_human_core::CalibrationEntry</scope><name>path</name></member>
+      <member refid="structhorus__human__core_1_1CalibrationEntry_1a9b97c262b191a3544841ab7d8f93a516" prot="public" virt="non-virtual"><scope>horus_human_core::CalibrationEntry</scope><name>stamp</name></member>
+      <member refid="structhorus__human__core_1_1CalibrationEntry_1a3192b874336511a60fd18a0888added4" prot="public" virt="non-virtual"><scope>horus_human_core::CalibrationEntry</scope><name>unit</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

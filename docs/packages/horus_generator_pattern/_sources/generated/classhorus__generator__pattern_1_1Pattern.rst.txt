@@ -1,0 +1,26 @@
+.. _exhale_class_classhorus__generator__pattern_1_1Pattern:
+
+Class Pattern
+=============
+
+- Defined in :ref:`file_include_horus_generator_pattern_pattern.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public horus_generator_core::Generator``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_generator_pattern::Pattern
+   :project: horus_generator_pattern Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

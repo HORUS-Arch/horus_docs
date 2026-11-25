@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacehorus__human__core" kind="namespace" language="C++">
+    <compoundname>horus_human_core</compoundname>
+    <innerclass refid="structhorus__human__core_1_1CalibrationEntry" prot="public">horus_human_core::CalibrationEntry</innerclass>
+    <innerclass refid="classhorus__human__core_1_1CalibrationPlugin" prot="public">horus_human_core::CalibrationPlugin</innerclass>
+    <innerclass refid="classhorus__human__core_1_1CalibrationStore" prot="public">horus_human_core::CalibrationStore</innerclass>
+    <innerclass refid="classhorus__human__core_1_1ChannelNode" prot="public">horus_human_core::ChannelNode</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158" prot="public" static="no">
+        <type>rclcpp_lifecycle::LifecycleNode::SharedPtr</type>
+        <definition>using horus_human_core::NodePtr = typedef rclcpp_lifecycle::LifecycleNode::SharedPtr</definition>
+        <argsstring></argsstring>
+        <name>NodePtr</name>
+        <qualifiedname>horus_human_core::NodePtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>host node handed to plugins </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_plugin.hpp" line="27" column="1" bodyfile="include/horus_human_core/calibration_plugin.hpp" bodystart="27" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_human_core/calibration_plugin.hpp" line="24" column="1"/>
+  </compounddef>
+</doxygen>

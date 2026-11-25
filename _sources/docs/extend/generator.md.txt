@@ -1,0 +1,61 @@
+# Write a generator
+
+A generator answers one question per tick: what should the joints do now? The server owns the rate
+loop, speed scaling, output format and lifecycle; your plugin returns a vector.
+
+## 1. The class
+
+```cpp
+#include "horus_generator_core/generator.hpp"
+#include "pluginlib/class_list_macros.hpp"
+
+namespace my_gens {
+class Hold : public horus_generator_core::Generator {
+ public:
+  void configure(const horus_generator_core::NodePtr& node, const std::string& name) override {
+    const std::string p = name + ".";
+    if (!node->has_parameter(p + "value")) node->declare_parameter<double>(p + "value", 0.0);  // declare-or-get:
+    value_ = node->get_parameter(p + "value").as_double();                                     // configure may be re-run
+    // subscribe here to any input you need (e.g. /human/<name>/segments)
+  }
+  void activate() override {}
+  void deactivate() override {}
+  void reset() override { t_ = 0.0; }
+  std::vector<double> update(const rclcpp::Time&, const rclcpp::Duration& dt) override {
+    t_ += dt.seconds();                    // dt is already scaled by speed_scale
+    return {value_, value_, value_};       // controller joint order
+  }
+  bool finished() const override { return t_ >= 1.0; }   // omit for a continuous behavior
+  double progress() const override { return std::min(t_, 1.0); }
+ private:
+  double value_{0.0}, t_{0.0};
+};
+}  // namespace my_gens
+PLUGINLIB_EXPORT_CLASS(my_gens::Hold, horus_generator_core::Generator)
+```
+
+Optional overrides: `jointNames()` (for trajectory output), `quantity()` (`position`, `velocity`,
+`effort`), `setSpeedScale()` (needed only if you output a time derivative).
+
+## 2. Export it
+
+```xml
+<!-- my_gens_plugins.xml -->
+<library path="my_gens">
+  <class name="my_gens/Hold" type="my_gens::Hold" base_class_type="horus_generator_core::Generator"/>
+</library>
+```
+
+```cmake
+pluginlib_export_plugin_description_file(horus_generator_core my_gens_plugins.xml)
+```
+
+## 3. Use it
+
+```yaml
+generator_plugins: [hold]
+hold: {plugin: my_gens/Hold, value: 0.2}
+```
+
+Re-reading parameters in `configure` with declare-or-get is what makes per-run overrides from
+`ExecuteBehavior` work.

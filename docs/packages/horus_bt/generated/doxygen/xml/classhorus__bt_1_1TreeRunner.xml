@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__bt_1_1TreeRunner" kind="class" language="C++" prot="public">
+    <compoundname>horus_bt::TreeRunner</compoundname>
+    <innerclass refid="structhorus__bt_1_1TreeRunner_1_1Request" prot="private">horus_bt::TreeRunner::Request</innerclass>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhorus__bt_1_1TreeRunner_1af1f2f578b886c92313240e106d15fb72" prot="public" static="no">
+        <type>std::function&lt; void(std::uint64_t, bool, const std::string &amp;)&gt;</type>
+        <definition>using horus_bt::TreeRunner::Done =  std::function&lt;void(std::uint64_t, bool, const std::string&amp;)&gt;</definition>
+        <argsstring></argsstring>
+        <name>Done</name>
+        <qualifiedname>horus_bt::TreeRunner::Done</qualifiedname>
+        <briefdescription>
+<para>Result callback: (id given to <ref refid="classhorus__bt_1_1TreeRunner_1a94eb979585b4c25a4aa24c0b2ae0704e" kindref="member">start()</ref>, succeeded, message). Called from the tick thread. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="37" column="5" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1a056f88b4a921f3a8da5907c0e5a32aaa" prot="private" static="no" mutable="no">
+        <type><ref refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kindref="member">NodePtr</ref></type>
+        <definition>NodePtr horus_bt::TreeRunner::node_</definition>
+        <argsstring></argsstring>
+        <name>node_</name>
+        <qualifiedname>horus_bt::TreeRunner::node_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="72" column="13" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1aeb04c92fde5e3e570d9e6d095663ee8c" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; BT::BehaviorTreeFactory &gt;</type>
+        <definition>std::unique_ptr&lt;BT::BehaviorTreeFactory&gt; horus_bt::TreeRunner::factory_</definition>
+        <argsstring></argsstring>
+        <name>factory_</name>
+        <qualifiedname>horus_bt::TreeRunner::factory_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="73" column="21" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1a7d7e9efd884a81f61880a279ac04c6ec" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structhorus__bt_1_1BehaviorChannel" kindref="compound">BehaviorChannel</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;BehaviorChannel&gt; horus_bt::TreeRunner::channel_</definition>
+        <argsstring></argsstring>
+        <name>channel_</name>
+        <qualifiedname>horus_bt::TreeRunner::channel_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>keeps the shared ExecuteBehavior client alive </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="74" column="21" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1a3747c140530804e571974b2159e0b0fc" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::duration</type>
+        <definition>std::chrono::steady_clock::duration horus_bt::TreeRunner::period_</definition>
+        <argsstring></argsstring>
+        <name>period_</name>
+        <qualifiedname>horus_bt::TreeRunner::period_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="75" column="41" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="75" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1a396c342b6a17a2cdecaf595106e22cbf" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex horus_bt::TreeRunner::mutex_</definition>
+        <argsstring></argsstring>
+        <name>mutex_</name>
+        <qualifiedname>horus_bt::TreeRunner::mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="76" column="16" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="76" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1aa54244eb896fa63ad2ffb92bb5299432" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable horus_bt::TreeRunner::cv_</definition>
+        <argsstring></argsstring>
+        <name>cv_</name>
+        <qualifiedname>horus_bt::TreeRunner::cv_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="77" column="29" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1ae6ddcc1f9b1039abca38212f295bd301" prot="private" static="no" mutable="no">
+        <type>std::optional&lt; Request &gt;</type>
+        <definition>std::optional&lt;Request&gt; horus_bt::TreeRunner::pending_</definition>
+        <argsstring></argsstring>
+        <name>pending_</name>
+        <qualifiedname>horus_bt::TreeRunner::pending_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>next tree to run </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="78" column="19" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1a319249848d1fc8d831a99a0ebfc442da" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_bt::TreeRunner::halt_</definition>
+        <argsstring></argsstring>
+        <name>halt_</name>
+        <qualifiedname>horus_bt::TreeRunner::halt_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>stop the running tree </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="79" column="10" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="79" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1a1a6de97d87a70b5306b98932d5061f13" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_bt::TreeRunner::quit_</definition>
+        <argsstring></argsstring>
+        <name>quit_</name>
+        <qualifiedname>horus_bt::TreeRunner::quit_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="80" column="10" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="80" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1TreeRunner_1a57d88fe9fc0dff3f2451dbde240e15a8" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread horus_bt::TreeRunner::thread_</definition>
+        <argsstring></argsstring>
+        <name>thread_</name>
+        <qualifiedname>horus_bt::TreeRunner::thread_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="81" column="17" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="81" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__bt_1_1TreeRunner_1af4804aa73998077208001c84dd81b1dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>horus_bt::TreeRunner::TreeRunner</definition>
+        <argsstring>(const NodePtr &amp;node, double tick_hz)</argsstring>
+        <name>TreeRunner</name>
+        <qualifiedname>horus_bt::TreeRunner::TreeRunner</qualifiedname>
+        <param>
+          <type>const <ref refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kindref="member">NodePtr</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>tick_hz</declname>
+        </param>
+        <briefdescription>
+<para>Register the leaves and start the tick thread. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node the leaves create their clients on; must declare <computeroutput>generator_action</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tick_hz</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Tick rate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="44" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1TreeRunner_1a6d0cc836e2ebb51cdb081fc9a1b0039c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>horus_bt::TreeRunner::~TreeRunner</definition>
+        <argsstring>()</argsstring>
+        <name>~TreeRunner</name>
+        <qualifiedname>horus_bt::TreeRunner::~TreeRunner</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="45" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1TreeRunner_1a36bd7d7b7376689de840cea9d4fb18b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t horus_bt::TreeRunner::load</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;dirs)</argsstring>
+        <name>load</name>
+        <qualifiedname>horus_bt::TreeRunner::load</qualifiedname>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>dirs</declname>
+        </param>
+        <briefdescription>
+<para>Register every *.xml of the folders. Call before <ref refid="classhorus__bt_1_1TreeRunner_1a94eb979585b4c25a4aa24c0b2ae0704e" kindref="member">start()</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dirs</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Folders; &quot;&quot; = this package&apos;s behavior_trees/. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Number of files loaded. </para>
+</simplesect>
+<parameterlist kind="exception"><parameteritem>
+<parameternamelist>
+<parametername>std::runtime_error</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>on a bad file or folder. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="52" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1TreeRunner_1ae64e606c4c36e21c53209d32b2ae8f3a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; horus_bt::TreeRunner::trees</definition>
+        <argsstring>() const</argsstring>
+        <name>trees</name>
+        <qualifiedname>horus_bt::TreeRunner::trees</qualifiedname>
+        <briefdescription>
+<para>Ids of the registered trees. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="55" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1TreeRunner_1a94eb979585b4c25a4aa24c0b2ae0704e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_bt::TreeRunner::start</definition>
+        <argsstring>(const std::string &amp;tree, std::uint64_t id, Done done)</argsstring>
+        <name>start</name>
+        <qualifiedname>horus_bt::TreeRunner::start</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tree</declname>
+        </param>
+        <param>
+          <type>std::uint64_t</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type><ref refid="classhorus__bt_1_1TreeRunner_1af1f2f578b886c92313240e106d15fb72" kindref="member">Done</ref></type>
+          <declname>done</declname>
+        </param>
+        <briefdescription>
+<para>Run <computeroutput>tree</computeroutput>, replacing any running tree. Non-blocking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="58" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1TreeRunner_1a1f8e166f025d7a29f41d7d18a7eda0fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_bt::TreeRunner::stop</definition>
+        <argsstring>()</argsstring>
+        <name>stop</name>
+        <qualifiedname>horus_bt::TreeRunner::stop</qualifiedname>
+        <briefdescription>
+<para>Halt the running tree (no result is reported). Non-blocking. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="61" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhorus__bt_1_1TreeRunner_1abab874c60e5b51b2a3b6777651707cb4" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_bt::TreeRunner::loop</definition>
+        <argsstring>()</argsstring>
+        <name>loop</name>
+        <qualifiedname>horus_bt::TreeRunner::loop</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="70" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_bt/tree_runner.hpp" line="33" column="1" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="34" bodyend="82"/>
+    <listofallmembers>
+      <member refid="classhorus__bt_1_1TreeRunner_1a7d7e9efd884a81f61880a279ac04c6ec" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>channel_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1aa54244eb896fa63ad2ffb92bb5299432" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>cv_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1af1f2f578b886c92313240e106d15fb72" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>Done</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1aeb04c92fde5e3e570d9e6d095663ee8c" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>factory_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a319249848d1fc8d831a99a0ebfc442da" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>halt_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a36bd7d7b7376689de840cea9d4fb18b0" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>load</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1abab874c60e5b51b2a3b6777651707cb4" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>loop</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a396c342b6a17a2cdecaf595106e22cbf" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>mutex_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a056f88b4a921f3a8da5907c0e5a32aaa" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>node_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1ae6ddcc1f9b1039abca38212f295bd301" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>pending_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a3747c140530804e571974b2159e0b0fc" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>period_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a1a6de97d87a70b5306b98932d5061f13" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>quit_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a94eb979585b4c25a4aa24c0b2ae0704e" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>start</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a1f8e166f025d7a29f41d7d18a7eda0fd" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>stop</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a57d88fe9fc0dff3f2451dbde240e15a8" prot="private" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>thread_</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1af4804aa73998077208001c84dd81b1dd" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>TreeRunner</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1ae64e606c4c36e21c53209d32b2ae8f3a" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>trees</name></member>
+      <member refid="classhorus__bt_1_1TreeRunner_1a6d0cc836e2ebb51cdb081fc9a1b0039c" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner</scope><name>~TreeRunner</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

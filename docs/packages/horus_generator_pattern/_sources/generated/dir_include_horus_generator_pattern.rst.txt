@@ -1,0 +1,23 @@
+.. _dir_include_horus_generator_pattern:
+
+
+Directory horus_generator_pattern
+=================================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include>` (``include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``include/horus_generator_pattern``
+
+
+Files
+-----
+
+- :ref:`file_include_horus_generator_pattern_manual.hpp`
+- :ref:`file_include_horus_generator_pattern_pattern.hpp`
+- :ref:`file_include_horus_generator_pattern_waypoints.hpp`
+
+

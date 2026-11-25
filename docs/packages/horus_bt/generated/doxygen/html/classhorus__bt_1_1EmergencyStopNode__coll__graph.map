@@ -1,0 +1,5 @@
+<map id="horus_bt::EmergencyStopNode" name="horus_bt::EmergencyStopNode">
+<area shape="rect" id="Node000001" title="Publish an emergency stop request to the supervisor; the mode change halts this tree." alt="" coords="5,79,228,104"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="41,5,193,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,44,119,79,114,79,114,44"/>
+</map>

@@ -1,0 +1,26 @@
+
+.. _namespace_horus_generator_pattern:
+
+Namespace horus_generator_pattern
+=================================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhorus__generator__pattern_1_1Signal`
+
+- :ref:`exhale_class_classhorus__generator__pattern_1_1Manual`
+
+- :ref:`exhale_class_classhorus__generator__pattern_1_1Pattern`
+
+- :ref:`exhale_class_classhorus__generator__pattern_1_1Waypoints`

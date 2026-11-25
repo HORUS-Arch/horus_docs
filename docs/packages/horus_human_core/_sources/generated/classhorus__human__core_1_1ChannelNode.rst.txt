@@ -1,0 +1,26 @@
+.. _exhale_class_classhorus__human__core_1_1ChannelNode:
+
+Template Class ChannelNode
+==========================
+
+- Defined in :ref:`file_include_horus_human_core_channel_node.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public rclcpp_lifecycle::LifecycleNode``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_human_core::ChannelNode
+   :project: horus_human_core Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

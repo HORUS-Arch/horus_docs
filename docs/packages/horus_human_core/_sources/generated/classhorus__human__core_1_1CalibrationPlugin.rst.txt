@@ -1,0 +1,17 @@
+.. _exhale_class_classhorus__human__core_1_1CalibrationPlugin:
+
+Template Class CalibrationPlugin
+================================
+
+- Defined in :ref:`file_include_horus_human_core_calibration_plugin.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_human_core::CalibrationPlugin
+   :project: horus_human_core Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,11 @@
+<map id="include/horus_human/calibrations.hpp" name="include/horus_human/calibrations.hpp">
+<area shape="rect" id="Node000001" title="The calibration plugin base classes of the horus_human nodes, one per input message type." alt="" coords="385,5,546,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,224,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="389,48,205,93,204,88,388,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="248,101,451,126"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="441,48,378,95,374,90,438,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="475,101,687,126"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="493,43,556,90,553,95,489,48"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="711,101,907,126"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="541,43,751,95,750,100,540,48"/>
+</map>

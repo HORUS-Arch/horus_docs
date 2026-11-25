@@ -1,0 +1,75 @@
+
+.. _file_include_horus_common_interface_utils.hpp:
+
+File interface_utils.hpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_common>` (``include/horus_common``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+Helpers for config-driven components, resolve interface names and per-joint arrays. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_common/interface_utils.hpp``)
+---------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_common_interface_utils.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+HORUS components never hardcode which hardware interface they bind: the names come from params, so one binary serves every device. These helpers factor out the loading each of them would otherwise repeat, reading the param, filling a sensible default when it is unset, and validating the length against the joint list. Both return false (after logging) so the caller can fail configuration.
+
+Header-only and templated on the node handle, so anything with get_parameter() + get_logger() works. 
+
+
+
+
+Includes
+--------
+
+
+- ``cstddef``
+
+- ``rclcpp/logging.hpp``
+
+- ``rclcpp/parameter.hpp``
+
+- ``string``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_common`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_interface__utils_8hpp_1a8861581d8326d5b13f25ccda831ad021`
+
+- :ref:`exhale_function_interface__utils_8hpp_1a9c367a34497eaf6a39a456116271c1e2`
+

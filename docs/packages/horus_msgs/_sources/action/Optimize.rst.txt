@@ -1,0 +1,8 @@
+Optimize
+========
+This is a ROS action definition.
+
+**Source**
+
+.. literalinclude:: Optimize.action
+

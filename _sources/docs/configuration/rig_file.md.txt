@@ -1,0 +1,72 @@
+# The rig file
+
+A rig is one folder, ideally in its own git repository, with a `rig.yaml` and the files it points
+to. Relative paths resolve against that folder; `package://<pkg>/<path>` points into an installed
+package.
+
+```bash
+ros2 launch horus_bringup rig.launch.py rig:=/path/to/my_rig/rig.yaml
+```
+
+## Reference
+
+```yaml
+data_root: ~/horus_data          # subjects, calibrations, trials
+devices: [hank]                  # written into every trial.yaml
+
+robot:
+  launch: package://hank_bringup/launch/hank.launch.py   # ros2_control, controllers, description
+  launch_arguments: {use_mock: "false"}
+  generators: generators.yaml    # generator_server behaviors (see Behaviors)
+  critical_sources: [controller_manager]   # the device's own diagnostics stop it on ERROR
+
+sensors:                         # drivers -> /sensors/<name>/...
+  imus_a:
+    package: xsens_mtw_ros2
+    executable: mtw_driver
+    params: sensors/imus_a.yaml
+    lifecycle: true              # managed by the lifecycle manager (default true)
+    critical: false              # true: ERROR or silence while moving -> EMERGENCY_STOP
+
+human:                           # HORUS sensing nodes -> /human/<name>/...
+  container: true                # all in one process, zero-copy (default false)
+  imus_a: {node: horus_imu,    params: human/imus_a.yaml}
+  insoles: {node: horus_insole, params: human/insoles.yaml}
+  emg:     {node: horus_emg,    params: human/emg.yaml, critical: true}
+
+system:
+  autostart: false               # false: nodes wait unconfigured until the operator connects them
+  trees: trees/                  # behavior-tree XML folder (protocols, Manual, Recovery)
+  supervisor: supervisor.yaml    # trees per mode, heartbeat, require_subject
+  recording: recording.yaml      # session: record (per_run | manual), post_stop_record, topics
+  health: true                   # diagnostic aggregator, if installed
+  ui: {web_root: ../horus_ui/dist, port: 8080, rosbridge_port: 9090}
+```
+
+| Key | Meaning |
+|---|---|
+| `robot.launch` | the device's own launch file; HORUS does not start ros2_control itself |
+| `robot.generators` | parameters of `/horus/generator_server` (omit to run without generation) |
+| `robot.critical_sources` | diagnostic name substrings of the device that are critical, e.g. `[controller_manager]` |
+| `sensors.<name>` | a driver node `/sensors/<name>/<name>` with its parameter file and extra `parameters:` |
+| `human.<name>` | a sensing node `/human/<name>`; `data_root` is passed automatically |
+| `critical` (on a sensor or human entry) | `true`: its ERROR, or silence for `stale_timeout` while the device moves, is a fault (EMERGENCY_STOP, RESET refused until it clears); `false` (default): only a warning and an event in `trial.yaml` |
+| `system.autostart` | the lifecycle manager configures and activates in order: sensors, sensing nodes, generator server; `false` leaves them unconfigured until the operator connects them from the UI |
+| `system.trees` | folder of tree XML for the supervisor (`tree_dirs`); omitted = the default trees of `horus_bt` |
+| `system.supervisor` | supervisor parameters, see {doc}`supervisor_trees` |
+| `system.recording` | session parameters, see {doc}`../concepts/sessions_data` |
+| `system.ui` | `{}` for defaults; omit or `false` to run headless |
+
+Parameter files use the `/**:` key, so one file per instance works under any name and namespace:
+
+```yaml
+/**:
+  ros__parameters:
+    channels: [pelvis, right_upper_leg]
+```
+
+The entries marked `critical`, plus `robot.critical_sources`, become the supervisor's
+`critical_sources`. When none is marked, the supervisor file decides (its default `[""]` makes every
+source critical).
+
+Runnable example: `horus_bringup/rigs/mock/rig.yaml`. Template: `horus_bringup/rigs/example/rig.yaml`.

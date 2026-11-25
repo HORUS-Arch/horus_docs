@@ -1,0 +1,7 @@
+horus\_bag\_tools.decode module
+===============================
+
+.. automodule:: horus_bag_tools.decode
+   :members:
+   :show-inheritance:
+   :undoc-members:

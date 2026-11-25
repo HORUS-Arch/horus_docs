@@ -1,0 +1,106 @@
+
+.. _file_include_horus_bt_condition_nodes.hpp:
+
+File condition_nodes.hpp
+========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_bt>` (``include/horus_bt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+HORUS BT condition and wait leaves: IsAtPose, IsHealthy, WaitForMessage. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_bt/condition_nodes.hpp``)
+-----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_bt_condition_nodes.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+<IsAtPose joints="hipR,kneeR" positions="0,0" tolerance="0.05"> joints within tolerance <IsHealthy source="imus"> no diagnostic ERROR <WaitForMessage topic="/human/gait/events" type="human_msgs/msg/GaitEvent" timeout="5.0">
+
+Each leaf subscribes on its own callback group, drained on every tick, so it works standalone or composed. Conditions never return RUNNING; WaitForMessage is RUNNING until a message arrives after it started (SUCCESS) or the timeout passes (FAILURE). 
+
+
+
+
+Includes
+--------
+
+
+- ``behaviortree_cpp/action_node.h``
+
+- ``behaviortree_cpp/condition_node.h``
+
+- ``chrono``
+
+- ``cmath``
+
+- ``diagnostic_msgs/msg/diagnostic_array.hpp``
+
+- ``horus_bt/node_ptr.hpp`` (:ref:`file_include_horus_bt_node_ptr.hpp`)
+
+- ``map``
+
+- ``memory``
+
+- ``rclcpp/create_generic_subscription.hpp``
+
+- ``rclcpp/rclcpp.hpp``
+
+- ``sensor_msgs/msg/joint_state.hpp``
+
+- ``sstream``
+
+- ``string``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_bt`
+
+- :ref:`namespace_horus_bt__detail`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhorus__bt_1_1detail_1_1LeafExecutor`
+
+- :ref:`exhale_class_classhorus__bt_1_1IsAtPoseNode`
+
+- :ref:`exhale_class_classhorus__bt_1_1IsHealthyNode`
+
+- :ref:`exhale_class_classhorus__bt_1_1WaitForMessageNode`
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_condition__nodes_8hpp_1a1ec045cedef67f2015b41d17c9702eaa`
+

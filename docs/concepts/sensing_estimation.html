@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Sensing and state estimation &#8212; HORUS 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/horus.css?v=3a5e0f7b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+mermaid.initialize({
+  startOnLoad: false, theme: "base", securityLevel: "loose",
+  fontFamily: "IBM Plex Sans, system-ui, sans-serif",
+  flowchart: { curve: "basis", padding: 14, nodeSpacing: 46, rankSpacing: 52, htmlLabels: true },
+  stateDiagram: { padding: 12 },
+  themeVariables: {
+    darkMode: true, fontSize: "15px",
+    background: "#0b1119",
+    primaryColor: "#13243a", primaryTextColor: "#e8eef6", primaryBorderColor: "#4f8fd1",
+    secondaryColor: "#0f1c2d", secondaryTextColor: "#c9d6e4", secondaryBorderColor: "#36597f",
+    tertiaryColor: "#0c1622", tertiaryTextColor: "#c9d6e4", tertiaryBorderColor: "#2a3f57",
+    lineColor: "#7fa7d4", textColor: "#dbe5f0", mainBkg: "#13243a", nodeBorder: "#4f8fd1",
+    clusterBkg: "#0d1724", clusterBorder: "#2c4866", titleColor: "#9cc3ec",
+    edgeLabelBackground: "#0b1119", nodeTextColor: "#e8eef6",
+    labelBackgroundColor: "#0b1119", stateLabelColor: "#e8eef6", stateBkg: "#13243a",
+    compositeBackground: "#0d1724", compositeTitleBackground: "#13243a",
+    altBackground: "#0f1c2d", transitionColor: "#7fa7d4", transitionLabelColor: "#c9d6e4",
+    actorBkg: "#13243a", actorBorder: "#4f8fd1", actorTextColor: "#e8eef6", signalColor: "#7fa7d4",
+    signalTextColor: "#dbe5f0", noteBkgColor: "#1b2f48", noteTextColor: "#e8eef6", noteBorderColor: "#4f8fd1"
+  }
+});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.2.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/concepts/sensing_estimation';</script>
+    <script src="../../_static/force_dark.js?v=db5ebe2c"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Sessions and data" href="sessions_data.html" />
+    <link rel="prev" title="Motion: generation and control" href="motion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-dark" alt="HORUS"/>
+    <img src="../../_static/logo.png" class="logo__image only-light pst-js-only" alt="HORUS"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../interfaces/overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../interfaces/messages.html">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/rig_file.html">
+    The rig file
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/supervisor_trees.html">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/debug_testing.html">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../interfaces/overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../interfaces/messages.html">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/rig_file.html">
+    The rig file
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/supervisor_trees.html">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/debug_testing.html">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links" aria-label="Site navigation">
+  <div class="bd-toc-item navbar-nav">
+    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick start: the mock rig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/session.html">Running a session</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Architecture overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decision_hierarchy.html">Decision hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="motion.html">Motion: generation and control</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sensing and state estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sessions_data.html">Sessions and data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interface_deployment.html">Interface and deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ROS 2 interfaces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/overview.html">ROS 2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/messages.html">Messages, services and actions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configure</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../configuration/rig_file.html">The rig file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/behaviors.html">Behaviors (generator server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/controllers.html">Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/sensing.html">Sensing nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/supervisor_trees.html">Supervisor and trees</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extend</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extend/generator.html">Write a generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/calibration.html">Write a calibration algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/bt_leaf.html">Write a tree leaf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/controller.html">Write a controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/device.html">Add a device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/sensor.html">Add a sensor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../packages/core_packages.html">Core Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packages/modules_packages.html">Modules &amp; External Packages</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../development/contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/debug_testing.html">Debugging &amp; Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/style_guide.html">Style Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../project/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/paper.html">Paper and citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/roadmap.html">Roadmap</a></li>
+</ul>
+
+  </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Sensing and state estimation</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="sensing-and-state-estimation">
+<h1>Sensing and state estimation<a class="headerlink" href="#sensing-and-state-estimation" title="Link to this heading">#</a></h1>
+<p>Named as in the reference architectures: Autoware separates <em>sensing</em> (drivers, preprocessing) from
+<em>localization</em> (own state) and <em>perception</em> (others, obstacles); nav2 calls its own-state estimation
+<em>state estimation</em>. In a wearable system the person is part of the state, so HORUS has one <strong>sensing
+and state estimation</strong> block with two state spaces, human and robot. <em>Perception</em> is reserved for
+the environment (terrain, stairs), future work.</p>
+<pre  class="mermaid">
+        flowchart LR
+  D1[&quot;IMU driver&quot;] --&gt;|/sensors| N1[&quot;horus_imu&lt;br/&gt;channels = segments&quot;]
+  D2[&quot;insole driver&quot;] --&gt;|/sensors| N2[&quot;horus_insole&lt;br/&gt;right, left&quot;]
+  D3[&quot;EMG driver&quot;] --&gt;|/sensors| N3[&quot;horus_emg&lt;br/&gt;channels = muscles&quot;]
+  N1 --&gt;|/human| S2[&quot;stage 2 (planned)&lt;br/&gt;kinematics, gait, interaction&quot;]
+  N2 --&gt;|/human| S2
+  N3 --&gt;|/human| S2
+  F[(&quot;subjects/id/calibration&quot;)] &lt;--&gt;|save, load latest| N1
+    </pre><section id="sensing-stage-1">
+<h2>Sensing (stage 1)<a class="headerlink" href="#sensing-stage-1" title="Link to this heading">#</a></h2>
+<p>Every sensing node is a <code class="docutils literal notranslate"><span class="pre">ChannelNode</span></code>: N channels of one message type, each with its own topic,
+named with the <code class="docutils literal notranslate"><span class="pre">human_msgs</span></code> vocabulary (<code class="docutils literal notranslate"><span class="pre">right_upper_leg</span></code>, <code class="docutils literal notranslate"><span class="pre">rectus_femoris_r</span></code>, <code class="docutils literal notranslate"><span class="pre">left</span></code>).</p>
+<ul class="simple">
+<li><p><strong>Calibration</strong> is a plugin (<code class="docutils literal notranslate"><span class="pre">calibration.plugin</span></code> in YAML): IMU static pose (sensor-to-segment
+rotation and gyro bias, rejects motion), insole zero offset (rejects a loaded foot), EMG MVC.</p></li>
+<li><p><strong>Output mode</strong>, changeable at runtime: <code class="docutils literal notranslate"><span class="pre">calibrated</span></code>, <code class="docutils literal notranslate"><span class="pre">conditioned</span></code> (filtering only), <code class="docutils literal notranslate"><span class="pre">bypass</span></code> (raw).</p></li>
+<li><p><strong>Calibration action</strong>: <code class="docutils literal notranslate"><span class="pre">~/calibrate</span></code> collects for one unit or all, the result is applied and stays
+pending until <code class="docutils literal notranslate"><span class="pre">~/save_calibration</span></code>; files are kept per subject with history, and the latest loads
+automatically when the node is configured.</p></li>
+<li><p><strong>Instances</strong>: two inertial systems are two instances with their own names, topics and files; all
+nodes are components, so they can share one process.</p></li>
+</ul>
+</section>
+<section id="state-estimation-stage-2">
+<h2>State estimation (stage 2)<a class="headerlink" href="#state-estimation-stage-2" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>State</p></th>
+<th class="head"><p>Content</p></th>
+<th class="head"><p>Source</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>human</p></td>
+<td><p>joint kinematics, gait events and phases</p></td>
+<td><p>stage-2 <code class="docutils literal notranslate"><span class="pre">Estimator</span></code> plugins (planned)</p></td>
+</tr>
+<tr class="row-odd"><td><p>robot</p></td>
+<td><p>joint positions, velocities, efforts, interaction wrench, status</p></td>
+<td><p>ros2_control broadcasters</p></td>
+</tr>
+<tr class="row-even"><td><p>robot</p></td>
+<td><p>base (pelvis) orientation for gravity compensation</p></td>
+<td><p>an <code class="docutils literal notranslate"><span class="pre">Estimator</span></code> (planned)</p></td>
+</tr>
+<tr class="row-odd"><td><p>interaction</p></td>
+<td><p>human joint torque from the interaction force</p></td>
+<td><p>an <code class="docutils literal notranslate"><span class="pre">Estimator</span></code> (planned)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="human-model">
+<h2>Human model<a class="headerlink" href="#human-model" title="Link to this heading">#</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">horus_human_description</span></code> builds a lower-body model scaled from the subject’s body measurements
+(hip, knee, ankle heights, hip width, foot length) with <code class="docutils literal notranslate"><span class="pre">human_msgs</span></code> link and joint names:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>horus_human_description<span class="w"> </span>human_model.launch.py<span class="w"> </span>subject_id:<span class="o">=</span>s01
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="motion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Motion: generation and control</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="sessions_data.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sessions and data</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sensing-stage-1">Sensing (stage 1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-estimation-stage-2">State estimation (stage 2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#human-model">Human model</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024-2026, HORUS · University of Minho.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

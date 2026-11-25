@@ -1,0 +1,85 @@
+[rosdoc2] [INFO] Note: the builder 'horus_setup_assistant Public C/C++ API (doxygen)' did not generate any output to be copied into the destination.
+[rosdoc2] [INFO] /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/output_staging/generated/doxygen/xml
+[rosdoc2] [INFO] No doxygen_xml_directory found, apparently doxygen did not run
+[rosdoc2] [INFO] interface_counts: {'msg': 0, 'srv': 0, 'action': 0}
+[rosdoc2] [INFO] standard_docs: {'readme': {'path': '/home/drscodex/Development/horus/system/horus_setup_assistant/README.md', 'filename': 'README.md', 'type': 'md'}, 'package': {'path': '/home/drscodex/Development/horus/system/horus_setup_assistant/package.xml', 'filename': 'package.xml', 'type': 'xml'}}
+[rosdoc2] [INFO] No package repo url found from rosdistro
+[rosdoc2] [INFO] Note: no conf.py provided by the user, therefore using a default Sphinx configuration.
+[rosdoc2] [INFO] Using a default index.rst.jinja
+[rosdoc2] [INFO] Running sphinx-apidoc: 'sphinx-apidoc -o /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory -e /home/drscodex/Development/horus/system/horus_setup_assistant/horus_setup_assistant' in '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory'
+[rosdoc2] [INFO] Running Sphinx-build: 'sphinx-build /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory/sphinx_output' in '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory'
+Running Sphinx v8.2.3
+[rosdoc2] user conf.py specified allowed extensions: ['sphinx_rtd_theme']
+[rosdoc2] enabling autodoc
+[rosdoc2] enabling intersphinx
+[rosdoc2] overriding theme to be 'sphinx_rtd_theme'
+[rosdoc2] extending intersphinx mapping
+[rosdoc2] adding markdown parser
+loading translations [en]... done
+loading intersphinx inventory 'horus_human' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human/objects.inv ...
+loading intersphinx inventory 'horus_bringup' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_bringup/objects.inv ...
+loading intersphinx inventory 'horus_control' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_control/objects.inv ...
+loading intersphinx inventory 'horus_generator_core' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_core/objects.inv ...
+loading intersphinx inventory 'horus_estimator_core' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_estimator_core/objects.inv ...
+loading intersphinx inventory 'horus_human_description' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human_description/objects.inv ...
+loading intersphinx inventory 'horus_human_core' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human_core/objects.inv ...
+loading intersphinx inventory 'horus_msgs' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_msgs/objects.inv ...
+loading intersphinx inventory 'horus_generator_pattern' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_pattern/objects.inv ...
+loading intersphinx inventory 'horus_generator_server' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_server/objects.inv ...
+myst v4.0.1: MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions=set(), disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=('http', 'https', 'mailto', 'ftp'), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_sort=True, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes='tex2jax_process|mathjax_process|math|output_area', enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [html]: targets for 11 source files that are out of date
+updating environment: [new config] 11 added, 0 changed, 0 removed
+reading sources... [  9%] README
+reading sources... [ 18%] __PACKAGE
+reading sources... [ 27%] __README
+reading sources... [ 36%] __links
+reading sources... [ 45%] __readme_include
+reading sources... [ 55%] __standards
+reading sources... [ 64%] genindex
+reading sources... [ 73%] horus_setup_assistant
+reading sources... [ 82%] horus_setup_assistant.generate
+reading sources... [ 91%] index
+reading sources... [100%] modules
+
+/home/drscodex/Development/horus/system/horus_setup_assistant/horus_setup_assistant/generate.py:docstring of horus_setup_assistant.generate:7: ERROR: Unexpected indentation. [docutils]
+/home/drscodex/Development/horus/system/horus_setup_assistant/horus_setup_assistant/generate.py:docstring of horus_setup_assistant.generate:11: WARNING: Block quote ends without a blank line; unexpected unindent. [docutils]
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... done
+preparing documents... done
+copying assets... 
+copying static files... 
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory/sphinx_output/_static/basic.css
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory/sphinx_output/_static/language_data.js
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory/sphinx_output/_static/documentation_options.js
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory/sphinx_output/_static/js/versions.js
+copying static files: done
+copying extra files... 
+copying extra files: done
+copying assets: done
+writing output... [  9%] README
+writing output... [ 18%] __PACKAGE
+writing output... [ 27%] __README
+writing output... [ 36%] __links
+writing output... [ 45%] __readme_include
+writing output... [ 55%] __standards
+writing output... [ 64%] genindex
+writing output... [ 73%] horus_setup_assistant
+writing output... [ 82%] horus_setup_assistant.generate
+writing output... [ 91%] index
+writing output... [100%] modules
+
+generating indices... genindex py-modindex done
+writing additional pages... search done
+dumping search index in English (code: en)... done
+dumping object inventory... done
+build succeeded, 2 warnings.
+
+The HTML pages are in sphinx_output.
+[rosdoc2] [INFO] Sphinx-build exited with return code '0'
+[rosdoc2] [INFO] Moving inventory file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory/sphinx_output/objects.inv' into cross-reference directory '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_setup_assistant/objects.inv'
+[rosdoc2] [INFO] Moving files for 'horus_setup_assistant (sphinx)' from '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/horus_setup_assistant/wrapped_sphinx_directory/sphinx_output' into '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_setup_assistant/output_staging/'.
+[rosdoc2] [INFO] Moved 86 files.
+[rosdoc2] [INFO] Moving files to final destination in '/home/drscodex/Development/horus_docs/_build/html/docs/packages/horus_setup_assistant'.

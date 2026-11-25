@@ -1,0 +1,17 @@
+.. _exhale_class_classhorus__generator__core_1_1Generator:
+
+Class Generator
+===============
+
+- Defined in :ref:`file_include_horus_generator_core_generator.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_generator_core::Generator
+   :project: horus_generator_core Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

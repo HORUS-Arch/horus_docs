@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__control_1_1GravityModel" kind="class" language="C++" prot="public">
+    <compoundname>horus_control::GravityModel</compoundname>
+    <includes refid="gravity__model_8hpp" local="no">gravity_model.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__control_1_1GravityModel_1a91acdb02e8106fd720eb897a3aa24b31" prot="private" static="no" mutable="no">
+        <type>KDL::Chain</type>
+        <definition>KDL::Chain horus_control::GravityModel::chain_</definition>
+        <argsstring></argsstring>
+        <name>chain_</name>
+        <qualifiedname>horus_control::GravityModel::chain_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_control/gravity_model.hpp" line="54" column="16" bodyfile="include/horus_control/gravity_model.hpp" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__control_1_1GravityModel_1a54110cb8d5977e2a93e78eb8b0d1dc3d" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; KDL::ChainDynParam &gt;</type>
+        <definition>std::unique_ptr&lt;KDL::ChainDynParam&gt; horus_control::GravityModel::dyn_</definition>
+        <argsstring></argsstring>
+        <name>dyn_</name>
+        <qualifiedname>horus_control::GravityModel::dyn_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_control/gravity_model.hpp" line="55" column="21" bodyfile="include/horus_control/gravity_model.hpp" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__control_1_1GravityModel_1a9abdd01dba0d32990d64010475bb4e45" prot="private" static="no" mutable="no">
+        <type>KDL::JntArray</type>
+        <definition>KDL::JntArray horus_control::GravityModel::q_</definition>
+        <argsstring></argsstring>
+        <name>q_</name>
+        <qualifiedname>horus_control::GravityModel::q_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_control/gravity_model.hpp" line="56" column="19" bodyfile="include/horus_control/gravity_model.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__control_1_1GravityModel_1a37a0acd436138c8194fc0ebe20a73abb" prot="private" static="no" mutable="no">
+        <type>KDL::JntArray</type>
+        <definition>KDL::JntArray horus_control::GravityModel::g_</definition>
+        <argsstring></argsstring>
+        <name>g_</name>
+        <qualifiedname>horus_control::GravityModel::g_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>preallocated, chain order </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_control/gravity_model.hpp" line="56" column="22" bodyfile="include/horus_control/gravity_model.hpp" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__control_1_1GravityModel_1af5542262f85952df340e7bf5be2931f5" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::size_t &gt;</type>
+        <definition>std::vector&lt;std::size_t&gt; horus_control::GravityModel::index_</definition>
+        <argsstring></argsstring>
+        <name>index_</name>
+        <qualifiedname>horus_control::GravityModel::index_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>joints order -&gt; chain order </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_control/gravity_model.hpp" line="57" column="17" bodyfile="include/horus_control/gravity_model.hpp" bodystart="57" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__control_1_1GravityModel_1ae7f6002dba8f40821008de258e11b626" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_control::GravityModel::load</definition>
+        <argsstring>(const std::string &amp;urdf, const std::string &amp;root, const std::string &amp;tip, const std::vector&lt; std::string &gt; &amp;joints, const std::array&lt; double, 3 &gt; &amp;gravity, std::string &amp;why)</argsstring>
+        <name>load</name>
+        <qualifiedname>horus_control::GravityModel::load</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>urdf</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>tip</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>joints</declname>
+        </param>
+        <param>
+          <type>const std::array&lt; double, 3 &gt; &amp;</type>
+          <declname>gravity</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>why</declname>
+        </param>
+        <briefdescription>
+<para>Build the model. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>urdf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The robot description (URDF XML). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>root</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>First link of the chain (e.g. the pelvis or the device base). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tip</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Last link of the chain (e.g. the foot). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>joints</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Joint order of the inputs and outputs of <ref refid="classhorus__control_1_1GravityModel_1abb67e19f1df8f7a5b695224690a6acaa" kindref="member">compute()</ref>. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>gravity</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Gravity vector in the root frame, m/s^2 (e.g. {0, 0, -9.81}). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>why</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Receives the reason on failure. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True when the chain was built and its movable joints match <computeroutput>joints</computeroutput>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_control/gravity_model.hpp" line="39" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__control_1_1GravityModel_1abb67e19f1df8f7a5b695224690a6acaa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_control::GravityModel::compute</definition>
+        <argsstring>(const std::vector&lt; double &gt; &amp;q, std::vector&lt; double &gt; &amp;tau)</argsstring>
+        <name>compute</name>
+        <qualifiedname>horus_control::GravityModel::compute</qualifiedname>
+        <param>
+          <type>const std::vector&lt; double &gt; &amp;</type>
+          <declname>q</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; double &gt; &amp;</type>
+          <declname>tau</declname>
+        </param>
+        <briefdescription>
+<para>Holding torques at a configuration. Allocation-free after <ref refid="classhorus__control_1_1GravityModel_1ae7f6002dba8f40821008de258e11b626" kindref="member">load()</ref> (real-time safe). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>q</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Joint positions, in <computeroutput>joints</computeroutput> order (rad). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>tau</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Receives the torques, in <computeroutput>joints</computeroutput> order (N m); must already have the right size. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>False if the sizes do not match or KDL fails. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_control/gravity_model.hpp" line="48" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__control_1_1GravityModel_1a39f2383ba81cd0b412115abdb38feb24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::size_t</type>
+        <definition>std::size_t horus_control::GravityModel::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <qualifiedname>horus_control::GravityModel::size</qualifiedname>
+        <briefdescription>
+<para>Number of joints. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Size of the chain&apos;s movable joint set. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_control/gravity_model.hpp" line="51" column="17" bodyfile="include/horus_control/gravity_model.hpp" bodystart="51" bodyend="51"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Holding torque against gravity for one URDF chain. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_control/gravity_model.hpp" line="26" column="1" bodyfile="include/horus_control/gravity_model.hpp" bodystart="27" bodyend="58"/>
+    <listofallmembers>
+      <member refid="classhorus__control_1_1GravityModel_1a91acdb02e8106fd720eb897a3aa24b31" prot="private" virt="non-virtual"><scope>horus_control::GravityModel</scope><name>chain_</name></member>
+      <member refid="classhorus__control_1_1GravityModel_1abb67e19f1df8f7a5b695224690a6acaa" prot="public" virt="non-virtual"><scope>horus_control::GravityModel</scope><name>compute</name></member>
+      <member refid="classhorus__control_1_1GravityModel_1a54110cb8d5977e2a93e78eb8b0d1dc3d" prot="private" virt="non-virtual"><scope>horus_control::GravityModel</scope><name>dyn_</name></member>
+      <member refid="classhorus__control_1_1GravityModel_1a37a0acd436138c8194fc0ebe20a73abb" prot="private" virt="non-virtual"><scope>horus_control::GravityModel</scope><name>g_</name></member>
+      <member refid="classhorus__control_1_1GravityModel_1af5542262f85952df340e7bf5be2931f5" prot="private" virt="non-virtual"><scope>horus_control::GravityModel</scope><name>index_</name></member>
+      <member refid="classhorus__control_1_1GravityModel_1ae7f6002dba8f40821008de258e11b626" prot="public" virt="non-virtual"><scope>horus_control::GravityModel</scope><name>load</name></member>
+      <member refid="classhorus__control_1_1GravityModel_1a9abdd01dba0d32990d64010475bb4e45" prot="private" virt="non-virtual"><scope>horus_control::GravityModel</scope><name>q_</name></member>
+      <member refid="classhorus__control_1_1GravityModel_1a39f2383ba81cd0b412115abdb38feb24" prot="public" virt="non-virtual"><scope>horus_control::GravityModel</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

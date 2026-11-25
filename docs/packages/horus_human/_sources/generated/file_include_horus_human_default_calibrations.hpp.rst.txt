@@ -1,0 +1,93 @@
+
+.. _file_include_horus_human_default_calibrations.hpp:
+
+File default_calibrations.hpp
+=============================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_human>` (``include/horus_human``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+The calibration plugins shipped with horus_human. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_human/default_calibrations.hpp``)
+-------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_human_default_calibrations.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+
+
+- ImuStaticPose the subject holds a known reference pose (default: upright, all segments aligned with the world frame); computes the sensor-to-segment rotation and the gyro bias, and rejects the window if the subject moved.
+
+- InsoleZeroOffset the foot is unloaded (lifted / seated); stores the per-cell pressure and total-force offsets.
+
+- EmgMvc the subject performs a maximum voluntary contraction; stores the peak of the envelope, by which live EMG is then normalised. 
+
+
+
+
+
+
+Includes
+--------
+
+
+- ``horus_human/calibrations.hpp`` (:ref:`file_include_horus_human_calibrations.hpp`)
+
+- ``map``
+
+- ``string``
+
+- ``tf2/LinearMath/Quaternion.h``
+
+- ``tf2/LinearMath/Vector3.h``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_human`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhorus__human_1_1ImuStaticPose_1_1Result`
+
+- :ref:`exhale_struct_structhorus__human_1_1ImuStaticPose_1_1Window`
+
+- :ref:`exhale_struct_structhorus__human_1_1InsoleZeroOffset_1_1Result`
+
+- :ref:`exhale_struct_structhorus__human_1_1InsoleZeroOffset_1_1Window`
+
+- :ref:`exhale_class_classhorus__human_1_1EmgMvc`
+
+- :ref:`exhale_class_classhorus__human_1_1ImuStaticPose`
+
+- :ref:`exhale_class_classhorus__human_1_1InsoleZeroOffset`
+

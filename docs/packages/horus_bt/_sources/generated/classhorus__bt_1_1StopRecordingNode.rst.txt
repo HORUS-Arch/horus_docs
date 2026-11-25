@@ -1,0 +1,26 @@
+.. _exhale_class_classhorus__bt_1_1StopRecordingNode:
+
+Class StopRecordingNode
+=======================
+
+- Defined in :ref:`file_include_horus_bt_system_nodes.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public horus_bt::ServiceLeaf< horus_msgs::srv::SessionControl >`` (:ref:`exhale_class_classhorus__bt_1_1ServiceLeaf`)
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_bt::StopRecordingNode
+   :project: horus_bt Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

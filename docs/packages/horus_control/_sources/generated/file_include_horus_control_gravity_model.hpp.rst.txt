@@ -1,0 +1,75 @@
+
+.. _file_include_horus_control_gravity_model.hpp:
+
+File gravity_model.hpp
+======================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_control>` (``include/horus_control``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+Gravity torques of a kinematic chain from its URDF (KDL), the math behind the GravityCompensation controller, kept separate so it is unit-testable. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_control/gravity_model.hpp``)
+--------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_control_gravity_model.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+The chain runs from ``root`` to ``tip`` in the URDF; its movable joints must be exactly the joints the controller commands (any order). compute() returns, for a joint configuration q, the torque that holds every link of the chain still against gravity, G(q). Links need <inertial> data. 
+
+
+
+
+Includes
+--------
+
+
+- ``array``
+
+- ``kdl/chain.hpp``
+
+- ``kdl/chaindynparam.hpp``
+
+- ``kdl/jntarray.hpp``
+
+- ``memory``
+
+- ``string``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_control`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__control_1_1GravityModel`
+

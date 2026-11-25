@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classhorus__generator__core_1_1Generator" kind="class"><name>horus_generator_core::Generator</name>
+    <member refid="classhorus__generator__core_1_1Generator_1aa90c9b265b171f18e5227a684b620042" kind="typedef"><name>Ptr</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1ad32b37c0dcce4b07ddb1121a853ce753" kind="function"><name>~Generator</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1a186b7873eed1152d97480a06e37311a3" kind="function"><name>configure</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1a8ba4fe18eef6b597af8a554c6fa97a0e" kind="function"><name>activate</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1ae533309152199cd26ba7048d5763ba2b" kind="function"><name>deactivate</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1a29b0093aed724a059d09a9de93ae39a7" kind="function"><name>reset</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea" kind="function"><name>update</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1a2d142582f4e25f6cc24f542aeeffcf36" kind="function"><name>finished</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1aab97360799bfef185b3789e98428f3e8" kind="function"><name>progress</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1ad3fbc23d20d533b7278714729b49241f" kind="function"><name>jointNames</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1a42aba85d6daebc7479a884d46362d316" kind="function"><name>quantity</name></member>
+    <member refid="classhorus__generator__core_1_1Generator_1aac97a06d1cdf642b3bb1b3993cc724c4" kind="function"><name>setSpeedScale</name></member>
+  </compound>
+  <compound refid="namespacehorus__generator__core" kind="namespace"><name>horus_generator_core</name>
+    <member refid="generator_8hpp_1afe53c3d4c2386c3c6c304d9929c5db0d" kind="typedef"><name>NodePtr</name></member>
+  </compound>
+  <compound refid="generator_8hpp" kind="file"><name>generator.hpp</name>
+  </compound>
+  <compound refid="dir_e052144346a84a2bad769c7c6782634a" kind="dir"><name>include/horus_generator_core</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

@@ -1,0 +1,191 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classhorus__bt_1_1AddTrialNoteNode" kind="class"><name>horus_bt::AddTrialNoteNode</name>
+    <member refid="classhorus__bt_1_1AddTrialNoteNode_1a45075aec829f55a382f6bbd1bd1bffdd" kind="function"><name>AddTrialNoteNode</name></member>
+    <member refid="classhorus__bt_1_1AddTrialNoteNode_1a398dd3755812f1a0868bf6cd0e7aa899" kind="function"><name>providedPorts</name></member>
+    <member refid="classhorus__bt_1_1AddTrialNoteNode_1aaa27a572899b53f13d11667a9a137948" kind="function"><name>fill</name></member>
+  </compound>
+  <compound refid="structhorus__bt_1_1BehaviorChannel" kind="struct"><name>horus_bt::BehaviorChannel</name>
+    <member refid="structhorus__bt_1_1BehaviorChannel_1a8bf5e6bb9f2ebc51b7f2c8b5211c30b5" kind="typedef"><name>Action</name></member>
+    <member refid="structhorus__bt_1_1BehaviorChannel_1af9df10f7139e49a887eed9e6ef4a282c" kind="variable"><name>group</name></member>
+    <member refid="structhorus__bt_1_1BehaviorChannel_1aa21c0e1f2b8926c0cd03dbb9e32e412f" kind="variable"><name>exec</name></member>
+    <member refid="structhorus__bt_1_1BehaviorChannel_1a936c6cf3cefe876395572feed0a92208" kind="variable"><name>client</name></member>
+    <member refid="structhorus__bt_1_1BehaviorChannel_1a4828b354a2fa3128d9fc59b58efe60ca" kind="variable"><name>mutex</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1CalibrateNode" kind="class"><name>horus_bt::CalibrateNode</name>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a698cda81234fd2e58b8acca061890df0" kind="typedef"><name>Action</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a23d69ece736a28e890b9b55bf82879ce" kind="typedef"><name>GoalHandle</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1ae1fd760a2b77c7c5c947cf1d3bf0a696" kind="typedef"><name>Save</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a0d943b7948a274eb7be9a9bc174972cb" kind="variable"><name>node_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a238339e990e97f8c5dbe32abfecae60c" kind="variable"><name>cbg_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1abf16e26361c5ae90274ed21224b473b5" kind="variable"><name>exec_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a63038b21f7f5f30e5220d83504bc71b6" kind="variable"><name>client_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a0fee85de17ad8e0b3cca2595ce1de7d3" kind="variable"><name>save_client_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1ac3c2295633f387ff7dd73e7db4787f1c" kind="variable"><name>goal_future_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a1abc71c85efc301a58acbc41f57ad94b" kind="variable"><name>save_future_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a8d113a99c883e8b98455e90c704cf6d5" kind="variable"><name>goal_handle_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a068ba820915b4a739da8dd398efd86b3" kind="variable"><name>target_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a85925c7ba31f47fe60f95bdfbe84dde4" kind="variable"><name>subject_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a671c56725bc5670814f0cd123576de34" kind="variable"><name>done_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1aa550e9df9efc7727f931eb550ac3750d" kind="variable"><name>succeeded_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1af45079c42a35e6511bd53c403959a832" kind="variable"><name>saving_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1aa9f63cbf56e394a028a8f06e6c3a12a2" kind="variable"><name>save_</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1aee585a22337c14369a9d1b37d98db06c" kind="function"><name>CalibrateNode</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a1fb990596d78f8ea361f4ab22e4342a8" kind="function"><name>onStart</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a8dc4af5ca520acfef521f625126ff66c" kind="function"><name>onRunning</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1acb428aafe825af523b727db171ef379a" kind="function"><name>onHalted</name></member>
+    <member refid="classhorus__bt_1_1CalibrateNode_1a859f15d36ed684d042cedf7b225743f9" kind="function"><name>providedPorts</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1EmergencyStopNode" kind="class"><name>horus_bt::EmergencyStopNode</name>
+    <member refid="classhorus__bt_1_1EmergencyStopNode_1aacb60557965ff5c003109878c5a9b46a" kind="variable"><name>node_</name></member>
+    <member refid="classhorus__bt_1_1EmergencyStopNode_1a56fa17a278a088993c1bce53732c791f" kind="variable"><name>pub_</name></member>
+    <member refid="classhorus__bt_1_1EmergencyStopNode_1a3019c55a81ac3083773025d2dce02345" kind="function"><name>EmergencyStopNode</name></member>
+    <member refid="classhorus__bt_1_1EmergencyStopNode_1ab199ce7b03891ab461c5e1d4d3ab83fc" kind="function"><name>tick</name></member>
+    <member refid="classhorus__bt_1_1EmergencyStopNode_1a76d3c78ecf2e46277674466808da0154" kind="function"><name>providedPorts</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1ExecuteBehaviorNode" kind="class"><name>horus_bt::ExecuteBehaviorNode</name>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1aa39b973e41311bebeddb6e3c3882f390" kind="typedef"><name>Action</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a111dce41e8e038944d20dff6cc4c971b" kind="typedef"><name>GoalHandle</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a156bd785fb765b9805d3532c65c422b3" kind="variable"><name>node_</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a6790a270a09fb34ef7dce46de008a46d" kind="variable"><name>channel_</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a6a2cc0c348447e4adfd66a4e8f1b588d" kind="variable"><name>action_name_</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a56749a5ed232ad4c6e941a9d48050829" kind="variable"><name>client_</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1af9810d60b4b77579af9b9454907e413c" kind="variable"><name>goal_future_</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a1bcb35e74aaa5f7d13e7145ec665ad20" kind="variable"><name>goal_handle_</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a5f9545561999ab8aac125b2f425dff59" kind="variable"><name>outcome_</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1ae8f48d43963d66bcbc5e7d4b1ab71266" kind="function"><name>ExecuteBehaviorNode</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a7bde0539234449d3f95b1f36dbb4bee9" kind="function"><name>onStart</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1ad76fca2667456b402237803ad09ba52c" kind="function"><name>onRunning</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1abc65d4bd38c160b251b00aab8cc5b0d6" kind="function"><name>onHalted</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a466f7dfc077299951f8bb53776719d21" kind="function"><name>providedPorts</name></member>
+    <member refid="classhorus__bt_1_1ExecuteBehaviorNode_1a544479c40549ec3576fe470ea682f4a8" kind="function"><name>spin</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1IsAtPoseNode" kind="class"><name>horus_bt::IsAtPoseNode</name>
+    <member refid="classhorus__bt_1_1IsAtPoseNode_1a22eb9e59346a89465c7aa16f86bd3ce2" kind="variable"><name>node_</name></member>
+    <member refid="classhorus__bt_1_1IsAtPoseNode_1a9c5120e0522039a0fc97b343dd4f7a0b" kind="variable"><name>leaf_</name></member>
+    <member refid="classhorus__bt_1_1IsAtPoseNode_1a0701bf5b03239eb1d7ea3a8b7a994dd8" kind="variable"><name>sub_</name></member>
+    <member refid="classhorus__bt_1_1IsAtPoseNode_1ae589271dfe31bbae968ccae8f7ab970f" kind="variable"><name>measured_</name></member>
+    <member refid="classhorus__bt_1_1IsAtPoseNode_1a38330a91fed191b14c9a01fe1fb52c6a" kind="function"><name>IsAtPoseNode</name></member>
+    <member refid="classhorus__bt_1_1IsAtPoseNode_1ae456d5cedd7bfc1b82a9e4b51b2f8382" kind="function"><name>tick</name></member>
+    <member refid="classhorus__bt_1_1IsAtPoseNode_1a21edd62ff6ceaa0be69f917f6a189a8d" kind="function"><name>providedPorts</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1IsHealthyNode" kind="class"><name>horus_bt::IsHealthyNode</name>
+    <member refid="classhorus__bt_1_1IsHealthyNode_1abb84b6bb93081fca673867eebe18662e" kind="variable"><name>node_</name></member>
+    <member refid="classhorus__bt_1_1IsHealthyNode_1ac05e3db1c3cb258d49d5796c5824c91d" kind="variable"><name>leaf_</name></member>
+    <member refid="classhorus__bt_1_1IsHealthyNode_1a24d30dc18d08dc56ec877ee2f8e6ee7b" kind="variable"><name>sub_</name></member>
+    <member refid="classhorus__bt_1_1IsHealthyNode_1afa0af73830c04406c0ea0445138c2035" kind="variable"><name>level_</name></member>
+    <member refid="classhorus__bt_1_1IsHealthyNode_1a35a31b3cb7438a1c8ca34d225d587213" kind="function"><name>IsHealthyNode</name></member>
+    <member refid="classhorus__bt_1_1IsHealthyNode_1aea0e8119156985845e5346c08586c19b" kind="function"><name>tick</name></member>
+    <member refid="classhorus__bt_1_1IsHealthyNode_1ad0f3ee3dac3e832dc13f1a64afd2b801" kind="function"><name>providedPorts</name></member>
+  </compound>
+  <compound refid="structhorus__bt_1_1detail_1_1LeafExecutor" kind="struct"><name>horus_bt::detail::LeafExecutor</name>
+    <member refid="structhorus__bt_1_1detail_1_1LeafExecutor_1a2b965de84b6fcab5f389aabc0f5d4931" kind="variable"><name>group</name></member>
+    <member refid="structhorus__bt_1_1detail_1_1LeafExecutor_1aaf4fddb4a28877b4de58137a1ba82d2b" kind="variable"><name>exec</name></member>
+    <member refid="structhorus__bt_1_1detail_1_1LeafExecutor_1aa9e5e38c81f5a2e30e8d10846387828a" kind="function"><name>LeafExecutor</name></member>
+    <member refid="structhorus__bt_1_1detail_1_1LeafExecutor_1a7daa2f4180816967ad80478c11001825" kind="function"><name>drain</name></member>
+  </compound>
+  <compound refid="structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome" kind="struct"><name>horus_bt::ExecuteBehaviorNode::Outcome</name>
+    <member refid="structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome_1ad4926d25d17491341b177a3b40f7aa9f" kind="variable"><name>done</name></member>
+    <member refid="structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome_1a004e775e5910e80e1ef5889ea0017b4b" kind="variable"><name>succeeded</name></member>
+  </compound>
+  <compound refid="structhorus__bt_1_1TreeRunner_1_1Request" kind="struct"><name>horus_bt::TreeRunner::Request</name>
+    <member refid="structhorus__bt_1_1TreeRunner_1_1Request_1ae620ce0e0259c253d75243ad09af1d14" kind="variable"><name>tree</name></member>
+    <member refid="structhorus__bt_1_1TreeRunner_1_1Request_1acd4ed685381860425df6065c3b7d7430" kind="variable"><name>id</name></member>
+    <member refid="structhorus__bt_1_1TreeRunner_1_1Request_1ab9f63965a1e3301b67507d3c106dc2c0" kind="variable"><name>done</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1ServiceLeaf" kind="class"><name>horus_bt::ServiceLeaf</name>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1a54e6cb32c94d5d28cc67b7453e5ef3be" kind="variable"><name>node_</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1a15127ed12121d0c70f843bcc14df007c" kind="variable"><name>group_</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1a0aa17196d79b1220c1d9e666e0adfb58" kind="variable"><name>exec_</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1a79c3027dbefe9838ebe66871acb702b7" kind="variable"><name>client_</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1ae1e6451c736ec8b2d64505b4b7402139" kind="variable"><name>future_</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1a0e28acd90eef43aed415ee0f9090ed6c" kind="variable"><name>deadline_</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1ab475651d673dde36fbb155b9f1061049" kind="function"><name>ServiceLeaf</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1a3edb94f6d34758dbf70c656603286568" kind="function"><name>onStart</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1a5add4b6008852f6fb35302efc8f255ae" kind="function"><name>onRunning</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1ae8e72b84225a6ec45cc507c56db63773" kind="function"><name>onHalted</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1a52393f7ec6a9b392880b3a830f73f92c" kind="function"><name>basePorts</name></member>
+    <member refid="classhorus__bt_1_1ServiceLeaf_1a84c78dace68d6c86772aa01261a28a39" kind="function"><name>fill</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1SetSpeedScaleNode" kind="class"><name>horus_bt::SetSpeedScaleNode</name>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1af0dd2082348e0a95205b8380299e66db" kind="variable"><name>node_</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1a64e3ad02af00f0edb3ccf0474a76cef1" kind="variable"><name>group_</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1a38f320d12c8f7d76c440740c2f5e892c" kind="variable"><name>exec_</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1a7691eb67fd8b811fa18f96379d6ccd52" kind="variable"><name>client_</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1a5aef63d21fe0b7984173d493042ade3b" kind="variable"><name>target_</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1a1d1fdb0f818a9e99e8d0be76577cc1ce" kind="variable"><name>future_</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1a901597a0d8ab8a97328b91f5335efef2" kind="function"><name>SetSpeedScaleNode</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1a08ad56c92c5d4714c273b1ff0ae2608e" kind="function"><name>onStart</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1a2b2295dc87f474a854302b11a5680b62" kind="function"><name>onRunning</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1a855388c9db5ca75ad5ad3a1d69d34cd6" kind="function"><name>onHalted</name></member>
+    <member refid="classhorus__bt_1_1SetSpeedScaleNode_1ac95cfa986e214545db6b70dc2b11b1c7" kind="function"><name>providedPorts</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1StartRecordingNode" kind="class"><name>horus_bt::StartRecordingNode</name>
+    <member refid="classhorus__bt_1_1StartRecordingNode_1ac1dfaf66186834e00dc3f2daa78ca466" kind="function"><name>StartRecordingNode</name></member>
+    <member refid="classhorus__bt_1_1StartRecordingNode_1a3b5922dfb97e4b6f7cdd59ea08c0e277" kind="function"><name>providedPorts</name></member>
+    <member refid="classhorus__bt_1_1StartRecordingNode_1a836b9ac024f5e52eca13d66623a892aa" kind="function"><name>fill</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1StopRecordingNode" kind="class"><name>horus_bt::StopRecordingNode</name>
+    <member refid="classhorus__bt_1_1StopRecordingNode_1af02ba30d383d61812dfedf75a01f78d4" kind="function"><name>StopRecordingNode</name></member>
+    <member refid="classhorus__bt_1_1StopRecordingNode_1a136b7076b08760d088040c8c6795bc32" kind="function"><name>providedPorts</name></member>
+    <member refid="classhorus__bt_1_1StopRecordingNode_1a21e7e2bc5928d3a428645a438df3534b" kind="function"><name>fill</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1TreeRunner" kind="class"><name>horus_bt::TreeRunner</name>
+    <member refid="classhorus__bt_1_1TreeRunner_1af1f2f578b886c92313240e106d15fb72" kind="typedef"><name>Done</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a056f88b4a921f3a8da5907c0e5a32aaa" kind="variable"><name>node_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1aeb04c92fde5e3e570d9e6d095663ee8c" kind="variable"><name>factory_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a7d7e9efd884a81f61880a279ac04c6ec" kind="variable"><name>channel_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a3747c140530804e571974b2159e0b0fc" kind="variable"><name>period_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a396c342b6a17a2cdecaf595106e22cbf" kind="variable"><name>mutex_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1aa54244eb896fa63ad2ffb92bb5299432" kind="variable"><name>cv_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1ae6ddcc1f9b1039abca38212f295bd301" kind="variable"><name>pending_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a319249848d1fc8d831a99a0ebfc442da" kind="variable"><name>halt_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a1a6de97d87a70b5306b98932d5061f13" kind="variable"><name>quit_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a57d88fe9fc0dff3f2451dbde240e15a8" kind="variable"><name>thread_</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1af4804aa73998077208001c84dd81b1dd" kind="function"><name>TreeRunner</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a6d0cc836e2ebb51cdb081fc9a1b0039c" kind="function"><name>~TreeRunner</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a36bd7d7b7376689de840cea9d4fb18b0" kind="function"><name>load</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1ae64e606c4c36e21c53209d32b2ae8f3a" kind="function"><name>trees</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a94eb979585b4c25a4aa24c0b2ae0704e" kind="function"><name>start</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1a1f8e166f025d7a29f41d7d18a7eda0fd" kind="function"><name>stop</name></member>
+    <member refid="classhorus__bt_1_1TreeRunner_1abab874c60e5b51b2a3b6777651707cb4" kind="function"><name>loop</name></member>
+  </compound>
+  <compound refid="classhorus__bt_1_1WaitForMessageNode" kind="class"><name>horus_bt::WaitForMessageNode</name>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1a26b0c0ae56c76de94e0b616c6e2a5450" kind="variable"><name>node_</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1a4640afb6b4aa3cc602367ceabdcc9489" kind="variable"><name>leaf_</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1a6a888c620b712271577757408e36a233" kind="variable"><name>sub_</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1ae03f3f4630d80be5908f76956080803a" kind="variable"><name>received_</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1ae6d9ee0937390f1fd9a928ee90f73271" kind="variable"><name>timeout_</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1a1b5580dbef7bde5ad7bf67fd8076f075" kind="variable"><name>start_</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1af4b99fd20e8127742c236b3fb216aba3" kind="function"><name>WaitForMessageNode</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1a572155f83daa58ae5342867537918b0c" kind="function"><name>onStart</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1a50588593d4854c38bbad089571db41dc" kind="function"><name>onRunning</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1aa1f9bdeb2e900584371c82cbc93ebd56" kind="function"><name>onHalted</name></member>
+    <member refid="classhorus__bt_1_1WaitForMessageNode_1a818a501c0bc6d3d0340a84f63d312bcf" kind="function"><name>providedPorts</name></member>
+  </compound>
+  <compound refid="namespaceBT" kind="namespace"><name>BT</name>
+  </compound>
+  <compound refid="namespacehorus__bt" kind="namespace"><name>horus_bt</name>
+    <member refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kind="typedef"><name>NodePtr</name></member>
+    <member refid="execute__behavior__node_8hpp_1a1d030667a149c79a0712b69f3a27dff5" kind="function"><name>behaviorChannel</name></member>
+  </compound>
+  <compound refid="namespacehorus__bt_1_1detail" kind="namespace"><name>horus_bt::detail</name>
+    <member refid="condition__nodes_8hpp_1a1ec045cedef67f2015b41d17c9702eaa" kind="function"><name>splitList</name></member>
+  </compound>
+  <compound refid="calibrate__node_8hpp" kind="file"><name>calibrate_node.hpp</name>
+  </compound>
+  <compound refid="condition__nodes_8hpp" kind="file"><name>condition_nodes.hpp</name>
+  </compound>
+  <compound refid="execute__behavior__node_8hpp" kind="file"><name>execute_behavior_node.hpp</name>
+  </compound>
+  <compound refid="node__ptr_8hpp" kind="file"><name>node_ptr.hpp</name>
+  </compound>
+  <compound refid="system__nodes_8hpp" kind="file"><name>system_nodes.hpp</name>
+  </compound>
+  <compound refid="tree__runner_8hpp" kind="file"><name>tree_runner.hpp</name>
+  </compound>
+  <compound refid="dir_19e074a3a8a36552c27b796ed00fe8e7" kind="dir"><name>include/horus_bt</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

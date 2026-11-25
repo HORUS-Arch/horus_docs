@@ -1,0 +1,21 @@
+.. _dir_include_horus_control:
+
+
+Directory horus_control
+=======================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include>` (``include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``include/horus_control``
+
+
+Files
+-----
+
+- :ref:`file_include_horus_control_gravity_model.hpp`
+
+

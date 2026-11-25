@@ -1,0 +1,7 @@
+horus\_session.session module
+=============================
+
+.. automodule:: horus_session.session
+   :members:
+   :show-inheritance:
+   :undoc-members:

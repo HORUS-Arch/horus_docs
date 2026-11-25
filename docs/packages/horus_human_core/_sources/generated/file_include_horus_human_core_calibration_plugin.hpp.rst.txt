@@ -1,0 +1,86 @@
+
+.. _file_include_horus_human_core_calibration_plugin.hpp:
+
+File calibration_plugin.hpp
+===========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_human_core>` (``include/horus_human_core``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+Abstract calibration algorithm loaded by a HORUS channel node via pluginlib. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_human_core/calibration_plugin.hpp``)
+----------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_human_core_calibration_plugin.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+A channel node (horus_imu, horus_insole, horus_emg, ...) owns the data flow, the files and the ROS interfaces; the plugin owns only the math. During a calibration run the node feeds raw samples of the units being calibrated to add(); finish() turns them into a YAML result; load() applies a result (fresh or from file); apply() corrects every live sample. Swapping the algorithm is a one-line change of ``calibration.plugin`` in the node's YAML.
+
+Threading: the node serialises every call under one mutex, so plugins need no locking. 
+
+
+
+
+Includes
+--------
+
+
+- ``memory``
+
+- ``rclcpp_lifecycle/lifecycle_node.hpp``
+
+- ``string``
+
+- ``vector``
+
+- ``yaml-cpp/yaml.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_horus_human_core_channel_node.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_human_core`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__human__core_1_1CalibrationPlugin`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158`
+

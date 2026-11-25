@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_3d66f55b8ead35f05d67fd2f817e487c" kind="dir">
+    <compoundname>include/horus_generator_pattern</compoundname>
+    <innerfile refid="manual_8hpp">manual.hpp</innerfile>
+    <innerfile refid="pattern_8hpp">pattern.hpp</innerfile>
+    <innerfile refid="waypoints_8hpp">waypoints.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_generator_pattern/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacehorus__estimator__core" kind="namespace" language="C++">
+    <compoundname>horus_estimator_core</compoundname>
+    <innerclass refid="classhorus__estimator__core_1_1Estimator" prot="public">horus_estimator_core::Estimator</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="estimator_8hpp_1a43ff1c092d8ecf8eb49f8f05d0ad89a3" prot="public" static="no">
+        <type>rclcpp_lifecycle::LifecycleNode::SharedPtr</type>
+        <definition>using horus_estimator_core::NodePtr = typedef rclcpp_lifecycle::LifecycleNode::SharedPtr</definition>
+        <argsstring></argsstring>
+        <name>NodePtr</name>
+        <qualifiedname>horus_estimator_core::NodePtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>host node handed to plugins </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_estimator_core/estimator.hpp" line="23" column="1" bodyfile="include/horus_estimator_core/estimator.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_estimator_core/estimator.hpp" line="20" column="1"/>
+  </compounddef>
+</doxygen>

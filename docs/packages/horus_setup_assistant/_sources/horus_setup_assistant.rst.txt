@@ -1,0 +1,18 @@
+horus\_setup\_assistant package
+===============================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   horus_setup_assistant.generate
+
+Module contents
+---------------
+
+.. automodule:: horus_setup_assistant
+   :members:
+   :show-inheritance:
+   :undoc-members:

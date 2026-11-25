@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacehorus__human" kind="namespace" language="C++">
+    <compoundname>horus_human</compoundname>
+    <innerclass refid="classhorus__human_1_1EmgMvc" prot="public">horus_human::EmgMvc</innerclass>
+    <innerclass refid="classhorus__human_1_1ImuStaticPose" prot="public">horus_human::ImuStaticPose</innerclass>
+    <innerclass refid="classhorus__human_1_1InsoleZeroOffset" prot="public">horus_human::InsoleZeroOffset</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="calibrations_8hpp_1a132456bcbb6372491f8d1ddef33c693e" prot="public" static="no">
+        <type>horus_human_core::CalibrationPlugin&lt; sensor_msgs::msg::Imu &gt;</type>
+        <definition>using horus_human::ImuCalibration = typedef horus_human_core::CalibrationPlugin&lt;sensor_msgs::msg::Imu&gt;</definition>
+        <argsstring></argsstring>
+        <name>ImuCalibration</name>
+        <qualifiedname>horus_human::ImuCalibration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>horus_imu </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/calibrations.hpp" line="20" column="1" bodyfile="include/horus_human/calibrations.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="calibrations_8hpp_1a45d44ad0e82181d0a6eeffee8bca062b" prot="public" static="no">
+        <type>horus_human_core::CalibrationPlugin&lt; human_msgs::msg::Insole &gt;</type>
+        <definition>using horus_human::InsoleCalibration = typedef horus_human_core::CalibrationPlugin&lt;human_msgs::msg::Insole&gt;</definition>
+        <argsstring></argsstring>
+        <name>InsoleCalibration</name>
+        <qualifiedname>horus_human::InsoleCalibration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>horus_insole </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/calibrations.hpp" line="21" column="1" bodyfile="include/horus_human/calibrations.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="calibrations_8hpp_1ab2bbee390ce04ee4dbb2daa600bf5c9e" prot="public" static="no">
+        <type>horus_human_core::CalibrationPlugin&lt; human_msgs::msg::Emg &gt;</type>
+        <definition>using horus_human::EmgCalibration = typedef horus_human_core::CalibrationPlugin&lt;human_msgs::msg::Emg&gt;</definition>
+        <argsstring></argsstring>
+        <name>EmgCalibration</name>
+        <qualifiedname>horus_human::EmgCalibration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>horus_emg </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/calibrations.hpp" line="22" column="1" bodyfile="include/horus_human/calibrations.hpp" bodystart="22" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_human/calibrations.hpp" line="17" column="1"/>
+  </compounddef>
+</doxygen>

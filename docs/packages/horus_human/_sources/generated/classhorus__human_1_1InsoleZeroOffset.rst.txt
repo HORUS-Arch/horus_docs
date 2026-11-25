@@ -1,0 +1,37 @@
+.. _exhale_class_classhorus__human_1_1InsoleZeroOffset:
+
+Class InsoleZeroOffset
+======================
+
+- Defined in :ref:`file_include_horus_human_default_calibrations.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structhorus__human_1_1InsoleZeroOffset_1_1Result`
+- :ref:`exhale_struct_structhorus__human_1_1InsoleZeroOffset_1_1Window`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public InsoleCalibration``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_human::InsoleZeroOffset
+   :project: horus_human Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

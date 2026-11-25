@@ -1,0 +1,7 @@
+horus\_session.recorder module
+==============================
+
+.. automodule:: horus_session.recorder
+   :members:
+   :show-inheritance:
+   :undoc-members:

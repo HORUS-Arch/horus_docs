@@ -1,0 +1,20 @@
+# Paper and citation
+
+HORUS is described in:
+
+> D. R. Silvino, J. Figueiredo, C. P. Santos, "HORUS: An Open-Source, Device-Agnostic ROS 2
+> Architecture for Exoskeletons and Other Human-Interacting Robotic Systems," *submitted to IEEE
+> Access*.
+
+```bibtex
+@article{silvino_horus,
+  author  = {Silvino, Diogo R. and Figueiredo, Joana and Santos, Cristina P.},
+  title   = {{HORUS}: An Open-Source, Device-Agnostic {ROS}~2 Architecture for Exoskeletons and Other
+             Human-Interacting Robotic Systems},
+  journal = {IEEE Access},
+  note    = {submitted}
+}
+```
+
+Center for MicroElectroMechanical Systems (CMEMS), Biomedical Robotic Devices Laboratory (BIRDLab),
+University of Minho, Guimarães, Portugal. Code: MIT license.

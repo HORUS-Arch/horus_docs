@@ -1,0 +1,36 @@
+.. _exhale_class_classhorus__bt_1_1ExecuteBehaviorNode:
+
+Class ExecuteBehaviorNode
+=========================
+
+- Defined in :ref:`file_include_horus_bt_execute_behavior_node.hpp`
+
+
+Nested Relationships
+--------------------
+
+
+Nested Types
+************
+
+- :ref:`exhale_struct_structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public BT::StatefulActionNode``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_bt::ExecuteBehaviorNode
+   :project: horus_bt Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

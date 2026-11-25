@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacehorus__bt" kind="namespace" language="C++">
+    <compoundname>horus_bt</compoundname>
+    <innerclass refid="classhorus__bt_1_1AddTrialNoteNode" prot="public">horus_bt::AddTrialNoteNode</innerclass>
+    <innerclass refid="structhorus__bt_1_1BehaviorChannel" prot="public">horus_bt::BehaviorChannel</innerclass>
+    <innerclass refid="classhorus__bt_1_1CalibrateNode" prot="public">horus_bt::CalibrateNode</innerclass>
+    <innerclass refid="classhorus__bt_1_1EmergencyStopNode" prot="public">horus_bt::EmergencyStopNode</innerclass>
+    <innerclass refid="classhorus__bt_1_1ExecuteBehaviorNode" prot="public">horus_bt::ExecuteBehaviorNode</innerclass>
+    <innerclass refid="classhorus__bt_1_1IsAtPoseNode" prot="public">horus_bt::IsAtPoseNode</innerclass>
+    <innerclass refid="classhorus__bt_1_1IsHealthyNode" prot="public">horus_bt::IsHealthyNode</innerclass>
+    <innerclass refid="classhorus__bt_1_1ServiceLeaf" prot="public">horus_bt::ServiceLeaf</innerclass>
+    <innerclass refid="classhorus__bt_1_1SetSpeedScaleNode" prot="public">horus_bt::SetSpeedScaleNode</innerclass>
+    <innerclass refid="classhorus__bt_1_1StartRecordingNode" prot="public">horus_bt::StartRecordingNode</innerclass>
+    <innerclass refid="classhorus__bt_1_1StopRecordingNode" prot="public">horus_bt::StopRecordingNode</innerclass>
+    <innerclass refid="classhorus__bt_1_1TreeRunner" prot="public">horus_bt::TreeRunner</innerclass>
+    <innerclass refid="classhorus__bt_1_1WaitForMessageNode" prot="public">horus_bt::WaitForMessageNode</innerclass>
+    <innernamespace refid="namespacehorus__bt_1_1detail">horus_bt::detail</innernamespace>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" prot="public" static="no">
+        <type>rclcpp::Node::SharedPtr</type>
+        <definition>using horus_bt::NodePtr = typedef rclcpp::Node::SharedPtr</definition>
+        <argsstring></argsstring>
+        <name>NodePtr</name>
+        <qualifiedname>horus_bt::NodePtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the supervisor, which runs the trees; passed to every leaf </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/node_ptr.hpp" line="13" column="1" bodyfile="include/horus_bt/node_ptr.hpp" bodystart="13" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="execute__behavior__node_8hpp_1a1d030667a149c79a0712b69f3a27dff5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structhorus__bt_1_1BehaviorChannel" kindref="compound">BehaviorChannel</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; BehaviorChannel &gt; horus_bt::behaviorChannel</definition>
+        <argsstring>(const NodePtr &amp;node, const std::string &amp;action)</argsstring>
+        <name>behaviorChannel</name>
+        <qualifiedname>horus_bt::behaviorChannel</qualifiedname>
+        <param>
+          <type>const <ref refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kindref="member">NodePtr</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>action</declname>
+        </param>
+        <briefdescription>
+<para>The shared channel of a node + action name; created on first use. the <ref refid="classhorus__bt_1_1TreeRunner" kindref="compound">TreeRunner</ref> keeps a strong reference for its lifetime, leaves only borrow it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node that runs the trees. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>action</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Action name of the generator server. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The channel. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/execute_behavior_node.hpp" line="44" column="24" bodyfile="include/horus_bt/execute_behavior_node.hpp" bodystart="44" bodyend="58"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_bt/calibrate_node.hpp" line="24" column="1"/>
+  </compounddef>
+</doxygen>

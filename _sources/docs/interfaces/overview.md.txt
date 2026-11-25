@@ -1,0 +1,105 @@
+# ROS 2 interfaces
+
+Every node, topic, service and action of a running rig. Names are as launched by `rig.launch.py`;
+`<name>` is an instance name from the rig file. Message layouts: {doc}`messages`. Each package's own
+page (under **Packages**) lists its parameters.
+
+```{mermaid}
+flowchart LR
+  UI["web UI"] <-->|rosbridge| SUP["/horus/supervisor<br/>modes + trees"]
+  UI <-->|rosbridge| SES["/horus/session"]
+  SUP -->|ExecuteBehavior| GEN["/horus/generator_server"]
+  SUP -->|Calibrate| HN["/human/&lt;name&gt;"]
+  SUP -->|state| SES
+  SES -->|subject_id, load_calibration| HN
+  DRV["/sensors/&lt;name&gt;"] --> HN
+  HN --> GEN
+  GEN -->|reference| CM["controller_manager<br/>SafetyController last"]
+  CM -->|/joint_states, wrench| GEN
+  CM -.->|/diagnostics| SUP
+  SUP -.->|estop, state| CM
+  SES -.->|records everything| BAG[("rosbag2")]
+```
+
+## Nodes
+
+| Node | Name at run time | Package / executable | Instances |
+|---|---|---|---|
+| Supervisor (modes, runs the trees) | `/horus/supervisor` | `horus_supervisor` / `supervisor` | 1 |
+| Generator server | `/horus/generator_server` | `horus_generator_server` / `generator_server` | 1 |
+| Lifecycle manager | `/horus/lifecycle_manager` | `horus_lifecycle_manager` / `lifecycle_manager` | 1 |
+| Session (subjects, calibrations, trials) | `/horus/session` | `horus_session` / `session` | 1 |
+| Health monitor | `/horus/health_monitor` | `diagnostic_aggregator` / `aggregator_node` | 0 or 1 |
+| IMU sensing | `/human/<name>` | `horus_human` / `horus_imu` | × N |
+| Insole sensing | `/human/<name>` | `horus_human` / `horus_insole` | × N |
+| EMG sensing | `/human/<name>` | `horus_human` / `horus_emg` | × N |
+| Sensor drivers | `/sensors/<name>/<name>` | the sensor's own repository | × N |
+| Controller manager + controllers | `/controller_manager`, `/<controller>` | ros2_control, the robot's launch | 1 per device |
+| rosbridge | `/horus/rosbridge_websocket` | `rosbridge_server` | 0 or 1 |
+
+## Topics
+
+| Topic | Type | From → to |
+|---|---|---|
+| `/horus/supervisor/state` (latched) | `horus_msgs/SupervisorState` | supervisor → UI, session, SafetyController |
+| `/horus/supervisor/estop` | `std_msgs/Empty` | UI, hardware button → supervisor, SafetyController |
+| `/horus/supervisor/estop_request` | `std_msgs/String` (reason) | `EmergencyStop` leaf → supervisor |
+| `/horus/supervisor/heartbeat` | `std_msgs/Empty` | UI (every 0.5 s) → supervisor |
+| `/horus/generator_server/behavior_state` (latched) | `horus_msgs/BehaviorState` | generator server → UI, trees |
+| `/horus/generator_server/manual_target` | `sensor_msgs/JointState` | UI sliders → `Manual` generator |
+| `output_topic` of the generator server, e.g. `/safety_controller/commands` or `/position_controller/commands` | `std_msgs/Float64MultiArray` or `trajectory_msgs/JointTrajectory` | generator server → controller |
+| `/safety_controller/stopped` (latched; `<controller name>/stopped`) | `std_msgs/Bool` | SafetyController → UI, recording |
+| `/gravity_compensation/effort_reference` | `std_msgs/Float64MultiArray` | a generator → GravityCompensation |
+| `/gravity_compensation/gravity_torque` | `std_msgs/Float64MultiArray` | GravityCompensation → UI, recording |
+| `/joint_states` | `sensor_msgs/JointState` | joint state broadcaster → generators, trees, UI |
+| `/horus/session/state` (latched) | `horus_msgs/SessionState` | session → UI, supervisor |
+| `/horus/lifecycle_manager/status` | `diagnostic_msgs/DiagnosticArray` | lifecycle manager → UI |
+| `/diagnostics` | `diagnostic_msgs/DiagnosticArray` | every node, device → supervisor, health monitor, UI |
+| `/sensors/<name>/...` | `sensor_msgs/Imu`, `human_msgs/Insole`, `human_msgs/Emg`, ... | driver → sensing node |
+| `/human/<name>/<segment>/imu` | `sensor_msgs/Imu` (segment frame) | `horus_imu` → estimators, UI |
+| `/human/<name>/segments` | `human_msgs/SegmentState` | `horus_imu` → estimators, UI |
+| `/human/<name>/<side>/insole`, `/human/<name>/insoles` | `human_msgs/Insole`, `Insoles` | `horus_insole` → estimators, UI |
+| `/human/<name>/<muscle>/emg`, `/human/<name>/emgs` | `human_msgs/Emg`, `Emgs` | `horus_emg` → estimators, UI |
+
+## Services
+
+| Service | Type | Server |
+|---|---|---|
+| `/horus/supervisor/command` | `horus_msgs/SupervisorCommand` | supervisor |
+| `/horus/session/session_control` | `horus_msgs/SessionControl` | session |
+| `/horus/session/add_trial_note` | `horus_msgs/AddTrialNote` | session |
+| `/horus/session/{create,get,list,update,delete}_subject(s)` | `horus_msgs/*Subject*` | session |
+| `/horus/session/list_calibrations` | `horus_msgs/ListCalibrations` | session |
+| `/human/<name>/save_calibration`, `load_calibration` | `horus_msgs/SaveCalibration`, `LoadCalibration` | sensing nodes |
+| `/horus/lifecycle_manager/manage_nodes` | `horus_msgs/ManageLifecycleNodes` | lifecycle manager |
+| `<node>/change_state`, `<node>/get_state` | `lifecycle_msgs` | every managed node |
+| `/controller_manager/*` | `controller_manager_msgs` | ros2_control |
+
+## Actions
+
+| Action | Type | Server | Typical client |
+|---|---|---|---|
+| `/horus/generator_server/execute_behavior` | `horus_msgs/ExecuteBehavior` | generator server | supervisor (`ExecuteBehavior` leaf) |
+| `/human/<name>/calibrate` | `horus_msgs/Calibrate` | sensing nodes | UI, trees (`Calibrate` leaf) |
+
+## Conventions
+
+- `/sensors/<name>`: raw driver data. `/human/<name>`: HORUS-processed human state. `/horus/<node>`:
+  system nodes. The robot keeps its own ros2_control names.
+- Channel names (segments, muscles, sides) use the `human_msgs` vocabulary: `right_upper_leg`,
+  `rectus_femoris_r`, `left`.
+- QoS: data streams use sensor-data QoS (best effort); state topics (`*/state`, `behavior_state`) are
+  latched (transient local, reliable).
+- Units are SI; `human_msgs` documents its exceptions (mV, kPa).
+
+## Inspecting the graph
+
+```bash
+ros2 node list                                   # every node of the rig
+ros2 topic list -t | grep -E "^/(horus|human|sensors)"
+ros2 topic echo /horus/supervisor/state --once   # current mode and why
+ros2 topic hz /position_controller/commands      # generation rate while a behavior runs
+ros2 action list -t                              # execute_behavior, calibrate
+ros2 control list_controllers                    # which controller is active
+ros2 lifecycle get /horus/generator_server       # lifecycle state of a managed node
+```

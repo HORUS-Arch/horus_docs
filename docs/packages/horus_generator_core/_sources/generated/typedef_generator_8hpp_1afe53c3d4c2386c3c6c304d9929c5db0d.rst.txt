@@ -1,0 +1,14 @@
+.. _exhale_typedef_generator_8hpp_1afe53c3d4c2386c3c6c304d9929c5db0d:
+
+Typedef horus_generator_core::NodePtr
+=====================================
+
+- Defined in :ref:`file_include_horus_generator_core_generator.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: horus_generator_core::NodePtr
+   :project: horus_generator_core Doxygen Project

@@ -1,0 +1,41 @@
+# Sensing nodes
+
+`horus_imu`, `horus_insole` and `horus_emg` share these parameters:
+
+| Parameter | Default | Meaning |
+|---|---|---|
+| `channels` | — | unit names: segments (`right_upper_leg`), sides (`right`, `left`) or muscles |
+| `<channel>.topic` | — | the driver topic of that channel |
+| `calibration.plugin` | `""` | the calibration algorithm (`""` = none) |
+| `calibration.*` | | the plugin's parameters |
+| `subject_id` | `""` | the subject whose latest calibration files load; set by the session's SELECT (which also calls `~/load_calibration`), or before configure |
+| `data_root` | `~/horus_data` | passed by the rig launch |
+| `mode` | `calibrated` | live: `calibrated`, `conditioned`, `bypass` |
+
+```yaml
+/**:
+  ros__parameters:
+    channels: [pelvis, right_upper_leg, right_lower_leg]
+    pelvis.topic: /sensors/imus_a/sensor_0/imu
+    right_upper_leg.topic: /sensors/imus_a/sensor_1/imu
+    right_lower_leg.topic: /sensors/imus_a/sensor_2/imu
+    calibration:
+      plugin: horus_human/ImuStaticPose
+      duration: 3.0          # s, hold the reference pose
+      max_motion: 0.1        # rad/s gyro RMS allowed
+```
+
+| Plugin | For | Main parameters |
+|---|---|---|
+| `horus_human/ImuStaticPose` | `horus_imu` | `duration`, `max_motion`, `estimate_gyro_bias`, `<segment>.reference` |
+| `horus_human/InsoleZeroOffset` | `horus_insole` | `duration`, `max_force` |
+| `horus_human/EmgMvc` | `horus_emg` | `duration`, `min_mvc` |
+
+`horus_emg` also has `dc_time_constant`, `envelope_window` and `emgs_rate`; `horus_imu` has
+`segments_rate` and `world_frame`; `horus_insole` has `insoles_rate`.
+
+```bash
+ros2 action send_goal --feedback /human/imus_a/calibrate horus_msgs/action/Calibrate "{unit: '', duration: 3.0}"
+ros2 service call /human/imus_a/save_calibration horus_msgs/srv/SaveCalibration "{subject_id: s01}"
+ros2 param set /human/imus_a mode bypass
+```

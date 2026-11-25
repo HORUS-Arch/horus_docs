@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacehorus__control" kind="namespace" language="C++">
+    <compoundname>horus_control</compoundname>
+    <innerclass refid="classhorus__control_1_1GravityModel" prot="public">horus_control::GravityModel</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_control/gravity_model.hpp" line="22" column="1"/>
+  </compounddef>
+</doxygen>

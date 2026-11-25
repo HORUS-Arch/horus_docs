@@ -1,0 +1,75 @@
+
+.. _file_include_horus_generator_pattern_pattern.hpp:
+
+File pattern.hpp
+================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_generator_pattern>` (``include/horus_generator_pattern``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+YAML-driven Generator plugin, periodic waveforms with no code. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_generator_pattern/pattern.hpp``)
+------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_generator_pattern_pattern.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+One cycle is played at a cadence set by cycle_time, scaled by speed_factor, and shared by every signal. Each signal (joint) has its own waveform, custom table and phase offset, so a gait is expressed purely as configuration.
+
+Output is ordered like the ``signals`` list, which must match the target controller's joints, and is written directly in the controller's units. With no ``signals`` list a single signal is read from the top-level parameters.
+
+``speed_factor`` is a MULTIPLIER on the cadence rather than an absolute speed, following MARCH, whose gait phases scale a base step size the same way. 2.0 plays the cycle twice as fast.
+
+``cycling`` decides how the behavior ENDS. A non-cycling pattern plays its cycle once and reports finished(), which is what lets a behavior action succeed (home / sit / stand); this mirrors MARCH, where a phase ends when its plan is exhausted rather than when a timer expires. A cycling pattern (a gait) never finishes on its own and runs until the behavior tree cancels it. 
+
+
+
+
+Includes
+--------
+
+
+- ``horus_generator_core/generator.hpp``
+
+- ``string``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_generator_pattern`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhorus__generator__pattern_1_1Signal`
+
+- :ref:`exhale_class_classhorus__generator__pattern_1_1Pattern`
+

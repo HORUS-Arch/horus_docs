@@ -1,0 +1,51 @@
+# Write a calibration algorithm
+
+Each sensing node (`horus_imu`, `horus_insole`, `horus_emg`) loads its calibration as a plugin for its
+message type. The node handles the action, the files, the subject and the diagnostics; you write the math.
+
+| Base class | Node | Message |
+|---|---|---|
+| `horus_human::ImuCalibration` | `horus_imu` | `sensor_msgs/Imu` |
+| `horus_human::InsoleCalibration` | `horus_insole` | `human_msgs/Insole` |
+| `horus_human::EmgCalibration` | `horus_emg` | `human_msgs/Emg` |
+
+```cpp
+#include "horus_human/calibrations.hpp"
+#include "pluginlib/class_list_macros.hpp"
+
+class EmgPercentile : public horus_human::EmgCalibration {
+ public:
+  void configure(const horus_human_core::NodePtr& node, const std::string& name,
+                 const std::vector<std::string>& units) override { /* read <name>.* */ }
+  void begin(const std::string& unit) override { samples_[unit].clear(); }
+  void add(const std::string& unit, const human_msgs::msg::Emg& raw) override {
+    samples_[unit].insert(samples_[unit].end(), raw.samples.begin(), raw.samples.end());
+  }
+  bool finish(const std::string& unit, YAML::Node& out, std::string& summary) override {
+    auto& s = samples_[unit];
+    if (s.empty()) { summary = "no samples"; return false; }
+    std::nth_element(s.begin(), s.begin() + s.size() * 95 / 100, s.end());
+    out["mvc"] = s[s.size() * 95 / 100];          // this is what is saved to file
+    summary = "p95 " + std::to_string(out["mvc"].as<double>());
+    return true;
+  }
+  bool load(const std::string& unit, const YAML::Node& data) override {
+    mvc_[unit] = data["mvc"].as<double>(); return mvc_[unit] > 0;
+  }
+  bool calibrated(const std::string& unit) const override { return mvc_.count(unit); }
+  void apply(const std::string& unit, human_msgs::msg::Emg& msg) const override {
+    auto it = mvc_.find(unit); if (it == mvc_.end()) return;
+    for (auto& x : msg.samples) x /= it->second;
+  }
+ private:
+  std::map<std::string, std::vector<float>> samples_;
+  std::map<std::string, double> mvc_;
+};
+PLUGINLIB_EXPORT_CLASS(EmgPercentile, horus_human::EmgCalibration)
+```
+
+Export it for `horus_human` (`pluginlib_export_plugin_description_file(horus_human plugins.xml)`) with a
+`name="my_pkg/EmgPercentile"`, and set `calibration.plugin: my_pkg/EmgPercentile`.
+
+For a new kind of sensor, derive a node from `horus_human_core::ChannelNode<YourMsg>` and declare a
+plugin base for it, as the three shipped nodes do.

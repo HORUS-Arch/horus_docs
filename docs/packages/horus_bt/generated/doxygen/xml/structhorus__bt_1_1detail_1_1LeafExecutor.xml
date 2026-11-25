@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhorus__bt_1_1detail_1_1LeafExecutor" kind="struct" language="C++" prot="public">
+    <compoundname>horus_bt::detail::LeafExecutor</compoundname>
+    <includes refid="condition__nodes_8hpp" local="no">condition_nodes.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhorus__bt_1_1detail_1_1LeafExecutor_1a2b965de84b6fcab5f389aabc0f5d4931" prot="public" static="no" mutable="no">
+        <type>rclcpp::CallbackGroup::SharedPtr</type>
+        <definition>rclcpp::CallbackGroup::SharedPtr horus_bt::detail::LeafExecutor::group</definition>
+        <argsstring></argsstring>
+        <name>group</name>
+        <qualifiedname>horus_bt::detail::LeafExecutor::group</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>owns this leaf&apos;s subscriptions </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="61" column="38" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__bt_1_1detail_1_1LeafExecutor_1aaf4fddb4a28877b4de58137a1ba82d2b" prot="public" static="no" mutable="no">
+        <type>rclcpp::executors::SingleThreadedExecutor</type>
+        <definition>rclcpp::executors::SingleThreadedExecutor horus_bt::detail::LeafExecutor::exec</definition>
+        <argsstring></argsstring>
+        <name>exec</name>
+        <qualifiedname>horus_bt::detail::LeafExecutor::exec</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>spun only by this leaf </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="62" column="47" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="62" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="structhorus__bt_1_1detail_1_1LeafExecutor_1aa9e5e38c81f5a2e30e8d10846387828a" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>horus_bt::detail::LeafExecutor::LeafExecutor</definition>
+        <argsstring>(const NodePtr &amp;node)</argsstring>
+        <name>LeafExecutor</name>
+        <qualifiedname>horus_bt::detail::LeafExecutor::LeafExecutor</qualifiedname>
+        <param>
+          <type>const <ref refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kindref="member">NodePtr</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="55" column="14" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="55" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="structhorus__bt_1_1detail_1_1LeafExecutor_1a7daa2f4180816967ad80478c11001825" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_bt::detail::LeafExecutor::drain</definition>
+        <argsstring>()</argsstring>
+        <name>drain</name>
+        <qualifiedname>horus_bt::detail::LeafExecutor::drain</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="60" column="10" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="60" bodyend="60"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>A private callback group + executor for one leaf (container-agnostic). </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_bt/condition_nodes.hpp" line="53" column="1" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="54" bodyend="63"/>
+    <listofallmembers>
+      <member refid="structhorus__bt_1_1detail_1_1LeafExecutor_1a7daa2f4180816967ad80478c11001825" prot="public" virt="non-virtual"><scope>horus_bt::detail::LeafExecutor</scope><name>drain</name></member>
+      <member refid="structhorus__bt_1_1detail_1_1LeafExecutor_1aaf4fddb4a28877b4de58137a1ba82d2b" prot="public" virt="non-virtual"><scope>horus_bt::detail::LeafExecutor</scope><name>exec</name></member>
+      <member refid="structhorus__bt_1_1detail_1_1LeafExecutor_1a2b965de84b6fcab5f389aabc0f5d4931" prot="public" virt="non-virtual"><scope>horus_bt::detail::LeafExecutor</scope><name>group</name></member>
+      <member refid="structhorus__bt_1_1detail_1_1LeafExecutor_1aa9e5e38c81f5a2e30e8d10846387828a" prot="public" virt="non-virtual"><scope>horus_bt::detail::LeafExecutor</scope><name>LeafExecutor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

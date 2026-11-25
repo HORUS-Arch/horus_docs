@@ -1,0 +1,87 @@
+
+.. _file_include_horus_bt_tree_runner.hpp:
+
+File tree_runner.hpp
+====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_bt>` (``include/horus_bt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+Runs HORUS behavior trees in-process, on their own thread, for the supervisor. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_bt/tree_runner.hpp``)
+-------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_bt_tree_runner.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+Loads every BT XML of the given folders, registers the HORUS leaves, and ticks one tree at a time. start() and stop() never block: the tick thread picks the request up within microseconds, halts the running tree and builds the next one, so a mode change never waits for a tick. The result of a tree is reported once through its callback, with the id given to start(); a tree that is replaced or stopped reports nothing. 
+
+
+
+
+Includes
+--------
+
+
+- ``behaviortree_cpp/bt_factory.h``
+
+- ``chrono``
+
+- ``condition_variable``
+
+- ``cstdint``
+
+- ``functional``
+
+- ``horus_bt/node_ptr.hpp`` (:ref:`file_include_horus_bt_node_ptr.hpp`)
+
+- ``memory``
+
+- ``mutex``
+
+- ``optional``
+
+- ``string``
+
+- ``thread``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_bt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhorus__bt_1_1TreeRunner_1_1Request`
+
+- :ref:`exhale_class_classhorus__bt_1_1TreeRunner`
+

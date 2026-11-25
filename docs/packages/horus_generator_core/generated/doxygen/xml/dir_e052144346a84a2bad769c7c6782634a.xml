@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_e052144346a84a2bad769c7c6782634a" kind="dir">
+    <compoundname>include/horus_generator_core</compoundname>
+    <innerfile refid="generator_8hpp">generator.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_generator_core/"/>
+  </compounddef>
+</doxygen>

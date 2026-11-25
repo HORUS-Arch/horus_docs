@@ -1,0 +1,113 @@
+# Supervisor and trees
+
+## supervisor.yaml
+
+```yaml
+/**:
+  ros__parameters:
+    trees:
+      run: Trial             # default protocol for START (the operator may pick another)
+      manual: Manual         # MANUAL mode: the device follows the operator's sliders
+      recovery: Recovery     # after a protocol failure ("" = straight to EMERGENCY_STOP)
+    tree_dirs: [""]          # folders of tree XML; [""] = horus_bt's behavior_trees/
+    tick_hz: 20.0
+    generator_action: /horus/generator_server/execute_behavior
+
+    critical_sources: [""]   # diagnostic name substrings, e.g. [controller_manager]; [""] = all
+    stale_timeout: 3.0       # s without a status = stale (counts only while moving; 0 = off)
+
+    heartbeat_timeout: 2.0   # s without the UI heartbeat while moving -> EMERGENCY_STOP (0 = off)
+    require_subject: true    # START needs a subject selected in the session
+```
+
+Write `[""]` rather than `[]` for an empty list: an empty YAML list has no type and fails to load.
+
+| Parameter | Default | Meaning |
+|---|---|---|
+| `trees.run` | `""` | tree START runs when the request names none |
+| `trees.manual` | `""` | tree of MANUAL; `""` refuses MANUAL |
+| `trees.recovery` | `""` | tree of RECOVERY; `""` goes straight to EMERGENCY_STOP |
+| `tree_dirs` | `[""]` | folders whose `*.xml` are loaded; `""` = the default trees of `horus_bt` |
+| `tick_hz` | `20.0` | tree tick rate |
+| `generator_action` | `/horus/generator_server/execute_behavior` | action of the `ExecuteBehavior` leaf; `SetSpeedScale` uses the node part |
+| `critical_sources` | `[""]` | diagnostic names (substrings) whose ERROR or STALE is a fault; `[""]` = every source |
+| `stale_timeout` | `0.0` | s without a status before a source counts as stale; `0` = off |
+| `heartbeat_timeout` | `0.0` | s without heartbeat while moving before EMERGENCY_STOP; `0` = off |
+| `require_subject` | `false` | START is refused until a subject is selected |
+| `session_state_topic` | `/horus/session/state` | where the selected subject comes from |
+| `diagnostics_topic` | `/diagnostics` | device health input |
+| `rate` | `10.0` | Hz, heartbeat and staleness check |
+
+The rig launch fills `tree_dirs` from `system.trees` and `critical_sources` from the entries marked
+`critical` (see {doc}`rig_file`).
+
+## Trees
+
+Every `*.xml` in the tree folders is loaded; every tree id becomes a protocol the operator can START
+(listed in `SupervisorState.protocols`). `trees.<mode>` names the tree of each mode. The default
+trees of `horus_bt` (`behavior_trees/trial.xml`):
+
+```xml
+<root BTCPP_format="4" main_tree_to_execute="Trial">
+  <BehaviorTree ID="Trial">
+    <ReactiveSequence name="guarded_trial">
+      <IsHealthy source="" level="error"/>
+      <Sequence name="run_trial">
+        <RetryUntilSuccessful num_attempts="2">
+          <ExecuteBehavior behavior="home"/>
+        </RetryUntilSuccessful>
+        <IsAtPose joints="hipR,kneeR,ankleR" positions="0,0,0" tolerance="0.05"/>
+        <ExecuteBehavior behavior="walk"/>
+        <ExecuteBehavior behavior="home"/>
+      </Sequence>
+    </ReactiveSequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="RecordOnly">
+    <KeepRunningUntilFailure>
+      <AlwaysSuccess/>
+    </KeepRunningUntilFailure>
+  </BehaviorTree>
+
+  <BehaviorTree ID="Calibration">
+    <Sequence name="calibrate">
+      <Calibrate node="/human/imus_a" unit="" duration="3.0"/>
+      <Calibrate node="/human/insoles" unit="" duration="2.0"/>
+    </Sequence>
+  </BehaviorTree>
+
+  <BehaviorTree ID="Manual">
+    <ExecuteBehavior behavior="manual"/>
+  </BehaviorTree>
+
+  <BehaviorTree ID="Recovery">
+    <RetryUntilSuccessful num_attempts="2">
+      <ExecuteBehavior behavior="home"/>
+    </RetryUntilSuccessful>
+  </BehaviorTree>
+</root>
+```
+
+| Tree | Mode | Does |
+|---|---|---|
+| `Trial` | RUN | home, walk, home; the `ReactiveSequence` re-checks `IsHealthy` every tick, so a device error halts the motion and fails the protocol (RUN → RECOVERY) |
+| `RecordOnly` | RUN | moves nothing and runs until STOP: data acquisition without motion |
+| `Calibration` | RUN | scripted calibrations, saved for the session's subject |
+| `Manual` | MANUAL | runs the `manual` behavior (`horus_generator_pattern/Manual`) until the operator leaves |
+| `Recovery` | RECOVERY | a bounded attempt to reach a safe pose; failure goes to EMERGENCY_STOP |
+
+Behavior names (`home`, `walk`, `manual`) resolve against the generator server's `generator_plugins`
+(see {doc}`behaviors`). No tree switches controllers. Trees can also act on the system with
+`EmergencyStop`, `StartRecording`, `StopRecording`, `AddTrialNote` and `SetSpeedScale`, for example:
+
+```xml
+<Sequence>
+  <AddTrialNote text="block 1"/>
+  <SetSpeedScale value="0.8"/>
+  <ExecuteBehavior behavior="walk"/>
+</Sequence>
+```
+
+All BehaviorTree.CPP control and decorator nodes are available (Sequence, ReactiveSequence,
+Fallback, Parallel, RetryUntilSuccessful, Timeout, ...). HORUS leaves are listed in
+{doc}`../concepts/decision_hierarchy` and, with their ports, in the `horus_bt` package page.

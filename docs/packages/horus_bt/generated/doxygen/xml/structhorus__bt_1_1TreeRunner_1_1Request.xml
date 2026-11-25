@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhorus__bt_1_1TreeRunner_1_1Request" kind="struct" language="C++" prot="private">
+    <compoundname>horus_bt::TreeRunner::Request</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhorus__bt_1_1TreeRunner_1_1Request_1ae620ce0e0259c253d75243ad09af1d14" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string horus_bt::TreeRunner::Request::tree</definition>
+        <argsstring></argsstring>
+        <name>tree</name>
+        <qualifiedname>horus_bt::TreeRunner::Request::tree</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="66" column="21" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="66" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__bt_1_1TreeRunner_1_1Request_1acd4ed685381860425df6065c3b7d7430" prot="public" static="no" mutable="no">
+        <type>std::uint64_t</type>
+        <definition>std::uint64_t horus_bt::TreeRunner::Request::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <qualifiedname>horus_bt::TreeRunner::Request::id</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="67" column="23" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="67" bodyend="67"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__bt_1_1TreeRunner_1_1Request_1ab9f63965a1e3301b67507d3c106dc2c0" prot="public" static="no" mutable="no">
+        <type><ref refid="classhorus__bt_1_1TreeRunner_1af1f2f578b886c92313240e106d15fb72" kindref="member">Done</ref></type>
+        <definition>Done horus_bt::TreeRunner::Request::done</definition>
+        <argsstring></argsstring>
+        <name>done</name>
+        <qualifiedname>horus_bt::TreeRunner::Request::done</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/tree_runner.hpp" line="68" column="14" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="68" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_bt/tree_runner.hpp" line="64" column="5" bodyfile="include/horus_bt/tree_runner.hpp" bodystart="65" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structhorus__bt_1_1TreeRunner_1_1Request_1ab9f63965a1e3301b67507d3c106dc2c0" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner::Request</scope><name>done</name></member>
+      <member refid="structhorus__bt_1_1TreeRunner_1_1Request_1acd4ed685381860425df6065c3b7d7430" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner::Request</scope><name>id</name></member>
+      <member refid="structhorus__bt_1_1TreeRunner_1_1Request_1ae620ce0e0259c253d75243ad09af1d14" prot="public" virt="non-virtual"><scope>horus_bt::TreeRunner::Request</scope><name>tree</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

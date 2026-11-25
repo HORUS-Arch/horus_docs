@@ -1,0 +1,14 @@
+.. _exhale_typedef_calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158:
+
+Typedef horus_human_core::NodePtr
+=================================
+
+- Defined in :ref:`file_include_horus_human_core_calibration_plugin.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: horus_human_core::NodePtr
+   :project: horus_human_core Doxygen Project

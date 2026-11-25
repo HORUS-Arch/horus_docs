@@ -1,0 +1,5 @@
+<map id="include/horus_human_core/calibration_store.hpp" name="include/horus_human_core/calibration_store.hpp">
+<area shape="rect" id="Node000001" title="On&#45;disk store of calibration files, shared by every HORUS channel node." alt="" coords="5,5,204,45"/>
+<area shape="rect" id="Node000002" href="$channel__node_8hpp.html" title="Generic lifecycle node for HORUS stage&#45;1 (conditioning) processing: N named channels of one message t..." alt="" coords="15,93,194,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,59,107,93,102,93,102,59"/>
+</map>

@@ -1,0 +1,8 @@
+CostSample
+==========
+This is a ROS message definition.
+
+**Source**
+
+.. literalinclude:: CostSample.msg
+

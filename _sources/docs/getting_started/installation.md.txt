@@ -1,0 +1,76 @@
+# Installation
+
+HORUS targets **ROS 2 Jazzy** on **Ubuntu 24.04**. The core needs no hardware: it builds, tests and
+runs on a built-in mock exoskeleton.
+
+## 1. ROS 2 Jazzy
+
+Install ROS 2 Jazzy Desktop following the official guide
+(<https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html>), then:
+
+```bash
+sudo apt install python3-colcon-common-extensions python3-vcstool python3-rosdep
+sudo rosdep init && rosdep update      # once per machine
+```
+
+(setup-label)=
+## 2. Workspace
+
+HORUS is used like nav2 or MoveIt: clone it into a normal colcon workspace. Its packages sit at the
+repository root, grouped in domain folders.
+
+```bash
+mkdir -p ~/ros2_ws/src && cd ~/ros2_ws/src
+git clone <horus-remote> horus                  # the framework
+git clone <human_msgs-remote> human_msgs        # neutral human-state messages
+git clone <horus_mock_device-remote> horus_mock_device   # the mock exoskeleton
+cd ~/ros2_ws
+rosdep install --from-paths src --ignore-src -y
+colcon build --symlink-install
+source install/setup.bash
+```
+
+A project that uses real devices keeps its own `.repos` file listing a pinned HORUS and the
+`<device>_ros2` and `<sensor>_ros2` repositories it needs, and imports them with
+`vcs import src < project.repos`. Devices and sensors are never git submodules of HORUS.
+
+## 3. Optional packages
+
+| Package | Needed for | Install |
+|---|---|---|
+| rosbridge | the web interface | `sudo apt install ros-jazzy-rosbridge-suite` |
+| diagnostic aggregator | the grouped health tree `/diagnostics_agg` | `sudo apt install ros-jazzy-diagnostic-aggregator` |
+| MuJoCo | physics simulation | `sudo apt install ros-jazzy-mujoco-ros2-control` |
+
+Without rosbridge or the aggregator a rig still starts and prints which one is missing.
+
+## 4. Check
+
+```bash
+colcon test --packages-select horus_supervisor horus_generator_pattern horus_control horus_human
+colcon test-result --verbose
+ros2 launch horus_bringup trial.launch.py      # a full behavior-tree trial on the mock
+```
+
+(setup-vscode-label)=
+## Editor (VS Code)
+
+Any editor works. For VS Code with ROS 2, these guides cover the recommended extensions and debugging:
+
+- [VS Code ROS 2 guide](https://www.allisonthackston.com/articles/vscode-docker-ros2.html)
+- [VS Code ROS integration](https://github.com/lzptr/VS_Code_ROS)
+
+## Real-time computer
+
+On a device, run the control loop on a **PREEMPT_RT** kernel with the CPU governor set to
+`performance`, and let the controller manager use FIFO scheduling:
+
+```bash
+sudo addgroup realtime && sudo usermod -a -G realtime $USER
+echo -e "@realtime soft rtprio 99\n@realtime hard rtprio 99\n@realtime soft memlock unlimited\n@realtime hard memlock unlimited" \
+  | sudo tee /etc/security/limits.d/realtime.conf
+# log out and in; the controller manager then reports FIFO scheduling at start-up
+```
+
+The reference computer is an ASRock mini PC; see {doc}`../project/hardware`. Serial and USB devices
+may also need `sudo usermod -a -G dialout $USER`.

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="calibration__plugin_8hpp" kind="file" language="C++">
+    <compoundname>calibration_plugin.hpp</compoundname>
+    <includes local="no">memory</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">yaml-cpp/yaml.h</includes>
+    <includes local="yes">rclcpp_lifecycle/lifecycle_node.hpp</includes>
+    <includedby refid="channel__node_8hpp" local="yes">include/horus_human_core/channel_node.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/horus_human_core/calibration_plugin.hpp</label>
+        <link refid="calibration__plugin_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>memory</label>
+      </node>
+      <node id="6">
+        <label>rclcpp_lifecycle/lifecycle_node.hpp</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="5">
+        <label>yaml-cpp/yaml.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/horus_human_core/calibration_plugin.hpp</label>
+        <link refid="calibration__plugin_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/horus_human_core/channel_node.hpp</label>
+        <link refid="channel__node_8hpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classhorus__human__core_1_1CalibrationPlugin" prot="public">horus_human_core::CalibrationPlugin</innerclass>
+    <innernamespace refid="namespacehorus__human__core">horus_human_core</innernamespace>
+    <briefdescription>
+<para>Abstract calibration algorithm loaded by a HORUS channel node via pluginlib. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A channel node (horus_imu, horus_insole, horus_emg, ...) owns the data flow, the files and the ROS interfaces; the plugin owns only the math. During a calibration run the node feeds raw samples of the units being calibrated to add(); finish() turns them into a YAML result; load() applies a result (fresh or from file); apply() corrects every live sample. Swapping the algorithm is a one-line change of <computeroutput>calibration.plugin</computeroutput> in the node&apos;s YAML.</para>
+<para>Threading: the node serialises every call under one mutex, so plugins need no locking. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;yaml-cpp/yaml.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;rclcpp_lifecycle/lifecycle_node.hpp&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">horus_human_core</highlight></codeline>
+<codeline lineno="25"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27" refid="calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal"><ref refid="calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158" kindref="member">NodePtr</ref><sp/>=<sp/>rclcpp_lifecycle::LifecycleNode::SharedPtr;<sp/></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">class</highlight><highlight class="normal"><sp/>MsgT&gt;</highlight></codeline>
+<codeline lineno="31" refid="classhorus__human__core_1_1CalibrationPlugin" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classhorus__human__core_1_1CalibrationPlugin" kindref="compound">CalibrationPlugin</ref></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">using<sp/></highlight><highlight class="normal">Ptr<sp/>=<sp/>std::shared_ptr&lt;CalibrationPlugin&lt;MsgT&gt;&gt;;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationPlugin" kindref="compound">~CalibrationPlugin</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44" refid="classhorus__human__core_1_1CalibrationPlugin_1a8d411ae09c9e2a2475dcceb383609dba" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationPlugin_1a8d411ae09c9e2a2475dcceb383609dba" kindref="member">configure</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="calibration__plugin_8hpp_1a1075225ea7683350a3eb2863ac557158" kindref="member">NodePtr</ref>&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>name,</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;std::string&gt;&amp;<sp/>units)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51" refid="classhorus__human__core_1_1CalibrationPlugin_1a9efdc8148283993544190168f4dce60f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">double</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationPlugin_1a9efdc8148283993544190168f4dce60f" kindref="member">defaultDuration</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>3.0;<sp/>}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classhorus__human__core_1_1CalibrationPlugin_1a4cfa431e1d28d1b325a1d1f691a4b829" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationPlugin_1a4cfa431e1d28d1b325a1d1f691a4b829" kindref="member">begin</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>unit)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="64" refid="classhorus__human__core_1_1CalibrationPlugin_1a86627e6a1104d74382ccc704ea38f879" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationPlugin_1a86627e6a1104d74382ccc704ea38f879" kindref="member">add</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>unit,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>MsgT&amp;<sp/>raw)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73" refid="classhorus__human__core_1_1CalibrationPlugin_1ad2a49a5d1de943d4da284e6a7a68c5b0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationPlugin_1ad2a49a5d1de943d4da284e6a7a68c5b0" kindref="member">finish</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>unit,<sp/>YAML::Node&amp;<sp/>out,<sp/>std::string&amp;<sp/>summary)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81" refid="classhorus__human__core_1_1CalibrationPlugin_1ad2bda94d7fc38c675e14b4808f10447d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationPlugin_1ad2bda94d7fc38c675e14b4808f10447d" kindref="member">load</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>unit,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>YAML::Node&amp;<sp/>data)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="88" refid="classhorus__human__core_1_1CalibrationPlugin_1aacc85ccaecff7160554cf89892830777" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationPlugin_1aacc85ccaecff7160554cf89892830777" kindref="member">calibrated</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>unit)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="classhorus__human__core_1_1CalibrationPlugin_1a47101c0c7e30fc2eb2136c26ec93454f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationPlugin_1a47101c0c7e30fc2eb2136c26ec93454f" kindref="member">apply</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>unit,<sp/>MsgT&amp;<sp/>msg)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>horus_human_core</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/horus_human_core/calibration_plugin.hpp"/>
+  </compounddef>
+</doxygen>

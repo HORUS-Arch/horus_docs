@@ -1,0 +1,8 @@
+Calibrate
+=========
+This is a ROS action definition.
+
+**Source**
+
+.. literalinclude:: Calibrate.action
+

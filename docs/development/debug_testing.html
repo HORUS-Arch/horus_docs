@@ -1,0 +1,1151 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Debugging &amp; Testing &#8212; HORUS 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/horus.css?v=3a5e0f7b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/development/debug_testing';</script>
+    <script src="../../_static/force_dark.js?v=db5ebe2c"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Style Guide" href="style_guide.html" />
+    <link rel="prev" title="Dependencies" href="dependencies.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-dark" alt="HORUS"/>
+    <img src="../../_static/logo.png" class="logo__image only-light pst-js-only" alt="HORUS"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/sensing_estimation.html">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../interfaces/overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../interfaces/messages.html">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/rig_file.html">
+    The rig file
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../configuration/supervisor_trees.html">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/sensing_estimation.html">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../interfaces/overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../interfaces/messages.html">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/rig_file.html">
+    The rig file
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../configuration/supervisor_trees.html">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links" aria-label="Site navigation">
+  <div class="bd-toc-item navbar-nav">
+    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick start: the mock rig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/session.html">Running a session</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Architecture overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/decision_hierarchy.html">Decision hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/motion.html">Motion: generation and control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/sensing_estimation.html">Sensing and state estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/sessions_data.html">Sessions and data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/interface_deployment.html">Interface and deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/simulation.html">Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ROS 2 interfaces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/overview.html">ROS 2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/messages.html">Messages, services and actions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configure</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../configuration/rig_file.html">The rig file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/behaviors.html">Behaviors (generator server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/controllers.html">Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/sensing.html">Sensing nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/supervisor_trees.html">Supervisor and trees</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extend</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extend/generator.html">Write a generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/calibration.html">Write a calibration algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/bt_leaf.html">Write a tree leaf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/controller.html">Write a controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/device.html">Add a device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/sensor.html">Add a sensor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../packages/core_packages.html">Core Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packages/modules_packages.html">Modules &amp; External Packages</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dependencies.html">Dependencies</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Debugging &amp; Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="style_guide.html">Style Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../project/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/paper.html">Paper and citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/roadmap.html">Roadmap</a></li>
+</ul>
+
+  </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Debugging &amp; Testing</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="debugging-testing">
+<h1>Debugging &amp; Testing<a class="headerlink" href="#debugging-testing" title="Link to this heading">#</a></h1>
+<section id="debugging">
+<h2>Debugging<a class="headerlink" href="#debugging" title="Link to this heading">#</a></h2>
+<p>This section describes the process of debugging a HORUS package. This tutorial will explain the simplest way to debug a ROS2 package using Visual Studio Code or not.
+To a more detailed explanation and complete way on how to setup Visual Studio Code with ROS2, check the <a class="reference internal" href="../getting_started/installation.html#setup-vscode-label"><span class="std std-ref">Editor (VS Code)</span></a>,
+, <a class="reference external" href="https://juraph.com/miscellaneous/ros2_and_gdb/">GDB &amp; ROS2</a> and <a class="reference external" href="https://gist.github.com/JADC362/a4425c2d05cdaadaaa71b697b674425f">Debug ROS2 C++ node on VSCode</a>.</p>
+<p>Debug a ROS2 package is different than debug the complete ROS2 environment. The ROS2 environment is a set of packages that work together to provide a complete ROS2 system. Debugging the ROS2 environment is a more complex task and is not covered in this tutorial.
+But is possible to debug multiple packages at the same time.</p>
+<p>This is applicable to any ROS2 package that uses C++. For Python packages, you can use the VSCode Python debugger, for more details check the - <a class="reference external" href="https://www.allisonthackston.com/articles/vscode-docker-ros2.html">VSCode ROS2</a>.</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h3>
+<p>In order to debug a ROS2 package, install the following tools:</p>
+<ul class="simple">
+<li><p>Visual Studio Code(C/C++ extension, Python extension, ROS extension)</p></li>
+<li><p>gdb</p></li>
+<li><p>gdbserver</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>gdb<span class="w"> </span>gdbserver
+</pre></div>
+</div>
+</section>
+<section id="compile-the-package-with-debug-symbols">
+<h3>Compile the package with debug symbols<a class="headerlink" href="#compile-the-package-with-debug-symbols" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span><span class="o">[</span>flags<span class="o">]</span><span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
+</pre></div>
+</div>
+<p>You don’t need to build your whole workspace with debug flags, just the package you want to debug. Thus, you can use packages-select to compile a single package, like so:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--packages-select<span class="w"> </span><span class="o">[</span>package_name<span class="o">]</span><span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>RelWithDebInfo
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+</pre></div>
+</div>
+</section>
+<section id="launch-node-with-gdb-attached">
+<h3>Launch node with GDB attached<a class="headerlink" href="#launch-node-with-gdb-attached" title="Link to this heading">#</a></h3>
+<p>The two most common methods of launching with GDB attached are to either execute the process inside of GDB (<strong>Option 1</strong>),
+or to launch a gdbserver instance alongside the process, then target it in a separate terminal instance (<strong>Option 2</strong>). Here are the steps for the second option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>--prefix<span class="w"> </span><span class="s1">&#39;gdbserver localhost:3000&#39;</span><span class="w"> </span><span class="o">[</span>package_name<span class="o">]</span><span class="w"> </span><span class="o">[</span>executable_name<span class="o">]</span>
+</pre></div>
+</div>
+<p>In a second terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gdb
+<span class="o">(</span>gdb<span class="o">)</span><span class="w"> </span>target<span class="w"> </span>remote<span class="w"> </span>localhost:3000
+</pre></div>
+</div>
+<p>Using this option, you will use the terminal to debug the package. If you want to use Visual Studio Code, follow the next steps.
+If you want to use the first option, check the <a class="reference external" href="https://github.com/cyrus-and/gdb-dashboard">GDB Dashboard</a>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also use the <cite>ros2 launch</cite> command to automate the process of launching the node with GDB attached. Follow the previous links.</p>
+</div>
+</section>
+<section id="setup-visual-studio-code">
+<h3>Setup Visual Studio Code<a class="headerlink" href="#setup-visual-studio-code" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Open VSCode on your workspace.</p></li>
+<li><p>Go to your side bar, ‘Run and Debug’ section.</p></li>
+<li><p>Add a new configuration (Select C++ enviroment or any other)</p></li>
+<li><p>On your launch.json file, put the following information</p></li>
+</ol>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.2.0&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;configurations&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;C++ Debugger&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;request&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;launch&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cppdbg&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;miDebuggerServerAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;localhost:3000&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;cwd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;program&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;[build-path-executable]&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Where:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>name</strong> - Custom name of your debugger configuration</p></li>
+<li><p><strong>request</strong> - In this case we want to launch the client</p></li>
+<li><p><strong>type</strong> - cppdbg for c++ debugging</p></li>
+<li><p><strong>miDebuggerServerAddress</strong> - path_server:port</p></li>
+<li><p><strong>cwd</strong> - Where to find all the required files. We use root because ROS2, the package, and other required files are distributed along the entire PC.</p></li>
+<li><p><strong>program</strong> - Change [build-path-executable] by your executable build file. You can find this path on the console when you launch the server.</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Link to this heading">#</a></h2>
+<p>This section describes the process of running and writing automated tests for the HORUS packages.</p>
+<section id="id1">
+<h3>Prerequisites<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>In order to run the tests you must already have a workspace setup.
+See <a class="reference internal" href="../getting_started/installation.html#setup-label"><span class="std std-ref">2. Workspace</span></a>.</p>
+</section>
+</section>
+<section id="id2">
+<h2>Testing<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<p>This section describes how automated testing is organized and executed across the HORUS architecture.
+Testing ensures the reliability, stability, and safety of all HORUS modules—from low-level drivers to high-level control nodes.</p>
+<section id="id3">
+<h3>Prerequisites<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Before running tests, make sure that your ROS 2 workspace is correctly configured and built.
+Follow the instructions in <a class="reference internal" href="../getting_started/installation.html#setup-label"><span class="std std-ref">2. Workspace</span></a> if the workspace has not been initialized yet.</p>
+</section>
+<section id="running-tests">
+<h3>Running tests<a class="headerlink" href="#running-tests" title="Link to this heading">#</a></h3>
+<p>All HORUS packages use the ROS 2 <code class="docutils literal notranslate"><span class="pre">ament</span></code> and <code class="docutils literal notranslate"><span class="pre">colcon</span></code> build system, which integrates testing directly into the workspace workflow.
+Tests are automatically discovered and executed by Colcon once the packages are built.</p>
+<p>To build and run all tests for the workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+colcon<span class="w"> </span><span class="nb">test</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">build</span></code> step compiles both source code and test targets.
+Whenever test files are modified, the workspace must be rebuilt to apply those changes.
+The <code class="docutils literal notranslate"><span class="pre">test</span></code> step runs every available test and reports all failures in the console output.</p>
+<p>To obtain a more detailed overview of the results for every package:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colcon</span> <span class="n">test</span><span class="o">-</span><span class="n">result</span> <span class="o">--</span><span class="nb">all</span>
+</pre></div>
+</div>
+<p>This command summarizes the results of all test cases, indicating which packages passed or failed and where logs are stored.</p>
+<p>When developing a specific package, it is often unnecessary to execute every test in the workspace.
+Colcon allows selective execution using the <code class="docutils literal notranslate"><span class="pre">--packages-select</span></code> flag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colcon</span> <span class="n">test</span> <span class="o">--</span><span class="n">packages</span><span class="o">-</span><span class="n">select</span> <span class="n">horus_generator_pattern</span> <span class="n">horus_session</span>
+</pre></div>
+</div>
+<p>This command only builds and runs tests contained in the specified packages.</p>
+</section>
+<section id="testing-guidelines">
+<h3>Testing guidelines<a class="headerlink" href="#testing-guidelines" title="Link to this heading">#</a></h3>
+<p>Well-written tests improve reliability and make debugging easier.
+When creating tests for HORUS packages, keep the following principles in mind:</p>
+<ol class="arabic simple">
+<li><p>Write clear and concise tests that are easy to understand.</p></li>
+<li><p>Avoid dependencies on external files or timing-based conditions.</p></li>
+<li><p>Focus each test on verifying a single behavior or function.</p></li>
+<li><p>Include meaningful cases that cover both normal and edge conditions.</p></li>
+<li><p>Keep tests maintainable and consistent with the rest of the codebase.</p></li>
+</ol>
+</section>
+<section id="test-structure-conventions">
+<h3>Test structure conventions<a class="headerlink" href="#test-structure-conventions" title="Link to this heading">#</a></h3>
+<p>All HORUS packages follow the same basic structure for organizing tests:</p>
+<ol class="arabic simple">
+<li><p>Place all tests inside a <code class="docutils literal notranslate"><span class="pre">test/</span></code> directory at the root of each package.</p></li>
+<li><p>Separate by subfolder if there are multiple types of tests (e.g., <code class="docutils literal notranslate"><span class="pre">unit/</span></code>, <code class="docutils literal notranslate"><span class="pre">integration/</span></code>).</p></li>
+<li><p>Keep resources or auxiliary files related to tests organized within the same folder.</p></li>
+</ol>
+<p>Refer to existing HORUS packages for practical examples of how tests are written and structured.</p>
+<p>Refer to the existing HORUS packages for examples of test layouts and naming conventions.</p>
+</section>
+<section id="types-of-tests">
+<h3>Types of tests<a class="headerlink" href="#types-of-tests" title="Link to this heading">#</a></h3>
+<p>HORUS distinguishes between different levels of testing depending on the scope and purpose:</p>
+<ol class="arabic simple">
+<li><p><strong>Unit tests</strong> - Verify the functionality of a single function, class, or component.
+These tests are language-specific:</p>
+<ul class="simple">
+<li><p><strong>C++</strong> unit tests use the <a class="reference external" href="https://github.com/google/googletest">gtest</a> framework integrated through <code class="docutils literal notranslate"><span class="pre">ament_add_gtest</span></code>.</p></li>
+<li><p><strong>Python</strong> unit tests use the standard <a class="reference external" href="https://docs.python.org/3/library/unittest.html">unittest</a> framework executed via <code class="docutils literal notranslate"><span class="pre">ament_add_pytest_test</span></code>.</p></li>
+</ul>
+</li>
+<li><p><strong>Integration tests</strong> - Validate interactions between ROS 2 nodes and components.
+Integration tests are typically written as ROS 2 launch tests using <a class="reference external" href="https://docs.ros.org/en/jazzy/How-To-Guides/Ament-CMake-Documentation.html">launch_testing</a>.
+These tests execute full node setups, publish/subscribe to topics, and verify expected communication behavior.</p></li>
+<li><p><strong>System tests</strong> - Evaluate higher-level system performance or hardware integration (e.g., sensors, exoskeleton joints).
+These are often executed manually or on simulation rigs but can also be automated through hardware-in-the-loop testing.</p></li>
+</ol>
+</section>
+<section id="creating-new-tests">
+<h3>Creating new tests<a class="headerlink" href="#creating-new-tests" title="Link to this heading">#</a></h3>
+<p>Each HORUS package defines its own testing targets in the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> using ROS 2’s <code class="docutils literal notranslate"><span class="pre">ament</span></code> macros.
+See the additional documentation on ROS 2 testing tools.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For detailed instructions on writing and structuring tests, refer to the official ROS 2 testing documentation:* <a class="reference external" href="https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Testing/Testing-Main.html">Testing in ROS2</a></p>
+</div>
+</section>
+</section>
+<section id="static-analysis">
+<h2>Static Analysis<a class="headerlink" href="#static-analysis" title="Link to this heading">#</a></h2>
+<p>Static analysis tools help identify potential issues in the codebase before runtime.
+HORUS uses <a class="reference external" href="https://clang.llvm.org/extra/clang-tidy/">clang-tidy</a> for C++ code and <a class="reference external" href="https://pylint.pycqa.org/en/latest/">pylint</a> for Python code.</p>
+<p>To run static analysis on the entire workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_EXPORT_COMPILE_COMMANDS<span class="o">=</span>ON<span class="w"> </span>--cmake-args<span class="w"> </span>--no-warn-unused-cli
+<span class="nb">source</span><span class="w"> </span>install/setup.bash
+<span class="nb">cd</span><span class="w"> </span>..
+./scripts/static_analysis.sh
+</pre></div>
+</div>
+<p>This script will analyze all C++ and Python files in the workspace and generate a report of any issues found.
+The static analysis script can be customized to include additional checks or exclude certain files as needed.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="dependencies.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Dependencies</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="style_guide.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Style Guide</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#debugging">Debugging</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-the-package-with-debug-symbols">Compile the package with debug symbols</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-node-with-gdb-attached">Launch node with GDB attached</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-visual-studio-code">Setup Visual Studio Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">Testing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Prerequisites</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Testing</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Prerequisites</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#running-tests">Running tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-guidelines">Testing guidelines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-structure-conventions">Test structure conventions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#types-of-tests">Types of tests</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-tests">Creating new tests</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#static-analysis">Static Analysis</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024-2026, HORUS · University of Minho.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

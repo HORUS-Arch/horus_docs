@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classhorus__estimator__core_1_1Estimator" kind="class"><name>horus_estimator_core::Estimator</name>
+    <member refid="classhorus__estimator__core_1_1Estimator_1ab33f69014335aac3facae067be9d8967" kind="typedef"><name>Ptr</name></member>
+    <member refid="classhorus__estimator__core_1_1Estimator_1a6e12d27e330f60c326dad35d298090ff" kind="function"><name>~Estimator</name></member>
+    <member refid="classhorus__estimator__core_1_1Estimator_1aaf3395d3c105a621a126468e97c08785" kind="function"><name>configure</name></member>
+    <member refid="classhorus__estimator__core_1_1Estimator_1a82b47086893479a48c9449865921e9d6" kind="function"><name>activate</name></member>
+    <member refid="classhorus__estimator__core_1_1Estimator_1a474ce4fa62741433fc561a866285824d" kind="function"><name>deactivate</name></member>
+    <member refid="classhorus__estimator__core_1_1Estimator_1a3010b6a2bc51ef6b8a42249c052f9947" kind="function"><name>reset</name></member>
+    <member refid="classhorus__estimator__core_1_1Estimator_1a32eca02201a0f566960df124bb979f2a" kind="function"><name>update</name></member>
+  </compound>
+  <compound refid="namespacehorus__estimator__core" kind="namespace"><name>horus_estimator_core</name>
+    <member refid="estimator_8hpp_1a43ff1c092d8ecf8eb49f8f05d0ad89a3" kind="typedef"><name>NodePtr</name></member>
+  </compound>
+  <compound refid="estimator_8hpp" kind="file"><name>estimator.hpp</name>
+  </compound>
+  <compound refid="dir_8e334dcced8e044cb8ed47018f43bc1c" kind="dir"><name>include/horus_estimator_core</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

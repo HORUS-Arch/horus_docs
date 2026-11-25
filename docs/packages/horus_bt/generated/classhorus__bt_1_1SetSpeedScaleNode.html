@@ -1,0 +1,254 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Class SetSpeedScaleNode &mdash; horus_bt: Jazzy 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/collapsible-lists/css/tree_view.css?v=a885cde7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=d45e8c67"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/collapsible-lists/js/CollapsibleLists.compressed.js?v=73120307"></script>
+      <script src="../_static/collapsible-lists/js/apply-collapsible-lists.js?v=660e4f45"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Class StartRecordingNode" href="classhorus__bt_1_1StartRecordingNode.html" />
+    <link rel="prev" title="Template Class ServiceLeaf" href="classhorus__bt_1_1ServiceLeaf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            horus_bt: Jazzy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../__links.html">Links</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://index.ros.org/p/horus_bt">Rosindex</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">C++ API</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="index.html#class-hierarchy">Class Hierarchy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="index.html#file-hierarchy">File Hierarchy</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#full-c-api">Full C++ API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#namespaces">Namespaces</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="namespace_BT.html">Namespace BT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_horus_bt.html">Namespace horus_bt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="namespace_horus_bt__detail.html">Namespace horus_bt::detail</a></li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#classes-and-structs">Classes and Structs</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="structhorus__bt_1_1BehaviorChannel.html">Struct BehaviorChannel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structhorus__bt_1_1detail_1_1LeafExecutor.html">Struct LeafExecutor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structhorus__bt_1_1ExecuteBehaviorNode_1_1Outcome.html">Struct ExecuteBehaviorNode::Outcome</a></li>
+<li class="toctree-l4"><a class="reference internal" href="structhorus__bt_1_1TreeRunner_1_1Request.html">Struct TreeRunner::Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1AddTrialNoteNode.html">Class AddTrialNoteNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1CalibrateNode.html">Class CalibrateNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1EmergencyStopNode.html">Class EmergencyStopNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1ExecuteBehaviorNode.html">Class ExecuteBehaviorNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1IsAtPoseNode.html">Class IsAtPoseNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1IsHealthyNode.html">Class IsHealthyNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1ServiceLeaf.html">Template Class ServiceLeaf</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Class SetSpeedScaleNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1StartRecordingNode.html">Class StartRecordingNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1StopRecordingNode.html">Class StopRecordingNode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1TreeRunner.html">Class TreeRunner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="classhorus__bt_1_1WaitForMessageNode.html">Class WaitForMessageNode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#functions">Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="function_execute__behavior__node_8hpp_1a1d030667a149c79a0712b69f3a27dff5.html">Function horus_bt::behaviorChannel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="function_condition__nodes_8hpp_1a1ec045cedef67f2015b41d17c9702eaa.html">Function horus_bt::detail::splitList</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#typedefs">Typedefs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="typedef_node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7.html">Typedef horus_bt::NodePtr</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#directories">Directories</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dir_include.html">Directory include</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dir_include_horus_bt.html">Directory horus_bt</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#files">Files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_bt_calibrate_node.hpp.html">File calibrate_node.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_bt_condition_nodes.hpp.html">File condition_nodes.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_bt_execute_behavior_node.hpp.html">File execute_behavior_node.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_bt_node_ptr.hpp.html">File node_ptr.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_bt_system_nodes.hpp.html">File system_nodes.hpp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="file_include_horus_bt_tree_runner.hpp.html">File tree_runner.hpp</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../__standards.html">Standard Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../__README.html">README</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../__README.html#horus-bt">horus_bt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#dependencies">Dependencies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#treerunner">TreeRunner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#bt-leaf-nodes-registered-for-use-in-the-xml">BT leaf nodes (registered for use in the XML)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#default-trees">Default trees</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#usage">Usage</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../__README.html#tests">Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../__PACKAGE.html">PACKAGE</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../__ros_package_dependencies.html">ROS Package Dependencies</a><ul>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rclcpp/">rclcpp</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/rclcpp_action/">rclcpp_action</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/sensor_msgs/">sensor_msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/diagnostic_msgs/">diagnostic_msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/std_msgs/">std_msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/behaviortree_cpp/">behaviortree_cpp</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://docs.ros.org/en/jazzy/p/ament_index_cpp/">ament_index_cpp</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../genindex.html">Index</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">horus_bt: Jazzy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">C++ API</a></li>
+      <li class="breadcrumb-item active">Class SetSpeedScaleNode</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generated/classhorus__bt_1_1SetSpeedScaleNode.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="class-setspeedscalenode">
+<span id="exhale-class-classhorus-bt-1-1setspeedscalenode"></span><h1>Class SetSpeedScaleNode<a class="headerlink" href="#class-setspeedscalenode" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p>Defined in <a class="reference internal" href="file_include_horus_bt_system_nodes.hpp.html#file-include-horus-bt-system-nodes-hpp"><span class="std std-ref">File system_nodes.hpp</span></a></p></li>
+</ul>
+<section id="inheritance-relationships">
+<h2>Inheritance Relationships<a class="headerlink" href="#inheritance-relationships" title="Link to this heading"></a></h2>
+<section id="base-type">
+<h3>Base Type<a class="headerlink" href="#base-type" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">BT::StatefulActionNode</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="class-documentation">
+<h2>Class Documentation<a class="headerlink" href="#class-documentation" title="Link to this heading"></a></h2>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N8horus_bt17SetSpeedScaleNodeE">
+<span id="_CPPv3N8horus_bt17SetSpeedScaleNodeE"></span><span id="_CPPv2N8horus_bt17SetSpeedScaleNodeE"></span><span id="horus_bt::SetSpeedScaleNode"></span><span class="target" id="classhorus__bt_1_1SetSpeedScaleNode"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetSpeedScaleNode</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">BT</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">StatefulActionNode</span></span><a class="headerlink" href="#_CPPv4N8horus_bt17SetSpeedScaleNodeE" title="Link to this definition"></a><br /></dt>
+<dd><p>Set the generator server’s live speed_scale (a parameter); SUCCESS once accepted. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8horus_bt17SetSpeedScaleNode17SetSpeedScaleNodeERKNSt6stringERKN2BT10NodeConfigERK7NodePtr">
+<span id="_CPPv3N8horus_bt17SetSpeedScaleNode17SetSpeedScaleNodeERKNSt6stringERKN2BT10NodeConfigERK7NodePtr"></span><span id="_CPPv2N8horus_bt17SetSpeedScaleNode17SetSpeedScaleNodeERKNSt6stringERKN2BT10NodeConfigERK7NodePtr"></span><span id="horus_bt::SetSpeedScaleNode::SetSpeedScaleNode__ssCR.BT::NodeConfigCR.NodePtrCR"></span><span class="target" id="classhorus__bt_1_1SetSpeedScaleNode_1a901597a0d8ab8a97328b91f5335efef2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetSpeedScaleNode</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">BT</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">NodeConfig</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">config</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="typedef_node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7.html#_CPPv4N8horus_bt7NodePtrE" title="horus_bt::NodePtr"><span class="n"><span class="pre">NodePtr</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">node</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8horus_bt17SetSpeedScaleNode17SetSpeedScaleNodeERKNSt6stringERKN2BT10NodeConfigERK7NodePtr" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8horus_bt17SetSpeedScaleNode7onStartEv">
+<span id="_CPPv3N8horus_bt17SetSpeedScaleNode7onStartEv"></span><span id="_CPPv2N8horus_bt17SetSpeedScaleNode7onStartEv"></span><span id="horus_bt::SetSpeedScaleNode::onStart"></span><span class="target" id="classhorus__bt_1_1SetSpeedScaleNode_1a08ad56c92c5d4714c273b1ff0ae2608e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">BT</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">NodeStatus</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onStart</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N8horus_bt17SetSpeedScaleNode7onStartEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8horus_bt17SetSpeedScaleNode9onRunningEv">
+<span id="_CPPv3N8horus_bt17SetSpeedScaleNode9onRunningEv"></span><span id="_CPPv2N8horus_bt17SetSpeedScaleNode9onRunningEv"></span><span id="horus_bt::SetSpeedScaleNode::onRunning"></span><span class="target" id="classhorus__bt_1_1SetSpeedScaleNode_1a2b2295dc87f474a854302b11a5680b62"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">BT</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">NodeStatus</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onRunning</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N8horus_bt17SetSpeedScaleNode9onRunningEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8horus_bt17SetSpeedScaleNode8onHaltedEv">
+<span id="_CPPv3N8horus_bt17SetSpeedScaleNode8onHaltedEv"></span><span id="_CPPv2N8horus_bt17SetSpeedScaleNode8onHaltedEv"></span><span id="horus_bt::SetSpeedScaleNode::onHalted"></span><span class="target" id="classhorus__bt_1_1SetSpeedScaleNode_1a855388c9db5ca75ad5ad3a1d69d34cd6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onHalted</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N8horus_bt17SetSpeedScaleNode8onHaltedEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N8horus_bt17SetSpeedScaleNode13providedPortsEv">
+<span id="_CPPv3N8horus_bt17SetSpeedScaleNode13providedPortsEv"></span><span id="_CPPv2N8horus_bt17SetSpeedScaleNode13providedPortsEv"></span><span id="horus_bt::SetSpeedScaleNode::providedPorts"></span><span class="target" id="classhorus__bt_1_1SetSpeedScaleNode_1ac95cfa986e214545db6b70dc2b11b1c7"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">BT</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">PortsList</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">providedPorts</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N8horus_bt17SetSpeedScaleNode13providedPortsEv" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classhorus__bt_1_1ServiceLeaf.html" class="btn btn-neutral float-left" title="Template Class ServiceLeaf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="classhorus__bt_1_1StartRecordingNode.html" class="btn btn-neutral float-right" title="Class StartRecordingNode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright The &lt;horus_bt&gt; Contributors. License: MIT.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

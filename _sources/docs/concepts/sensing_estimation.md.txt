@@ -1,0 +1,50 @@
+# Sensing and state estimation
+
+Named as in the reference architectures: Autoware separates *sensing* (drivers, preprocessing) from
+*localization* (own state) and *perception* (others, obstacles); nav2 calls its own-state estimation
+*state estimation*. In a wearable system the person is part of the state, so HORUS has one **sensing
+and state estimation** block with two state spaces, human and robot. *Perception* is reserved for
+the environment (terrain, stairs), future work.
+
+```{mermaid}
+flowchart LR
+  D1["IMU driver"] -->|/sensors| N1["horus_imu<br/>channels = segments"]
+  D2["insole driver"] -->|/sensors| N2["horus_insole<br/>right, left"]
+  D3["EMG driver"] -->|/sensors| N3["horus_emg<br/>channels = muscles"]
+  N1 -->|/human| S2["stage 2 (planned)<br/>kinematics, gait, interaction"]
+  N2 -->|/human| S2
+  N3 -->|/human| S2
+  F[("subjects/id/calibration")] <-->|save, load latest| N1
+```
+
+## Sensing (stage 1)
+
+Every sensing node is a `ChannelNode`: N channels of one message type, each with its own topic,
+named with the `human_msgs` vocabulary (`right_upper_leg`, `rectus_femoris_r`, `left`).
+
+- **Calibration** is a plugin (`calibration.plugin` in YAML): IMU static pose (sensor-to-segment
+  rotation and gyro bias, rejects motion), insole zero offset (rejects a loaded foot), EMG MVC.
+- **Output mode**, changeable at runtime: `calibrated`, `conditioned` (filtering only), `bypass` (raw).
+- **Calibration action**: `~/calibrate` collects for one unit or all, the result is applied and stays
+  pending until `~/save_calibration`; files are kept per subject with history, and the latest loads
+  automatically when the node is configured.
+- **Instances**: two inertial systems are two instances with their own names, topics and files; all
+  nodes are components, so they can share one process.
+
+## State estimation (stage 2)
+
+| State | Content | Source |
+|---|---|---|
+| human | joint kinematics, gait events and phases | stage-2 `Estimator` plugins (planned) |
+| robot | joint positions, velocities, efforts, interaction wrench, status | ros2_control broadcasters |
+| robot | base (pelvis) orientation for gravity compensation | an `Estimator` (planned) |
+| interaction | human joint torque from the interaction force | an `Estimator` (planned) |
+
+## Human model
+
+`horus_human_description` builds a lower-body model scaled from the subject's body measurements
+(hip, knee, ankle heights, hip width, foot length) with `human_msgs` link and joint names:
+
+```bash
+ros2 launch horus_human_description human_model.launch.py subject_id:=s01
+```

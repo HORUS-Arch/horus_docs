@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="calibration__store_8hpp" kind="file" language="C++">
+    <compoundname>calibration_store.hpp</compoundname>
+    <includes local="no">optional</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includes local="no">yaml-cpp/yaml.h</includes>
+    <includedby refid="channel__node_8hpp" local="yes">include/horus_human_core/channel_node.hpp</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>include/horus_human_core/calibration_store.hpp</label>
+        <link refid="calibration__store_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>optional</label>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="5">
+        <label>yaml-cpp/yaml.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>include/horus_human_core/calibration_store.hpp</label>
+        <link refid="calibration__store_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>include/horus_human_core/channel_node.hpp</label>
+        <link refid="channel__node_8hpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structhorus__human__core_1_1CalibrationEntry" prot="public">horus_human_core::CalibrationEntry</innerclass>
+    <innerclass refid="classhorus__human__core_1_1CalibrationStore" prot="public">horus_human_core::CalibrationStore</innerclass>
+    <innernamespace refid="namespacehorus__human__core">horus_human_core</innernamespace>
+    <briefdescription>
+<para>On-disk store of calibration files, shared by every HORUS channel node. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Layout: &lt;data_root&gt;/subjects/&lt;subject&gt;/calibration/&lt;node&gt;/&lt;unit&gt;_&lt;YYYYmmdd_HHMMSS_mmm&gt;.yaml. Every save is a new file (history is kept); the latest file of a unit is the newest timestamp. A file holds <computeroutput>node</computeroutput>, <computeroutput>unit</computeroutput>, <computeroutput>plugin</computeroutput>, <computeroutput>created_at</computeroutput> and the plugin&apos;s <computeroutput>data</computeroutput>. </para>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;yaml-cpp/yaml.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">horus_human_core</highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="structhorus__human__core_1_1CalibrationEntry" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structhorus__human__core_1_1CalibrationEntry" kindref="compound">CalibrationEntry</ref></highlight></codeline>
+<codeline lineno="23"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="24" refid="structhorus__human__core_1_1CalibrationEntry_1a3192b874336511a60fd18a0888added4" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structhorus__human__core_1_1CalibrationEntry_1a3192b874336511a60fd18a0888added4" kindref="member">unit</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="25" refid="structhorus__human__core_1_1CalibrationEntry_1a9b97c262b191a3544841ab7d8f93a516" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structhorus__human__core_1_1CalibrationEntry_1a9b97c262b191a3544841ab7d8f93a516" kindref="member">stamp</ref>;<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="26" refid="structhorus__human__core_1_1CalibrationEntry_1ab8e6355078c5b433150e6675be817966" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="structhorus__human__core_1_1CalibrationEntry_1ab8e6355078c5b433150e6675be817966" kindref="member">path</ref>;<sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="27"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="classhorus__human__core_1_1CalibrationStore" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classhorus__human__core_1_1CalibrationStore" kindref="compound">CalibrationStore</ref></highlight></codeline>
+<codeline lineno="31"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="37" refid="classhorus__human__core_1_1CalibrationStore_1aedbb37658cc881e52fefb40d5d549a21" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">explicit</highlight><highlight class="normal"><sp/><ref refid="classhorus__human__core_1_1CalibrationStore_1aedbb37658cc881e52fefb40d5d549a21" kindref="member">CalibrationStore</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>data_root);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="48" refid="classhorus__human__core_1_1CalibrationStore_1a7c258388ca40ad9e03e5a5fb840645c0" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/><ref refid="classhorus__human__core_1_1CalibrationStore_1a7c258388ca40ad9e03e5a5fb840645c0" kindref="member">save</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>subject,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>node,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>unit,</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>plugin,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>YAML::Node&amp;<sp/>data)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="classhorus__human__core_1_1CalibrationStore_1a3b54477af7c6f26d9236a6d524e0a5d9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;CalibrationEntry&gt;<sp/><ref refid="classhorus__human__core_1_1CalibrationStore_1a3b54477af7c6f26d9236a6d524e0a5d9" kindref="member">list</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>subject,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>node)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="66" refid="classhorus__human__core_1_1CalibrationStore_1afeddeb24ad8cfa3e2766124b28e258a1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::optional&lt;std::string&gt;<sp/><ref refid="classhorus__human__core_1_1CalibrationStore_1afeddeb24ad8cfa3e2766124b28e258a1" kindref="member">latest</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>subject,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>node,</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>unit)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74" refid="classhorus__human__core_1_1CalibrationStore_1a446e1888c20ca8c905e86b5077cb3607" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/>YAML::Node<sp/><ref refid="classhorus__human__core_1_1CalibrationStore_1a446e1888c20ca8c905e86b5077cb3607" kindref="member">read</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>path);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77" refid="classhorus__human__core_1_1CalibrationStore_1a6a44df43b1bf6f9535bfbd170f1a6b81" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/><ref refid="classhorus__human__core_1_1CalibrationStore_1a6a44df43b1bf6f9535bfbd170f1a6b81" kindref="member">root</ref>()</highlight><highlight class="keyword"><sp/>const<sp/></highlight><highlight class="normal">{<sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>root_;<sp/>}</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>dir(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>subject,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::string&amp;<sp/>node)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>root_;<sp/></highlight></codeline>
+<codeline lineno="83"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>horus_human_core</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="include/horus_human_core/calibration_store.hpp"/>
+  </compounddef>
+</doxygen>

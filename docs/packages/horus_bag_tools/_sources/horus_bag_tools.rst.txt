@@ -1,0 +1,18 @@
+horus\_bag\_tools package
+=========================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   horus_bag_tools.decode
+
+Module contents
+---------------
+
+.. automodule:: horus_bag_tools
+   :members:
+   :show-inheritance:
+   :undoc-members:

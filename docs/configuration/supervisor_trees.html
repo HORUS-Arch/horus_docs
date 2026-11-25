@@ -1,0 +1,1114 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" data-theme="dark">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Supervisor and trees &#8212; HORUS 0.0.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "dark";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "dark";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/horus.css?v=3a5e0f7b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'docs/configuration/supervisor_trees';</script>
+    <script src="../../_static/force_dark.js?v=db5ebe2c"></script>
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Write a generator" href="../extend/generator.html" />
+    <link rel="prev" title="Sensing nodes" href="sensing.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="0.0.1" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="dark">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-dark" alt="HORUS"/>
+    <img src="../../_static/logo.png" class="logo__image only-light pst-js-only" alt="HORUS"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/sensing_estimation.html">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../concepts/simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../interfaces/overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../interfaces/messages.html">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="rig_file.html">
+    The rig file
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/debug_testing.html">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../development/style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/installation.html">
+    Installation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/quickstart.html">
+    Quick start: the mock rig
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started/session.html">
+    Running a session
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/overview.html">
+    Architecture overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/decision_hierarchy.html">
+    Decision hierarchy
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/motion.html">
+    Motion: generation and control
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/sensing_estimation.html">
+    Sensing and state estimation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/sessions_data.html">
+    Sessions and data
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/interface_deployment.html">
+    Interface and deployment
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../concepts/simulation.html">
+    Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../interfaces/overview.html">
+    ROS 2 interfaces
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../interfaces/messages.html">
+    Messages, services and actions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="rig_file.html">
+    The rig file
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="behaviors.html">
+    Behaviors (generator server)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="controllers.html">
+    Controllers
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="sensing.html">
+    Sensing nodes
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Supervisor and trees
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/generator.html">
+    Write a generator
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/calibration.html">
+    Write a calibration algorithm
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/bt_leaf.html">
+    Write a tree leaf
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/controller.html">
+    Write a controller
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/device.html">
+    Add a device
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../extend/sensor.html">
+    Add a sensor
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/core_packages.html">
+    Core Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../packages/modules_packages.html">
+    Modules & External Packages
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/contribute.html">
+    Contribute
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/documentation.html">
+    Documentation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/dependencies.html">
+    Dependencies
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/debug_testing.html">
+    Debugging & Testing
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../development/style_guide.html">
+    Style Guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/hardware.html">
+    Hardware
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/paper.html">
+    Paper and citation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../project/roadmap.html">
+    Roadmap
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links" aria-label="Site navigation">
+  <div class="bd-toc-item navbar-nav">
+    <p aria-level="2" class="caption" role="heading"><span class="caption-text">Get started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/quickstart.html">Quick start: the mock rig</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/session.html">Running a session</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Concepts</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../concepts/overview.html">Architecture overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/decision_hierarchy.html">Decision hierarchy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/motion.html">Motion: generation and control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/sensing_estimation.html">Sensing and state estimation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/sessions_data.html">Sessions and data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/interface_deployment.html">Interface and deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/simulation.html">Simulation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ROS 2 interfaces</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/overview.html">ROS 2 interfaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interfaces/messages.html">Messages, services and actions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Configure</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rig_file.html">The rig file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="behaviors.html">Behaviors (generator server)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllers.html">Controllers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sensing.html">Sensing nodes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Supervisor and trees</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extend</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extend/generator.html">Write a generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/calibration.html">Write a calibration algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/bt_leaf.html">Write a tree leaf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/controller.html">Write a controller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/device.html">Add a device</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extend/sensor.html">Add a sensor</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Packages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../packages/core_packages.html">Core Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../packages/modules_packages.html">Modules &amp; External Packages</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../development/contribute.html">Contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/dependencies.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/debug_testing.html">Debugging &amp; Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/style_guide.html">Style Guide</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Project</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../project/hardware.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/paper.html">Paper and citation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../project/roadmap.html">Roadmap</a></li>
+</ul>
+
+  </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Supervisor and trees</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="supervisor-and-trees">
+<h1>Supervisor and trees<a class="headerlink" href="#supervisor-and-trees" title="Link to this heading">#</a></h1>
+<section id="supervisor-yaml">
+<h2>supervisor.yaml<a class="headerlink" href="#supervisor-yaml" title="Link to this heading">#</a></h2>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">/**</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ros__parameters</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">trees</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trial</span><span class="w">             </span><span class="c1"># default protocol for START (the operator may pick another)</span>
+<span class="w">      </span><span class="nt">manual</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Manual</span><span class="w">         </span><span class="c1"># MANUAL mode: the device follows the operator&#39;s sliders</span>
+<span class="w">      </span><span class="nt">recovery</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Recovery</span><span class="w">     </span><span class="c1"># after a protocol failure (&quot;&quot; = straight to EMERGENCY_STOP)</span>
+<span class="w">    </span><span class="nt">tree_dirs</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span><span class="w">          </span><span class="c1"># folders of tree XML; [&quot;&quot;] = horus_bt&#39;s behavior_trees/</span>
+<span class="w">    </span><span class="nt">tick_hz</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">20.0</span>
+<span class="w">    </span><span class="nt">generator_action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/horus/generator_server/execute_behavior</span>
+
+<span class="w">    </span><span class="nt">critical_sources</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;&quot;</span><span class="p p-Indicator">]</span><span class="w">   </span><span class="c1"># diagnostic name substrings, e.g. [controller_manager]; [&quot;&quot;] = all</span>
+<span class="w">    </span><span class="nt">stale_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3.0</span><span class="w">       </span><span class="c1"># s without a status = stale (counts only while moving; 0 = off)</span>
+
+<span class="w">    </span><span class="nt">heartbeat_timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2.0</span><span class="w">   </span><span class="c1"># s without the UI heartbeat while moving -&gt; EMERGENCY_STOP (0 = off)</span>
+<span class="w">    </span><span class="nt">require_subject</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w">    </span><span class="c1"># START needs a subject selected in the session</span>
+</pre></div>
+</div>
+<p>Write <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> rather than <code class="docutils literal notranslate"><span class="pre">[]</span></code> for an empty list: an empty YAML list has no type and fails to load.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>Default</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trees.run</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>tree START runs when the request names none</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trees.manual</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>tree of MANUAL; <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> refuses MANUAL</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trees.recovery</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code></p></td>
+<td><p>tree of RECOVERY; <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> goes straight to EMERGENCY_STOP</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tree_dirs</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code></p></td>
+<td><p>folders whose <code class="docutils literal notranslate"><span class="pre">*.xml</span></code> are loaded; <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> = the default trees of <code class="docutils literal notranslate"><span class="pre">horus_bt</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">tick_hz</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">20.0</span></code></p></td>
+<td><p>tree tick rate</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">generator_action</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/horus/generator_server/execute_behavior</span></code></p></td>
+<td><p>action of the <code class="docutils literal notranslate"><span class="pre">ExecuteBehavior</span></code> leaf; <code class="docutils literal notranslate"><span class="pre">SetSpeedScale</span></code> uses the node part</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">critical_sources</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code></p></td>
+<td><p>diagnostic names (substrings) whose ERROR or STALE is a fault; <code class="docutils literal notranslate"><span class="pre">[&quot;&quot;]</span></code> = every source</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">stale_timeout</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
+<td><p>s without a status before a source counts as stale; <code class="docutils literal notranslate"><span class="pre">0</span></code> = off</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">heartbeat_timeout</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">0.0</span></code></p></td>
+<td><p>s without heartbeat while moving before EMERGENCY_STOP; <code class="docutils literal notranslate"><span class="pre">0</span></code> = off</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">require_subject</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
+<td><p>START is refused until a subject is selected</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">session_state_topic</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/horus/session/state</span></code></p></td>
+<td><p>where the selected subject comes from</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">diagnostics_topic</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/diagnostics</span></code></p></td>
+<td><p>device health input</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rate</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">10.0</span></code></p></td>
+<td><p>Hz, heartbeat and staleness check</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The rig launch fills <code class="docutils literal notranslate"><span class="pre">tree_dirs</span></code> from <code class="docutils literal notranslate"><span class="pre">system.trees</span></code> and <code class="docutils literal notranslate"><span class="pre">critical_sources</span></code> from the entries marked
+<code class="docutils literal notranslate"><span class="pre">critical</span></code> (see <a class="reference internal" href="rig_file.html"><span class="doc">The rig file</span></a>).</p>
+</section>
+<section id="trees">
+<h2>Trees<a class="headerlink" href="#trees" title="Link to this heading">#</a></h2>
+<p>Every <code class="docutils literal notranslate"><span class="pre">*.xml</span></code> in the tree folders is loaded; every tree id becomes a protocol the operator can START
+(listed in <code class="docutils literal notranslate"><span class="pre">SupervisorState.protocols</span></code>). <code class="docutils literal notranslate"><span class="pre">trees.&lt;mode&gt;</span></code> names the tree of each mode. The default
+trees of <code class="docutils literal notranslate"><span class="pre">horus_bt</span></code> (<code class="docutils literal notranslate"><span class="pre">behavior_trees/trial.xml</span></code>):</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;root</span><span class="w"> </span><span class="na">BTCPP_format=</span><span class="s">&quot;4&quot;</span><span class="w"> </span><span class="na">main_tree_to_execute=</span><span class="s">&quot;Trial&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;BehaviorTree</span><span class="w"> </span><span class="na">ID=</span><span class="s">&quot;Trial&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ReactiveSequence</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;guarded_trial&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;IsHealthy</span><span class="w"> </span><span class="na">source=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">level=</span><span class="s">&quot;error&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Sequence</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;run_trial&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;RetryUntilSuccessful</span><span class="w"> </span><span class="na">num_attempts=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+<span class="w">          </span><span class="nt">&lt;ExecuteBehavior</span><span class="w"> </span><span class="na">behavior=</span><span class="s">&quot;home&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/RetryUntilSuccessful&gt;</span>
+<span class="w">        </span><span class="nt">&lt;IsAtPose</span><span class="w"> </span><span class="na">joints=</span><span class="s">&quot;hipR,kneeR,ankleR&quot;</span><span class="w"> </span><span class="na">positions=</span><span class="s">&quot;0,0,0&quot;</span><span class="w"> </span><span class="na">tolerance=</span><span class="s">&quot;0.05&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ExecuteBehavior</span><span class="w"> </span><span class="na">behavior=</span><span class="s">&quot;walk&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;ExecuteBehavior</span><span class="w"> </span><span class="na">behavior=</span><span class="s">&quot;home&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/Sequence&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/ReactiveSequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/BehaviorTree&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;BehaviorTree</span><span class="w"> </span><span class="na">ID=</span><span class="s">&quot;RecordOnly&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;KeepRunningUntilFailure&gt;</span>
+<span class="w">      </span><span class="nt">&lt;AlwaysSuccess/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/KeepRunningUntilFailure&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/BehaviorTree&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;BehaviorTree</span><span class="w"> </span><span class="na">ID=</span><span class="s">&quot;Calibration&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Sequence</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;calibrate&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Calibrate</span><span class="w"> </span><span class="na">node=</span><span class="s">&quot;/human/imus_a&quot;</span><span class="w"> </span><span class="na">unit=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">duration=</span><span class="s">&quot;3.0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;Calibrate</span><span class="w"> </span><span class="na">node=</span><span class="s">&quot;/human/insoles&quot;</span><span class="w"> </span><span class="na">unit=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="na">duration=</span><span class="s">&quot;2.0&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/Sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/BehaviorTree&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;BehaviorTree</span><span class="w"> </span><span class="na">ID=</span><span class="s">&quot;Manual&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;ExecuteBehavior</span><span class="w"> </span><span class="na">behavior=</span><span class="s">&quot;manual&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/BehaviorTree&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;BehaviorTree</span><span class="w"> </span><span class="na">ID=</span><span class="s">&quot;Recovery&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;RetryUntilSuccessful</span><span class="w"> </span><span class="na">num_attempts=</span><span class="s">&quot;2&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;ExecuteBehavior</span><span class="w"> </span><span class="na">behavior=</span><span class="s">&quot;home&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/RetryUntilSuccessful&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/BehaviorTree&gt;</span>
+<span class="nt">&lt;/root&gt;</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Tree</p></th>
+<th class="head"><p>Mode</p></th>
+<th class="head"><p>Does</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Trial</span></code></p></td>
+<td><p>RUN</p></td>
+<td><p>home, walk, home; the <code class="docutils literal notranslate"><span class="pre">ReactiveSequence</span></code> re-checks <code class="docutils literal notranslate"><span class="pre">IsHealthy</span></code> every tick, so a device error halts the motion and fails the protocol (RUN → RECOVERY)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">RecordOnly</span></code></p></td>
+<td><p>RUN</p></td>
+<td><p>moves nothing and runs until STOP: data acquisition without motion</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Calibration</span></code></p></td>
+<td><p>RUN</p></td>
+<td><p>scripted calibrations, saved for the session’s subject</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Manual</span></code></p></td>
+<td><p>MANUAL</p></td>
+<td><p>runs the <code class="docutils literal notranslate"><span class="pre">manual</span></code> behavior (<code class="docutils literal notranslate"><span class="pre">horus_generator_pattern/Manual</span></code>) until the operator leaves</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Recovery</span></code></p></td>
+<td><p>RECOVERY</p></td>
+<td><p>a bounded attempt to reach a safe pose; failure goes to EMERGENCY_STOP</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Behavior names (<code class="docutils literal notranslate"><span class="pre">home</span></code>, <code class="docutils literal notranslate"><span class="pre">walk</span></code>, <code class="docutils literal notranslate"><span class="pre">manual</span></code>) resolve against the generator server’s <code class="docutils literal notranslate"><span class="pre">generator_plugins</span></code>
+(see <a class="reference internal" href="behaviors.html"><span class="doc">Behaviors (generator server)</span></a>). No tree switches controllers. Trees can also act on the system with
+<code class="docutils literal notranslate"><span class="pre">EmergencyStop</span></code>, <code class="docutils literal notranslate"><span class="pre">StartRecording</span></code>, <code class="docutils literal notranslate"><span class="pre">StopRecording</span></code>, <code class="docutils literal notranslate"><span class="pre">AddTrialNote</span></code> and <code class="docutils literal notranslate"><span class="pre">SetSpeedScale</span></code>, for example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;Sequence&gt;</span>
+<span class="w">  </span><span class="nt">&lt;AddTrialNote</span><span class="w"> </span><span class="na">text=</span><span class="s">&quot;block 1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;SetSpeedScale</span><span class="w"> </span><span class="na">value=</span><span class="s">&quot;0.8&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;ExecuteBehavior</span><span class="w"> </span><span class="na">behavior=</span><span class="s">&quot;walk&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/Sequence&gt;</span>
+</pre></div>
+</div>
+<p>All BehaviorTree.CPP control and decorator nodes are available (Sequence, ReactiveSequence,
+Fallback, Parallel, RetryUntilSuccessful, Timeout, …). HORUS leaves are listed in
+<a class="reference internal" href="../concepts/decision_hierarchy.html"><span class="doc">Decision hierarchy</span></a> and, with their ports, in the <code class="docutils literal notranslate"><span class="pre">horus_bt</span></code> package page.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sensing.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Sensing nodes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../extend/generator.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Write a generator</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supervisor-yaml">supervisor.yaml</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trees">Trees</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024-2026, HORUS · University of Minho.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

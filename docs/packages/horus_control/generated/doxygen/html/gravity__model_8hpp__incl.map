@@ -1,0 +1,17 @@
+<map id="include/horus_control/gravity_model.hpp" name="include/horus_control/gravity_model.hpp">
+<area shape="rect" id="Node000001" title="Gravity torques of a kinematic chain from its URDF (KDL), the math behind the GravityCompensation con..." alt="" coords="221,5,382,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,61,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="238,48,75,95,74,90,236,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="85,93,163,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="260,48,164,90,161,85,258,43"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="187,93,245,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="282,48,241,86,237,82,279,44"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="270,93,333,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="304,46,304,79,299,79,299,46"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="357,93,467,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="330,43,386,83,383,87,327,48"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="491,93,666,119"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="368,43,526,87,524,92,367,48"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="691,93,813,119"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="383,38,677,89,676,94,382,43"/>
+</map>

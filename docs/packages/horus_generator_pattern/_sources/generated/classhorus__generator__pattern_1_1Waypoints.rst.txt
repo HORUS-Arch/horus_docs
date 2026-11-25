@@ -1,0 +1,26 @@
+.. _exhale_class_classhorus__generator__pattern_1_1Waypoints:
+
+Class Waypoints
+===============
+
+- Defined in :ref:`file_include_horus_generator_pattern_waypoints.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public horus_generator_core::Generator``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_generator_pattern::Waypoints
+   :project: horus_generator_pattern Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

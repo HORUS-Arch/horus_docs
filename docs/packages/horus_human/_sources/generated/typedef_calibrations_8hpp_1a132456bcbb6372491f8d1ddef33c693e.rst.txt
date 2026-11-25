@@ -1,0 +1,14 @@
+.. _exhale_typedef_calibrations_8hpp_1a132456bcbb6372491f8d1ddef33c693e:
+
+Typedef horus_human::ImuCalibration
+===================================
+
+- Defined in :ref:`file_include_horus_human_calibrations.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: horus_human::ImuCalibration
+   :project: horus_human Doxygen Project

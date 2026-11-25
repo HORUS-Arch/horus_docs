@@ -1,0 +1,5 @@
+<map id="horus_generator_pattern::Pattern" name="horus_generator_pattern::Pattern">
+<area shape="rect" id="Node000001" title="Plays a configured waveform per joint at a shared cadence." alt="" coords="5,93,188,133"/>
+<area shape="rect" id="Node000002" href="/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_core/horus_generator_core.tag$classhorus__generator__core_1_1Generator.html" title=" " alt="" coords="15,5,178,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,59,99,93,94,93,94,59"/>
+</map>

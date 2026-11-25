@@ -1,0 +1,44 @@
+# Interface and deployment
+
+## The rig file
+
+A rig is one folder with a `rig.yaml`: the robot's launch and generator behaviors, the sensor
+drivers, the HORUS sensing instances, the supervisor's trees and the interface. One generic launch
+starts everything in its namespace. See {doc}`../configuration/rig_file`.
+
+## Operator interface
+
+The web interface is served from the device computer and talks to ROS through the stock
+**rosbridge** server, restricted by allow-lists to `/horus`, `/human`, `/sensors`, `/joint_states`,
+`/tf` and `/diagnostics`. Connect a phone, tablet or laptop to the device's network and open
+`http://<device>:8080`.
+
+The minimal page shipped in `horus_bringup/web/index.html` has a sticky header with the mode and an
+EMERGENCY STOP button, then these sections:
+
+| Section | Does |
+|---|---|
+| Subject | pick, create and select the subject (SELECT on the session node) |
+| Devices | lifecycle state of each managed node, Connect / Disconnect, Calibrate for `/human` nodes (saved for the selected subject) |
+| Protocol | pick a protocol from the registered trees, Start / Stop / Manual / Reset, speed, trial notes |
+| Manual | one slider per joint (URDF limits, angle or torque), shown in MANUAL |
+| Joints, Log | measured joint state, events |
+
+- Plots are drawn on the viewing device; running the browser on the device computer during a trial
+  is discouraged.
+- The page publishes `/horus/supervisor/heartbeat` every 0.5 s; with `heartbeat_timeout` set, a lost
+  interface during RUN, MANUAL or RECOVERY leads to EMERGENCY_STOP. While nothing moves (INIT,
+  STANDBY) a lost interface is only logged, and START and MANUAL are refused until it reconnects.
+- rosbridge has no authentication: use a closed network. The on-screen stop does not replace a
+  physical emergency stop.
+
+## Computer
+
+The control loop runs on a PREEMPT_RT kernel with FIFO scheduling; the rest of HORUS runs on the same
+computer in ordinary processes. See {doc}`../project/hardware`.
+
+## Composition
+
+All C++ nodes are components: run them as separate processes (easier to debug) or composed. The
+controller manager always stays in its own real-time process. The sensing nodes of a rig can share one
+container with `human.container: true`.

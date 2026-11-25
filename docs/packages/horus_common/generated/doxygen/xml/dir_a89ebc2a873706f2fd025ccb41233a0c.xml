@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="dir_a89ebc2a873706f2fd025ccb41233a0c" kind="dir">
+    <compoundname>include/horus_common</compoundname>
+    <innerfile refid="interface__utils_8hpp">interface_utils.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_common/"/>
+  </compounddef>
+</doxygen>

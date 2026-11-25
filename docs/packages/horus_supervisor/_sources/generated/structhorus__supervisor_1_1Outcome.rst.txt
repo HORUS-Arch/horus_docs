@@ -1,0 +1,17 @@
+.. _exhale_struct_structhorus__supervisor_1_1Outcome:
+
+Struct Outcome
+==============
+
+- Defined in :ref:`file_include_horus_supervisor_mode_machine.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: horus_supervisor::Outcome
+   :project: horus_supervisor Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

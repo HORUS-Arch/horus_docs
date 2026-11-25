@@ -1,0 +1,17 @@
+.. _exhale_struct_structhorus__bt_1_1BehaviorChannel:
+
+Struct BehaviorChannel
+======================
+
+- Defined in :ref:`file_include_horus_bt_execute_behavior_node.hpp`
+
+
+Struct Documentation
+--------------------
+
+
+.. doxygenstruct:: horus_bt::BehaviorChannel
+   :project: horus_bt Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

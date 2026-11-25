@@ -1,0 +1,17 @@
+.. _exhale_class_classhorus__supervisor_1_1ModeMachine:
+
+Class ModeMachine
+=================
+
+- Defined in :ref:`file_include_horus_supervisor_mode_machine.hpp`
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_supervisor::ModeMachine
+   :project: horus_supervisor Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

@@ -1,0 +1,117 @@
+/* HORUS docs: a black site with blue accents (the HORUS palette: blues, greys, white text). */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+html[data-theme="dark"], html[data-theme="light"] {
+  --pst-color-background: #05080c;
+  --pst-color-on-background: #0a1018;
+  --pst-color-surface: #0f1823;
+  --pst-color-on-surface: #e6edf5;
+  --pst-color-border: #1b2735;
+  --pst-color-border-muted: #141e2a;
+  --pst-color-shadow: #000000;
+  --pst-color-text-base: #d9e2ec;
+  --pst-color-text-muted: #8798aa;
+  --pst-color-heading: #f3f7fb;
+  --pst-color-primary: #5b9bd5;
+  --pst-color-primary-bg: #10233a;
+  --pst-color-primary-text: #ffffff;
+  --pst-color-secondary: #8fc1f0;
+  --pst-color-secondary-bg: #0f2135;
+  --pst-color-accent: #8fc1f0;
+  --pst-color-link: #7db4ea;
+  --pst-color-link-hover: #c0dcf8;
+  --pst-color-inline-code: #a6cdf3;
+  --pst-color-inline-code-links: #a6cdf3;
+  --pst-color-target: #15304d;
+  --pst-color-table: #d9e2ec;
+  --pst-color-table-row-hover-bg: #0e1a28;
+  --pst-color-table-row-zebra-low-bg: #070b10;
+  --pst-color-table-row-zebra-high-bg: #0a1119;
+  --pst-font-family-base: "IBM Plex Sans", system-ui, sans-serif;
+  --pst-font-family-heading: "IBM Plex Sans", system-ui, sans-serif;
+  --pst-font-family-monospace: "IBM Plex Mono", ui-monospace, monospace;
+  --pst-font-size-base: 1rem;
+  color-scheme: dark;
+}
+
+/* -- chrome --------------------------------------------------------------------------------- */
+.bd-header { background: rgba(5, 8, 12, 0.92) !important; backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--pst-color-border); box-shadow: none; }
+.navbar-brand img { height: 34px; }
+.bd-sidebar-primary { background: var(--pst-color-background); border-right: 1px solid var(--pst-color-border-muted); }
+.bd-sidebar-primary .caption-text { color: var(--pst-color-secondary); letter-spacing: .08em; font-size: .72rem; }
+.bd-footer { background: var(--pst-color-background); border-top: 1px solid var(--pst-color-border-muted); }
+h1, h2, h3 { letter-spacing: -0.01em; }
+h1 { font-weight: 700; }
+.bd-article h2 { padding-top: .4rem; border-top: 1px solid var(--pst-color-border-muted); margin-top: 2.2rem; }
+
+/* -- code, tables, notes --------------------------------------------------------------------- */
+div.highlight, pre { background: #0a1119 !important; border: 1px solid var(--pst-color-border); border-radius: 10px; }
+code.literal { background: #0f1c2b; border: 1px solid #1c2d42; border-radius: 5px; padding: .05em .35em; }
+table.table, .bd-article table { border-radius: 10px; overflow: hidden; border: 1px solid var(--pst-color-border); }
+.bd-article table thead th { background: #0f1c2b; color: var(--pst-color-secondary);
+  text-transform: uppercase; font-size: .74rem; letter-spacing: .06em; border-bottom: 1px solid var(--pst-color-border); }
+.admonition, div.admonition { background: #0b131d; border-radius: 10px; box-shadow: none; }
+
+/* -- diagrams: every mermaid figure sits on a dark card ------------------------------------- */
+pre.mermaid, div.mermaid {
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(79, 143, 209, 0.10), transparent 60%),
+    #080d14;
+  border: 1px solid #1a2a3c; border-radius: 16px;
+  padding: 26px 18px; margin: 1.6rem 0; text-align: center; overflow-x: auto;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+.mermaid svg { max-width: 100%; height: auto; }
+.mermaid .node rect, .mermaid .node polygon, .mermaid .node circle, .mermaid rect.basic,
+.mermaid .stateGroup rect, .mermaid g.stateGroup rect {
+  filter: drop-shadow(0 3px 8px rgba(79, 143, 209, 0.22));
+}
+.mermaid .node rect { rx: 9px; ry: 9px; }
+.mermaid .cluster rect { rx: 12px; ry: 12px; stroke-dasharray: 4 3; }
+.mermaid .cluster-label, .mermaid .cluster text { font-weight: 600; letter-spacing: .04em; }
+.mermaid .edgeLabel, .mermaid .edgeLabel p, .mermaid .edgeLabel span { font-size: 13px; }
+.mermaid .flowchart-link, .mermaid .transition { stroke-width: 1.8px; }
+
+/* -- images ----------------------------------------------------------------------------------- */
+.bd-article img { border-radius: 12px; }
+
+/* -- landing page ------------------------------------------------------------------------------ */
+.horus-hero {
+  position: relative; overflow: hidden; border-radius: 20px; padding: 42px 38px; margin: .5rem 0 2rem;
+  border: 1px solid #1a2a3c;
+  background:
+    radial-gradient(80% 120% at 100% 0%, rgba(91, 155, 213, 0.22), transparent 55%),
+    radial-gradient(60% 90% at 0% 100%, rgba(31, 95, 153, 0.25), transparent 60%),
+    linear-gradient(160deg, #0b1522, #05080c 70%);
+  display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center;
+}
+.horus-hero img.hero-logo { width: min(360px, 80%); border-radius: 0; margin-bottom: 14px; }
+.horus-hero img.hero-body { width: 360px; border-radius: 0; filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .6)); }
+.horus-hero p { color: #c7d4e2; font-size: 1.08rem; max-width: 56ch; margin: 0 0 18px; }
+.horus-hero .eyebrow { font: 500 .78rem var(--pst-font-family-monospace); letter-spacing: .14em;
+  text-transform: uppercase; color: var(--pst-color-secondary); margin-bottom: 10px; }
+.horus-hero .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.horus-hero .badge { font: 500 .78rem var(--pst-font-family-monospace); padding: 4px 10px; border-radius: 99px;
+  border: 1px solid #2a4566; color: #b9d5f2; background: rgba(16, 35, 58, .6); }
+.horus-hero .cta { display: inline-block; padding: 9px 18px; border-radius: 10px; font-weight: 600; margin-right: 10px;
+  text-decoration: none !important; }
+.horus-hero .cta.primary { background: #2f78c4; color: #fff !important; }
+.horus-hero .cta.ghost { border: 1px solid #2f78c4; color: #b9d5f2 !important; }
+@media (max-width: 720px) { .horus-hero { grid-template-columns: 1fr; padding: 28px 20px; } .horus-hero img.hero-body { display: none; } }
+
+.sd-card { background: #0b131d !important; border: 1px solid var(--pst-color-border) !important; border-radius: 14px !important;
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease; }
+.sd-card:hover { transform: translateY(-2px); border-color: #2f5f8f !important; box-shadow: 0 12px 28px rgba(0, 0, 0, .5) !important; }
+.sd-card-title { color: var(--pst-color-heading) !important; font-weight: 600; }
+.sd-card-body { color: var(--pst-color-text-muted); }
+.sd-card .sd-octicon, .sd-card svg.sd-octicon { color: var(--pst-color-primary); }
+.step-num { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+  background: #10233a; color: #8fc1f0; font: 600 .8rem var(--pst-font-family-monospace); margin-right: 8px;
+  border: 1px solid #2a4566; }
+
+/* pydata puts a light plate behind images in dark mode; HORUS images are made for black. */
+html[data-theme="dark"] .bd-content img:not(.only-dark):not(.dark-light),
+html[data-theme="dark"] .horus-hero img { background: transparent !important; }
+/* the landing page title is in the hero */
+.bd-article:has(.horus-hero) h1:first-of-type { display: none; }

@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__supervisor_1_1ModeMachine" kind="class" language="C++" prot="public">
+    <compoundname>horus_supervisor::ModeMachine</compoundname>
+    <includes refid="mode__machine_8hpp" local="no">mode_machine.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__supervisor_1_1ModeMachine_1a6401f27085a575cb9cc15ae5ac4857ba" prot="private" static="no" mutable="no">
+        <type><ref refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169" kindref="member">Mode</ref></type>
+        <definition>Mode horus_supervisor::ModeMachine::mode_</definition>
+        <argsstring></argsstring>
+        <name>mode_</name>
+        <qualifiedname>horus_supervisor::ModeMachine::mode_</qualifiedname>
+        <initializer>{Mode::INIT}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>current mode </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="106" column="10" bodyfile="include/horus_supervisor/mode_machine.hpp" bodystart="106" bodyend="106"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classhorus__supervisor_1_1ModeMachine_1a536852fcba76ef8c6a9b911ee56686ae" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>static int horus_supervisor::ModeMachine::priority</definition>
+        <argsstring>(Event e)</argsstring>
+        <name>priority</name>
+        <qualifiedname>horus_supervisor::ModeMachine::priority</qualifiedname>
+        <param>
+          <type><ref refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154" kindref="member">Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Priority class of an event (lower = handled first). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>0 safety, 1 escalation, 2 operator, 3 progress. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="73" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__supervisor_1_1ModeMachine_1a5b6437a428f5a3a1ce120af417062448" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string horus_supervisor::ModeMachine::name</definition>
+        <argsstring>(Mode m)</argsstring>
+        <name>name</name>
+        <qualifiedname>horus_supervisor::ModeMachine::name</qualifiedname>
+        <param>
+          <type><ref refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169" kindref="member">Mode</ref></type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+<para>Name of a mode, as published. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>m</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Mode. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>&quot;RUN&quot;, ... </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="80" column="24"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__supervisor_1_1ModeMachine_1a3cff58ba46259b573b13b8fbe5e05a42" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string horus_supervisor::ModeMachine::name</definition>
+        <argsstring>(Event e)</argsstring>
+        <name>name</name>
+        <qualifiedname>horus_supervisor::ModeMachine::name</qualifiedname>
+        <param>
+          <type><ref refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154" kindref="member">Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+<para>Name of an event, for reasons and logs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Event. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>&quot;ESTOP&quot;, ... </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="87" column="24"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__supervisor_1_1ModeMachine_1a90b279538e05cae2b4df265405e8e2fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structhorus__supervisor_1_1Outcome" kindref="compound">Outcome</ref></type>
+        <definition>Outcome horus_supervisor::ModeMachine::handle</definition>
+        <argsstring>(Event e, bool faults_active)</argsstring>
+        <name>handle</name>
+        <qualifiedname>horus_supervisor::ModeMachine::handle</qualifiedname>
+        <param>
+          <type><ref refid="mode__machine_8hpp_1a7c9f823bf33d4ad3632a3f8efd46b154" kindref="member">Event</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>faults_active</declname>
+        </param>
+        <briefdescription>
+<para>Handle one event. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>e</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The event. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>faults_active</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Whether any critical source is currently in ERROR or stale. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>What happened (accepted / changed / new mode / reason). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="95" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__supervisor_1_1ModeMachine_1ae15e35550382b01aa3e75618647df835" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169" kindref="member">Mode</ref></type>
+        <definition>Mode horus_supervisor::ModeMachine::mode</definition>
+        <argsstring>() const</argsstring>
+        <name>mode</name>
+        <qualifiedname>horus_supervisor::ModeMachine::mode</qualifiedname>
+        <briefdescription>
+<para>Current mode. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The mode. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="101" column="10" bodyfile="include/horus_supervisor/mode_machine.hpp" bodystart="101" bodyend="101"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhorus__supervisor_1_1ModeMachine_1aa9e9bf9d7831f79a1eb0ea9fc93a3ab7" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structhorus__supervisor_1_1Outcome" kindref="compound">Outcome</ref></type>
+        <definition>Outcome horus_supervisor::ModeMachine::to</definition>
+        <argsstring>(Mode next, const std::string &amp;reason)</argsstring>
+        <name>to</name>
+        <qualifiedname>horus_supervisor::ModeMachine::to</qualifiedname>
+        <param>
+          <type><ref refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169" kindref="member">Mode</ref></type>
+          <declname>next</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>reason</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="104" column="13"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Deterministic global-mode machine. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_supervisor/mode_machine.hpp" line="65" column="1" bodyfile="include/horus_supervisor/mode_machine.hpp" bodystart="66" bodyend="107"/>
+    <listofallmembers>
+      <member refid="classhorus__supervisor_1_1ModeMachine_1a90b279538e05cae2b4df265405e8e2fc" prot="public" virt="non-virtual"><scope>horus_supervisor::ModeMachine</scope><name>handle</name></member>
+      <member refid="classhorus__supervisor_1_1ModeMachine_1ae15e35550382b01aa3e75618647df835" prot="public" virt="non-virtual"><scope>horus_supervisor::ModeMachine</scope><name>mode</name></member>
+      <member refid="classhorus__supervisor_1_1ModeMachine_1a6401f27085a575cb9cc15ae5ac4857ba" prot="private" virt="non-virtual"><scope>horus_supervisor::ModeMachine</scope><name>mode_</name></member>
+      <member refid="classhorus__supervisor_1_1ModeMachine_1a5b6437a428f5a3a1ce120af417062448" prot="public" virt="non-virtual"><scope>horus_supervisor::ModeMachine</scope><name>name</name></member>
+      <member refid="classhorus__supervisor_1_1ModeMachine_1a3cff58ba46259b573b13b8fbe5e05a42" prot="public" virt="non-virtual"><scope>horus_supervisor::ModeMachine</scope><name>name</name></member>
+      <member refid="classhorus__supervisor_1_1ModeMachine_1a536852fcba76ef8c6a9b911ee56686ae" prot="public" virt="non-virtual"><scope>horus_supervisor::ModeMachine</scope><name>priority</name></member>
+      <member refid="classhorus__supervisor_1_1ModeMachine_1aa9e9bf9d7831f79a1eb0ea9fc93a3ab7" prot="private" virt="non-virtual"><scope>horus_supervisor::ModeMachine</scope><name>to</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

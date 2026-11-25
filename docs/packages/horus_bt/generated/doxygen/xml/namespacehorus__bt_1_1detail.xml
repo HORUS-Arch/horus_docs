@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacehorus__bt_1_1detail" kind="namespace" language="C++">
+    <compoundname>horus_bt::detail</compoundname>
+    <innerclass refid="structhorus__bt_1_1detail_1_1LeafExecutor" prot="public">horus_bt::detail::LeafExecutor</innerclass>
+    <sectiondef kind="func">
+      <memberdef kind="function" id="condition__nodes_8hpp_1a1ec045cedef67f2015b41d17c9702eaa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; horus_bt::detail::splitList</definition>
+        <argsstring>(const std::string &amp;text)</argsstring>
+        <name>splitList</name>
+        <qualifiedname>horus_bt::detail::splitList</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+<para>Split &quot;a,b,c&quot; into trimmed items. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="38" column="20" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="38" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_bt/condition_nodes.hpp" line="35" column="1"/>
+  </compounddef>
+</doxygen>

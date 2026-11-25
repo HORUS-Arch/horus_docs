@@ -1,0 +1,27 @@
+
+.. _namespace_horus_generator_core:
+
+Namespace horus_generator_core
+==============================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__generator__core_1_1Generator`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_generator_8hpp_1afe53c3d4c2386c3c6c304d9929c5db0d`

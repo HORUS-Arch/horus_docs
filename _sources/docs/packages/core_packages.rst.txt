@@ -1,0 +1,67 @@
+Core Packages
+=============
+
+The core (``horus``) packages by domain folder. Each name links to that package's own page, rendered
+from its ``README`` and API by rosdoc2 (nodes, topics, services, parameters, tests).
+
+.. list-table::
+   :header-rows: 1
+   :widths: 18 30 52
+
+   * - Domain
+     - Package
+     - Content
+   * - interfaces
+     - `horus_msgs <horus_msgs/index.html>`__
+     - supervisor, session, subjects, calibration, behavior and optimization interfaces
+   * - common
+     - `horus_common <horus_common/index.html>`__
+     - shared CMake macro, interface helpers
+   * - control
+     - `horus_control <horus_control/index.html>`__
+     - GravityCompensation, SafetyController; default controller configurations
+   * - generation
+     - `horus_generator_core <horus_generator_core/index.html>`__
+     - the ``Generator`` interface
+   * -
+     - `horus_generator_server <horus_generator_server/index.html>`__
+     - plugin host, speed, output, ``execute_behavior``
+   * -
+     - `horus_generator_pattern <horus_generator_pattern/index.html>`__
+     - Pattern, Waypoints and Manual generators
+   * - estimation
+     - `horus_human_core <horus_human_core/index.html>`__
+     - ChannelNode, calibration plugin base, calibration files
+   * -
+     - `horus_human <horus_human/index.html>`__
+     - ``horus_imu``, ``horus_insole``, ``horus_emg`` and their calibrations
+   * -
+     - `horus_estimator_core <horus_estimator_core/index.html>`__
+     - the stage-2 ``Estimator`` interface
+   * -
+     - `horus_human_description <horus_human_description/index.html>`__
+     - human model scaled from body measurements
+   * - system
+     - `horus_supervisor <horus_supervisor/index.html>`__
+     - global-mode supervisor; runs the tree of each mode
+   * -
+     - `horus_bt <horus_bt/index.html>`__
+     - tree leaves and ``TreeRunner`` (a library, no node)
+   * -
+     - `horus_lifecycle_manager <horus_lifecycle_manager/index.html>`__
+     - ordered bring-up
+   * -
+     - `horus_health_monitor <horus_health_monitor/index.html>`__
+     - diagnostic aggregation configuration
+   * -
+     - `horus_setup_assistant <horus_setup_assistant/index.html>`__
+     - device repository generator
+   * - session
+     - `horus_session <horus_session/index.html>`__
+     - ``session`` node: subjects, calibration index, recording
+   * -
+     - `horus_bag_tools <horus_bag_tools/index.html>`__
+     - recordings to CSV
+   * - bringup
+     - `horus_bringup <horus_bringup/index.html>`__
+     - rig launch, UI launch, trees, example rigs

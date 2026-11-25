@@ -1,0 +1,58 @@
+
+.. _program_listing_file_include_horus_generator_core_generator.hpp:
+
+Program Listing for File generator.hpp
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_generator_core_generator.hpp>` (``include/horus_generator_core/generator.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <memory>
+   #include <string>
+   #include <vector>
+   
+   #include "rclcpp/rclcpp.hpp"
+   #include "rclcpp_lifecycle/lifecycle_node.hpp"
+   
+   namespace horus_generator_core
+   {
+   
+   /* The host is a lifecycle node (nav2 style); plugins take it in configure() to read params, log and
+    * subscribe. They must not retain it beyond what they need. */
+   using NodePtr = rclcpp_lifecycle::LifecycleNode::SharedPtr;
+   
+   class Generator
+   {
+      public:
+       using Ptr = std::shared_ptr<Generator>;
+   
+       virtual ~Generator() = default;
+   
+       virtual void configure(const NodePtr& node, const std::string& name) = 0;
+   
+       virtual void activate() = 0;
+   
+       virtual void deactivate() = 0;
+   
+       virtual void reset() = 0;
+   
+       virtual std::vector<double> update(const rclcpp::Time& time, const rclcpp::Duration& period) = 0;
+   
+       virtual bool finished() const { return false; }
+   
+       virtual double progress() const { return 0.0; }
+   
+       virtual std::vector<std::string> jointNames() const { return {}; }
+   
+       virtual std::string quantity() const { return "position"; }
+   
+       virtual void setSpeedScale(double /*scale*/) {}
+   };
+   
+   }  // namespace horus_generator_core

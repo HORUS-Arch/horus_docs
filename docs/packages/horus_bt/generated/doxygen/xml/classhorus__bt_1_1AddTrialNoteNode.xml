@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__bt_1_1AddTrialNoteNode" kind="class" language="C++" prot="public">
+    <compoundname>horus_bt::AddTrialNoteNode</compoundname>
+    <basecompoundref refid="classhorus__bt_1_1ServiceLeaf" prot="public" virt="non-virtual">horus_bt::ServiceLeaf&lt; horus_msgs::srv::AddTrialNote &gt;</basecompoundref>
+    <includes refid="system__nodes_8hpp" local="no">system_nodes.hpp</includes>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__bt_1_1AddTrialNoteNode_1a45075aec829f55a382f6bbd1bd1bffdd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>horus_bt::AddTrialNoteNode::AddTrialNoteNode</definition>
+        <argsstring>(const std::string &amp;name, const BT::NodeConfig &amp;config, const NodePtr &amp;node)</argsstring>
+        <name>AddTrialNoteNode</name>
+        <qualifiedname>horus_bt::AddTrialNoteNode::AddTrialNoteNode</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const BT::NodeConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const <ref refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kindref="member">NodePtr</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="158" column="5" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="158" bodyend="159"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classhorus__bt_1_1AddTrialNoteNode_1a398dd3755812f1a0868bf6cd0e7aa899" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BT::PortsList</type>
+        <definition>static BT::PortsList horus_bt::AddTrialNoteNode::providedPorts</definition>
+        <argsstring>()</argsstring>
+        <name>providedPorts</name>
+        <qualifiedname>horus_bt::AddTrialNoteNode::providedPorts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="160" column="26" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="160" bodyend="165"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhorus__bt_1_1AddTrialNoteNode_1aaa27a572899b53f13d11667a9a137948" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_bt::AddTrialNoteNode::fill</definition>
+        <argsstring>(horus_msgs::srv::AddTrialNote::Request &amp;req) override</argsstring>
+        <name>fill</name>
+        <qualifiedname>horus_bt::AddTrialNoteNode::fill</qualifiedname>
+        <param>
+          <type>horus_msgs::srv::AddTrialNote::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="168" column="10" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="168" bodyend="172"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Add a note to the running trial. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>BT::StatefulActionNode</label>
+      </node>
+      <node id="2">
+        <label>horus_bt::ServiceLeaf&lt; horus_msgs::srv::AddTrialNote &gt;</label>
+        <link refid="classhorus__bt_1_1ServiceLeaf"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>horus_bt::AddTrialNoteNode</label>
+        <link refid="classhorus__bt_1_1AddTrialNoteNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>BT::StatefulActionNode</label>
+      </node>
+      <node id="2">
+        <label>horus_bt::ServiceLeaf&lt; horus_msgs::srv::AddTrialNote &gt;</label>
+        <link refid="classhorus__bt_1_1ServiceLeaf"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>horus_bt::AddTrialNoteNode</label>
+        <link refid="classhorus__bt_1_1AddTrialNoteNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/horus_bt/system_nodes.hpp" line="155" column="1" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="156" bodyend="173"/>
+    <listofallmembers>
+      <member refid="classhorus__bt_1_1AddTrialNoteNode_1a45075aec829f55a382f6bbd1bd1bffdd" prot="public" virt="non-virtual"><scope>horus_bt::AddTrialNoteNode</scope><name>AddTrialNoteNode</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a52393f7ec6a9b392880b3a830f73f92c" prot="public" virt="non-virtual"><scope>horus_bt::AddTrialNoteNode</scope><name>basePorts</name></member>
+      <member refid="classhorus__bt_1_1AddTrialNoteNode_1aaa27a572899b53f13d11667a9a137948" prot="protected" virt="non-virtual"><scope>horus_bt::AddTrialNoteNode</scope><name>fill</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a84c78dace68d6c86772aa01261a28a39" prot="protected" virt="pure-virtual" ambiguityscope="ServiceLeaf&lt; horus_msgs::srv::AddTrialNote &gt;::"><scope>horus_bt::AddTrialNoteNode</scope><name>fill</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a54e6cb32c94d5d28cc67b7453e5ef3be" prot="protected" virt="non-virtual"><scope>horus_bt::AddTrialNoteNode</scope><name>node_</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1ae8e72b84225a6ec45cc507c56db63773" prot="public" virt="non-virtual"><scope>horus_bt::AddTrialNoteNode</scope><name>onHalted</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a5add4b6008852f6fb35302efc8f255ae" prot="public" virt="non-virtual"><scope>horus_bt::AddTrialNoteNode</scope><name>onRunning</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a3edb94f6d34758dbf70c656603286568" prot="public" virt="non-virtual"><scope>horus_bt::AddTrialNoteNode</scope><name>onStart</name></member>
+      <member refid="classhorus__bt_1_1AddTrialNoteNode_1a398dd3755812f1a0868bf6cd0e7aa899" prot="public" virt="non-virtual"><scope>horus_bt::AddTrialNoteNode</scope><name>providedPorts</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1ab475651d673dde36fbb155b9f1061049" prot="public" virt="non-virtual"><scope>horus_bt::AddTrialNoteNode</scope><name>ServiceLeaf</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

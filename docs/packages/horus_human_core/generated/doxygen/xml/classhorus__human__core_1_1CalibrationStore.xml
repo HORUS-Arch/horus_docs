@@ -1,0 +1,323 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__human__core_1_1CalibrationStore" kind="class" language="C++" prot="public">
+    <compoundname>horus_human_core::CalibrationStore</compoundname>
+    <includes refid="calibration__store_8hpp" local="no">calibration_store.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__human__core_1_1CalibrationStore_1a850d16e681732d68eaee13ffeba3cd72" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string horus_human_core::CalibrationStore::root_</definition>
+        <argsstring></argsstring>
+        <name>root_</name>
+        <qualifiedname>horus_human_core::CalibrationStore::root_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>expanded data root </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="82" column="17" bodyfile="include/horus_human_core/calibration_store.hpp" bodystart="82" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__human__core_1_1CalibrationStore_1aedbb37658cc881e52fefb40d5d549a21" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>horus_human_core::CalibrationStore::CalibrationStore</definition>
+        <argsstring>(const std::string &amp;data_root)</argsstring>
+        <name>CalibrationStore</name>
+        <qualifiedname>horus_human_core::CalibrationStore::CalibrationStore</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>data_root</declname>
+        </param>
+        <briefdescription>
+<para>Create a store. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data_root</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Root of the HORUS data folder; a leading <computeroutput>~</computeroutput> expands to $HOME. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="37" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1CalibrationStore_1a7c258388ca40ad9e03e5a5fb840645c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string horus_human_core::CalibrationStore::save</definition>
+        <argsstring>(const std::string &amp;subject, const std::string &amp;node, const std::string &amp;unit, const std::string &amp;plugin, const YAML::Node &amp;data) const</argsstring>
+        <name>save</name>
+        <qualifiedname>horus_human_core::CalibrationStore::save</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>plugin</declname>
+        </param>
+        <param>
+          <type>const YAML::Node &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Write a new calibration file. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>subject</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subject id. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node (instance) name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>unit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>plugin</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Plugin class that computed the data. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The plugin&apos;s result. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Absolute path of the written file. Throws std::runtime_error on failure. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="48" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1CalibrationStore_1a3b54477af7c6f26d9236a6d524e0a5d9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structhorus__human__core_1_1CalibrationEntry" kindref="compound">CalibrationEntry</ref> &gt;</type>
+        <definition>std::vector&lt; CalibrationEntry &gt; horus_human_core::CalibrationStore::list</definition>
+        <argsstring>(const std::string &amp;subject, const std::string &amp;node) const</argsstring>
+        <name>list</name>
+        <qualifiedname>horus_human_core::CalibrationStore::list</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>List a node&apos;s files for a subject, newest first. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>subject</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subject id. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node (instance) name. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Every well-named file, sorted newest first. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="57" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1CalibrationStore_1afeddeb24ad8cfa3e2766124b28e258a1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; horus_human_core::CalibrationStore::latest</definition>
+        <argsstring>(const std::string &amp;subject, const std::string &amp;node, const std::string &amp;unit) const</argsstring>
+        <name>latest</name>
+        <qualifiedname>horus_human_core::CalibrationStore::latest</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <briefdescription>
+<para>Newest file of one unit. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>subject</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Subject id. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node (instance) name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>unit</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel name. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>Its path, or nothing if the unit has never been saved. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="66" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1CalibrationStore_1a6a44df43b1bf6f9535bfbd170f1a6b81" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string &amp; horus_human_core::CalibrationStore::root</definition>
+        <argsstring>() const</argsstring>
+        <name>root</name>
+        <qualifiedname>horus_human_core::CalibrationStore::root</qualifiedname>
+        <briefdescription>
+<para>Expanded data root. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>Absolute path. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="77" column="23" bodyfile="include/horus_human_core/calibration_store.hpp" bodystart="77" bodyend="77"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classhorus__human__core_1_1CalibrationStore_1a446e1888c20ca8c905e86b5077cb3607" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>YAML::Node</type>
+        <definition>static YAML::Node horus_human_core::CalibrationStore::read</definition>
+        <argsstring>(const std::string &amp;path)</argsstring>
+        <name>read</name>
+        <qualifiedname>horus_human_core::CalibrationStore::read</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+<para>Read a calibration file. Throws std::runtime_error if unreadable or malformed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>path</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>File path. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The whole document (<computeroutput>node</computeroutput>, <computeroutput>unit</computeroutput>, <computeroutput>plugin</computeroutput>, <computeroutput>created_at</computeroutput>, <computeroutput>data</computeroutput>). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="74" column="23"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhorus__human__core_1_1CalibrationStore_1aacbc41e0a501c5e0e7679cbaf31ff88e" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string horus_human_core::CalibrationStore::dir</definition>
+        <argsstring>(const std::string &amp;subject, const std::string &amp;node) const</argsstring>
+        <name>dir</name>
+        <qualifiedname>horus_human_core::CalibrationStore::dir</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/calibration_store.hpp" line="80" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Saves, finds and reads calibration files under one data root. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_human_core/calibration_store.hpp" line="30" column="1" bodyfile="include/horus_human_core/calibration_store.hpp" bodystart="31" bodyend="83"/>
+    <listofallmembers>
+      <member refid="classhorus__human__core_1_1CalibrationStore_1aedbb37658cc881e52fefb40d5d549a21" prot="public" virt="non-virtual"><scope>horus_human_core::CalibrationStore</scope><name>CalibrationStore</name></member>
+      <member refid="classhorus__human__core_1_1CalibrationStore_1aacbc41e0a501c5e0e7679cbaf31ff88e" prot="private" virt="non-virtual"><scope>horus_human_core::CalibrationStore</scope><name>dir</name></member>
+      <member refid="classhorus__human__core_1_1CalibrationStore_1afeddeb24ad8cfa3e2766124b28e258a1" prot="public" virt="non-virtual"><scope>horus_human_core::CalibrationStore</scope><name>latest</name></member>
+      <member refid="classhorus__human__core_1_1CalibrationStore_1a3b54477af7c6f26d9236a6d524e0a5d9" prot="public" virt="non-virtual"><scope>horus_human_core::CalibrationStore</scope><name>list</name></member>
+      <member refid="classhorus__human__core_1_1CalibrationStore_1a446e1888c20ca8c905e86b5077cb3607" prot="public" virt="non-virtual"><scope>horus_human_core::CalibrationStore</scope><name>read</name></member>
+      <member refid="classhorus__human__core_1_1CalibrationStore_1a6a44df43b1bf6f9535bfbd170f1a6b81" prot="public" virt="non-virtual"><scope>horus_human_core::CalibrationStore</scope><name>root</name></member>
+      <member refid="classhorus__human__core_1_1CalibrationStore_1a850d16e681732d68eaee13ffeba3cd72" prot="private" virt="non-virtual"><scope>horus_human_core::CalibrationStore</scope><name>root_</name></member>
+      <member refid="classhorus__human__core_1_1CalibrationStore_1a7c258388ca40ad9e03e5a5fb840645c0" prot="public" virt="non-virtual"><scope>horus_human_core::CalibrationStore</scope><name>save</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,104 @@
+Documentation
+=============
+.. inclusion-introduction-start
+
+How the HORUS documentation site is built and how to contribute to it.
+
+.. inclusion-introduction-end
+
+How it works
+------------
+
+The site (``horus_docs``) is a thin **aggregator**. It checks out the code repos (core + each
+``<device>_ros2`` + agnostic sensor repos) and builds **one** Sphinx site from them with
+`rosdoc2 <https://github.com/ros-infrastructure/rosdoc2>`_, which renders **each package's own**
+``README.md`` (in its own repo) plus the auto-generated API.
+
+.. important::
+   **The README next to the code is the single source of truth.** There is no per-package ``conf.py``
+   or ``doc/`` folder to maintain, and nothing is copied into ``horus_docs``. Only the cross-cutting
+   pages under ``docs/`` (installation, concepts, development) are hand-written, once.
+
+This mirrors nav2 (``docs.nav2.org``), MoveIt and Autoware: the docs *site* lives outside the code
+repos; the per-package docs stay with the code.
+
+Build the docs, step by step
+----------------------------
+
+The doc toolchain lives in a virtualenv **inside** ``horus_docs`` (git-ignored), separate from the code
+repos.
+
+**1. System prerequisites** (once):
+
+.. code-block:: bash
+
+    sudo apt update
+    sudo apt install -y python3-venv python3-pip doxygen graphviz python3-vcstool
+    # doxygen + graphviz = C++ API extraction; vcstool = the online/CI mode
+
+**2. Create the virtualenv + install the toolchain** (once):
+
+.. code-block:: bash
+
+    cd horus_docs
+    python3 -m venv .venv_horus && source .venv_horus/bin/activate
+    pip install --upgrade pip
+    pip install -r requirements.txt        # sphinx + rosdoc2 + mermaid + breathe/exhale
+
+**3a. Build, local / dev** (point at your existing checkouts, no cloning; ``--src`` is repeatable):
+
+.. code-block:: bash
+
+    source .venv_horus/bin/activate
+    source /opt/ros/jazzy/setup.bash       # so rosdoc2 can resolve ROS deps for the API
+    ./generate_docs.sh --clean --src ../horus                        # just core
+    # ./generate_docs.sh --clean --src ../horus --src ../mydevice_ros2  # core + a device repo
+
+**3b. Build, online / CI** (clone everything in the manifest, then build):
+
+.. code-block:: bash
+
+    source .venv_horus/bin/activate
+    source /opt/ros/jazzy/setup.bash
+    # set the real repo URLs in horus_docs.repos first
+    ./generate_docs.sh --clean            # vcs import horus_docs.repos -> ./src -> aggregate
+
+**4. View** the result:
+
+.. code-block:: bash
+
+    xdg-open _build/html/index.html
+    # or serve it:  python3 -m http.server -d _build/html 8000      # http://localhost:8000
+
+Both modes render each package's own ``README.md`` + its auto-API, then validate links with
+`htmltest <https://github.com/wjdp/htmltest>`_ (optional; the build skips it if not installed).
+
+.. tip::
+   Day-to-day one-liner after setup:
+   ``source .venv_horus/bin/activate && source /opt/ros/jazzy/setup.bash && ./generate_docs.sh --clean --src ../horus``
+
+.. tip::
+   If a package's C++/Python API won't import during the build, recreate the venv so it can see the ROS
+   Python packages: ``python3 -m venv --system-site-packages .venv_horus``.
+
+.. _documentation_package-label:
+
+Contribute
+----------
+
+- **Package docs**, edit the package's own ``README.md`` (single source). Follow
+  ``_templates/template.md`` (Overview / Dependencies / Nodes / ROS2 API tables / Usage / Tests /
+  Notes). Images go next to the README in its repo.
+- **Cross-cutting pages**, add or edit an ``.rst`` under ``docs/`` and link it in a ``toctree`` in
+  ``index.rst``.
+- **Add a repo to aggregate**, add it to ``horus_docs.repos``; list any non-``horus_`` package names
+  (e.g. sensor interfaces) in ``doc_packages.txt`` so they get selected.
+- **Diagrams**, put architecture/example diagrams on a cross-cutting page (mermaid is enabled), not in
+  per-package READMEs.
+
+Deployment
+----------
+
+The site is hosted on `GitHub Pages <https://pages.github.com/>`_ and deployed by a GitHub Actions
+workflow on every push to ``main``: it imports the repos, builds with ``generate_docs.sh``, and
+publishes ``_build/html`` to the ``gh-pages`` branch.

@@ -1,0 +1,317 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__human_1_1ImuStaticPose" kind="class" language="C++" prot="public">
+    <compoundname>horus_human::ImuStaticPose</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">ImuCalibration</basecompoundref>
+    <includes refid="default__calibrations_8hpp" local="no">default_calibrations.hpp</includes>
+    <innerclass refid="structhorus__human_1_1ImuStaticPose_1_1Result" prot="private">horus_human::ImuStaticPose::Result</innerclass>
+    <innerclass refid="structhorus__human_1_1ImuStaticPose_1_1Window" prot="private">horus_human::ImuStaticPose::Window</innerclass>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__human_1_1ImuStaticPose_1a2828c54dcd813451ff457a5e43b67c3c" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_human::ImuStaticPose::duration_</definition>
+        <argsstring></argsstring>
+        <name>duration_</name>
+        <qualifiedname>horus_human::ImuStaticPose::duration_</qualifiedname>
+        <initializer>{3.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>s, default window </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="60" column="12" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human_1_1ImuStaticPose_1aba2d8a9782425b158ca22646c5a1b0f8" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_human::ImuStaticPose::max_motion_</definition>
+        <argsstring></argsstring>
+        <name>max_motion_</name>
+        <qualifiedname>horus_human::ImuStaticPose::max_motion_</qualifiedname>
+        <initializer>{0.1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>rad/s, gyro RMS deviation allowed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="61" column="12" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="61" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human_1_1ImuStaticPose_1a841be9c1a9fa8b6e2bb3be7536113cd5" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_human::ImuStaticPose::estimate_bias_</definition>
+        <argsstring></argsstring>
+        <name>estimate_bias_</name>
+        <qualifiedname>horus_human::ImuStaticPose::estimate_bias_</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>subtract the window&apos;s mean gyro </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="62" column="10" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="62" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human_1_1ImuStaticPose_1afff2e5c1e85ba7fac6c4dba7b754d8d5" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, tf2::Quaternion &gt;</type>
+        <definition>std::map&lt;std::string, tf2::Quaternion&gt; horus_human::ImuStaticPose::reference_</definition>
+        <argsstring></argsstring>
+        <name>reference_</name>
+        <qualifiedname>horus_human::ImuStaticPose::reference_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>segment orientation in the pose </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="63" column="14" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human_1_1ImuStaticPose_1a3ed01a06b446634cb411a02e5a0cd18f" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, Window &gt;</type>
+        <definition>std::map&lt;std::string, Window&gt; horus_human::ImuStaticPose::windows_</definition>
+        <argsstring></argsstring>
+        <name>windows_</name>
+        <qualifiedname>horus_human::ImuStaticPose::windows_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="64" column="14" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human_1_1ImuStaticPose_1aed1f7cdd3d1ed2cdb97124eb5ef5e8af" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, Result &gt;</type>
+        <definition>std::map&lt;std::string, Result&gt; horus_human::ImuStaticPose::results_</definition>
+        <argsstring></argsstring>
+        <name>results_</name>
+        <qualifiedname>horus_human::ImuStaticPose::results_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="65" column="14" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="65" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__human_1_1ImuStaticPose_1a26c6d9c3634942431b7d6e8866c0e0a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_human::ImuStaticPose::configure</definition>
+        <argsstring>(const horus_human_core::NodePtr &amp;node, const std::string &amp;name, const std::vector&lt; std::string &gt; &amp;units) override</argsstring>
+        <name>configure</name>
+        <qualifiedname>horus_human::ImuStaticPose::configure</qualifiedname>
+        <param>
+          <type>const horus_human_core::NodePtr &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>units</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="31" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1ImuStaticPose_1a8603df13e788a9158e7316d13b521340" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>double</type>
+        <definition>double horus_human::ImuStaticPose::defaultDuration</definition>
+        <argsstring>() const override</argsstring>
+        <name>defaultDuration</name>
+        <qualifiedname>horus_human::ImuStaticPose::defaultDuration</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="33" column="12" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="33" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1ImuStaticPose_1aca046b08320f860fdc5ae531b658d32e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_human::ImuStaticPose::begin</definition>
+        <argsstring>(const std::string &amp;unit) override</argsstring>
+        <name>begin</name>
+        <qualifiedname>horus_human::ImuStaticPose::begin</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="34" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1ImuStaticPose_1a1d5c3f07b6e223b7655a111acf3004ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_human::ImuStaticPose::add</definition>
+        <argsstring>(const std::string &amp;unit, const sensor_msgs::msg::Imu &amp;raw) override</argsstring>
+        <name>add</name>
+        <qualifiedname>horus_human::ImuStaticPose::add</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>const sensor_msgs::msg::Imu &amp;</type>
+          <declname>raw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="35" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1ImuStaticPose_1a8165134ef35d9571903eb4d5b57199aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_human::ImuStaticPose::finish</definition>
+        <argsstring>(const std::string &amp;unit, YAML::Node &amp;out, std::string &amp;summary) override</argsstring>
+        <name>finish</name>
+        <qualifiedname>horus_human::ImuStaticPose::finish</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>YAML::Node &amp;</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>summary</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="36" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1ImuStaticPose_1a5770ad74aec2fc3a7c75e4cf82cae5ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_human::ImuStaticPose::load</definition>
+        <argsstring>(const std::string &amp;unit, const YAML::Node &amp;data) override</argsstring>
+        <name>load</name>
+        <qualifiedname>horus_human::ImuStaticPose::load</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>const YAML::Node &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="37" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1ImuStaticPose_1a9096b9eb682edc811c22b12a5461d7b4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_human::ImuStaticPose::calibrated</definition>
+        <argsstring>(const std::string &amp;unit) const override</argsstring>
+        <name>calibrated</name>
+        <qualifiedname>horus_human::ImuStaticPose::calibrated</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="38" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human_1_1ImuStaticPose_1a264c919354171723c68ac9fc5f2d3479" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_human::ImuStaticPose::apply</definition>
+        <argsstring>(const std::string &amp;unit, sensor_msgs::msg::Imu &amp;msg) const override</argsstring>
+        <name>apply</name>
+        <qualifiedname>horus_human::ImuStaticPose::apply</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>unit</declname>
+        </param>
+        <param>
+          <type>sensor_msgs::msg::Imu &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="39" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Sensor-to-segment alignment + gyro bias from a static reference pose. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>ImuCalibration</label>
+      </node>
+      <node id="1">
+        <label>horus_human::ImuStaticPose</label>
+        <link refid="classhorus__human_1_1ImuStaticPose"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>ImuCalibration</label>
+      </node>
+      <node id="1">
+        <label>horus_human::ImuStaticPose</label>
+        <link refid="classhorus__human_1_1ImuStaticPose"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/horus_human/default_calibrations.hpp" line="28" column="1" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="29" bodyend="66"/>
+    <listofallmembers>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a1d5c3f07b6e223b7655a111acf3004ce" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>add</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a264c919354171723c68ac9fc5f2d3479" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>apply</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1aca046b08320f860fdc5ae531b658d32e" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>begin</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a9096b9eb682edc811c22b12a5461d7b4" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>calibrated</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a26c6d9c3634942431b7d6e8866c0e0a1" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>configure</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a8603df13e788a9158e7316d13b521340" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>defaultDuration</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a2828c54dcd813451ff457a5e43b67c3c" prot="private" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>duration_</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a841be9c1a9fa8b6e2bb3be7536113cd5" prot="private" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>estimate_bias_</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a8165134ef35d9571903eb4d5b57199aa" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>finish</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a5770ad74aec2fc3a7c75e4cf82cae5ad" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>load</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1aba2d8a9782425b158ca22646c5a1b0f8" prot="private" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>max_motion_</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1afff2e5c1e85ba7fac6c4dba7b754d8d5" prot="private" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>reference_</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1aed1f7cdd3d1ed2cdb97124eb5ef5e8af" prot="private" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>results_</name></member>
+      <member refid="classhorus__human_1_1ImuStaticPose_1a3ed01a06b446634cb411a02e5a0cd18f" prot="private" virt="non-virtual"><scope>horus_human::ImuStaticPose</scope><name>windows_</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

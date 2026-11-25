@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.8" xml:lang="en-US">
+  <compound refid="classhorus__human_1_1EmgMvc" kind="class"><name>horus_human::EmgMvc</name>
+    <member refid="classhorus__human_1_1EmgMvc_1a509b33f97aa6b13ac0e14fe94e9f9199" kind="variable"><name>duration_</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1a414cfd122cdf8259a855f6ef3b3cf344" kind="variable"><name>min_mvc_</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1a74b92a591ea3f4b83f45a7f9c9181070" kind="variable"><name>peak_</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1a6e4a0be399301c719aab5118140d4187" kind="variable"><name>mvc_</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1afb5a429a96708c9d28586730e7354169" kind="function"><name>configure</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1af49e983ef93a87d98e2ec4dc8c513317" kind="function"><name>defaultDuration</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1acb930e5dff3acfc9b1140824ae378431" kind="function"><name>begin</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1a24e73557280f40fb645ef1c404ee1d6b" kind="function"><name>add</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1a6287f790287a9c56dd9e2dd9453a3134" kind="function"><name>finish</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1aad849e15066cff21715a9ed76c804446" kind="function"><name>load</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1ab11621c5d27deb0d48c76f31c61192cb" kind="function"><name>calibrated</name></member>
+    <member refid="classhorus__human_1_1EmgMvc_1a4844e0a419ed876df0ee535b59d4e616" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="classhorus__human_1_1ImuStaticPose" kind="class"><name>horus_human::ImuStaticPose</name>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a2828c54dcd813451ff457a5e43b67c3c" kind="variable"><name>duration_</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1aba2d8a9782425b158ca22646c5a1b0f8" kind="variable"><name>max_motion_</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a841be9c1a9fa8b6e2bb3be7536113cd5" kind="variable"><name>estimate_bias_</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1afff2e5c1e85ba7fac6c4dba7b754d8d5" kind="variable"><name>reference_</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a3ed01a06b446634cb411a02e5a0cd18f" kind="variable"><name>windows_</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1aed1f7cdd3d1ed2cdb97124eb5ef5e8af" kind="variable"><name>results_</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a26c6d9c3634942431b7d6e8866c0e0a1" kind="function"><name>configure</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a8603df13e788a9158e7316d13b521340" kind="function"><name>defaultDuration</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1aca046b08320f860fdc5ae531b658d32e" kind="function"><name>begin</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a1d5c3f07b6e223b7655a111acf3004ce" kind="function"><name>add</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a8165134ef35d9571903eb4d5b57199aa" kind="function"><name>finish</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a5770ad74aec2fc3a7c75e4cf82cae5ad" kind="function"><name>load</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a9096b9eb682edc811c22b12a5461d7b4" kind="function"><name>calibrated</name></member>
+    <member refid="classhorus__human_1_1ImuStaticPose_1a264c919354171723c68ac9fc5f2d3479" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="classhorus__human_1_1InsoleZeroOffset" kind="class"><name>horus_human::InsoleZeroOffset</name>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1a7c14dd55a1746bcdb81d7a1e036a03a6" kind="variable"><name>duration_</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1a3810af0d0e08b179ec0b856a400acd08" kind="variable"><name>max_force_</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1ad0306e159f7b8a3264baa63f5e5ac491" kind="variable"><name>windows_</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1a2e550312741b151abedb632c450899bf" kind="variable"><name>results_</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1a83f8aa444510920ce87009eaf50798cc" kind="function"><name>configure</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1ab4d8877a147b274ea6a486dfe569dfd9" kind="function"><name>defaultDuration</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1af98bee64ce31ec000df8f6ba53d67ca8" kind="function"><name>begin</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1a4f6ea09b02bbb593d832256d61dbdfa2" kind="function"><name>add</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1a5fa66363ab3ccfc995833fd920bbd0e0" kind="function"><name>finish</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1a2b85861d029e00b52798dd658b0bda22" kind="function"><name>load</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1a40e965a1a5fc17f0bdad3a86e3ade608" kind="function"><name>calibrated</name></member>
+    <member refid="classhorus__human_1_1InsoleZeroOffset_1a72acdbe24bb794b706666fb69b27d8a4" kind="function"><name>apply</name></member>
+  </compound>
+  <compound refid="structhorus__human_1_1ImuStaticPose_1_1Result" kind="struct"><name>horus_human::ImuStaticPose::Result</name>
+    <member refid="structhorus__human_1_1ImuStaticPose_1_1Result_1a3bfd978c3329da509ee8f548ebcd1347" kind="variable"><name>offset</name></member>
+    <member refid="structhorus__human_1_1ImuStaticPose_1_1Result_1af1fd290b9118fbe77430599a760bfe97" kind="variable"><name>bias</name></member>
+    <member refid="structhorus__human_1_1ImuStaticPose_1_1Result_1a4e39d3db4cff40acd809d32ba8a8f08a" kind="variable"><name>valid</name></member>
+  </compound>
+  <compound refid="structhorus__human_1_1InsoleZeroOffset_1_1Result" kind="struct"><name>horus_human::InsoleZeroOffset::Result</name>
+    <member refid="structhorus__human_1_1InsoleZeroOffset_1_1Result_1add4ced37f6625d499cbcc03f8de89395" kind="variable"><name>pressure</name></member>
+    <member refid="structhorus__human_1_1InsoleZeroOffset_1_1Result_1abfe3edb651dd1436602e486bcd35f7bf" kind="variable"><name>force</name></member>
+    <member refid="structhorus__human_1_1InsoleZeroOffset_1_1Result_1a07981f034e0ad419a3c9c1f2edaaefc6" kind="variable"><name>valid</name></member>
+  </compound>
+  <compound refid="structhorus__human_1_1ImuStaticPose_1_1Window" kind="struct"><name>horus_human::ImuStaticPose::Window</name>
+    <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1ae8473e9a61a3f3ade1f5457eebf1de47" kind="variable"><name>first</name></member>
+    <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a8922c0a1ab6c55415eae8271692ec249" kind="variable"><name>q</name></member>
+    <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a38b54deea117f2dfca290638d148afca" kind="variable"><name>q_count</name></member>
+    <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a7f5842a8f83aadf60953bdfb061643ff" kind="variable"><name>gyro</name></member>
+    <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a309ba3e4bdd5658ccddfb40d4aa15439" kind="variable"><name>gyro_sq</name></member>
+    <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a2aedf719ff680ce04c6a8383fe456255" kind="variable"><name>count</name></member>
+  </compound>
+  <compound refid="structhorus__human_1_1InsoleZeroOffset_1_1Window" kind="struct"><name>horus_human::InsoleZeroOffset::Window</name>
+    <member refid="structhorus__human_1_1InsoleZeroOffset_1_1Window_1a20add7d14cdbec129a760f12c4920722" kind="variable"><name>sum</name></member>
+    <member refid="structhorus__human_1_1InsoleZeroOffset_1_1Window_1adff50fbc524d21c77f9ac66490982b3b" kind="variable"><name>n</name></member>
+    <member refid="structhorus__human_1_1InsoleZeroOffset_1_1Window_1a9762d388db3f000b3b60fbfbba1113b6" kind="variable"><name>force_sum</name></member>
+    <member refid="structhorus__human_1_1InsoleZeroOffset_1_1Window_1a4680c7c937178d1961d82a6f7a43b188" kind="variable"><name>force_n</name></member>
+  </compound>
+  <compound refid="namespacehorus__human" kind="namespace"><name>horus_human</name>
+    <member refid="calibrations_8hpp_1a132456bcbb6372491f8d1ddef33c693e" kind="typedef"><name>ImuCalibration</name></member>
+    <member refid="calibrations_8hpp_1a45d44ad0e82181d0a6eeffee8bca062b" kind="typedef"><name>InsoleCalibration</name></member>
+    <member refid="calibrations_8hpp_1ab2bbee390ce04ee4dbb2daa600bf5c9e" kind="typedef"><name>EmgCalibration</name></member>
+  </compound>
+  <compound refid="calibrations_8hpp" kind="file"><name>calibrations.hpp</name>
+  </compound>
+  <compound refid="default__calibrations_8hpp" kind="file"><name>default_calibrations.hpp</name>
+  </compound>
+  <compound refid="dir_de9f0254072df4b4b900398be31863ab" kind="dir"><name>include/horus_human</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>include</name>
+  </compound>
+</doxygenindex>

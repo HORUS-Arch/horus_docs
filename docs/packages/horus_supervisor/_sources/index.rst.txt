@@ -1,0 +1,31 @@
+.. GENERATED_CONTENT by rosdoc2.verbs.build.builders.sphinx_builder.
+
+horus_supervisor
+================
+
+HORUS supervisor: a fixed safety-first state machine that decides who may move the device (INIT, STANDBY, RUN, MANUAL, RECOVERY, EMERGENCY_STOP) and runs the tree of each mode in-process
+
+
+.. toctree::
+   :maxdepth: 2
+
+   Links <__links>
+
+   C++ API <generated/index>
+
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+
+   Standard Documents <__standards>
+   ROS Package Dependencies <__ros_package_dependencies>
+
+.. include:: __readme_include.rst
+
+.. toctree::
+   :hidden:
+
+   genindex

@@ -1,0 +1,8 @@
+ListSubjects
+============
+This is a ROS service definition.
+
+**Source**
+
+.. literalinclude:: ListSubjects.srv
+

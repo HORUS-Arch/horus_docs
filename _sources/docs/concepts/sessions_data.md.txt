@@ -1,0 +1,80 @@
+# Sessions and data
+
+The session node (`/horus/session`) owns the subjects, their calibration index and the recorded
+trials. A trial is recording or not; there is no phase machine. It selects the subject for the whole
+system: SELECT sets `subject_id` on every `/human/*` node and loads its newest calibration files.
+
+## When a trial records
+
+The `record` parameter decides:
+
+| `record` | A trial opens | and closes |
+|---|---|---|
+| `per_run` (default) | when the supervisor enters RUN | back in STANDBY |
+| `manual` | on `SessionControl` START (UI button, `StartRecording` leaf) | on STOP (UI button, `StopRecording` leaf) |
+
+An emergency stop never stops a recording: the trial keeps recording so the moments after the stop
+are kept, and closes on RESET or `post_stop_record` seconds (default 30) after the stop. A subject
+whose trial is recording cannot be deleted, and the subject cannot be changed while a trial records.
+
+## On disk
+
+```text
+~/horus_data/
+  subjects/<id>/
+    profile.yaml                       identity, demographics, body measurements
+    calibration/<node>/<unit>_<time>.yaml   every saved calibration (latest = newest)
+    trials/<trial>/
+      bag/                             rosbag2 recording
+      trial.yaml                       devices, times, outcome, calibrations, events, notes
+  trash/                               deleted subjects (moved, never erased)
+```
+
+## trial.yaml
+
+| Key | Content |
+|---|---|
+| `trial_id`, `subject_id`, `devices` | who and what |
+| `start_time`, `stop_time` | ISO times |
+| `outcome` | `completed`, `stopped`, `emergency_stop` or `interrupted` (the node shut down) |
+| `topics` | what was recorded (`all`, with the exclude regex, or a list) |
+| `calibrations` | paths of the subject's newest calibration files when the trial started |
+| `events` | mode changes, device problems and recoveries, the automatic close after an emergency stop |
+| `notes` | timestamped notes from the UI or the `AddTrialNote` leaf |
+
+## What is recorded
+
+Everything by default: raw sensors (`/sensors`), calibrated and estimated human state (`/human`), the
+generator's reference, the robot state from the ros2_control broadcasters (joint positions,
+velocities, efforts, interaction wrench, device status), supervisor modes and diagnostics. A
+`recording.yaml` (the rig's `system.recording`) can exclude topics or record a fixed subset:
+
+```yaml
+/**:
+  ros__parameters:
+    data_root: "~/horus_data"
+    devices: [""]                # written into every trial.yaml
+    record: per_run              # per_run | manual
+    post_stop_record: 30.0       # s a trial keeps recording after an emergency stop
+    record_all: true             # ros2 bag record -a, minus exclude
+    exclude: ["/parameter_events", "/rosout", "/rosout_agg"]
+    topics: [""]                 # used only when record_all is false
+    human_namespace: /human      # SELECT pushes the subject to every <ns>/<name>/load_calibration
+    supervisor_state_topic: /horus/supervisor/state
+```
+
+## Replay
+
+```bash
+ros2 bag play ~/horus_data/subjects/s01/trials/<trial>/bag --rate 0.5 --clock   # half speed
+ros2 bag play <bag> --rate 4 --topics /sensors/imus_a/...                        # re-run sensing offline
+```
+
+Because HORUS nodes only use topics, replaying the raw `/sensors` streams into the sensing nodes
+re-runs them offline, for example with another calibration, without the subject present.
+
+## Analysis
+
+```bash
+ros2 run horus_bag_tools decode <bag> --out out/   # one CSV per topic (default: <bag>/csv)
+```

@@ -1,0 +1,22 @@
+
+.. _namespace_horus_common:
+
+Namespace horus_common
+======================
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+
+
+
+
+Functions
+---------
+
+
+- :ref:`exhale_function_interface__utils_8hpp_1a8861581d8326d5b13f25ccda831ad021`
+
+- :ref:`exhale_function_interface__utils_8hpp_1a9c367a34497eaf6a39a456116271c1e2`

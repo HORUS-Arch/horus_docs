@@ -1,0 +1,21 @@
+.. _dir_include_horus_generator_core:
+
+
+Directory horus_generator_core
+==============================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include>` (``include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``include/horus_generator_core``
+
+
+Files
+-----
+
+- :ref:`file_include_horus_generator_core_generator.hpp`
+
+

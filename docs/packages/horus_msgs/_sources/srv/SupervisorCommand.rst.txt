@@ -1,0 +1,8 @@
+SupervisorCommand
+=================
+This is a ROS service definition.
+
+**Source**
+
+.. literalinclude:: SupervisorCommand.srv
+

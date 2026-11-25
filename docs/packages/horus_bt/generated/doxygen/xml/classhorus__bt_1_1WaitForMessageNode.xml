@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__bt_1_1WaitForMessageNode" kind="class" language="C++" prot="public">
+    <compoundname>horus_bt::WaitForMessageNode</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BT::StatefulActionNode</basecompoundref>
+    <includes refid="condition__nodes_8hpp" local="no">condition_nodes.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__bt_1_1WaitForMessageNode_1a26b0c0ae56c76de94e0b616c6e2a5450" prot="private" static="no" mutable="no">
+        <type><ref refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kindref="member">NodePtr</ref></type>
+        <definition>NodePtr horus_bt::WaitForMessageNode::node_</definition>
+        <argsstring></argsstring>
+        <name>node_</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::node_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="254" column="13" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="254" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1WaitForMessageNode_1a4640afb6b4aa3cc602367ceabdcc9489" prot="private" static="no" mutable="no">
+        <type><ref refid="structhorus__bt_1_1detail_1_1LeafExecutor" kindref="compound">detail::LeafExecutor</ref></type>
+        <definition>detail::LeafExecutor horus_bt::WaitForMessageNode::leaf_</definition>
+        <argsstring></argsstring>
+        <name>leaf_</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::leaf_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="255" column="26" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="255" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1WaitForMessageNode_1a6a888c620b712271577757408e36a233" prot="private" static="no" mutable="no">
+        <type>rclcpp::GenericSubscription::SharedPtr</type>
+        <definition>rclcpp::GenericSubscription::SharedPtr horus_bt::WaitForMessageNode::sub_</definition>
+        <argsstring></argsstring>
+        <name>sub_</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::sub_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="256" column="44" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="256" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1WaitForMessageNode_1ae03f3f4630d80be5908f76956080803a" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_bt::WaitForMessageNode::received_</definition>
+        <argsstring></argsstring>
+        <name>received_</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::received_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="257" column="10" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="257" bodyend="257"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1WaitForMessageNode_1ae6d9ee0937390f1fd9a928ee90f73271" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_bt::WaitForMessageNode::timeout_</definition>
+        <argsstring></argsstring>
+        <name>timeout_</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::timeout_</qualifiedname>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>s; 0 = forever </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="258" column="12" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="258" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1WaitForMessageNode_1a1b5580dbef7bde5ad7bf67fd8076f075" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point horus_bt::WaitForMessageNode::start_</definition>
+        <argsstring></argsstring>
+        <name>start_</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::start_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="259" column="43" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="259" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__bt_1_1WaitForMessageNode_1af4b99fd20e8127742c236b3fb216aba3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>horus_bt::WaitForMessageNode::WaitForMessageNode</definition>
+        <argsstring>(const std::string &amp;name, const BT::NodeConfig &amp;config, const NodePtr &amp;node)</argsstring>
+        <name>WaitForMessageNode</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::WaitForMessageNode</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const BT::NodeConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const <ref refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kindref="member">NodePtr</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+<para>Create the leaf (the subscription is made when the leaf starts). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Instance name in the tree. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>config</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>BT port configuration. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The node that runs the trees. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="190" column="5" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="190" bodyend="193"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1WaitForMessageNode_1a572155f83daa58ae5342867537918b0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BT::NodeStatus</type>
+        <definition>BT::NodeStatus horus_bt::WaitForMessageNode::onStart</definition>
+        <argsstring>() override</argsstring>
+        <name>onStart</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::onStart</qualifiedname>
+        <briefdescription>
+<para>Subscribe and start waiting. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>RUNNING, or FAILURE on bad ports. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="204" column="20" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="204" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1WaitForMessageNode_1a50588593d4854c38bbad089571db41dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BT::NodeStatus</type>
+        <definition>BT::NodeStatus horus_bt::WaitForMessageNode::onRunning</definition>
+        <argsstring>() override</argsstring>
+        <name>onRunning</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::onRunning</qualifiedname>
+        <briefdescription>
+<para>Poll for the message or the timeout. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>RUNNING, SUCCESS or FAILURE. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="233" column="20" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="233" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1WaitForMessageNode_1aa1f9bdeb2e900584371c82cbc93ebd56" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_bt::WaitForMessageNode::onHalted</definition>
+        <argsstring>() override</argsstring>
+        <name>onHalted</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::onHalted</qualifiedname>
+        <briefdescription>
+<para>Stop waiting. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="251" column="10" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="251" bodyend="251"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classhorus__bt_1_1WaitForMessageNode_1a818a501c0bc6d3d0340a84f63d312bcf" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BT::PortsList</type>
+        <definition>static BT::PortsList horus_bt::WaitForMessageNode::providedPorts</definition>
+        <argsstring>()</argsstring>
+        <name>providedPorts</name>
+        <qualifiedname>horus_bt::WaitForMessageNode::providedPorts</qualifiedname>
+        <briefdescription>
+<para>Ports. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>topic, type, timeout. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/condition_nodes.hpp" line="196" column="26" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="196" bodyend="201"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>RUNNING until a message arrives on <computeroutput>topic</computeroutput> (any type), FAILURE after <computeroutput>timeout</computeroutput> s. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BT::StatefulActionNode</label>
+      </node>
+      <node id="1">
+        <label>horus_bt::WaitForMessageNode</label>
+        <link refid="classhorus__bt_1_1WaitForMessageNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BT::StatefulActionNode</label>
+      </node>
+      <node id="1">
+        <label>horus_bt::WaitForMessageNode</label>
+        <link refid="classhorus__bt_1_1WaitForMessageNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/horus_bt/condition_nodes.hpp" line="181" column="1" bodyfile="include/horus_bt/condition_nodes.hpp" bodystart="182" bodyend="260"/>
+    <listofallmembers>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1a4640afb6b4aa3cc602367ceabdcc9489" prot="private" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>leaf_</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1a26b0c0ae56c76de94e0b616c6e2a5450" prot="private" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>node_</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1aa1f9bdeb2e900584371c82cbc93ebd56" prot="public" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>onHalted</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1a50588593d4854c38bbad089571db41dc" prot="public" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>onRunning</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1a572155f83daa58ae5342867537918b0c" prot="public" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>onStart</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1a818a501c0bc6d3d0340a84f63d312bcf" prot="public" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>providedPorts</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1ae03f3f4630d80be5908f76956080803a" prot="private" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>received_</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1a1b5580dbef7bde5ad7bf67fd8076f075" prot="private" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>start_</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1a6a888c620b712271577757408e36a233" prot="private" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>sub_</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1ae6d9ee0937390f1fd9a928ee90f73271" prot="private" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>timeout_</name></member>
+      <member refid="classhorus__bt_1_1WaitForMessageNode_1af4b99fd20e8127742c236b3fb216aba3" prot="public" virt="non-virtual"><scope>horus_bt::WaitForMessageNode</scope><name>WaitForMessageNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,13 @@
+<map id="include/horus_bt/node_ptr.hpp" name="include/horus_bt/node_ptr.hpp">
+<area shape="rect" id="Node000001" title="The node handle every HORUS BT leaf receives: the supervisor, which runs the trees." alt="" coords="447,5,613,45"/>
+<area shape="rect" id="Node000002" href="$calibrate__node_8hpp.html" title="BT action leaf Calibrate: run ~/calibrate on a HORUS processing node and save the result for the sele..." alt="" coords="5,93,196,133"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="434,48,195,96,194,91,433,43"/>
+<area shape="rect" id="Node000003" href="$condition__nodes_8hpp.html" title="HORUS BT condition and wait leaves: IsAtPose, IsHealthy, WaitForMessage." alt="" coords="220,93,413,133"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="472,53,364,96,362,91,470,48"/>
+<area shape="rect" id="Node000004" href="$execute__behavior__node_8hpp_source.html" title=" " alt="" coords="438,93,622,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="533,59,533,93,527,93,527,59"/>
+<area shape="rect" id="Node000005" href="$system__nodes_8hpp.html" title="HORUS BT leaves that act on the system rather than on the robot:" alt="" coords="646,93,827,133"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="589,48,692,91,690,96,587,53"/>
+<area shape="rect" id="Node000006" href="$tree__runner_8hpp.html" title="Runs HORUS behavior trees in&#45;process, on their own thread, for the supervisor." alt="" coords="852,93,1011,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="626,44,852,92,851,98,625,50"/>
+</map>

@@ -1,0 +1,79 @@
+[rosdoc2] [INFO] No Doxyfile specified by user, no *.h like files found in standard locations, therefore doxygen will not be run.
+[rosdoc2] [INFO] Skipping doxygen generation due to lack of configuration and failure to find code to automatically document.
+[rosdoc2] [INFO] Note: the builder 'horus_human_description Public C/C++ API (doxygen)' did not generate any output to be copied into the destination.
+[rosdoc2] [INFO] /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/output_staging/generated/doxygen/xml
+[rosdoc2] [INFO] No doxygen_xml_directory found, apparently doxygen did not run
+[rosdoc2] [INFO] interface_counts: {'msg': 0, 'srv': 0, 'action': 0}
+[rosdoc2] [INFO] standard_docs: {'readme': {'path': '/home/drscodex/Development/horus/estimation/horus_human_description/README.md', 'filename': 'README.md', 'type': 'md'}, 'package': {'path': '/home/drscodex/Development/horus/estimation/horus_human_description/package.xml', 'filename': 'package.xml', 'type': 'xml'}}
+[rosdoc2] [INFO] generating ros package dependencies with depends: ['robot_state_publisher', 'rviz2', 'ament_index_python', 'xacro']
+[rosdoc2] [INFO] No package repo url found from rosdistro
+[rosdoc2] [INFO] Note: no conf.py provided by the user, therefore using a default Sphinx configuration.
+[rosdoc2] [INFO] Using a default index.rst.jinja
+[rosdoc2] [INFO] Running Sphinx-build: 'sphinx-build /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/horus_human_description/wrapped_sphinx_directory /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/horus_human_description/wrapped_sphinx_directory/sphinx_output' in '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/horus_human_description/wrapped_sphinx_directory'
+Running Sphinx v8.2.3
+[rosdoc2] user conf.py specified allowed extensions: ['sphinx_rtd_theme']
+[rosdoc2] enabling autodoc
+[rosdoc2] autodoc mock imports: 'robot_state_publisher', 'rviz2'
+[rosdoc2] enabling intersphinx
+[rosdoc2] overriding theme to be 'sphinx_rtd_theme'
+[rosdoc2] extending intersphinx mapping
+[rosdoc2] adding markdown parser
+loading translations [en]... done
+loading intersphinx inventory 'horus_human' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human/objects.inv ...
+loading intersphinx inventory 'horus_bringup' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_bringup/objects.inv ...
+loading intersphinx inventory 'horus_control' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_control/objects.inv ...
+loading intersphinx inventory 'horus_generator_core' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_core/objects.inv ...
+loading intersphinx inventory 'horus_estimator_core' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_estimator_core/objects.inv ...
+loading intersphinx inventory 'horus_generator_pattern' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_pattern/objects.inv ...
+loading intersphinx inventory 'horus_generator_server' from /home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_server/objects.inv ...
+myst v4.0.1: MdParserConfig(commonmark_only=False, gfm_only=False, enable_extensions=set(), disable_syntax=[], all_links_external=False, links_external_new_tab=False, url_schemes=('http', 'https', 'mailto', 'ftp'), ref_domains=None, fence_as_directive=set(), number_code_blocks=[], title_to_header=False, heading_anchors=0, heading_slug_func=None, html_meta={}, footnote_sort=True, footnote_transition=True, words_per_minute=200, substitutions={}, linkify_fuzzy_links=True, dmath_allow_labels=True, dmath_allow_space=True, dmath_allow_digits=True, dmath_double_inline=False, update_mathjax=True, mathjax_classes='tex2jax_process|mathjax_process|math|output_area', enable_checkboxes=False, suppress_warnings=[], highlight_code_blocks=True)
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [html]: targets for 9 source files that are out of date
+updating environment: [new config] 9 added, 0 changed, 0 removed
+reading sources... [ 11%] README
+reading sources... [ 22%] __PACKAGE
+reading sources... [ 33%] __README
+reading sources... [ 44%] __links
+reading sources... [ 56%] __readme_include
+reading sources... [ 67%] __ros_package_dependencies
+reading sources... [ 78%] __standards
+reading sources... [ 89%] genindex
+reading sources... [100%] index
+
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... done
+preparing documents... done
+copying assets... 
+copying static files... 
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/horus_human_description/wrapped_sphinx_directory/sphinx_output/_static/basic.css
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/horus_human_description/wrapped_sphinx_directory/sphinx_output/_static/language_data.js
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/horus_human_description/wrapped_sphinx_directory/sphinx_output/_static/documentation_options.js
+Writing evaluated template result to /home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/horus_human_description/wrapped_sphinx_directory/sphinx_output/_static/js/versions.js
+copying static files: done
+copying extra files... 
+copying extra files: done
+copying assets: done
+writing output... [ 11%] README
+writing output... [ 22%] __PACKAGE
+writing output... [ 33%] __README
+writing output... [ 44%] __links
+writing output... [ 56%] __readme_include
+writing output... [ 67%] __ros_package_dependencies
+writing output... [ 78%] __standards
+writing output... [ 89%] genindex
+writing output... [100%] index
+
+generating indices... genindex done
+writing additional pages... search done
+dumping search index in English (code: en)... done
+dumping object inventory... done
+build succeeded.
+
+The HTML pages are in sphinx_output.
+[rosdoc2] [INFO] Sphinx-build exited with return code '0'
+[rosdoc2] [INFO] Moving inventory file '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/horus_human_description/wrapped_sphinx_directory/sphinx_output/objects.inv' into cross-reference directory '/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_human_description/objects.inv'
+[rosdoc2] [INFO] Moving files for 'horus_human_description (sphinx)' from '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/horus_human_description/wrapped_sphinx_directory/sphinx_output' into '/home/drscodex/Development/horus_docs/_build/html/docs/packages/doc_build/horus_human_description/output_staging/'.
+[rosdoc2] [INFO] Moved 81 files.
+[rosdoc2] [INFO] Moving files to final destination in '/home/drscodex/Development/horus_docs/_build/html/docs/packages/horus_human_description'.

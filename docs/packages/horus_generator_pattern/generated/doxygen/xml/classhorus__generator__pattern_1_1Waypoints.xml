@@ -1,0 +1,596 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__generator__pattern_1_1Waypoints" kind="class" language="C++" prot="public">
+    <compoundname>horus_generator_pattern::Waypoints</compoundname>
+    <basecompoundref refid="classhorus__generator__core_1_1Generator" prot="public" virt="non-virtual">horus_generator_core::Generator</basecompoundref>
+    <includes refid="waypoints_8hpp" local="no">waypoints.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1ac69c2b3e7dbff5abc0c2f7e4a76e08c9" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; horus_generator_pattern::Waypoints::joints_</definition>
+        <argsstring></argsstring>
+        <name>joints_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::joints_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>output order </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="92" column="17" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1a636b603c1a080231bdb0979d1c8a1c6d" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; horus_generator_pattern::Waypoints::times_</definition>
+        <argsstring></argsstring>
+        <name>times_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::times_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>s from start, increasing </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="93" column="17" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1a5a42af8eb9d86ed3cdc971755423f0cc" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; horus_generator_pattern::Waypoints::points_</definition>
+        <argsstring></argsstring>
+        <name>points_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::points_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one row of joints_ per time </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="94" column="17" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="94" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1a921ba4e14da290cd34b4835650ab12e2" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_generator_pattern::Waypoints::smooth_</definition>
+        <argsstring></argsstring>
+        <name>smooth_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::smooth_</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>cosine ease, else linear </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="95" column="10" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="95" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1acf06750ed4c1810c2e9af1462489cb10" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_generator_pattern::Waypoints::cycling_</definition>
+        <argsstring></argsstring>
+        <name>cycling_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::cycling_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>restart at the end, else finish </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="96" column="10" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="96" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1a476d24730432f416ce5cf911c275f0bb" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_generator_pattern::Waypoints::start_from_current_</definition>
+        <argsstring></argsstring>
+        <name>start_from_current_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::start_from_current_</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>first waypoint = measured pose </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="97" column="10" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="97" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1a5a8c38909ab6204469fa85b082d3bfe4" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string horus_generator_pattern::Waypoints::quantity_</definition>
+        <argsstring></argsstring>
+        <name>quantity_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::quantity_</qualifiedname>
+        <initializer>{&quot;position&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>position | velocity | effort </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="98" column="17" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1ade29f95510e836cbb8adbe0404c6c497" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Waypoints::speed_scale_</definition>
+        <argsstring></argsstring>
+        <name>speed_scale_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::speed_scale_</qualifiedname>
+        <initializer>{1.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>live, from the server </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="99" column="12" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1a3f3166e91fef9f7f85048802e03b50fe" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Waypoints::t_</definition>
+        <argsstring></argsstring>
+        <name>t_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::t_</qualifiedname>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>s played </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="103" column="12" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="103" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1ad91c847351e1459116a1fe8da8bd06ea" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::vector&lt; double &gt; &gt;</type>
+        <definition>std::vector&lt;std::vector&lt;double&gt; &gt; horus_generator_pattern::Waypoints::run_points_</definition>
+        <argsstring></argsstring>
+        <name>run_points_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::run_points_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>points_ with the start pose applied </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="104" column="17" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1ac939f9bbb5506a471a7f15c341a4c183" prot="private" static="no" mutable="no">
+        <type>rclcpp::Subscription&lt; sensor_msgs::msg::JointState &gt;::SharedPtr</type>
+        <definition>rclcpp::Subscription&lt;sensor_msgs::msg::JointState&gt;::SharedPtr horus_generator_pattern::Waypoints::js_sub_</definition>
+        <argsstring></argsstring>
+        <name>js_sub_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::js_sub_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="105" column="38" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="105" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1a075dd86bfeb07cd5085c1bcc8205b9a6" prot="private" static="no" mutable="yes">
+        <type>std::mutex</type>
+        <definition>std::mutex horus_generator_pattern::Waypoints::js_mutex_</definition>
+        <argsstring></argsstring>
+        <name>js_mutex_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::js_mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>guards measured_ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="106" column="24" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Waypoints_1a77ae00b19f49d415056db7c22a37d205" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, double &gt;</type>
+        <definition>std::map&lt;std::string, double&gt; horus_generator_pattern::Waypoints::measured_</definition>
+        <argsstring></argsstring>
+        <name>measured_</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::measured_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>latest measured position per joint </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="107" column="14" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="107" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1adefaacf84d5b54e3dff13f7b31b5cf52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_generator_pattern::Waypoints::configure</definition>
+        <argsstring>(const horus_generator_core::NodePtr &amp;node, const std::string &amp;name) override</argsstring>
+        <name>configure</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::configure</qualifiedname>
+        <param>
+          <type>const horus_generator_core::NodePtr &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Read joints, waypoints (YAML or CSV), interpolation and options. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hosting lifecycle node, used for parameters, logging and the joint-state subscription. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This instance&apos;s parameter namespace; parameters live under <computeroutput>&lt;name&gt;.*</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="39" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1af940546d59ed2022ed8224b2dfb94765" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void horus_generator_pattern::Waypoints::activate</definition>
+        <argsstring>() override</argsstring>
+        <name>activate</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::activate</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1a8ba4fe18eef6b597af8a554c6fa97a0e">activate</reimplements>
+        <briefdescription>
+<para>Become the active generator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="42" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1a277c923f89d60f30b05f15428ebdc2e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void horus_generator_pattern::Waypoints::deactivate</definition>
+        <argsstring>() override</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::deactivate</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1ae533309152199cd26ba7048d5763ba2b">deactivate</reimplements>
+        <briefdescription>
+<para>Stop being the active generator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="45" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1a07b34f64e4091ea17d7dd44aa3046673" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void horus_generator_pattern::Waypoints::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::reset</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1a29b0093aed724a059d09a9de93ae39a7">reset</reimplements>
+        <briefdescription>
+<para>Rewind to the first waypoint (and capture the current pose if <computeroutput>start_from_current</computeroutput>). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="48" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1aee34aff08a0f1cb57b044463dbb0f640" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; horus_generator_pattern::Waypoints::update</definition>
+        <argsstring>(const rclcpp::Time &amp;time, const rclcpp::Duration &amp;period) override</argsstring>
+        <name>update</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::update</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea">update</reimplements>
+        <param>
+          <type>const rclcpp::Time &amp;</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const rclcpp::Duration &amp;</type>
+          <declname>period</declname>
+        </param>
+        <briefdescription>
+<para>Advance along the trajectory and interpolate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current time (unused). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time since the previous tick, already scaled by the server&apos;s speed_scale. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>One position per joint, in <computeroutput>joints</computeroutput> order. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="56" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1a8b16859483807126b87cd499bb520c57" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool horus_generator_pattern::Waypoints::finished</definition>
+        <argsstring>() const override</argsstring>
+        <name>finished</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::finished</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1a2d142582f4e25f6cc24f542aeeffcf36">finished</reimplements>
+        <briefdescription>
+<para>Whether a non-cycling trajectory reached its last waypoint. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True when done. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="59" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1aac2e13af9f5083b285e885bb64b0ebf0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Waypoints::progress</definition>
+        <argsstring>() const override</argsstring>
+        <name>progress</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::progress</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1aab97360799bfef185b3789e98428f3e8">progress</reimplements>
+        <briefdescription>
+<para>Fraction of the trajectory played. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>0..1. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="62" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1ace2dcca71f50ee0e984d2878955e7065" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; horus_generator_pattern::Waypoints::jointNames</definition>
+        <argsstring>() const override</argsstring>
+        <name>jointNames</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::jointNames</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1ad3fbc23d20d533b7278714729b49241f">jointNames</reimplements>
+        <briefdescription>
+<para>Joint order of the output. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The <computeroutput>joints</computeroutput> list. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="65" column="17" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="65" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1ab56ea98d0e555483d18543e73a2c16a2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::string</type>
+        <definition>std::string horus_generator_pattern::Waypoints::quantity</definition>
+        <argsstring>() const override</argsstring>
+        <name>quantity</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::quantity</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1a42aba85d6daebc7479a884d46362d316">quantity</reimplements>
+        <briefdescription>
+<para>position | velocity | effort. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The configured quantity. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="68" column="17" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="68" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1ae90b24779ef7a314900799d9ba0a0aa8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void horus_generator_pattern::Waypoints::setSpeedScale</definition>
+        <argsstring>(double scale) override</argsstring>
+        <name>setSpeedScale</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::setSpeedScale</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1aac97a06d1cdf642b3bb1b3993cc724c4">setSpeedScale</reimplements>
+        <param>
+          <type>double</type>
+          <declname>scale</declname>
+        </param>
+        <briefdescription>
+<para>Remember the speed scale (velocity output is multiplied by it). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>scale</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>speed_scale. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="71" column="10" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="71" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1a66694d7ff0f1f2b83010d861cd1b35d0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; horus_generator_pattern::Waypoints::sampleRate</definition>
+        <argsstring>(double t) const</argsstring>
+        <name>sampleRate</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::sampleRate</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Time derivative of the trajectory at a time (exposed for tests). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Seconds from the start. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>One velocity per joint, in trajectory time (not yet speed-scaled). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="78" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1a7aa9f0fcb5e423cb3a9b13479e2859d2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; horus_generator_pattern::Waypoints::sample</definition>
+        <argsstring>(double t) const</argsstring>
+        <name>sample</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::sample</qualifiedname>
+        <param>
+          <type>double</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+<para>Interpolate the trajectory at a time (exposed for tests). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>t</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Seconds from the start, clamped to the trajectory. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>One position per joint. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="85" column="17"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Waypoints_1a971a0b89f05e97b33ff9e7392eae2663" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool horus_generator_pattern::Waypoints::loadCsv</definition>
+        <argsstring>(const std::string &amp;path, const horus_generator_core::NodePtr &amp;node)</argsstring>
+        <name>loadCsv</name>
+        <qualifiedname>horus_generator_pattern::Waypoints::loadCsv</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>const horus_generator_core::NodePtr &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/waypoints.hpp" line="88" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Follows a time-stamped list of joint waypoints. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>horus_generator_core::Generator</label>
+        <link refid="classhorus__generator__core_1_1Generator" external="/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_core/horus_generator_core.tag"/>
+      </node>
+      <node id="1">
+        <label>horus_generator_pattern::Waypoints</label>
+        <link refid="classhorus__generator__pattern_1_1Waypoints"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>horus_generator_core::Generator</label>
+        <link refid="classhorus__generator__core_1_1Generator" external="/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_core/horus_generator_core.tag"/>
+      </node>
+      <node id="1">
+        <label>horus_generator_pattern::Waypoints</label>
+        <link refid="classhorus__generator__pattern_1_1Waypoints"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/horus_generator_pattern/waypoints.hpp" line="31" column="1" bodyfile="include/horus_generator_pattern/waypoints.hpp" bodystart="32" bodyend="108"/>
+    <listofallmembers>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1af940546d59ed2022ed8224b2dfb94765" prot="public" virt="virtual"><scope>horus_generator_pattern::Waypoints</scope><name>activate</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1adefaacf84d5b54e3dff13f7b31b5cf52" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>configure</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1a186b7873eed1152d97480a06e37311a3" prot="public" virt="pure-virtual" ambiguityscope="horus_generator_core::Generator::"><scope>horus_generator_pattern::Waypoints</scope><name>configure</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1acf06750ed4c1810c2e9af1462489cb10" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>cycling_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a277c923f89d60f30b05f15428ebdc2e0" prot="public" virt="virtual"><scope>horus_generator_pattern::Waypoints</scope><name>deactivate</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a8b16859483807126b87cd499bb520c57" prot="public" virt="virtual"><scope>horus_generator_pattern::Waypoints</scope><name>finished</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1ace2dcca71f50ee0e984d2878955e7065" prot="public" virt="virtual"><scope>horus_generator_pattern::Waypoints</scope><name>jointNames</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1ac69c2b3e7dbff5abc0c2f7e4a76e08c9" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>joints_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a075dd86bfeb07cd5085c1bcc8205b9a6" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>js_mutex_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1ac939f9bbb5506a471a7f15c341a4c183" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>js_sub_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a971a0b89f05e97b33ff9e7392eae2663" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>loadCsv</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a77ae00b19f49d415056db7c22a37d205" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>measured_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a5a42af8eb9d86ed3cdc971755423f0cc" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>points_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1aac2e13af9f5083b285e885bb64b0ebf0" prot="public" virt="virtual"><scope>horus_generator_pattern::Waypoints</scope><name>progress</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1ab56ea98d0e555483d18543e73a2c16a2" prot="public" virt="virtual"><scope>horus_generator_pattern::Waypoints</scope><name>quantity</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a5a8c38909ab6204469fa85b082d3bfe4" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>quantity_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a07b34f64e4091ea17d7dd44aa3046673" prot="public" virt="virtual"><scope>horus_generator_pattern::Waypoints</scope><name>reset</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1ad91c847351e1459116a1fe8da8bd06ea" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>run_points_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a7aa9f0fcb5e423cb3a9b13479e2859d2" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>sample</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a66694d7ff0f1f2b83010d861cd1b35d0" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>sampleRate</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1ae90b24779ef7a314900799d9ba0a0aa8" prot="public" virt="virtual"><scope>horus_generator_pattern::Waypoints</scope><name>setSpeedScale</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a921ba4e14da290cd34b4835650ab12e2" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>smooth_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1ade29f95510e836cbb8adbe0404c6c497" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>speed_scale_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a476d24730432f416ce5cf911c275f0bb" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>start_from_current_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a3f3166e91fef9f7f85048802e03b50fe" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>t_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1a636b603c1a080231bdb0979d1c8a1c6d" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Waypoints</scope><name>times_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Waypoints_1aee34aff08a0f1cb57b044463dbb0f640" prot="public" virt="virtual"><scope>horus_generator_pattern::Waypoints</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

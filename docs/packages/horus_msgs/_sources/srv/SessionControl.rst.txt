@@ -1,0 +1,8 @@
+SessionControl
+==============
+This is a ROS service definition.
+
+**Source**
+
+.. literalinclude:: SessionControl.srv
+

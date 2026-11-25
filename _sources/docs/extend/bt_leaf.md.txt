@@ -1,0 +1,36 @@
+# Write a tree leaf
+
+Most protocols need only new XML using the existing leaves (see {doc}`../configuration/supervisor_trees`).
+Write a leaf when a tree must call a new server or check a new condition.
+
+```cpp
+#include "behaviortree_cpp/condition_node.h"
+#include "horus_bt/node_ptr.hpp"
+
+class IsStanding : public BT::ConditionNode {
+ public:
+  IsStanding(const std::string& name, const BT::NodeConfig& config, const horus_bt::NodePtr& node)
+      : BT::ConditionNode(name, config), node_(node) {
+    // create subscriptions on a private callback group + executor and drain it in tick()
+    // (see condition_nodes.hpp), so the leaf works standalone and composed
+  }
+  static BT::PortsList providedPorts() { return {BT::InputPort<double>("threshold", 0.8, "")}; }
+  BT::NodeStatus tick() override { return BT::NodeStatus::SUCCESS; }
+ private:
+  horus_bt::NodePtr node_;
+};
+```
+
+Leaves live in the `horus_bt` library and are registered by `horus_bt::TreeRunner`, which the
+supervisor uses to run its trees. Add the header to `include/horus_bt/` and one line to the
+constructor in `src/tree_runner.cpp`:
+
+```cpp
+registerLeaf<IsStanding>(*factory_, "IsStanding", node_);
+```
+
+then use `<IsStanding threshold="0.9"/>` in XML. The `node` a leaf receives is the supervisor; a leaf
+may read its parameters (as `ExecuteBehavior` reads `generator_action`). Rules: conditions never
+return RUNNING; action leaves cancel their work in `onHalted()`; never block a tick, because a mode
+change halts the tree from the tick thread. For a one-shot service call, derive from `ServiceLeaf`
+in `system_nodes.hpp` (see `StartRecording`, `AddTrialNote`).

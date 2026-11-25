@@ -1,0 +1,230 @@
+
+.. _program_listing_file_include_horus_bt_condition_nodes.hpp:
+
+Program Listing for File condition_nodes.hpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_bt_condition_nodes.hpp>` (``include/horus_bt/condition_nodes.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <chrono>
+   #include <cmath>
+   #include <map>
+   #include <memory>
+   #include <sstream>
+   #include <string>
+   #include <vector>
+   
+   #include "behaviortree_cpp/action_node.h"
+   #include "behaviortree_cpp/condition_node.h"
+   #include "diagnostic_msgs/msg/diagnostic_array.hpp"
+   #include "horus_bt/node_ptr.hpp"
+   #include "rclcpp/create_generic_subscription.hpp"
+   #include "rclcpp/rclcpp.hpp"
+   #include "sensor_msgs/msg/joint_state.hpp"
+   
+   namespace horus_bt
+   {
+   
+   namespace detail
+   {
+   inline std::vector<std::string> splitList(const std::string& text)
+   {
+       std::vector<std::string> out;
+       std::stringstream ss(text);
+       std::string item;
+       while (std::getline(ss, item, ','))
+       {
+           item.erase(0, item.find_first_not_of(" \t"));
+           item.erase(item.find_last_not_of(" \t") + 1);
+           if (!item.empty()) out.push_back(item);
+       }
+       return out;
+   }
+   
+   struct LeafExecutor
+   {
+       explicit LeafExecutor(const NodePtr& node)
+       {
+           group = node->create_callback_group(rclcpp::CallbackGroupType::MutuallyExclusive, false);
+           exec.add_callback_group(group, node->get_node_base_interface());
+       }
+       void drain() { exec.spin_all(std::chrono::milliseconds(5)); }
+       rclcpp::CallbackGroup::SharedPtr group;            
+       rclcpp::executors::SingleThreadedExecutor exec;    
+   };
+   }  // namespace detail
+   
+   class IsAtPoseNode : public BT::ConditionNode
+   {
+      public:
+       IsAtPoseNode(const std::string& name, const BT::NodeConfig& config, const NodePtr& node)
+           : BT::ConditionNode(name, config), node_(node), leaf_(node)
+       {
+           rclcpp::SubscriptionOptions opts;
+           opts.callback_group = leaf_.group;
+           const auto topic = getInput<std::string>("topic").value_or("/joint_states");
+           sub_ = node_->create_subscription<sensor_msgs::msg::JointState>(
+               topic, rclcpp::SensorDataQoS(),
+               [this](sensor_msgs::msg::JointState::ConstSharedPtr m)
+               {
+                   for (std::size_t i = 0; i < m->name.size() && i < m->position.size(); ++i) measured_[m->name[i]] = m->position[i];
+               },
+               opts);
+       }
+   
+       static BT::PortsList providedPorts()
+       {
+           return {BT::InputPort<std::string>("joints", "comma-separated joint names"),
+                   BT::InputPort<std::string>("positions", "comma-separated target positions"),
+                   BT::InputPort<double>("tolerance", 0.05, "max absolute error per joint"),
+                   BT::InputPort<std::string>("topic", "/joint_states", "sensor_msgs/JointState topic")};
+       }
+   
+       BT::NodeStatus tick() override
+       {
+           leaf_.drain();
+           const auto joints = detail::splitList(getInput<std::string>("joints").value_or(""));
+           const auto targets = detail::splitList(getInput<std::string>("positions").value_or(""));
+           const double tol = getInput<double>("tolerance").value_or(0.05);
+           if (joints.empty() || joints.size() != targets.size())
+           {
+               RCLCPP_ERROR(node_->get_logger(), "IsAtPose: joints and positions must have the same length");
+               return BT::NodeStatus::FAILURE;
+           }
+           for (std::size_t i = 0; i < joints.size(); ++i)
+           {
+               const auto it = measured_.find(joints[i]);
+               if (it == measured_.end() || std::fabs(it->second - std::stod(targets[i])) > tol) return BT::NodeStatus::FAILURE;
+           }
+           return BT::NodeStatus::SUCCESS;
+       }
+   
+      private:
+       NodePtr node_;
+       detail::LeafExecutor leaf_;
+       rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr sub_;
+       std::map<std::string, double> measured_; 
+   };
+   
+   class IsHealthyNode : public BT::ConditionNode
+   {
+      public:
+       IsHealthyNode(const std::string& name, const BT::NodeConfig& config, const NodePtr& node)
+           : BT::ConditionNode(name, config), node_(node), leaf_(node)
+       {
+           rclcpp::SubscriptionOptions opts;
+           opts.callback_group = leaf_.group;
+           sub_ = node_->create_subscription<diagnostic_msgs::msg::DiagnosticArray>(
+               "/diagnostics", rclcpp::QoS(50),
+               [this](diagnostic_msgs::msg::DiagnosticArray::ConstSharedPtr m)
+               {
+                   for (const auto& st : m->status) level_[st.name] = st.level;
+               },
+               opts);
+       }
+   
+       static BT::PortsList providedPorts()
+       {
+           return {BT::InputPort<std::string>("source", "", "substring of the diagnostic names to check; empty = all"),
+                   BT::InputPort<std::string>("level", "error", "fail at: warn | error")};
+       }
+   
+       BT::NodeStatus tick() override
+       {
+           leaf_.drain();
+           const auto source = getInput<std::string>("source").value_or("");
+           const unsigned char limit = getInput<std::string>("level").value_or("error") == "warn"
+                                           ? diagnostic_msgs::msg::DiagnosticStatus::WARN
+                                           : diagnostic_msgs::msg::DiagnosticStatus::ERROR;
+           for (const auto& [name, level] : level_)
+               if ((source.empty() || name.find(source) != std::string::npos) && level >= limit) /* STALE = 3 */
+                   return BT::NodeStatus::FAILURE;
+           return BT::NodeStatus::SUCCESS;
+       }
+   
+      private:
+       NodePtr node_;
+       detail::LeafExecutor leaf_;
+       rclcpp::Subscription<diagnostic_msgs::msg::DiagnosticArray>::SharedPtr sub_;
+       std::map<std::string, unsigned char> level_; 
+   };
+   
+   class WaitForMessageNode : public BT::StatefulActionNode
+   {
+      public:
+       WaitForMessageNode(const std::string& name, const BT::NodeConfig& config, const NodePtr& node)
+           : BT::StatefulActionNode(name, config), node_(node), leaf_(node)
+       {
+       }
+   
+       static BT::PortsList providedPorts()
+       {
+           return {BT::InputPort<std::string>("topic", "topic to wait on"),
+                   BT::InputPort<std::string>("type", "message type, e.g. human_msgs/msg/GaitEvent"),
+                   BT::InputPort<double>("timeout", 0.0, "s; 0 = wait forever")};
+       }
+   
+       BT::NodeStatus onStart() override
+       {
+           const auto topic = getInput<std::string>("topic").value_or("");
+           const auto type = getInput<std::string>("type").value_or("");
+           if (topic.empty() || type.empty())
+           {
+               RCLCPP_ERROR(node_->get_logger(), "WaitForMessage: 'topic' and 'type' are required");
+               return BT::NodeStatus::FAILURE;
+           }
+           received_ = false;
+           timeout_ = getInput<double>("timeout").value_or(0.0);
+           start_ = std::chrono::steady_clock::now();
+           rclcpp::SubscriptionOptions opts;
+           opts.callback_group = leaf_.group;
+           try
+           {
+               sub_ = rclcpp::create_generic_subscription(
+                   node_->get_node_topics_interface(), topic, type, rclcpp::QoS(10),
+                   [this](std::shared_ptr<const rclcpp::SerializedMessage>) { received_ = true; }, opts);
+           }
+           catch (const std::exception& e)
+           {
+               RCLCPP_ERROR(node_->get_logger(), "WaitForMessage: cannot subscribe %s (%s): %s", topic.c_str(), type.c_str(), e.what());
+               return BT::NodeStatus::FAILURE;
+           }
+           return BT::NodeStatus::RUNNING;
+       }
+   
+       BT::NodeStatus onRunning() override
+       {
+           leaf_.drain();
+           if (received_)
+           {
+               sub_.reset();
+               return BT::NodeStatus::SUCCESS;
+           }
+           if (timeout_ > 0.0 &&
+               std::chrono::duration<double>(std::chrono::steady_clock::now() - start_).count() > timeout_)
+           {
+               sub_.reset();
+               return BT::NodeStatus::FAILURE;
+           }
+           return BT::NodeStatus::RUNNING;
+       }
+   
+       void onHalted() override { sub_.reset(); }
+   
+      private:
+       NodePtr node_;
+       detail::LeafExecutor leaf_;
+       rclcpp::GenericSubscription::SharedPtr sub_;
+       bool received_{false};
+       double timeout_{0.0};                                   
+       std::chrono::steady_clock::time_point start_;
+   };
+   
+   }  // namespace horus_bt

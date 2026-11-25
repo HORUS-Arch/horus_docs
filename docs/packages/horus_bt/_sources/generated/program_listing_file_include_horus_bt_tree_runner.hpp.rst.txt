@@ -1,0 +1,72 @@
+
+.. _program_listing_file_include_horus_bt_tree_runner.hpp:
+
+Program Listing for File tree_runner.hpp
+========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_bt_tree_runner.hpp>` (``include/horus_bt/tree_runner.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <chrono>
+   #include <condition_variable>
+   #include <cstdint>
+   #include <functional>
+   #include <memory>
+   #include <mutex>
+   #include <optional>
+   #include <string>
+   #include <thread>
+   #include <vector>
+   
+   #include "behaviortree_cpp/bt_factory.h"
+   #include "horus_bt/node_ptr.hpp"
+   
+   namespace horus_bt
+   {
+   
+   struct BehaviorChannel;
+   
+   class TreeRunner
+   {
+      public:
+       using Done = std::function<void(std::uint64_t, bool, const std::string&)>;
+   
+       TreeRunner(const NodePtr& node, double tick_hz);
+       ~TreeRunner();
+   
+       std::size_t load(const std::vector<std::string>& dirs);
+   
+       std::vector<std::string> trees() const;
+   
+       void start(const std::string& tree, std::uint64_t id, Done done);
+   
+       void stop();
+   
+      private:
+       struct Request
+       {
+           std::string tree;
+           std::uint64_t id{0};
+           Done done;
+       };
+       void loop();
+   
+       NodePtr node_;
+       std::unique_ptr<BT::BehaviorTreeFactory> factory_;
+       std::shared_ptr<BehaviorChannel> channel_;     
+       std::chrono::steady_clock::duration period_;
+       std::mutex mutex_;
+       std::condition_variable cv_;
+       std::optional<Request> pending_;               
+       bool halt_{false};                             
+       bool quit_{false};
+       std::thread thread_;
+   };
+   
+   }  // namespace horus_bt

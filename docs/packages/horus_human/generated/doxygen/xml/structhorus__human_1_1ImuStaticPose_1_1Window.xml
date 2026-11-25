@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhorus__human_1_1ImuStaticPose_1_1Window" kind="struct" language="C++" prot="private">
+    <compoundname>horus_human::ImuStaticPose::Window</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhorus__human_1_1ImuStaticPose_1_1Window_1ae8473e9a61a3f3ade1f5457eebf1de47" prot="public" static="no" mutable="no">
+        <type>tf2::Quaternion</type>
+        <definition>tf2::Quaternion horus_human::ImuStaticPose::Window::first</definition>
+        <argsstring></argsstring>
+        <name>first</name>
+        <qualifiedname>horus_human::ImuStaticPose::Window::first</qualifiedname>
+        <initializer>{0, 0, 0, 1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sign reference for quaternion averaging </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="45" column="25" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="45" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__human_1_1ImuStaticPose_1_1Window_1a8922c0a1ab6c55415eae8271692ec249" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_human::ImuStaticPose::Window::q[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>q</name>
+        <qualifiedname>horus_human::ImuStaticPose::Window::q</qualifiedname>
+        <initializer>{0, 0, 0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>summed x, y, z, w </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="46" column="16" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__human_1_1ImuStaticPose_1_1Window_1a38b54deea117f2dfca290638d148afca" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t horus_human::ImuStaticPose::Window::q_count</definition>
+        <argsstring></argsstring>
+        <name>q_count</name>
+        <qualifiedname>horus_human::ImuStaticPose::Window::q_count</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>samples that carried an orientation </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="47" column="21" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="47" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__human_1_1ImuStaticPose_1_1Window_1a7f5842a8f83aadf60953bdfb061643ff" prot="public" static="no" mutable="no">
+        <type>tf2::Vector3</type>
+        <definition>tf2::Vector3 horus_human::ImuStaticPose::Window::gyro</definition>
+        <argsstring></argsstring>
+        <name>gyro</name>
+        <qualifiedname>horus_human::ImuStaticPose::Window::gyro</qualifiedname>
+        <initializer>{0, 0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>summed angular velocity </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="48" column="22" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="48" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__human_1_1ImuStaticPose_1_1Window_1a309ba3e4bdd5658ccddfb40d4aa15439" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_human::ImuStaticPose::Window::gyro_sq</definition>
+        <argsstring></argsstring>
+        <name>gyro_sq</name>
+        <qualifiedname>horus_human::ImuStaticPose::Window::gyro_sq</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>summed |angular velocity|^2 </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="49" column="16" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="49" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__human_1_1ImuStaticPose_1_1Window_1a2aedf719ff680ce04c6a8383fe456255" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t horus_human::ImuStaticPose::Window::count</definition>
+        <argsstring></argsstring>
+        <name>count</name>
+        <qualifiedname>horus_human::ImuStaticPose::Window::count</qualifiedname>
+        <initializer>{0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>samples </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="50" column="21" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="50" bodyend="50"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Running sums of one collection window. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_human/default_calibrations.hpp" line="43" column="5" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="44" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a2aedf719ff680ce04c6a8383fe456255" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose::Window</scope><name>count</name></member>
+      <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1ae8473e9a61a3f3ade1f5457eebf1de47" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose::Window</scope><name>first</name></member>
+      <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a7f5842a8f83aadf60953bdfb061643ff" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose::Window</scope><name>gyro</name></member>
+      <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a309ba3e4bdd5658ccddfb40d4aa15439" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose::Window</scope><name>gyro_sq</name></member>
+      <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a8922c0a1ab6c55415eae8271692ec249" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose::Window</scope><name>q</name></member>
+      <member refid="structhorus__human_1_1ImuStaticPose_1_1Window_1a38b54deea117f2dfca290638d148afca" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose::Window</scope><name>q_count</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

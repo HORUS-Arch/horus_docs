@@ -1,0 +1,33 @@
+.. GENERATED_CONTENT by rosdoc2.verbs.build.builders.sphinx_builder.
+
+horus_setup_assistant
+=====================
+
+MoveIt-Setup-Assistant analog for HORUS: scaffolds a new independent &lt;device&gt;_ros2
+    device repo (description + config-driven controllers + catalog/.repos snippets) so a new device
+    becomes HORUS-ready without hand-writing boilerplate.
+
+
+.. toctree::
+   :maxdepth: 2
+
+   Links <__links>
+   Python API <modules>
+
+
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+
+   Standard Documents <__standards>
+
+
+.. include:: __readme_include.rst
+
+.. toctree::
+   :hidden:
+
+   genindex

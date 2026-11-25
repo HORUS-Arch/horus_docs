@@ -1,0 +1,7 @@
+horus\_setup\_assistant.generate module
+=======================================
+
+.. automodule:: horus_setup_assistant.generate
+   :members:
+   :show-inheritance:
+   :undoc-members:

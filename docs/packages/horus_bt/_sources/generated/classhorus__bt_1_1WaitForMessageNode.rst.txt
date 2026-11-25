@@ -1,0 +1,26 @@
+.. _exhale_class_classhorus__bt_1_1WaitForMessageNode:
+
+Class WaitForMessageNode
+========================
+
+- Defined in :ref:`file_include_horus_bt_condition_nodes.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public BT::StatefulActionNode``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_bt::WaitForMessageNode
+   :project: horus_bt Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

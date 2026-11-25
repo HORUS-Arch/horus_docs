@@ -1,0 +1,117 @@
+
+.. _file_include_horus_human_core_channel_node.hpp:
+
+File channel_node.hpp
+=====================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_human_core>` (``include/horus_human_core``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+Generic lifecycle node for HORUS stage-1 (conditioning) processing: N named channels of one message type, each corrected by a pluggable calibration. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_human_core/channel_node.hpp``)
+----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_human_core_channel_node.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+Everything is configured from YAML:
+
+channels: [right_upper_leg, right_lower_leg] # unit names (segments, sides, muscles, ...) right_upper_leg.topic: /sensors/imus_a/sensor_0/imu calibration.plugin: horus_human/ImuStaticPose # "" = no calibration subject_id: s01 # set before configure -> latest files auto-load data_root: ~/horus_data mode: calibrated # calibrated | conditioned | bypass (runtime-settable)
+
+Output mode: ``calibrated`` = conditioning + calibration (default); ``conditioned`` = the node's own conditioning only (filtering, envelope), no calibration; ``bypass`` = the raw input republished untouched. Calibration windows always collect conditioned data, whatever the mode.
+
+Lifecycle: configure reads the YAML, loads the plugin, creates the outputs and auto-loads the subject's latest calibration files; activate subscribes to every channel and starts publishing; deactivate stops. Interfaces (all under the node's name):
+
+~/calibrate horus_msgs/action/Calibrate collect + compute (active only); result pending ~/save_calibration horus_msgs/srv/SaveCalibration write pending results for a subject ~/load_calibration horus_msgs/srv/LoadCalibration apply a file, or the subject's latest /diagnostics per-node status: which channels are calibrated, from which file
+
+A derived node only declares its outputs, publishes corrected samples, and may add its own conditioning step (filtering, envelope) that runs before calibration.
+
+Threading: subscription callbacks, services and the calibration thread share one mutex that guards the plugin and the calibration bookkeeping. 
+
+
+
+
+Includes
+--------
+
+
+- ``algorithm``
+
+- ``atomic``
+
+- ``chrono``
+
+- ``diagnostic_updater/diagnostic_updater.hpp``
+
+- ``horus_human_core/calibration_plugin.hpp`` (:ref:`file_include_horus_human_core_calibration_plugin.hpp`)
+
+- ``horus_human_core/calibration_store.hpp`` (:ref:`file_include_horus_human_core_calibration_store.hpp`)
+
+- ``horus_msgs/action/calibrate.hpp``
+
+- ``horus_msgs/srv/load_calibration.hpp``
+
+- ``horus_msgs/srv/save_calibration.hpp``
+
+- ``lifecycle_msgs/msg/state.hpp``
+
+- ``map``
+
+- ``memory``
+
+- ``mutex``
+
+- ``pluginlib/class_loader.hpp``
+
+- ``rclcpp/rclcpp.hpp``
+
+- ``rclcpp_action/rclcpp_action.hpp``
+
+- ``rclcpp_lifecycle/lifecycle_node.hpp``
+
+- ``set``
+
+- ``string``
+
+- ``thread``
+
+- ``vector``
+
+- ``yaml-cpp/yaml.h``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_human_core`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__human__core_1_1ChannelNode`
+

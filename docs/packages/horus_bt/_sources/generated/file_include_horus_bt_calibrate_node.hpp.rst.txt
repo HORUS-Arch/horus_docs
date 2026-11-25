@@ -1,0 +1,81 @@
+
+.. _file_include_horus_bt_calibrate_node.hpp:
+
+File calibrate_node.hpp
+=======================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_bt>` (``include/horus_bt``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+BT action leaf ``Calibrate``: run ~/calibrate on a HORUS processing node and save the result for the selected subject (or ``subject_id``). Lets protocol trees script calibrations. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_bt/calibrate_node.hpp``)
+----------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_bt_calibrate_node.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+<Calibrate node="/human/imus_a" unit="" duration="3.0"> saved for the session's subject <Calibrate node="/human/emgs" unit="rectus_femoris_r" save="false"> 
+
+
+
+
+Includes
+--------
+
+
+- ``behaviortree_cpp/action_node.h``
+
+- ``chrono``
+
+- ``future``
+
+- ``horus_bt/node_ptr.hpp`` (:ref:`file_include_horus_bt_node_ptr.hpp`)
+
+- ``horus_msgs/action/calibrate.hpp``
+
+- ``horus_msgs/srv/save_calibration.hpp``
+
+- ``memory``
+
+- ``rclcpp/rclcpp.hpp``
+
+- ``rclcpp_action/rclcpp_action.hpp``
+
+- ``string``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_bt`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__bt_1_1CalibrateNode`
+

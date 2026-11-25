@@ -1,0 +1,76 @@
+
+.. _file_include_horus_estimator_core_estimator.hpp:
+
+File estimator.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_estimator_core>` (``include/horus_estimator_core``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+Abstract state estimator for stage-2 state estimation (joint kinematics, gait events and phases, interaction torque, base orientation), loaded by pluginlib. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_estimator_core/estimator.hpp``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_estimator_core_estimator.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+Mirrors the Generator interface: lifecycle-shaped, and with no fixed per-tick input structure. An estimator subscribes to the inputs it needs (stage-1 human state on /human, robot state on /robot or the ros2_control broadcasters) through the node handle it receives in configure(), and publishes its own standard or human_msgs outputs. update() is called at the host's rate. 
+
+
+
+
+Includes
+--------
+
+
+- ``memory``
+
+- ``rclcpp/rclcpp.hpp``
+
+- ``rclcpp_lifecycle/lifecycle_node.hpp``
+
+- ``string``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_estimator_core`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__estimator__core_1_1Estimator`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_estimator_8hpp_1a43ff1c092d8ecf8eb49f8f05d0ad89a3`
+

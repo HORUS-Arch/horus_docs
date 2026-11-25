@@ -1,0 +1,8 @@
+TrialInfo
+=========
+This is a ROS message definition.
+
+**Source**
+
+.. literalinclude:: TrialInfo.msg
+

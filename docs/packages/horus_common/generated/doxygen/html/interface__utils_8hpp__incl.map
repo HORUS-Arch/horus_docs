@@ -1,0 +1,13 @@
+<map id="include/horus_common/interface_utils.hpp" name="include/horus_common/interface_utils.hpp">
+<area shape="rect" id="Node000001" title="Helpers for config&#45;driven components, resolve interface names and per&#45;joint arrays." alt="" coords="129,5,302,45"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,93,76,119"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="175,48,80,90,78,85,172,43"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="101,93,159,119"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="196,48,155,86,151,82,193,44"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="184,93,247,119"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="218,46,218,79,213,79,213,46"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="271,93,413,119"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="247,43,313,84,311,88,245,48"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="437,93,597,119"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="288,43,460,87,459,92,287,48"/>
+</map>

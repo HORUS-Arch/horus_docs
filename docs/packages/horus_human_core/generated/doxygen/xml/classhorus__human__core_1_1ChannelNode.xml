@@ -1,0 +1,1139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__human__core_1_1ChannelNode" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>horus_human_core::ChannelNode</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">rclcpp_lifecycle::LifecycleNode</basecompoundref>
+    <includes refid="channel__node_8hpp" local="no">channel_node.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">class</ref> <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">MsgT</ref></type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="private-type">
+      <memberdef kind="enum" id="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adb" prot="private" static="no" strong="no">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">int</ref></type>
+        <name>Mode</name>
+        <qualifiedname>horus_human_core::ChannelNode::Mode</qualifiedname>
+        <enumvalue id="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adbaf202734de4662e0d19d14c7e63a59f9c" prot="private">
+          <name>CALIBRATED</name>
+          <initializer>= 0</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>conditioning + calibration </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adba654c3d2627444067cc33d3125235fde6" prot="private">
+          <name>CONDITIONED</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>conditioning only </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adba4625ccfa583f3094a1e4cdf8fde961ab" prot="private">
+          <name>BYPASS</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>raw input, untouched </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="584" column="5" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="585" bodyend="589"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhorus__human__core_1_1ChannelNode_1a744f6a843f21108e5f129b256ac925fc" prot="public" static="no">
+        <type><ref refid="classhorus__human__core_1_1CalibrationPlugin" kindref="compound">CalibrationPlugin</ref>&lt; <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">MsgT</ref> &gt;</type>
+        <definition>using horus_human_core::ChannelNode&lt; MsgT &gt;::Plugin =  CalibrationPlugin&lt;MsgT&gt;</definition>
+        <argsstring></argsstring>
+        <name>Plugin</name>
+        <qualifiedname>horus_human_core::ChannelNode::Plugin</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="70" column="5" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhorus__human__core_1_1ChannelNode_1a3f9da5b1f0d59f8d0556170aceb55786" prot="public" static="no">
+        <type>horus_msgs::action::Calibrate</type>
+        <definition>using horus_human_core::ChannelNode&lt; MsgT &gt;::Calibrate =  horus_msgs::action::Calibrate</definition>
+        <argsstring></argsstring>
+        <name>Calibrate</name>
+        <qualifiedname>horus_human_core::ChannelNode::Calibrate</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="71" column="5" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhorus__human__core_1_1ChannelNode_1a9435676b728ebfebeae33b670d760296" prot="public" static="no">
+        <type>rclcpp_action::ServerGoalHandle&lt; Calibrate &gt;</type>
+        <definition>using horus_human_core::ChannelNode&lt; MsgT &gt;::GoalHandle =  rclcpp_action::ServerGoalHandle&lt;Calibrate&gt;</definition>
+        <argsstring></argsstring>
+        <name>GoalHandle</name>
+        <qualifiedname>horus_human_core::ChannelNode::GoalHandle</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="72" column="5" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="classhorus__human__core_1_1ChannelNode_1ac3f6ac10c61781ec33cc684d176828c9" prot="public" static="no">
+        <type>rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn</type>
+        <definition>using horus_human_core::ChannelNode&lt; MsgT &gt;::CallbackReturn =  rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn</definition>
+        <argsstring></argsstring>
+        <name>CallbackReturn</name>
+        <qualifiedname>horus_human_core::ChannelNode::CallbackReturn</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="73" column="5" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="73" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a0638b606d54016d6bfeae516f3a4bd87" prot="protected" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::channels_</definition>
+        <argsstring></argsstring>
+        <name>channels_</name>
+        <qualifiedname>horus_human_core::ChannelNode::channels_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>configured channel (unit) names, in YAML order </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="310" column="17" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="310" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1adee62c0c29e15dea0861c5c915c173f6" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">int</ref> &gt;</type>
+        <definition>std::atomic&lt;int&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::mode_</definition>
+        <argsstring></argsstring>
+        <name>mode_</name>
+        <qualifiedname>horus_human_core::ChannelNode::mode_</qualifiedname>
+        <initializer>{CALIBRATED}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>current output Mode </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="590" column="17" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="590" bodyend="590"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1ae880be57781c79ae67af3438beee4f13" prot="private" static="no" mutable="no">
+        <type>rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr</type>
+        <definition>rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr horus_human_core::ChannelNode&lt; MsgT &gt;::param_cb_</definition>
+        <argsstring></argsstring>
+        <name>param_cb_</name>
+        <qualifiedname>horus_human_core::ChannelNode::param_cb_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>validates <computeroutput>mode</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="591" column="71" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="591" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a0c5ddd5a8550bce37897d1c0e3bee3bf" prot="private" static="no" mutable="no">
+        <type>pluginlib::ClassLoader&lt; <ref refid="classhorus__human__core_1_1CalibrationPlugin" kindref="compound">Plugin</ref> &gt;</type>
+        <definition>pluginlib::ClassLoader&lt;Plugin&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::loader_</definition>
+        <argsstring></argsstring>
+        <name>loader_</name>
+        <qualifiedname>horus_human_core::ChannelNode::loader_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>must outlive plugin_ </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="593" column="28" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="593" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a6a27617f7014e9d000a3235c6cc10c54" prot="private" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="classhorus__human__core_1_1CalibrationPlugin" kindref="compound">Plugin</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Plugin&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::plugin_</definition>
+        <argsstring></argsstring>
+        <name>plugin_</name>
+        <qualifiedname>horus_human_core::ChannelNode::plugin_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>null = no calibration </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="594" column="21" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="594" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1ae0b2e8460d85cc6316a41a888ccf8069" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string horus_human_core::ChannelNode&lt; MsgT &gt;::plugin_name_</definition>
+        <argsstring></argsstring>
+        <name>plugin_name_</name>
+        <qualifiedname>horus_human_core::ChannelNode::plugin_name_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para><computeroutput>calibration.plugin</computeroutput> </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="595" column="17" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="595" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1aadaad1df837d703bd31e340219da1e47" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classhorus__human__core_1_1CalibrationStore" kindref="compound">CalibrationStore</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;CalibrationStore&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::store_</definition>
+        <argsstring></argsstring>
+        <name>store_</name>
+        <qualifiedname>horus_human_core::ChannelNode::store_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>file layout under data_root </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="596" column="21" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="596" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1adb1f0159cffaf07cceb1150d6f307144" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::topics_</definition>
+        <argsstring></argsstring>
+        <name>topics_</name>
+        <qualifiedname>horus_human_core::ChannelNode::topics_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>channel -&gt; input topic </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="597" column="14" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="597" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a4e1b55ce6fa778fbca4b43510f2e9605" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">typename</ref> rclcpp::Subscription&lt; <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">MsgT</ref> &gt;<ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">::SharedPtr</ref> &gt;</type>
+        <definition>std::vector&lt;typename rclcpp::Subscription&lt;MsgT&gt;::SharedPtr&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::subscriptions_</definition>
+        <argsstring></argsstring>
+        <name>subscriptions_</name>
+        <qualifiedname>horus_human_core::ChannelNode::subscriptions_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>one per channel </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="598" column="18" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="598" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a397f8050334929a1b5026b25b3319dfe" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex horus_human_core::ChannelNode&lt; MsgT &gt;::mutex_</definition>
+        <argsstring></argsstring>
+        <name>mutex_</name>
+        <qualifiedname>horus_human_core::ChannelNode::mutex_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>guards plugin + bookkeeping </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="600" column="16" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="600" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1aa8ae65682ccf5af089fe18e4f35e70c6" prot="private" static="no" mutable="no">
+        <type>std::set&lt; std::string &gt;</type>
+        <definition>std::set&lt;std::string&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::collecting_</definition>
+        <argsstring></argsstring>
+        <name>collecting_</name>
+        <qualifiedname>horus_human_core::ChannelNode::collecting_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>units in a calibration window </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="601" column="14" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="601" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1ada928245b6efc47f0f1957d2500770df" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::size_t &gt;</type>
+        <definition>std::map&lt;std::string, std::size_t&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::collected_</definition>
+        <argsstring></argsstring>
+        <name>collected_</name>
+        <qualifiedname>horus_human_core::ChannelNode::collected_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>samples per collecting unit </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="602" column="14" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="602" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a87e19b265a3c4d721195d8edc45820ce" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, YAML::Node &gt;</type>
+        <definition>std::map&lt;std::string, YAML::Node&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::pending_</definition>
+        <argsstring></argsstring>
+        <name>pending_</name>
+        <qualifiedname>horus_human_core::ChannelNode::pending_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>computed, not yet saved </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="603" column="14" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="603" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a6336d5fd90b2562ed35babeda9ea6acd" prot="private" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::sources_</definition>
+        <argsstring></argsstring>
+        <name>sources_</name>
+        <qualifiedname>horus_human_core::ChannelNode::sources_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>unit -&gt; file path / &quot;unsaved&quot; </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="604" column="14" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="604" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1abe22c74b56ad81688491d804770d3a1a" prot="private" static="no" mutable="no">
+        <type>std::thread</type>
+        <definition>std::thread horus_human_core::ChannelNode&lt; MsgT &gt;::calibration_thread_</definition>
+        <argsstring></argsstring>
+        <name>calibration_thread_</name>
+        <qualifiedname>horus_human_core::ChannelNode::calibration_thread_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>runs one Calibrate goal </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="606" column="17" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="606" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a9501acb6ab428f5d6abb8fff8a1cef2d" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">bool</ref> &gt;</type>
+        <definition>std::atomic&lt;bool&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::calibrating_</definition>
+        <argsstring></argsstring>
+        <name>calibrating_</name>
+        <qualifiedname>horus_human_core::ChannelNode::calibrating_</qualifiedname>
+        <initializer>{<ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">false</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>a goal is running </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="607" column="17" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="607" bodyend="607"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a61ed3d5e4257bb2079bcc46702d110a9" prot="private" static="no" mutable="no">
+        <type>std::atomic&lt; <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">bool</ref> &gt;</type>
+        <definition>std::atomic&lt;bool&gt; horus_human_core::ChannelNode&lt; MsgT &gt;::stop_calibration_</definition>
+        <argsstring></argsstring>
+        <name>stop_calibration_</name>
+        <qualifiedname>horus_human_core::ChannelNode::stop_calibration_</qualifiedname>
+        <initializer>{<ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">false</ref>}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>abort request (deactivate) </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="608" column="17" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="608" bodyend="608"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a38138823e922d590da69c92bb914b686" prot="private" static="no" mutable="no">
+        <type>diagnostic_updater::Updater</type>
+        <definition>diagnostic_updater::Updater horus_human_core::ChannelNode&lt; MsgT &gt;::diagnostics_</definition>
+        <argsstring></argsstring>
+        <name>diagnostics_</name>
+        <qualifiedname>horus_human_core::ChannelNode::diagnostics_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>publishes on /diagnostics </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="610" column="33" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="610" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a248755ae3cc166b31b303453c3d231ba" prot="private" static="no" mutable="no">
+        <type>rclcpp_action::Server&lt; Calibrate &gt;<ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">::SharedPtr</ref></type>
+        <definition>rclcpp_action::Server&lt;Calibrate&gt;::SharedPtr horus_human_core::ChannelNode&lt; MsgT &gt;::calibrate_server_</definition>
+        <argsstring></argsstring>
+        <name>calibrate_server_</name>
+        <qualifiedname>horus_human_core::ChannelNode::calibrate_server_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="611" column="39" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="611" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a41e866b9a2526549b041bf9c92a73ab2" prot="private" static="no" mutable="no">
+        <type>rclcpp::Service&lt; horus_msgs::srv::SaveCalibration &gt;<ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">::SharedPtr</ref></type>
+        <definition>rclcpp::Service&lt;horus_msgs::srv::SaveCalibration&gt;::SharedPtr horus_human_core::ChannelNode&lt; MsgT &gt;::save_srv_</definition>
+        <argsstring></argsstring>
+        <name>save_srv_</name>
+        <qualifiedname>horus_human_core::ChannelNode::save_srv_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="612" column="42" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="612" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__human__core_1_1ChannelNode_1a5d6b81ff93efa8f1ae06477e92e1cbde" prot="private" static="no" mutable="no">
+        <type>rclcpp::Service&lt; horus_msgs::srv::LoadCalibration &gt;<ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">::SharedPtr</ref></type>
+        <definition>rclcpp::Service&lt;horus_msgs::srv::LoadCalibration&gt;::SharedPtr horus_human_core::ChannelNode&lt; MsgT &gt;::load_srv_</definition>
+        <argsstring></argsstring>
+        <name>load_srv_</name>
+        <qualifiedname>horus_human_core::ChannelNode::load_srv_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="613" column="42" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="613" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1aa26a2d6292d7d7f39b5c563b71d62058" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>horus_human_core::ChannelNode&lt; MsgT &gt;::ChannelNode</definition>
+        <argsstring>(const std::string &amp;name, const rclcpp::NodeOptions &amp;options, const std::string &amp;plugin_package, const std::string &amp;plugin_base)</argsstring>
+        <name>ChannelNode</name>
+        <qualifiedname>horus_human_core::ChannelNode::ChannelNode</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> rclcpp::NodeOptions &amp;</type>
+          <declname>options</declname>
+        </param>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::string &amp;</type>
+          <declname>plugin_package</declname>
+        </param>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::string &amp;</type>
+          <declname>plugin_base</declname>
+        </param>
+        <briefdescription>
+<para>Create the node and its always-available interfaces. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Default node name (overridden by the launch / rig file). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>options</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Node options (composition, remapping, parameter overrides). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>plugin_package</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Package declaring the plugin base class (for pluginlib). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>plugin_base</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Fully-qualified plugin base class name (for pluginlib). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="82" column="5" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="82" bodyend="134"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a96e6d1ea90b0a92031ae61c01288b200" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>horus_human_core::ChannelNode&lt; MsgT &gt;::~ChannelNode</definition>
+        <argsstring>() override</argsstring>
+        <name>~ChannelNode</name>
+        <qualifiedname>horus_human_core::ChannelNode::~ChannelNode</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="136" column="5" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="136" bodyend="140"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a18c979395c59478e97bfbda6c9322a07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CallbackReturn</type>
+        <definition>CallbackReturn horus_human_core::ChannelNode&lt; MsgT &gt;::on_configure</definition>
+        <argsstring>(const rclcpp_lifecycle::State &amp;) override</argsstring>
+        <name>on_configure</name>
+        <qualifiedname>horus_human_core::ChannelNode::on_configure</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> rclcpp_lifecycle::State &amp;</type>
+        </param>
+        <briefdescription>
+<para>Read the YAML, load the plugin, create outputs, auto-load the subject&apos;s calibration. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous state (unused). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SUCCESS, or FAILURE with the reason logged. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="149" column="20" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="149" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1ac01b0cdda7c9b3af379e2f50ff137125" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CallbackReturn</type>
+        <definition>CallbackReturn horus_human_core::ChannelNode&lt; MsgT &gt;::on_activate</definition>
+        <argsstring>(const rclcpp_lifecycle::State &amp;) override</argsstring>
+        <name>on_activate</name>
+        <qualifiedname>horus_human_core::ChannelNode::on_activate</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> rclcpp_lifecycle::State &amp;</type>
+        </param>
+        <briefdescription>
+<para>Subscribe to every channel and start the outputs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous state (unused). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SUCCESS. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="217" column="20" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="217" bodyend="226"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1adf9f9cc4f2a98bc8a46735694b5fff86" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CallbackReturn</type>
+        <definition>CallbackReturn horus_human_core::ChannelNode&lt; MsgT &gt;::on_deactivate</definition>
+        <argsstring>(const rclcpp_lifecycle::State &amp;) override</argsstring>
+        <name>on_deactivate</name>
+        <qualifiedname>horus_human_core::ChannelNode::on_deactivate</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> rclcpp_lifecycle::State &amp;</type>
+        </param>
+        <briefdescription>
+<para>Stop subscriptions and outputs; a running calibration is aborted. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous state (unused). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SUCCESS. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="233" column="20" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="233" bodyend="240"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a21a0d1930fd5d23b588ba6d6835ca0bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>CallbackReturn</type>
+        <definition>CallbackReturn horus_human_core::ChannelNode&lt; MsgT &gt;::on_cleanup</definition>
+        <argsstring>(const rclcpp_lifecycle::State &amp;) override</argsstring>
+        <name>on_cleanup</name>
+        <qualifiedname>horus_human_core::ChannelNode::on_cleanup</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> rclcpp_lifecycle::State &amp;</type>
+        </param>
+        <briefdescription>
+<para>Release the plugin and outputs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>state</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Previous state (unused). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>SUCCESS. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="247" column="20" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="247" bodyend="255"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a365fd6c79c0535c9a74cf6a63291c8cc" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">bool</ref></type>
+        <definition>virtual bool horus_human_core::ChannelNode&lt; MsgT &gt;::validateChannel</definition>
+        <argsstring>(const std::string &amp;, std::string &amp;)</argsstring>
+        <name>validateChannel</name>
+        <qualifiedname>horus_human_core::ChannelNode::validateChannel</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::string &amp;</type>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+        </param>
+        <briefdescription>
+<para>Check a channel name (e.g. against the human_msgs segment list). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel name from the YAML. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>why</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Receives the reason when invalid. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the channel is acceptable. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="266" column="18" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="266" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a466fe24ee1100480a1558611dc1445c1" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>virtual void horus_human_core::ChannelNode&lt; MsgT &gt;::configureOutputs</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;channels)=0</argsstring>
+        <name>configureOutputs</name>
+        <qualifiedname>horus_human_core::ChannelNode::configureOutputs</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::vector&lt; std::string &gt; &amp;</type>
+          <declname>channels</declname>
+        </param>
+        <briefdescription>
+<para>Create the node&apos;s publishers (called on configure). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channels</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The configured channel names. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="272" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a155a753d2391e3752d62b4a99a61a948" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>virtual void horus_human_core::ChannelNode&lt; MsgT &gt;::activateOutputs</definition>
+        <argsstring>(bool active)=0</argsstring>
+        <name>activateOutputs</name>
+        <qualifiedname>horus_human_core::ChannelNode::activateOutputs</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">bool</ref></type>
+          <declname>active</declname>
+        </param>
+        <briefdescription>
+<para>Activate or deactivate the node&apos;s publishers and timers. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>active</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>True on activate, false on deactivate. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="278" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1ae1fee3345d3906f0867de19fd907e476" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>virtual void horus_human_core::ChannelNode&lt; MsgT &gt;::cleanupOutputs</definition>
+        <argsstring>()=0</argsstring>
+        <name>cleanupOutputs</name>
+        <qualifiedname>horus_human_core::ChannelNode::cleanupOutputs</qualifiedname>
+        <briefdescription>
+<para>Destroy the node&apos;s publishers (called on cleanup). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="281" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a364eba3c9502e946e4cb528acbd3cc77" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>virtual void horus_human_core::ChannelNode&lt; MsgT &gt;::condition</definition>
+        <argsstring>(const std::string &amp;, MsgT &amp;)</argsstring>
+        <name>condition</name>
+        <qualifiedname>horus_human_core::ChannelNode::condition</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::string &amp;</type>
+        </param>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">MsgT</ref> &amp;</type>
+        </param>
+        <briefdescription>
+<para>Optional conditioning before calibration (filtering, envelope). Default: none. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The raw sample, modified in place. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="288" column="18" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="288" bodyend="288"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a73f726d5852bd68c1ab07c62ddc7827f" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>virtual void horus_human_core::ChannelNode&lt; MsgT &gt;::publish</definition>
+        <argsstring>(const std::string &amp;channel, const MsgT &amp;msg)=0</argsstring>
+        <name>publish</name>
+        <qualifiedname>horus_human_core::ChannelNode::publish</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::string &amp;</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">MsgT</ref> &amp;</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+<para>Publish one corrected sample. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Channel name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>msg</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The conditioned + calibrated sample. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="295" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" prot="protected" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">class</ref> <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">T</ref></type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T horus_human_core::ChannelNode&lt; MsgT &gt;::declareIfMissing</definition>
+        <argsstring>(const std::string &amp;name, const T &amp;fallback)</argsstring>
+        <name>declareIfMissing</name>
+        <qualifiedname>horus_human_core::ChannelNode::declareIfMissing</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>fallback</declname>
+        </param>
+        <briefdescription>
+<para>Declare a parameter once, then read it (channel keys are only known at configure). </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Parameter name. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>fallback</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Default value. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The parameter&apos;s value. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="304" column="7" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="304" bodyend="308"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a2f1dc5c59552f1485cca5c95dd1a9e26" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">int</ref></type>
+        <definition>static int horus_human_core::ChannelNode&lt; MsgT &gt;::parseMode</definition>
+        <argsstring>(const std::string &amp;m)</argsstring>
+        <name>parseMode</name>
+        <qualifiedname>horus_human_core::ChannelNode::parseMode</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::string &amp;</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="315" column="16" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="315" bodyend="321"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a877e880562195b93219b58819dd38207" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>void horus_human_core::ChannelNode&lt; MsgT &gt;::onSample</definition>
+        <argsstring>(const std::string &amp;ch, typename MsgT::UniquePtr msg)</argsstring>
+        <name>onSample</name>
+        <qualifiedname>horus_human_core::ChannelNode::onSample</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::string &amp;</type>
+          <declname>ch</declname>
+        </param>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">typename</ref> MsgT::UniquePtr</type>
+          <declname>msg</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="323" column="10" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="323" bodyend="339"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a036dcc27a6749b313485c9dc10585c4f" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>rclcpp_action::GoalResponse</type>
+        <definition>rclcpp_action::GoalResponse horus_human_core::ChannelNode&lt; MsgT &gt;::onGoal</definition>
+        <argsstring>(const std::shared_ptr&lt; const typename Calibrate::Goal &gt; &amp;goal)</argsstring>
+        <name>onGoal</name>
+        <qualifiedname>horus_human_core::ChannelNode::onGoal</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::shared_ptr&lt; <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> <ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">typename</ref> Calibrate::Goal &gt; &amp;</type>
+          <declname>goal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="343" column="33" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="343" bodyend="351"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a0669a6b629018df821ef769848bde1a4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>void horus_human_core::ChannelNode&lt; MsgT &gt;::startCalibration</definition>
+        <argsstring>(const std::shared_ptr&lt; GoalHandle &gt; handle)</argsstring>
+        <name>startCalibration</name>
+        <qualifiedname>horus_human_core::ChannelNode::startCalibration</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::shared_ptr&lt; GoalHandle &gt;</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="353" column="10" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="353" bodyend="359"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1aa0fe91983d96b3495721e1114ea7d441" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>void horus_human_core::ChannelNode&lt; MsgT &gt;::runCalibration</definition>
+        <argsstring>(const std::shared_ptr&lt; GoalHandle &gt; handle)</argsstring>
+        <name>runCalibration</name>
+        <qualifiedname>horus_human_core::ChannelNode::runCalibration</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::shared_ptr&lt; GoalHandle &gt;</type>
+          <declname>handle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="361" column="10" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="361" bodyend="446"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1abf247cb229eae24cc23f44f58c8a10b8" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>void horus_human_core::ChannelNode&lt; MsgT &gt;::onSave</definition>
+        <argsstring>(const std::shared_ptr&lt; horus_msgs::srv::SaveCalibration::Request &gt; req, std::shared_ptr&lt; horus_msgs::srv::SaveCalibration::Response &gt; res)</argsstring>
+        <name>onSave</name>
+        <qualifiedname>horus_human_core::ChannelNode::onSave</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::shared_ptr&lt; horus_msgs::srv::SaveCalibration::Request &gt;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; horus_msgs::srv::SaveCalibration::Response &gt;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="450" column="10" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="450" bodyend="486"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a37fcd12482c827ea1311328262e510d4" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>void horus_human_core::ChannelNode&lt; MsgT &gt;::onLoad</definition>
+        <argsstring>(const std::shared_ptr&lt; horus_msgs::srv::LoadCalibration::Request &gt; req, std::shared_ptr&lt; horus_msgs::srv::LoadCalibration::Response &gt; res)</argsstring>
+        <name>onLoad</name>
+        <qualifiedname>horus_human_core::ChannelNode::onLoad</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::shared_ptr&lt; horus_msgs::srv::LoadCalibration::Request &gt;</type>
+          <declname>req</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; horus_msgs::srv::LoadCalibration::Response &gt;</type>
+          <declname>res</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="488" column="10" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="488" bodyend="523"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1a7e4dc95769139a9adf72fa7ca5d01dc2" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; horus_human_core::ChannelNode&lt; MsgT &gt;::loadLatest</definition>
+        <argsstring>(const std::string &amp;subject, std::string &amp;message)</argsstring>
+        <name>loadLatest</name>
+        <qualifiedname>horus_human_core::ChannelNode::loadLatest</qualifiedname>
+        <param>
+          <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">const</ref> std::string &amp;</type>
+          <declname>subject</declname>
+        </param>
+        <param>
+          <type>std::string &amp;</type>
+          <declname>message</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="525" column="17" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="525" bodyend="553"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__human__core_1_1ChannelNode_1af7cc965986ebbd2e3f5a5f283ec0981c" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" kindref="member">void</ref></type>
+        <definition>void horus_human_core::ChannelNode&lt; MsgT &gt;::reportDiagnostics</definition>
+        <argsstring>(diagnostic_updater::DiagnosticStatusWrapper &amp;stat)</argsstring>
+        <name>reportDiagnostics</name>
+        <qualifiedname>horus_human_core::ChannelNode::reportDiagnostics</qualifiedname>
+        <param>
+          <type>diagnostic_updater::DiagnosticStatusWrapper &amp;</type>
+          <declname>stat</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human_core/channel_node.hpp" line="557" column="10" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="557" bodyend="580"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Lifecycle node hosting N channels of <computeroutput>MsgT</computeroutput>, a calibration plugin and its file handling. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>horus_human_core::ChannelNode&lt; MsgT &gt;</label>
+        <link refid="classhorus__human__core_1_1ChannelNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp_lifecycle::LifecycleNode</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>horus_human_core::ChannelNode&lt; MsgT &gt;</label>
+        <link refid="classhorus__human__core_1_1ChannelNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>rclcpp_lifecycle::LifecycleNode</label>
+      </node>
+    </collaborationgraph>
+    <location file="include/horus_human_core/channel_node.hpp" line="67" column="1" bodyfile="include/horus_human_core/channel_node.hpp" bodystart="68" bodyend="614"/>
+    <listofallmembers>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a155a753d2391e3752d62b4a99a61a948" prot="protected" virt="pure-virtual"><scope>horus_human_core::ChannelNode</scope><name>activateOutputs</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adba4625ccfa583f3094a1e4cdf8fde961ab" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>BYPASS</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a3f9da5b1f0d59f8d0556170aceb55786" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>Calibrate</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a248755ae3cc166b31b303453c3d231ba" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>calibrate_server_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adbaf202734de4662e0d19d14c7e63a59f9c" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>CALIBRATED</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a9501acb6ab428f5d6abb8fff8a1cef2d" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>calibrating_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1abe22c74b56ad81688491d804770d3a1a" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>calibration_thread_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ac3f6ac10c61781ec33cc684d176828c9" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>CallbackReturn</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1aa26a2d6292d7d7f39b5c563b71d62058" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>ChannelNode</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a0638b606d54016d6bfeae516f3a4bd87" prot="protected" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>channels_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ae1fee3345d3906f0867de19fd907e476" prot="protected" virt="pure-virtual"><scope>horus_human_core::ChannelNode</scope><name>cleanupOutputs</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ada928245b6efc47f0f1957d2500770df" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>collected_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1aa8ae65682ccf5af089fe18e4f35e70c6" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>collecting_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a364eba3c9502e946e4cb528acbd3cc77" prot="protected" virt="virtual"><scope>horus_human_core::ChannelNode</scope><name>condition</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adba654c3d2627444067cc33d3125235fde6" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>CONDITIONED</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a466fe24ee1100480a1558611dc1445c1" prot="protected" virt="pure-virtual"><scope>horus_human_core::ChannelNode</scope><name>configureOutputs</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a8d4b29f99ac574d5fa6d05b8236cc067" prot="protected" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>declareIfMissing</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a38138823e922d590da69c92bb914b686" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>diagnostics_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a9435676b728ebfebeae33b670d760296" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>GoalHandle</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a5d6b81ff93efa8f1ae06477e92e1cbde" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>load_srv_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a0c5ddd5a8550bce37897d1c0e3bee3bf" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>loader_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a7e4dc95769139a9adf72fa7ca5d01dc2" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>loadLatest</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ae52ada83402f3718111c10c027a75adb" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>Mode</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1adee62c0c29e15dea0861c5c915c173f6" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>mode_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a397f8050334929a1b5026b25b3319dfe" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>mutex_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ac01b0cdda7c9b3af379e2f50ff137125" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>on_activate</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a21a0d1930fd5d23b588ba6d6835ca0bb" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>on_cleanup</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a18c979395c59478e97bfbda6c9322a07" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>on_configure</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1adf9f9cc4f2a98bc8a46735694b5fff86" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>on_deactivate</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a036dcc27a6749b313485c9dc10585c4f" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>onGoal</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a37fcd12482c827ea1311328262e510d4" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>onLoad</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a877e880562195b93219b58819dd38207" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>onSample</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1abf247cb229eae24cc23f44f58c8a10b8" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>onSave</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ae880be57781c79ae67af3438beee4f13" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>param_cb_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a2f1dc5c59552f1485cca5c95dd1a9e26" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>parseMode</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a87e19b265a3c4d721195d8edc45820ce" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>pending_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a744f6a843f21108e5f129b256ac925fc" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>Plugin</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a6a27617f7014e9d000a3235c6cc10c54" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>plugin_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1ae0b2e8460d85cc6316a41a888ccf8069" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>plugin_name_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a73f726d5852bd68c1ab07c62ddc7827f" prot="protected" virt="pure-virtual"><scope>horus_human_core::ChannelNode</scope><name>publish</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1af7cc965986ebbd2e3f5a5f283ec0981c" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>reportDiagnostics</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1aa0fe91983d96b3495721e1114ea7d441" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>runCalibration</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a41e866b9a2526549b041bf9c92a73ab2" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>save_srv_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a6336d5fd90b2562ed35babeda9ea6acd" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>sources_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a0669a6b629018df821ef769848bde1a4" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>startCalibration</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a61ed3d5e4257bb2079bcc46702d110a9" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>stop_calibration_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1aadaad1df837d703bd31e340219da1e47" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>store_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a4e1b55ce6fa778fbca4b43510f2e9605" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>subscriptions_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1adb1f0159cffaf07cceb1150d6f307144" prot="private" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>topics_</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a365fd6c79c0535c9a74cf6a63291c8cc" prot="protected" virt="virtual"><scope>horus_human_core::ChannelNode</scope><name>validateChannel</name></member>
+      <member refid="classhorus__human__core_1_1ChannelNode_1a96e6d1ea90b0a92031ae61c01288b200" prot="public" virt="non-virtual"><scope>horus_human_core::ChannelNode</scope><name>~ChannelNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

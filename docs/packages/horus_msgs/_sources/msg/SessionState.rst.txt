@@ -1,0 +1,8 @@
+SessionState
+============
+This is a ROS message definition.
+
+**Source**
+
+.. literalinclude:: SessionState.msg
+

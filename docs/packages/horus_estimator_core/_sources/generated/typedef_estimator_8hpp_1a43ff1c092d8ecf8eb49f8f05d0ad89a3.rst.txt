@@ -1,0 +1,14 @@
+.. _exhale_typedef_estimator_8hpp_1a43ff1c092d8ecf8eb49f8f05d0ad89a3:
+
+Typedef horus_estimator_core::NodePtr
+=====================================
+
+- Defined in :ref:`file_include_horus_estimator_core_estimator.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: horus_estimator_core::NodePtr
+   :project: horus_estimator_core Doxygen Project

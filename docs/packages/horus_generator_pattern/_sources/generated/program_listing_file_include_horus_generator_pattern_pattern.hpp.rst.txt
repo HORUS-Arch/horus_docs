@@ -1,0 +1,67 @@
+
+.. _program_listing_file_include_horus_generator_pattern_pattern.hpp:
+
+Program Listing for File pattern.hpp
+====================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_generator_pattern_pattern.hpp>` (``include/horus_generator_pattern/pattern.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <string>
+   #include <vector>
+   
+   #include "horus_generator_core/generator.hpp"
+   
+   namespace horus_generator_pattern
+   {
+   
+   struct Signal
+   {
+       std::string type{"sine"};   
+       double min{-1.0};           
+       double max{1.0};            
+       double middle{0.0};         
+       double amplitude{1.0};      
+       std::vector<double> custom; 
+       double phase_offset{0.0};   
+   };
+   
+   class Pattern : public horus_generator_core::Generator
+   {
+      public:
+       void configure(const horus_generator_core::NodePtr& node, const std::string& name) override;
+   
+       void activate() override;
+   
+       void deactivate() override;
+   
+       void reset() override;
+   
+       std::vector<double> update(const rclcpp::Time& time, const rclcpp::Duration& period) override;
+   
+       bool finished() const override;
+   
+      private:
+       double waveform(const std::string& type, double phase) const;
+   
+       double sample(const Signal& s, double phase) const;
+   
+       /* -- Config ----------------------------------------------------------------- */
+   
+       std::vector<Signal> signals_;
+       double cycle_time_{1.0};   
+       double speed_factor_{1.0}; 
+       bool cycling_{true};       
+       /* -- Run state -------------------------------------------------------------- */
+   
+       double phase_{0.0};         
+       unsigned int cycles_{0U};   
+   };
+   
+   }  // namespace horus_generator_pattern

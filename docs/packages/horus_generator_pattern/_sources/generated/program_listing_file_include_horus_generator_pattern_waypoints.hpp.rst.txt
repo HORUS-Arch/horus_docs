@@ -1,0 +1,76 @@
+
+.. _program_listing_file_include_horus_generator_pattern_waypoints.hpp:
+
+Program Listing for File waypoints.hpp
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_generator_pattern_waypoints.hpp>` (``include/horus_generator_pattern/waypoints.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <map>
+   #include <mutex>
+   #include <string>
+   #include <vector>
+   
+   #include "horus_generator_core/generator.hpp"
+   #include "sensor_msgs/msg/joint_state.hpp"
+   
+   namespace horus_generator_pattern
+   {
+   
+   class Waypoints : public horus_generator_core::Generator
+   {
+      public:
+       void configure(const horus_generator_core::NodePtr& node, const std::string& name) override;
+   
+       void activate() override;
+   
+       void deactivate() override;
+   
+       void reset() override;
+   
+       std::vector<double> update(const rclcpp::Time& time, const rclcpp::Duration& period) override;
+   
+       bool finished() const override;
+   
+       double progress() const override;
+   
+       std::vector<std::string> jointNames() const override { return joints_; }
+   
+       std::string quantity() const override { return quantity_; }
+   
+       void setSpeedScale(double scale) override { speed_scale_ = scale; }
+   
+       std::vector<double> sampleRate(double t) const;
+   
+       std::vector<double> sample(double t) const;
+   
+      private:
+       bool loadCsv(const std::string& path, const horus_generator_core::NodePtr& node);
+   
+       /* -- Config ----------------------------------------------------------------- */
+   
+       std::vector<std::string> joints_;               
+       std::vector<double> times_;                     
+       std::vector<std::vector<double>> points_;       
+       bool smooth_{true};                             
+       bool cycling_{false};                           
+       bool start_from_current_{false};                
+       std::string quantity_{"position"};              
+       double speed_scale_{1.0};                       
+       /* -- Run state -------------------------------------------------------------- */
+   
+       double t_{0.0};                                 
+       std::vector<std::vector<double>> run_points_;   
+       rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr js_sub_;
+       mutable std::mutex js_mutex_;                   
+       std::map<std::string, double> measured_;        
+   };
+   
+   }  // namespace horus_generator_pattern

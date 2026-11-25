@@ -1,0 +1,59 @@
+
+.. _program_listing_file_include_horus_common_interface_utils.hpp:
+
+Program Listing for File interface_utils.hpp
+============================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_common_interface_utils.hpp>` (``include/horus_common/interface_utils.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <cstddef>
+   #include <string>
+   #include <vector>
+   
+   #include "rclcpp/logging.hpp"
+   #include "rclcpp/parameter.hpp"
+   
+   namespace horus_common
+   {
+   
+   template <typename NodePtr>
+   inline bool resolve_interface_names(const NodePtr& node, const std::vector<std::string>& joints,
+                                       const std::string& suffix, std::vector<std::string>& out)
+   {
+       out = node->get_parameter(suffix + "_interfaces").as_string_array();
+       if (out.empty()) /* Unset, fall back to <joint>/<suffix>. */
+       {
+           out.reserve(joints.size());
+           for (const auto& j : joints) out.push_back(j + "/" + suffix);
+       }
+       if (out.size() != joints.size())
+       {
+           RCLCPP_ERROR(node->get_logger(), "'%s_interfaces' must have one entry per joint (%zu)",
+                        suffix.c_str(), joints.size());
+           return false;
+       }
+       return true;
+   }
+   
+   template <typename NodePtr>
+   inline bool param_or_zeros(const NodePtr& node, const std::string& name, size_t n,
+                              std::vector<double>& out)
+   {
+       out = node->get_parameter(name).as_double_array();
+       if (out.empty()) out.assign(n, 0.0); /* Unset, a zero default is the neutral value. */
+       if (out.size() != n)
+       {
+           RCLCPP_ERROR(node->get_logger(), "'%s' must have %zu entries", name.c_str(), n);
+           return false;
+       }
+       return true;
+   }
+   
+   }  // namespace horus_common

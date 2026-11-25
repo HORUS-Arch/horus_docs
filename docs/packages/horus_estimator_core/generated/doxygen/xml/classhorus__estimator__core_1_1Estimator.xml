@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__estimator__core_1_1Estimator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>horus_estimator_core::Estimator</compoundname>
+    <includes refid="estimator_8hpp" local="no">estimator.hpp</includes>
+    <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classhorus__estimator__core_1_1Estimator_1ab33f69014335aac3facae067be9d8967" prot="public" static="no">
+        <type>std::shared_ptr&lt; <ref refid="classhorus__estimator__core_1_1Estimator" kindref="compound">Estimator</ref> &gt;</type>
+        <definition>using horus_estimator_core::Estimator::Ptr =  std::shared_ptr&lt;Estimator&gt;</definition>
+        <argsstring></argsstring>
+        <name>Ptr</name>
+        <qualifiedname>horus_estimator_core::Estimator::Ptr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_estimator_core/estimator.hpp" line="29" column="5" bodyfile="include/horus_estimator_core/estimator.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__estimator__core_1_1Estimator_1a6e12d27e330f60c326dad35d298090ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual horus_estimator_core::Estimator::~Estimator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Estimator</name>
+        <qualifiedname>horus_estimator_core::Estimator::~Estimator</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_estimator_core/estimator.hpp" line="31" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__estimator__core_1_1Estimator_1aaf3395d3c105a621a126468e97c08785" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void horus_estimator_core::Estimator::configure</definition>
+        <argsstring>(const NodePtr &amp;node, const std::string &amp;name)=0</argsstring>
+        <name>configure</name>
+        <qualifiedname>horus_estimator_core::Estimator::configure</qualifiedname>
+        <param>
+          <type>const <ref refid="estimator_8hpp_1a43ff1c092d8ecf8eb49f8f05d0ad89a3" kindref="member">NodePtr</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Read this instance&apos;s parameters, subscribe its inputs and create its outputs. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hosting lifecycle node. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This instance&apos;s parameter namespace; parameters live under <computeroutput>&lt;name&gt;.*</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_estimator_core/estimator.hpp" line="38" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__estimator__core_1_1Estimator_1a82b47086893479a48c9449865921e9d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void horus_estimator_core::Estimator::activate</definition>
+        <argsstring>()=0</argsstring>
+        <name>activate</name>
+        <qualifiedname>horus_estimator_core::Estimator::activate</qualifiedname>
+        <briefdescription>
+<para>Start publishing estimates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_estimator_core/estimator.hpp" line="41" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__estimator__core_1_1Estimator_1a474ce4fa62741433fc561a866285824d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void horus_estimator_core::Estimator::deactivate</definition>
+        <argsstring>()=0</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>horus_estimator_core::Estimator::deactivate</qualifiedname>
+        <briefdescription>
+<para>Stop publishing estimates. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_estimator_core/estimator.hpp" line="44" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__estimator__core_1_1Estimator_1a3010b6a2bc51ef6b8a42249c052f9947" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void horus_estimator_core::Estimator::reset</definition>
+        <argsstring>()=0</argsstring>
+        <name>reset</name>
+        <qualifiedname>horus_estimator_core::Estimator::reset</qualifiedname>
+        <briefdescription>
+<para>Forget filter state (e.g. after a new calibration or subject). </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_estimator_core/estimator.hpp" line="47" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__estimator__core_1_1Estimator_1a32eca02201a0f566960df124bb979f2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void horus_estimator_core::Estimator::update</definition>
+        <argsstring>(const rclcpp::Time &amp;time, const rclcpp::Duration &amp;period)=0</argsstring>
+        <name>update</name>
+        <qualifiedname>horus_estimator_core::Estimator::update</qualifiedname>
+        <param>
+          <type>const rclcpp::Time &amp;</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const rclcpp::Duration &amp;</type>
+          <declname>period</declname>
+        </param>
+        <briefdescription>
+<para>Advance the estimate and publish it. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current time from the host&apos;s clock. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time since the previous update. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_estimator_core/estimator.hpp" line="54" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Base class for a state estimator. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_estimator_core/estimator.hpp" line="26" column="1" bodyfile="include/horus_estimator_core/estimator.hpp" bodystart="27" bodyend="55"/>
+    <listofallmembers>
+      <member refid="classhorus__estimator__core_1_1Estimator_1a82b47086893479a48c9449865921e9d6" prot="public" virt="pure-virtual"><scope>horus_estimator_core::Estimator</scope><name>activate</name></member>
+      <member refid="classhorus__estimator__core_1_1Estimator_1aaf3395d3c105a621a126468e97c08785" prot="public" virt="pure-virtual"><scope>horus_estimator_core::Estimator</scope><name>configure</name></member>
+      <member refid="classhorus__estimator__core_1_1Estimator_1a474ce4fa62741433fc561a866285824d" prot="public" virt="pure-virtual"><scope>horus_estimator_core::Estimator</scope><name>deactivate</name></member>
+      <member refid="classhorus__estimator__core_1_1Estimator_1ab33f69014335aac3facae067be9d8967" prot="public" virt="non-virtual"><scope>horus_estimator_core::Estimator</scope><name>Ptr</name></member>
+      <member refid="classhorus__estimator__core_1_1Estimator_1a3010b6a2bc51ef6b8a42249c052f9947" prot="public" virt="pure-virtual"><scope>horus_estimator_core::Estimator</scope><name>reset</name></member>
+      <member refid="classhorus__estimator__core_1_1Estimator_1a32eca02201a0f566960df124bb979f2a" prot="public" virt="pure-virtual"><scope>horus_estimator_core::Estimator</scope><name>update</name></member>
+      <member refid="classhorus__estimator__core_1_1Estimator_1a6e12d27e330f60c326dad35d298090ff" prot="public" virt="virtual"><scope>horus_estimator_core::Estimator</scope><name>~Estimator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,21 @@
+.. _dir_include_horus_common:
+
+
+Directory horus_common
+======================
+
+
+|exhale_lsh| :ref:`Parent directory <dir_include>` (``include``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+*Directory path:* ``include/horus_common``
+
+
+Files
+-----
+
+- :ref:`file_include_horus_common_interface_utils.hpp`
+
+

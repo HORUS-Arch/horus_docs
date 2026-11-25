@@ -1,0 +1,32 @@
+# Add a sensor
+
+A sensor driver lives in its own repository, `<sensor>_ros2`, and must work without HORUS.
+
+## The contract
+
+| Rule | How |
+|---|---|
+| Lifecycle node | connect on configure (or on activate if the device needs it), stream on activate, stop on deactivate |
+| Own YAML | ports, rates, channel list: everything specific to the device |
+| Standard data | `sensor_msgs` (e.g. `Imu`) or `human_msgs` (`Emg`, `Insole`, `SegmentState`, ...) |
+| Latched metadata | the matching `*Info` message, transient-local QoS |
+| Health | `/diagnostics` (`diagnostic_updater`) |
+| Relative topic names | the rig launch places the driver under `/sensors/<name>` |
+| No `horus_msgs` | the driver never depends on HORUS |
+
+Drivers may offer their own services (pairing, register access, device-internal zeroing); HORUS does
+not call them. Calibration of the body (segment alignment, MVC, insole zero) is done by the HORUS
+sensing nodes. A vendor driver that does not follow the contract gets a thin adapter in its own
+repository, not a fork.
+
+## Connect it
+
+```yaml
+# rig.yaml
+sensors:
+  emg: {package: my_emg_ros2, executable: emg_driver, params: sensors/emg.yaml}
+human:
+  emg: {node: horus_emg, params: human/emg.yaml}   # channels -> /sensors/emg/<muscle>/emg
+```
+
+Drivers developed with HORUS that follow this contract are listed in {doc}`../project/hardware`.

@@ -1,0 +1,31 @@
+.. GENERATED_CONTENT by rosdoc2.verbs.build.builders.sphinx_builder.
+
+horus_bag_tools
+===============
+
+Decode/export a trial's rosbag2 (mcap) to CSV per topic for analysis.
+
+
+.. toctree::
+   :maxdepth: 2
+
+   Links <__links>
+   Python API <modules>
+
+
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+
+   Standard Documents <__standards>
+   ROS Package Dependencies <__ros_package_dependencies>
+
+.. include:: __readme_include.rst
+
+.. toctree::
+   :hidden:
+
+   genindex

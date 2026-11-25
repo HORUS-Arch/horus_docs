@@ -1,0 +1,55 @@
+
+.. _program_listing_file_include_horus_generator_pattern_manual.hpp:
+
+Program Listing for File manual.hpp
+===================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_generator_pattern_manual.hpp>` (``include/horus_generator_pattern/manual.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <map>
+   #include <mutex>
+   #include <string>
+   #include <vector>
+   
+   #include "horus_generator_core/generator.hpp"
+   #include "sensor_msgs/msg/joint_state.hpp"
+   
+   namespace horus_generator_pattern
+   {
+   
+   class Manual : public horus_generator_core::Generator
+   {
+      public:
+       void configure(const horus_generator_core::NodePtr& node, const std::string& name) override;
+       void activate() override;
+       void deactivate() override;
+       void reset() override;
+       std::vector<double> update(const rclcpp::Time& time, const rclcpp::Duration& period) override;
+       std::vector<std::string> jointNames() const override { return joints_; }
+       std::string quantity() const override { return quantity_; }
+   
+       void setTargets(const sensor_msgs::msg::JointState& msg, const rclcpp::Time& stamp);
+   
+      private:
+       rclcpp::Clock::SharedPtr clock_;
+       std::vector<std::string> joints_;
+       std::string quantity_{"position"};
+       double max_rate_{0.5};                          
+       double timeout_{1.0};                           
+       std::vector<double> min_, max_;                 
+       std::vector<double> output_, target_;
+       bool started_{false};                           
+       rclcpp::Time last_target_;
+       std::mutex mutex_;                              
+       std::map<std::string, double> measured_;        
+       rclcpp::Subscription<sensor_msgs::msg::JointState>::SharedPtr target_sub_, js_sub_;
+   };
+   
+   }  // namespace horus_generator_pattern

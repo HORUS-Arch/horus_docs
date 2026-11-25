@@ -1,0 +1,82 @@
+
+.. _file_include_horus_generator_core_generator.hpp:
+
+File generator.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_generator_core>` (``include/horus_generator_core``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+The abstract Generator plugin interface loaded by generator_server via pluginlib. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_generator_core/generator.hpp``)
+-----------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_generator_core_generator.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+A generator produces a reference vector each tick (joint set-points, or a scalar for a torque loop) that the server publishes to a controller. Concrete plugins are sine/pattern, a trajectory player (sit / stand / home from a CSV or keyframe file), DMP, CPG, ML.
+
+There is NO rigid per-tick input struct: a closed-loop generator (CPG, ML) subscribes the inputs it needs itself, using the node handle passed to configure(). The server owns only the rate thread, publishing and lifecycle, so update() receives just time and period.
+
+The interface is lifecycle-shaped, which lets the server be a managed lifecycle node without any plugin having to know about lifecycle transitions. 
+
+
+
+
+Includes
+--------
+
+
+- ``memory``
+
+- ``rclcpp/rclcpp.hpp``
+
+- ``rclcpp_lifecycle/lifecycle_node.hpp``
+
+- ``string``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_generator_core`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__generator__core_1_1Generator`
+
+
+Typedefs
+--------
+
+
+- :ref:`exhale_typedef_generator_8hpp_1afe53c3d4c2386c3c6c304d9929c5db0d`
+

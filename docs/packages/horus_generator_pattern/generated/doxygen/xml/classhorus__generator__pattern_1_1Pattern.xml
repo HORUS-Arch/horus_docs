@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__generator__pattern_1_1Pattern" kind="class" language="C++" prot="public">
+    <compoundname>horus_generator_pattern::Pattern</compoundname>
+    <basecompoundref refid="classhorus__generator__core_1_1Generator" prot="public" virt="non-virtual">horus_generator_core::Generator</basecompoundref>
+    <includes refid="pattern_8hpp" local="no">pattern.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Pattern_1ae9c6ea133da48cb92dbf8b0365f04066" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structhorus__generator__pattern_1_1Signal" kindref="compound">Signal</ref> &gt;</type>
+        <definition>std::vector&lt;Signal&gt; horus_generator_pattern::Pattern::signals_</definition>
+        <argsstring></argsstring>
+        <name>signals_</name>
+        <qualifiedname>horus_generator_pattern::Pattern::signals_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="97" column="17" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="97" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Pattern_1a7d87940927938e2181a26a0de7c0033a" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Pattern::cycle_time_</definition>
+        <argsstring></argsstring>
+        <name>cycle_time_</name>
+        <qualifiedname>horus_generator_pattern::Pattern::cycle_time_</qualifiedname>
+        <initializer>{1.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Seconds for one full cycle at speed_factor 1.0. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="98" column="12" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="98" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Pattern_1a52351ad26beeed9e279a832e8ff61f82" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Pattern::speed_factor_</definition>
+        <argsstring></argsstring>
+        <name>speed_factor_</name>
+        <qualifiedname>horus_generator_pattern::Pattern::speed_factor_</qualifiedname>
+        <initializer>{1.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Cadence multiplier; 2.0 plays the cycle twice as fast. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="99" column="12" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="99" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Pattern_1aa174c1ac804e59cb8994d63f5a69c74d" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_generator_pattern::Pattern::cycling_</definition>
+        <argsstring></argsstring>
+        <name>cycling_</name>
+        <qualifiedname>horus_generator_pattern::Pattern::cycling_</qualifiedname>
+        <initializer>{true}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>True repeats forever; false finishes after one cycle. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="100" column="10" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="100" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Pattern_1aaaf56bd63a29925305cd2766dcc4bf90" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Pattern::phase_</definition>
+        <argsstring></argsstring>
+        <name>phase_</name>
+        <qualifiedname>horus_generator_pattern::Pattern::phase_</qualifiedname>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Position in the cycle, wrapped to [0,1). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="104" column="12" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="104" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__generator__pattern_1_1Pattern_1ab74d79a702a7a365bb005171c810a2cc" prot="private" static="no" mutable="no">
+        <type>unsigned int</type>
+        <definition>unsigned int horus_generator_pattern::Pattern::cycles_</definition>
+        <argsstring></argsstring>
+        <name>cycles_</name>
+        <qualifiedname>horus_generator_pattern::Pattern::cycles_</qualifiedname>
+        <initializer>{0U}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Completed cycles; ends a non-cycling pattern. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="105" column="18" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="105" bodyend="105"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Pattern_1aafbcef9fa232b1cf88902db218f83710" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_generator_pattern::Pattern::configure</definition>
+        <argsstring>(const horus_generator_core::NodePtr &amp;node, const std::string &amp;name) override</argsstring>
+        <name>configure</name>
+        <qualifiedname>horus_generator_pattern::Pattern::configure</qualifiedname>
+        <param>
+          <type>const horus_generator_core::NodePtr &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+<para>Read the signal list, waveform parameters and the cadence. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>node</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The hosting lifecycle node, used for parameters and logging. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>This instance&apos;s parameter namespace; parameters live under <computeroutput>&lt;name&gt;.*</computeroutput>. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="53" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Pattern_1a88e16840e66e01253c2ec45127d3f702" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void horus_generator_pattern::Pattern::activate</definition>
+        <argsstring>() override</argsstring>
+        <name>activate</name>
+        <qualifiedname>horus_generator_pattern::Pattern::activate</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1a8ba4fe18eef6b597af8a554c6fa97a0e">activate</reimplements>
+        <briefdescription>
+<para>Become the active generator; the phase continues from where <ref refid="classhorus__generator__pattern_1_1Pattern_1a30bbdc462266cfbcb1a6b06dbf8a34c3" kindref="member">reset()</ref> left it. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="56" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Pattern_1a8cb440940b9a2368f2e103f280ac1cdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void horus_generator_pattern::Pattern::deactivate</definition>
+        <argsstring>() override</argsstring>
+        <name>deactivate</name>
+        <qualifiedname>horus_generator_pattern::Pattern::deactivate</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1ae533309152199cd26ba7048d5763ba2b">deactivate</reimplements>
+        <briefdescription>
+<para>Stop being the active generator. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="59" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Pattern_1a30bbdc462266cfbcb1a6b06dbf8a34c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void horus_generator_pattern::Pattern::reset</definition>
+        <argsstring>() override</argsstring>
+        <name>reset</name>
+        <qualifiedname>horus_generator_pattern::Pattern::reset</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1a29b0093aed724a059d09a9de93ae39a7">reset</reimplements>
+        <briefdescription>
+<para>Rewind the phase and the completed-cycle count to zero. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="62" column="10"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Pattern_1a667f982589795126bb03719ac31e5500" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt; double &gt; horus_generator_pattern::Pattern::update</definition>
+        <argsstring>(const rclcpp::Time &amp;time, const rclcpp::Duration &amp;period) override</argsstring>
+        <name>update</name>
+        <qualifiedname>horus_generator_pattern::Pattern::update</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1aed4e78d5e794b33931aaab8739787cea">update</reimplements>
+        <param>
+          <type>const rclcpp::Time &amp;</type>
+          <declname>time</declname>
+        </param>
+        <param>
+          <type>const rclcpp::Duration &amp;</type>
+          <declname>period</declname>
+        </param>
+        <briefdescription>
+<para>Advance the phase and sample every signal. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>time</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Current time (unused, the pattern integrates period instead). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>period</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Time since the previous tick, which advances the phase. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>One value per signal, in <computeroutput>signals</computeroutput> order, in the controller&apos;s units. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="70" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Pattern_1aa68037072e42b5cb00dea63caf6d9657" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool horus_generator_pattern::Pattern::finished</definition>
+        <argsstring>() const override</argsstring>
+        <name>finished</name>
+        <qualifiedname>horus_generator_pattern::Pattern::finished</qualifiedname>
+        <reimplements refid="classhorus__generator__core_1_1Generator_1a2d142582f4e25f6cc24f542aeeffcf36">finished</reimplements>
+        <briefdescription>
+<para>Whether a finite pattern has run its course. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True once a non-cycling pattern has completed one cycle; always false when cycling. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="76" column="10"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Pattern_1a291eb33366321dd7eed3ad06410f4e96" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Pattern::waveform</definition>
+        <argsstring>(const std::string &amp;type, double phase) const</argsstring>
+        <name>waveform</name>
+        <qualifiedname>horus_generator_pattern::Pattern::waveform</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>type</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>phase</declname>
+        </param>
+        <briefdescription>
+<para>Evaluate a named waveform. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>type</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>sine | square | triangle (anything else falls back to sine). </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>phase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position in the cycle, [0,1). </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The waveform value in [-1,1]. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="85" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__generator__pattern_1_1Pattern_1acd62c995863c641089b04e379dbc22ab" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Pattern::sample</definition>
+        <argsstring>(const Signal &amp;s, double phase) const</argsstring>
+        <name>sample</name>
+        <qualifiedname>horus_generator_pattern::Pattern::sample</qualifiedname>
+        <param>
+          <type>const <ref refid="structhorus__generator__pattern_1_1Signal" kindref="compound">Signal</ref> &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>phase</declname>
+        </param>
+        <briefdescription>
+<para>Sample one signal at a phase. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>s</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>The signal definition. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>phase</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Position in the cycle, [0,1), before this signal&apos;s own offset is applied. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The signal value about its middle line. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="93" column="12"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Plays a configured waveform per joint at a shared cadence. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>horus_generator_core::Generator</label>
+        <link refid="classhorus__generator__core_1_1Generator" external="/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_core/horus_generator_core.tag"/>
+      </node>
+      <node id="1">
+        <label>horus_generator_pattern::Pattern</label>
+        <link refid="classhorus__generator__pattern_1_1Pattern"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>horus_generator_core::Generator</label>
+        <link refid="classhorus__generator__core_1_1Generator" external="/home/drscodex/Development/horus_docs/_build/html/docs/packages/cross_reference/horus_generator_core/horus_generator_core.tag"/>
+      </node>
+      <node id="1">
+        <label>horus_generator_pattern::Pattern</label>
+        <link refid="classhorus__generator__pattern_1_1Pattern"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/horus_generator_pattern/pattern.hpp" line="45" column="1" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="46" bodyend="106"/>
+    <listofallmembers>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1a88e16840e66e01253c2ec45127d3f702" prot="public" virt="virtual"><scope>horus_generator_pattern::Pattern</scope><name>activate</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1aafbcef9fa232b1cf88902db218f83710" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Pattern</scope><name>configure</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1a186b7873eed1152d97480a06e37311a3" prot="public" virt="pure-virtual" ambiguityscope="horus_generator_core::Generator::"><scope>horus_generator_pattern::Pattern</scope><name>configure</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1a7d87940927938e2181a26a0de7c0033a" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Pattern</scope><name>cycle_time_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1ab74d79a702a7a365bb005171c810a2cc" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Pattern</scope><name>cycles_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1aa174c1ac804e59cb8994d63f5a69c74d" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Pattern</scope><name>cycling_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1a8cb440940b9a2368f2e103f280ac1cdb" prot="public" virt="virtual"><scope>horus_generator_pattern::Pattern</scope><name>deactivate</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1aa68037072e42b5cb00dea63caf6d9657" prot="public" virt="virtual"><scope>horus_generator_pattern::Pattern</scope><name>finished</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1ad3fbc23d20d533b7278714729b49241f" prot="public" virt="virtual"><scope>horus_generator_pattern::Pattern</scope><name>jointNames</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1aaaf56bd63a29925305cd2766dcc4bf90" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Pattern</scope><name>phase_</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1aab97360799bfef185b3789e98428f3e8" prot="public" virt="virtual"><scope>horus_generator_pattern::Pattern</scope><name>progress</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1a42aba85d6daebc7479a884d46362d316" prot="public" virt="virtual"><scope>horus_generator_pattern::Pattern</scope><name>quantity</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1a30bbdc462266cfbcb1a6b06dbf8a34c3" prot="public" virt="virtual"><scope>horus_generator_pattern::Pattern</scope><name>reset</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1acd62c995863c641089b04e379dbc22ab" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Pattern</scope><name>sample</name></member>
+      <member refid="classhorus__generator__core_1_1Generator_1aac97a06d1cdf642b3bb1b3993cc724c4" prot="public" virt="virtual"><scope>horus_generator_pattern::Pattern</scope><name>setSpeedScale</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1ae9c6ea133da48cb92dbf8b0365f04066" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Pattern</scope><name>signals_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1a52351ad26beeed9e279a832e8ff61f82" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Pattern</scope><name>speed_factor_</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1a667f982589795126bb03719ac31e5500" prot="public" virt="virtual"><scope>horus_generator_pattern::Pattern</scope><name>update</name></member>
+      <member refid="classhorus__generator__pattern_1_1Pattern_1a291eb33366321dd7eed3ad06410f4e96" prot="private" virt="non-virtual"><scope>horus_generator_pattern::Pattern</scope><name>waveform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,14 @@
+.. _exhale_typedef_calibrations_8hpp_1a45d44ad0e82181d0a6eeffee8bca062b:
+
+Typedef horus_human::InsoleCalibration
+======================================
+
+- Defined in :ref:`file_include_horus_human_calibrations.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: horus_human::InsoleCalibration
+   :project: horus_human Doxygen Project

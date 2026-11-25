@@ -1,0 +1,81 @@
+# Behaviors (generator server)
+
+```yaml
+/**:
+  ros__parameters:
+    rate_hz: 100.0
+    output_type: float64_array            # or joint_trajectory
+    output_topic: /position_controller/commands
+    joint_names: [""]                     # trajectory output when a plugin does not name its joints
+    speed_scale: 1.0                      # live: ros2 param set ... speed_scale 1.5
+    max_speed_scale: 3.0
+    generator_plugins: [home, walk, push, manual]
+
+    home:                                 # from wherever the joints are, to zero, in 1.5 s
+      plugin: horus_generator_pattern/Waypoints
+      joints: [hipR, kneeR, ankleR]
+      times: [0.0, 1.5]
+      positions: [0.0, 0.0, 0.0,  0.0, 0.0, 0.0]
+      start_from_current: true
+
+    walk:                                 # periodic gait until the tree cancels it
+      plugin: horus_generator_pattern/Pattern
+      cycle_time: 2.0
+      cycling: true
+      signals: [hipR, kneeR, ankleR]
+      hipR:   {type: sine, min: -0.3, max: 0.3, phase_offset: 0.0}
+      kneeR:  {type: sine, min:  0.0, max: 0.5, phase_offset: 0.15}
+      ankleR: {type: sine, min: -0.2, max: 0.2, phase_offset: 0.3}
+
+    push:                                 # a torque profile (effort), e.g. for GravityCompensation
+      plugin: horus_generator_pattern/Waypoints
+      quantity: effort
+      joints: [hipR, kneeR, ankleR]
+      times: [0.0, 0.5, 1.0]
+      positions: [0, 0, 0,  5, 2, 0,  0, 0, 0]   # N m
+
+    manual:                               # MANUAL mode: follows the UI joint sliders
+      plugin: horus_generator_pattern/Manual
+      joints: [hipR, kneeR, ankleR]
+      quantity: position                  # position | effort
+      max_rate: 0.5                       # rad/s (position) or N m/s (effort)
+      timeout: 1.0                        # s without slider input -> hold
+```
+
+## Waypoints
+
+| Parameter | Default | Meaning |
+|---|---|---|
+| `joints` | — | output order |
+| `times`, `positions` | — | waypoint times (s) and one row of joints per time |
+| `file` | `""` | CSV instead: `time,j1,j2,...` (a header row names the joints) |
+| `quantity` | `position` | `position`, `velocity` (derivative of the position waypoints, scaled by speed) or `effort` |
+| `interpolation` | `smooth` | `smooth` (zero velocity at each waypoint) or `linear` |
+| `start_from_current` | `false` | first row = measured `/joint_states` (positions only) |
+| `cycling` | `false` | loop instead of finishing |
+
+## Manual
+
+Targets arrive as `sensor_msgs/JointState` on `topic` (names and `position`, or `effort` for
+`quantity: effort`); joints not named keep their target. The output moves toward the target at most
+`max_rate` per second, so a slider jump becomes a ramp. Position output starts at the measured pose,
+effort output at zero. Continuous: it runs until the tree (MANUAL mode) is halted.
+
+| Parameter | Default | Meaning |
+|---|---|---|
+| `joints` | — | output order |
+| `quantity` | `position` | `position` or `effort` |
+| `max_rate` | `0.5` | rad/s (position) or N m/s (effort) |
+| `min`, `max` | none | optional clamp per joint (both lists, one value per joint) |
+| `timeout` | `1.0` | s without a target before the target freezes at the current output (hold) |
+| `topic` | `~/manual_target` | target topic (on the generator server: `/horus/generator_server/manual_target`) |
+| `joint_states_topic` | `/joint_states` | measured pose for the start |
+
+## Running a behavior
+
+```bash
+ros2 action send_goal /horus/generator_server/execute_behavior horus_msgs/action/ExecuteBehavior \
+  "{behavior: home, parameters: [{name: times, value: {type: 8, double_array_value: [0.0, 0.5]}}]}"
+```
+
+`parameters` override `<behavior>.<name>` for this run only (type 8 = double array).

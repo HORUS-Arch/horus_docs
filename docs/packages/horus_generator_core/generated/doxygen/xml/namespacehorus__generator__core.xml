@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacehorus__generator__core" kind="namespace" language="C++">
+    <compoundname>horus_generator_core</compoundname>
+    <innerclass refid="classhorus__generator__core_1_1Generator" prot="public">horus_generator_core::Generator</innerclass>
+    <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="generator_8hpp_1afe53c3d4c2386c3c6c304d9929c5db0d" prot="public" static="no">
+        <type>rclcpp_lifecycle::LifecycleNode::SharedPtr</type>
+        <definition>using horus_generator_core::NodePtr = typedef rclcpp_lifecycle::LifecycleNode::SharedPtr</definition>
+        <argsstring></argsstring>
+        <name>NodePtr</name>
+        <qualifiedname>horus_generator_core::NodePtr</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_core/generator.hpp" line="31" column="1" bodyfile="include/horus_generator_core/generator.hpp" bodystart="31" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_generator_core/generator.hpp" line="26" column="1"/>
+  </compounddef>
+</doxygen>

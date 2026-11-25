@@ -1,0 +1,14 @@
+.. _exhale_function_execute__behavior__node_8hpp_1a1d030667a149c79a0712b69f3a27dff5:
+
+Function horus_bt::behaviorChannel
+==================================
+
+- Defined in :ref:`file_include_horus_bt_execute_behavior_node.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: horus_bt::behaviorChannel(const NodePtr&, const std::string&)
+   :project: horus_bt Doxygen Project

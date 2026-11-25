@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhorus__generator__pattern_1_1Signal" kind="struct" language="C++" prot="public">
+    <compoundname>horus_generator_pattern::Signal</compoundname>
+    <includes refid="pattern_8hpp" local="no">pattern.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhorus__generator__pattern_1_1Signal_1a91d4ed906699ab993c5566f674bd9995" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string horus_generator_pattern::Signal::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <qualifiedname>horus_generator_pattern::Signal::type</qualifiedname>
+        <initializer>{&quot;sine&quot;}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sine | square | triangle | custom. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="35" column="17" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="35" bodyend="35"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__generator__pattern_1_1Signal_1a5afca66242d006875d2e87f0a2553ce6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Signal::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <qualifiedname>horus_generator_pattern::Signal::min</qualifiedname>
+        <initializer>{-1.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Lower bound of the waveform. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="36" column="12" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__generator__pattern_1_1Signal_1ab543da004fd8fdef5ea86bc89a41acb6" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Signal::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <qualifiedname>horus_generator_pattern::Signal::max</qualifiedname>
+        <initializer>{1.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Upper bound of the waveform. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="37" column="12" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="37" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__generator__pattern_1_1Signal_1a64e6bcf89457d12bf6a4757b02e7ad1d" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Signal::middle</definition>
+        <argsstring></argsstring>
+        <name>middle</name>
+        <qualifiedname>horus_generator_pattern::Signal::middle</qualifiedname>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Mean line; defaults to (min + max) / 2. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="38" column="12" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="38" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__generator__pattern_1_1Signal_1a8746b51c4ee9520a77276a69aab96bd3" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Signal::amplitude</definition>
+        <argsstring></argsstring>
+        <name>amplitude</name>
+        <qualifiedname>horus_generator_pattern::Signal::amplitude</qualifiedname>
+        <initializer>{1.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>(max - min) / 2. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="39" column="12" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="39" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__generator__pattern_1_1Signal_1a091632917d22c68f1611b0767b594c8a" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; double &gt;</type>
+        <definition>std::vector&lt;double&gt; horus_generator_pattern::Signal::custom</definition>
+        <argsstring></argsstring>
+        <name>custom</name>
+        <qualifiedname>horus_generator_pattern::Signal::custom</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>One full cycle, any length (type = custom). </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="40" column="17" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__generator__pattern_1_1Signal_1af1ef263d1f9267395686a18936b8654b" prot="public" static="no" mutable="no">
+        <type>double</type>
+        <definition>double horus_generator_pattern::Signal::phase_offset</definition>
+        <argsstring></argsstring>
+        <name>phase_offset</name>
+        <qualifiedname>horus_generator_pattern::Signal::phase_offset</qualifiedname>
+        <initializer>{0.0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>Fraction of the cycle [0,1) this signal leads by. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_generator_pattern/pattern.hpp" line="41" column="12" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="41" bodyend="41"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>One per-signal (per-joint) waveform definition. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_generator_pattern/pattern.hpp" line="33" column="1" bodyfile="include/horus_generator_pattern/pattern.hpp" bodystart="34" bodyend="42"/>
+    <listofallmembers>
+      <member refid="structhorus__generator__pattern_1_1Signal_1a8746b51c4ee9520a77276a69aab96bd3" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Signal</scope><name>amplitude</name></member>
+      <member refid="structhorus__generator__pattern_1_1Signal_1a091632917d22c68f1611b0767b594c8a" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Signal</scope><name>custom</name></member>
+      <member refid="structhorus__generator__pattern_1_1Signal_1ab543da004fd8fdef5ea86bc89a41acb6" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Signal</scope><name>max</name></member>
+      <member refid="structhorus__generator__pattern_1_1Signal_1a64e6bcf89457d12bf6a4757b02e7ad1d" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Signal</scope><name>middle</name></member>
+      <member refid="structhorus__generator__pattern_1_1Signal_1a5afca66242d006875d2e87f0a2553ce6" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Signal</scope><name>min</name></member>
+      <member refid="structhorus__generator__pattern_1_1Signal_1af1ef263d1f9267395686a18936b8654b" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Signal</scope><name>phase_offset</name></member>
+      <member refid="structhorus__generator__pattern_1_1Signal_1a91d4ed906699ab993c5566f674bd9995" prot="public" virt="non-virtual"><scope>horus_generator_pattern::Signal</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

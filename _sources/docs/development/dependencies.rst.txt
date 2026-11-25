@@ -1,0 +1,44 @@
+.. _dependencies-label:
+
+Dependencies
+============
+.. inclusion-introduction-start
+
+How to add a dependency the HORUS way. The guiding rule: **core stays a framework that builds and
+tests standalone on the in-tree mock**, it has no device or vendor-SDK source dependencies of its
+own. Devices and their SDKs live in separate repos, composed at the *project* level.
+
+.. inclusion-introduction-end
+
+ROS 2 packages
+--------------
+
+1. **Prefer rosdep.** If the package is in the ROS 2 distro, just declare it in ``package.xml`` and
+   let ``rosdep install`` pull it. No vendoring.
+2. **Source via vcstool, not submodules.** If a genuinely-core dependency is not distributed,
+   add it to ``horus.repos`` (the manifest); ``vcs import`` checks it out **git-ignored** under
+   ``libraries/``. HORUS uses vcstool, not git submodules.
+
+Device drivers & peripherals
+----------------------------
+
+These do **not** go in core. Each device is its own ``<device>_ros2`` repo and each vendor SDK is its own
+repo; a **project workspace** pulls pinned ``horus`` + the device repos it uses via that project's own
+``.repos``. This is where composition happens (the split model, see :doc:`../extend/device`).
+
+External libraries (non-ROS)
+----------------------------
+
+- **Python tooling**, add to ``requirements.txt``.
+- **Source-only C++ SDKs**, vcstool into ``libraries/`` (git-ignored), same as core ROS source deps;
+  never a submodule. A vendor SDK travels with the *device* repo that needs it, not with core.
+
+Large or generated assets
+-------------------------
+
+Store models / simulation data / precomputed parameters with **Git LFS**, ideally in their own repo,
+to keep clones small.
+
+.. code-block:: bash
+
+   git lfs install

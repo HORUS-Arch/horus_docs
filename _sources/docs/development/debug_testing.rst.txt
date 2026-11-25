@@ -1,0 +1,217 @@
+Debugging & Testing
+===================
+
+Debugging
+---------
+This section describes the process of debugging a HORUS package. This tutorial will explain the simplest way to debug a ROS2 package using Visual Studio Code or not.
+To a more detailed explanation and complete way on how to setup Visual Studio Code with ROS2, check the :ref:`setup-vscode-label`,
+, `GDB & ROS2 <https://juraph.com/miscellaneous/ros2_and_gdb/>`_ and `Debug ROS2 C++ node on VSCode <https://gist.github.com/JADC362/a4425c2d05cdaadaaa71b697b674425f>`_.
+
+Debug a ROS2 package is different than debug the complete ROS2 environment. The ROS2 environment is a set of packages that work together to provide a complete ROS2 system. Debugging the ROS2 environment is a more complex task and is not covered in this tutorial.
+But is possible to debug multiple packages at the same time.
+
+This is applicable to any ROS2 package that uses C++. For Python packages, you can use the VSCode Python debugger, for more details check the - `VSCode ROS2 <https://www.allisonthackston.com/articles/vscode-docker-ros2.html>`_.
+
+Prerequisites
+^^^^^^^^^^^^^
+In order to debug a ROS2 package, install the following tools:
+
+* Visual Studio Code(C/C++ extension, Python extension, ROS extension)
+* gdb
+* gdbserver
+
+.. code-block:: bash
+
+  sudo apt install gdb gdbserver
+
+Compile the package with debug symbols
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+  colcon build [flags] --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
+
+You don't need to build your whole workspace with debug flags, just the package you want to debug. Thus, you can use packages-select to compile a single package, like so:
+
+.. code-block:: bash
+
+  colcon build --packages-select [package_name] --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+  source install/setup.bash
+
+Launch node with GDB attached
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The two most common methods of launching with GDB attached are to either execute the process inside of GDB (**Option 1**), 
+or to launch a gdbserver instance alongside the process, then target it in a separate terminal instance (**Option 2**). Here are the steps for the second option:
+
+.. code-block:: bash
+
+  ros2 run --prefix 'gdbserver localhost:3000' [package_name] [executable_name]
+
+In a second terminal: 
+
+.. code-block:: bash
+
+  gdb
+  (gdb) target remote localhost:3000
+
+Using this option, you will use the terminal to debug the package. If you want to use Visual Studio Code, follow the next steps.
+If you want to use the first option, check the `GDB Dashboard <https://github.com/cyrus-and/gdb-dashboard>`_.
+
+.. tip:: You can also use the `ros2 launch` command to automate the process of launching the node with GDB attached. Follow the previous links.
+
+
+
+Setup Visual Studio Code
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+#. Open VSCode on your workspace.
+#. Go to your side bar, 'Run and Debug' section.
+#. Add a new configuration (Select C++ enviroment or any other)
+#. On your launch.json file, put the following information
+
+.. code-block:: json
+
+  {
+    "version": "0.2.0",
+    "configurations": [
+        {
+          "name": "C++ Debugger",
+          "request": "launch",
+          "type": "cppdbg",
+          "miDebuggerServerAddress": "localhost:3000",
+          "cwd": "/",
+          "program": "[build-path-executable]"
+        }
+    ]
+  }
+
+Where:
+
+  * **name** - Custom name of your debugger configuration
+  * **request** - In this case we want to launch the client
+  * **type** - cppdbg for c++ debugging
+  * **miDebuggerServerAddress** - path_server:port
+  * **cwd** - Where to find all the required files. We use root because ROS2, the package, and other required files are distributed along the entire PC.
+  * **program** - Change [build-path-executable] by your executable build file. You can find this path on the console when you launch the server.
+
+Testing
+-------
+This section describes the process of running and writing automated tests for the HORUS packages.
+
+
+Prerequisites
+^^^^^^^^^^^^^
+In order to run the tests you must already have a workspace setup.
+See :ref:`setup-label`.
+
+
+Testing
+-------
+This section describes how automated testing is organized and executed across the HORUS architecture.  
+Testing ensures the reliability, stability, and safety of all HORUS modules—from low-level drivers to high-level control nodes.
+
+Prerequisites
+^^^^^^^^^^^^^
+Before running tests, make sure that your ROS 2 workspace is correctly configured and built.  
+Follow the instructions in :ref:`setup-label` if the workspace has not been initialized yet.
+
+Running tests
+^^^^^^^^^^^^^
+All HORUS packages use the ROS 2 ``ament`` and ``colcon`` build system, which integrates testing directly into the workspace workflow.  
+Tests are automatically discovered and executed by Colcon once the packages are built.
+
+To build and run all tests for the workspace:
+
+.. code-block:: bash
+
+  colcon build --symlink-install
+  source install/setup.bash
+  colcon test
+
+The ``build`` step compiles both source code and test targets.  
+Whenever test files are modified, the workspace must be rebuilt to apply those changes.  
+The ``test`` step runs every available test and reports all failures in the console output.
+
+To obtain a more detailed overview of the results for every package:
+
+.. code-block::
+
+  colcon test-result --all
+
+This command summarizes the results of all test cases, indicating which packages passed or failed and where logs are stored.
+
+When developing a specific package, it is often unnecessary to execute every test in the workspace.  
+Colcon allows selective execution using the ``--packages-select`` flag:
+
+.. code-block::
+
+  colcon test --packages-select horus_generator_pattern horus_session
+
+This command only builds and runs tests contained in the specified packages.
+
+Testing guidelines
+^^^^^^^^^^^^^^^^^^
+Well-written tests improve reliability and make debugging easier.  
+When creating tests for HORUS packages, keep the following principles in mind:
+
+#. Write clear and concise tests that are easy to understand.
+#. Avoid dependencies on external files or timing-based conditions.
+#. Focus each test on verifying a single behavior or function.
+#. Include meaningful cases that cover both normal and edge conditions.
+#. Keep tests maintainable and consistent with the rest of the codebase.
+
+Test structure conventions
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+All HORUS packages follow the same basic structure for organizing tests:
+
+#. Place all tests inside a ``test/`` directory at the root of each package.
+#. Separate by subfolder if there are multiple types of tests (e.g., ``unit/``, ``integration/``).
+#. Keep resources or auxiliary files related to tests organized within the same folder.
+
+Refer to existing HORUS packages for practical examples of how tests are written and structured.
+
+Refer to the existing HORUS packages for examples of test layouts and naming conventions.
+
+Types of tests
+^^^^^^^^^^^^^^
+HORUS distinguishes between different levels of testing depending on the scope and purpose:
+
+1. **Unit tests** - Verify the functionality of a single function, class, or component.  
+   These tests are language-specific:
+   
+   - **C++** unit tests use the `gtest <https://github.com/google/googletest>`_ framework integrated through ``ament_add_gtest``.  
+   - **Python** unit tests use the standard `unittest <https://docs.python.org/3/library/unittest.html>`_ framework executed via ``ament_add_pytest_test``.
+
+2. **Integration tests** - Validate interactions between ROS 2 nodes and components.  
+   Integration tests are typically written as ROS 2 launch tests using `launch_testing <https://docs.ros.org/en/jazzy/How-To-Guides/Ament-CMake-Documentation.html>`_.
+   These tests execute full node setups, publish/subscribe to topics, and verify expected communication behavior.
+
+3. **System tests** - Evaluate higher-level system performance or hardware integration (e.g., sensors, exoskeleton joints).  
+   These are often executed manually or on simulation rigs but can also be automated through hardware-in-the-loop testing.
+
+Creating new tests
+^^^^^^^^^^^^^^^^^^
+Each HORUS package defines its own testing targets in the ``CMakeLists.txt`` using ROS 2's ``ament`` macros.  
+See the additional documentation on ROS 2 testing tools.
+
+.. Important:: For detailed instructions on writing and structuring tests, refer to the official ROS 2 testing documentation:* `Testing in ROS2 <https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Testing/Testing-Main.html>`_
+
+Static Analysis
+---------------
+
+Static analysis tools help identify potential issues in the codebase before runtime.
+HORUS uses `clang-tidy <https://clang.llvm.org/extra/clang-tidy/>`_ for C++ code and `pylint <https://pylint.pycqa.org/en/latest/>`_ for Python code. 
+
+
+To run static analysis on the entire workspace:
+
+.. code-block:: bash
+
+  colcon build --symlink-install --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON --cmake-args --no-warn-unused-cli
+  source install/setup.bash
+  cd ..
+  ./scripts/static_analysis.sh
+
+This script will analyze all C++ and Python files in the workspace and generate a report of any issues found.
+The static analysis script can be customized to include additional checks or exclude certain files as needed.

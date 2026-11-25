@@ -1,0 +1,32 @@
+.. GENERATED_CONTENT by rosdoc2.verbs.build.builders.sphinx_builder.
+
+horus_health_monitor
+====================
+
+System health rollup for HORUS: a diagnostic_aggregator config that groups
+    /diagnostics (devices, controllers, sensors) into one health tree the UI reads.
+
+
+.. toctree::
+   :maxdepth: 2
+
+   Links <__links>
+
+
+
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+
+   Standard Documents <__standards>
+   ROS Package Dependencies <__ros_package_dependencies>
+
+.. include:: __readme_include.rst
+
+.. toctree::
+   :hidden:
+
+   genindex

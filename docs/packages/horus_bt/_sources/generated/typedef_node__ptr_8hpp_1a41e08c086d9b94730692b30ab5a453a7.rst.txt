@@ -1,0 +1,14 @@
+.. _exhale_typedef_node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7:
+
+Typedef horus_bt::NodePtr
+=========================
+
+- Defined in :ref:`file_include_horus_bt_node_ptr.hpp`
+
+
+Typedef Documentation
+---------------------
+
+
+.. doxygentypedef:: horus_bt::NodePtr
+   :project: horus_bt Doxygen Project

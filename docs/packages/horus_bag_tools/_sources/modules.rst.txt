@@ -1,0 +1,7 @@
+horus_bag_tools
+===============
+
+.. toctree::
+   :maxdepth: 4
+
+   horus_bag_tools

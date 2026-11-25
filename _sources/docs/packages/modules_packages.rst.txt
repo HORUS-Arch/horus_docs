@@ -1,0 +1,16 @@
+Modules & External Packages
+===========================
+
+Beyond core, the site can document the **device** and **sensor** repos that compose with HORUS in a
+project. These are independent repos (the split model): each ``<device>_ros2`` device repo and each
+agnostic sensor interface repo lives on its own and depends on core, never the reverse.
+
+They appear here when you add them to the aggregation manifest:
+
+- add the repo to ``horus_docs.repos`` (checked out under ``src/``), and
+- if its packages are not ``horus_``-prefixed (e.g. a sensor interface), list their names in
+  ``doc_packages.txt`` so rosdoc2 selects them.
+
+Each such package is then rendered from **its own README** as an entry in the **Packages** index on
+the left, the same single-source model as core. See
+:doc:`../development/documentation` for the workflow.

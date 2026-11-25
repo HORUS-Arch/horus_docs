@@ -1,0 +1,23 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,199,177,224"/>
+<area shape="rect" id="Node000001" href="$classhorus__bt_1_1ServiceLeaf.html" title=" " alt="" coords="255,5,458,60"/>
+<area shape="poly" id="edge3_Node000000_Node000001" title=" " alt="" coords="107,186,155,128,188,97,224,70,254,55,256,60,227,75,191,101,159,132,111,189"/>
+<area shape="rect" id="Node000003" href="$classhorus__bt_1_1ServiceLeaf.html" title=" " alt="" coords="225,85,488,125"/>
+<area shape="poly" id="edge5_Node000000_Node000003" title=" " alt="" coords="122,189,169,162,224,136,264,122,266,127,226,140,172,166,125,194"/>
+<area shape="rect" id="Node000006" href="$classhorus__bt_1_1CalibrateNode.html" title="Calibrate a unit (or all units) of a processing node; SUCCESS once computed (and saved)." alt="" coords="267,149,446,175"/>
+<area shape="poly" id="edge8_Node000000_Node000006" title=" " alt="" coords="173,194,287,172,288,177,174,199"/>
+<area shape="rect" id="Node000007" href="$classhorus__bt_1_1ExecuteBehaviorNode.html" title=" " alt="" coords="242,199,471,224"/>
+<area shape="poly" id="edge9_Node000000_Node000007" title=" " alt="" coords="191,209,242,209,242,214,191,214"/>
+<area shape="rect" id="Node000008" href="$classhorus__bt_1_1ServiceLeaf.html" title="Base of a one&#45;shot service call leaf: RUNNING until the reply, SUCCESS if accepted." alt="" coords="275,249,438,289"/>
+<area shape="poly" id="edge10_Node000000_Node000008" title=" " alt="" coords="165,224,276,249,275,254,164,230"/>
+<area shape="rect" id="Node000009" href="$classhorus__bt_1_1SetSpeedScaleNode.html" title="Set the generator server&#39;s live speed_scale (a parameter); SUCCESS once accepted." alt="" coords="249,313,465,339"/>
+<area shape="poly" id="edge11_Node000000_Node000009" title=" " alt="" coords="120,231,167,266,226,298,266,311,264,316,224,303,164,270,116,235"/>
+<area shape="rect" id="Node000010" href="$classhorus__bt_1_1WaitForMessageNode.html" title="RUNNING until a message arrives on topic (any type), FAILURE after timeout s." alt="" coords="243,363,470,388"/>
+<area shape="poly" id="edge12_Node000000_Node000010" title=" " alt="" coords="110,234,158,293,190,324,227,349,253,360,251,365,224,354,187,328,154,297,106,237"/>
+<area shape="rect" id="Node000002" href="$classhorus__bt_1_1AddTrialNoteNode.html" title="Add a note to the running trial." alt="" coords="543,20,745,45"/>
+<area shape="poly" id="edge4_Node000001_Node000002" title=" " alt="" coords="472,30,542,30,542,35,472,35"/>
+<area shape="rect" id="Node000004" href="$classhorus__bt_1_1StartRecordingNode.html" title="Open a trial (recording) for the session&#39;s selected subject." alt="" coords="536,81,752,107"/>
+<area shape="poly" id="edge6_Node000003_Node000004" title=" " alt="" coords="502,97,536,95,536,101,502,102"/>
+<area shape="rect" id="Node000005" href="$classhorus__bt_1_1StopRecordingNode.html" title="Close the running trial." alt="" coords="537,131,751,156"/>
+<area shape="poly" id="edge7_Node000003_Node000005" title=" " alt="" coords="502,122,549,128,549,133,501,127"/>
+</map>

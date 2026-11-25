@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="namespacehorus__generator__pattern" kind="namespace" language="C++">
+    <compoundname>horus_generator_pattern</compoundname>
+    <innerclass refid="classhorus__generator__pattern_1_1Manual" prot="public">horus_generator_pattern::Manual</innerclass>
+    <innerclass refid="classhorus__generator__pattern_1_1Pattern" prot="public">horus_generator_pattern::Pattern</innerclass>
+    <innerclass refid="structhorus__generator__pattern_1_1Signal" prot="public">horus_generator_pattern::Signal</innerclass>
+    <innerclass refid="classhorus__generator__pattern_1_1Waypoints" prot="public">horus_generator_pattern::Waypoints</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_generator_pattern/manual.hpp" line="32" column="1"/>
+  </compounddef>
+</doxygen>

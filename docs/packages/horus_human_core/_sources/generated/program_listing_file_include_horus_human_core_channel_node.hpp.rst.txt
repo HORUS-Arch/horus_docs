@@ -1,0 +1,531 @@
+
+.. _program_listing_file_include_horus_human_core_channel_node.hpp:
+
+Program Listing for File channel_node.hpp
+=========================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_human_core_channel_node.hpp>` (``include/horus_human_core/channel_node.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <algorithm>
+   #include <atomic>
+   #include <chrono>
+   #include <map>
+   #include <memory>
+   #include <mutex>
+   #include <set>
+   #include <string>
+   #include <thread>
+   #include <vector>
+   
+   #include <yaml-cpp/yaml.h>
+   
+   #include "diagnostic_updater/diagnostic_updater.hpp"
+   #include "horus_human_core/calibration_plugin.hpp"
+   #include "horus_human_core/calibration_store.hpp"
+   #include "horus_msgs/action/calibrate.hpp"
+   #include "horus_msgs/srv/load_calibration.hpp"
+   #include "horus_msgs/srv/save_calibration.hpp"
+   #include "lifecycle_msgs/msg/state.hpp"
+   #include "pluginlib/class_loader.hpp"
+   #include "rclcpp/rclcpp.hpp"
+   #include "rclcpp_action/rclcpp_action.hpp"
+   #include "rclcpp_lifecycle/lifecycle_node.hpp"
+   
+   namespace horus_human_core
+   {
+   
+   template <class MsgT>
+   class ChannelNode : public rclcpp_lifecycle::LifecycleNode
+   {
+      public:
+       using Plugin = CalibrationPlugin<MsgT>;
+       using Calibrate = horus_msgs::action::Calibrate;
+       using GoalHandle = rclcpp_action::ServerGoalHandle<Calibrate>;
+       using CallbackReturn = rclcpp_lifecycle::node_interfaces::LifecycleNodeInterface::CallbackReturn;
+   
+       ChannelNode(const std::string& name, const rclcpp::NodeOptions& options, const std::string& plugin_package,
+                   const std::string& plugin_base)
+           : rclcpp_lifecycle::LifecycleNode(name, options),
+             loader_(plugin_package, plugin_base),
+             diagnostics_(this)
+       {
+           declare_parameter<std::vector<std::string>>("channels", std::vector<std::string>{});
+           declare_parameter<std::string>("calibration.plugin", "");
+           declare_parameter<std::string>("subject_id", "");
+           declare_parameter<std::string>("data_root", "~/horus_data");
+           rcl_interfaces::msg::ParameterDescriptor mode_desc;
+           mode_desc.description = "output mode: calibrated | conditioned | bypass";
+           const auto initial_mode = declare_parameter<std::string>("mode", "calibrated", mode_desc);
+           mode_ = std::max(0, parseMode(initial_mode));
+           if (parseMode(initial_mode) < 0)
+               RCLCPP_WARN(get_logger(), "unknown mode '%s', using 'calibrated'", initial_mode.c_str());
+           param_cb_ = add_on_set_parameters_callback(
+               [this](const std::vector<rclcpp::Parameter>& params)
+               {
+                   rcl_interfaces::msg::SetParametersResult r;
+                   r.successful = true;
+                   for (const auto& p : params)
+                       if (p.get_name() == "mode")
+                       {
+                           const int m = p.get_type() == rclcpp::ParameterType::PARAMETER_STRING ? parseMode(p.as_string()) : -1;
+                           if (m < 0)
+                           {
+                               r.successful = false;
+                               r.reason = "mode must be calibrated, conditioned or bypass";
+                           }
+                           else
+                               mode_ = m;
+                       }
+                   return r;
+               });
+   
+           diagnostics_.setHardwareID(get_name());
+           diagnostics_.add("calibration", this, &ChannelNode::reportDiagnostics);
+   
+           calibrate_server_ = rclcpp_action::create_server<Calibrate>(
+               this, "~/calibrate",
+               [this](const auto&, const auto& goal) { return onGoal(goal); },
+               [](const auto&) { return rclcpp_action::CancelResponse::ACCEPT; },
+               [this](const std::shared_ptr<GoalHandle> handle) { startCalibration(handle); });
+           save_srv_ = create_service<horus_msgs::srv::SaveCalibration>(
+               "~/save_calibration",
+               [this](const std::shared_ptr<horus_msgs::srv::SaveCalibration::Request> req,
+                      std::shared_ptr<horus_msgs::srv::SaveCalibration::Response> res) { onSave(req, res); });
+           load_srv_ = create_service<horus_msgs::srv::LoadCalibration>(
+               "~/load_calibration",
+               [this](const std::shared_ptr<horus_msgs::srv::LoadCalibration::Request> req,
+                      std::shared_ptr<horus_msgs::srv::LoadCalibration::Response> res) { onLoad(req, res); });
+       }
+   
+       ~ChannelNode() override
+       {
+           stop_calibration_ = true;
+           if (calibration_thread_.joinable()) calibration_thread_.join();
+       }
+   
+       /* -- Lifecycle ------------------------------------------------------------------------- */
+   
+       CallbackReturn on_configure(const rclcpp_lifecycle::State& /*state*/) override
+       {
+           channels_ = get_parameter("channels").as_string_array();
+           if (channels_.empty())
+           {
+               RCLCPP_ERROR(get_logger(), "no channels configured (parameter 'channels')");
+               return CallbackReturn::FAILURE;
+           }
+           topics_.clear();
+           for (const auto& ch : channels_)
+           {
+               std::string why;
+               if (!validateChannel(ch, why))
+               {
+                   RCLCPP_ERROR(get_logger(), "invalid channel '%s': %s", ch.c_str(), why.c_str());
+                   return CallbackReturn::FAILURE;
+               }
+               topics_[ch] = declareIfMissing<std::string>(ch + ".topic", "");
+               if (topics_[ch].empty())
+               {
+                   RCLCPP_ERROR(get_logger(), "channel '%s' has no '%s.topic'", ch.c_str(), ch.c_str());
+                   return CallbackReturn::FAILURE;
+               }
+           }
+   
+           store_ = std::make_unique<CalibrationStore>(get_parameter("data_root").as_string());
+           plugin_name_ = get_parameter("calibration.plugin").as_string();
+           {
+               std::lock_guard<std::mutex> lock(mutex_);
+               plugin_.reset();
+               sources_.clear();
+               pending_.clear();
+               if (!plugin_name_.empty())
+               {
+                   try
+                   {
+                       plugin_ = loader_.createSharedInstance(plugin_name_);
+                       plugin_->configure(shared_from_this(), "calibration", channels_);
+                   }
+                   catch (const std::exception& e)
+                   {
+                       RCLCPP_ERROR(get_logger(), "cannot load calibration plugin '%s': %s", plugin_name_.c_str(),
+                                    e.what());
+                       return CallbackReturn::FAILURE;
+                   }
+               }
+           }
+   
+           configureOutputs(channels_);
+   
+           const auto subject = get_parameter("subject_id").as_string();
+           if (plugin_ && !subject.empty())
+           {
+               std::string message;
+               const auto loaded = loadLatest(subject, message);
+               RCLCPP_INFO(get_logger(), "subject '%s': %zu/%zu channels calibrated from file", subject.c_str(),
+                           loaded.size(), channels_.size());
+           }
+           RCLCPP_INFO(get_logger(), "configured %zu channels, calibration '%s'", channels_.size(),
+                       plugin_name_.empty() ? "none" : plugin_name_.c_str());
+           return CallbackReturn::SUCCESS;
+       }
+   
+       CallbackReturn on_activate(const rclcpp_lifecycle::State& /*state*/) override
+       {
+           activateOutputs(true);
+           subscriptions_.clear();
+           for (const auto& ch : channels_)
+               subscriptions_.push_back(create_subscription<MsgT>(
+                   topics_[ch], rclcpp::SensorDataQoS(),
+                   [this, ch](typename MsgT::UniquePtr msg) { onSample(ch, std::move(msg)); }));
+           return CallbackReturn::SUCCESS;
+       }
+   
+       CallbackReturn on_deactivate(const rclcpp_lifecycle::State& /*state*/) override
+       {
+           stop_calibration_ = true;
+           if (calibration_thread_.joinable()) calibration_thread_.join();
+           subscriptions_.clear();
+           activateOutputs(false);
+           return CallbackReturn::SUCCESS;
+       }
+   
+       CallbackReturn on_cleanup(const rclcpp_lifecycle::State& /*state*/) override
+       {
+           std::lock_guard<std::mutex> lock(mutex_);
+           plugin_.reset();
+           pending_.clear();
+           sources_.clear();
+           cleanupOutputs();
+           return CallbackReturn::SUCCESS;
+       }
+   
+      protected:
+       /* -- Hooks for the derived node -------------------------------------------------------- */
+   
+       virtual bool validateChannel(const std::string& /*channel*/, std::string& /*why*/) { return true; }
+   
+       virtual void configureOutputs(const std::vector<std::string>& channels) = 0;
+   
+       virtual void activateOutputs(bool active) = 0;
+   
+       virtual void cleanupOutputs() = 0;
+   
+       virtual void condition(const std::string& /*channel*/, MsgT& /*msg*/) {}
+   
+       virtual void publish(const std::string& channel, const MsgT& msg) = 0;
+   
+       template <class T>
+       T declareIfMissing(const std::string& name, const T& fallback)
+       {
+           if (!has_parameter(name)) declare_parameter<T>(name, fallback);
+           return get_parameter(name).get_value<T>();
+       }
+   
+       std::vector<std::string> channels_; 
+      private:
+       /* -- Data path ------------------------------------------------------------------------- */
+   
+       static int parseMode(const std::string& m)
+       {
+           if (m == "calibrated") return CALIBRATED;
+           if (m == "conditioned") return CONDITIONED;
+           if (m == "bypass") return BYPASS;
+           return -1;
+       }
+   
+       void onSample(const std::string& ch, typename MsgT::UniquePtr msg)
+       {
+           const int mode = mode_;
+           std::unique_ptr<MsgT> raw;
+           if (mode == BYPASS) raw = std::make_unique<MsgT>(*msg); /* published untouched */
+           condition(ch, *msg); /* always: keeps stateful filters continuous across mode changes */
+           {
+               std::lock_guard<std::mutex> lock(mutex_);
+               if (collecting_.count(ch))
+               {
+                   plugin_->add(ch, *msg);
+                   ++collected_[ch];
+               }
+               if (plugin_ && mode == CALIBRATED) plugin_->apply(ch, *msg);
+           }
+           publish(ch, raw ? *raw : *msg);
+       }
+   
+       /* -- Calibrate action ------------------------------------------------------------------ */
+   
+       rclcpp_action::GoalResponse onGoal(const std::shared_ptr<const typename Calibrate::Goal>& goal)
+       {
+           if (!plugin_ || calibrating_ ||
+               get_current_state().id() != lifecycle_msgs::msg::State::PRIMARY_STATE_ACTIVE)
+               return rclcpp_action::GoalResponse::REJECT;
+           if (!goal->unit.empty() && std::find(channels_.begin(), channels_.end(), goal->unit) == channels_.end())
+               return rclcpp_action::GoalResponse::REJECT;
+           return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+       }
+   
+       void startCalibration(const std::shared_ptr<GoalHandle> handle)
+       {
+           if (calibration_thread_.joinable()) calibration_thread_.join();
+           calibrating_ = true;
+           stop_calibration_ = false;
+           calibration_thread_ = std::thread([this, handle]() { runCalibration(handle); });
+       }
+   
+       void runCalibration(const std::shared_ptr<GoalHandle> handle)
+       {
+           const auto goal = handle->get_goal();
+           auto result = std::make_shared<typename Calibrate::Result>();
+           const std::vector<std::string> units =
+               goal->unit.empty() ? channels_ : std::vector<std::string>{goal->unit};
+           double duration = goal->duration;
+           {
+               std::lock_guard<std::mutex> lock(mutex_);
+               if (duration <= 0.0) duration = plugin_->defaultDuration();
+               for (const auto& u : units)
+               {
+                   plugin_->begin(u);
+                   collecting_.insert(u);
+                   collected_[u] = 0;
+               }
+           }
+   
+           auto feedback = std::make_shared<typename Calibrate::Feedback>();
+           feedback->unit = goal->unit;
+           const auto start = std::chrono::steady_clock::now();
+           bool canceled = false;
+           while (rclcpp::ok() && !stop_calibration_)
+           {
+               const double elapsed =
+                   std::chrono::duration<double>(std::chrono::steady_clock::now() - start).count();
+               if (elapsed >= duration) break;
+               if (handle->is_canceling())
+               {
+                   canceled = true;
+                   break;
+               }
+               feedback->progress = static_cast<float>(elapsed / duration);
+               feedback->message = "collecting";
+               handle->publish_feedback(feedback);
+               std::this_thread::sleep_for(std::chrono::milliseconds(100));
+           }
+   
+           std::string summary;
+           bool ok = !canceled && !stop_calibration_;
+           {
+               std::lock_guard<std::mutex> lock(mutex_);
+               for (const auto& u : units) collecting_.erase(u);
+               for (const auto& u : units)
+               {
+                   if (!ok) break;
+                   if (collected_[u] == 0)
+                   {
+                       result->error_code = Calibrate::Result::NO_DATA;
+                       summary = "no samples on '" + u + "'";
+                       ok = false;
+                       break;
+                   }
+                   YAML::Node data;
+                   std::string unit_summary;
+                   if (!plugin_->finish(u, data, unit_summary) || !plugin_->load(u, data))
+                   {
+                       result->error_code = Calibrate::Result::CALIBRATION_FAILED;
+                       summary = u + ": " + unit_summary;
+                       ok = false;
+                       break;
+                   }
+                   pending_[u] = data;
+                   sources_[u] = "unsaved";
+                   result->units.push_back(u);
+                   summary += (summary.empty() ? "" : "; ") + u + ": " + unit_summary;
+               }
+           }
+   
+           calibrating_ = false;
+           if (canceled)
+           {
+               handle->canceled(result);
+               return;
+           }
+           if (!ok)
+           {
+               if (result->error_code == Calibrate::Result::NONE) result->error_code = Calibrate::Result::UNKNOWN;
+               result->error_msg = summary.empty() ? "calibration interrupted" : summary;
+               if (rclcpp::ok()) handle->abort(result);
+               return;
+           }
+           result->summary = summary;
+           handle->succeed(result);
+           RCLCPP_INFO(get_logger(), "calibrated (pending save): %s", summary.c_str());
+       }
+   
+       /* -- Files ----------------------------------------------------------------------------- */
+   
+       void onSave(const std::shared_ptr<horus_msgs::srv::SaveCalibration::Request> req,
+                   std::shared_ptr<horus_msgs::srv::SaveCalibration::Response> res)
+       {
+           std::lock_guard<std::mutex> lock(mutex_);
+           const std::string subject = req->subject_id.empty() ? get_parameter("subject_id").as_string() : req->subject_id;
+           if (!store_ || subject.empty())
+           {
+               res->success = false;
+               res->message = store_ ? "no subject_id" : "node not configured";
+               return;
+           }
+           std::vector<std::string> units;
+           for (const auto& [u, data] : pending_)
+               if (req->unit.empty() || req->unit == u) units.push_back(u);
+           if (units.empty())
+           {
+               res->success = false;
+               res->message = "nothing pending to save";
+               return;
+           }
+           try
+           {
+               for (const auto& u : units)
+               {
+                   res->paths.push_back(store_->save(subject, get_name(), u, plugin_name_, pending_[u]));
+                   sources_[u] = res->paths.back();
+                   pending_.erase(u);
+               }
+               res->success = true;
+               res->message = "saved " + std::to_string(units.size()) + " file(s)";
+           }
+           catch (const std::exception& e)
+           {
+               res->success = false;
+               res->message = e.what();
+           }
+       }
+   
+       void onLoad(const std::shared_ptr<horus_msgs::srv::LoadCalibration::Request> req,
+                   std::shared_ptr<horus_msgs::srv::LoadCalibration::Response> res)
+       {
+           if (!plugin_ || !store_)
+           {
+               res->success = false;
+               res->message = "node not configured or has no calibration plugin";
+               return;
+           }
+           if (req->path.empty())
+           {
+               const std::string subject =
+                   req->subject_id.empty() ? get_parameter("subject_id").as_string() : req->subject_id;
+               res->units = loadLatest(subject, res->message);
+               res->success = !res->units.empty();
+               return;
+           }
+           std::lock_guard<std::mutex> lock(mutex_);
+           try
+           {
+               const auto doc = CalibrationStore::read(req->path);
+               const auto unit = doc["unit"].as<std::string>();
+               if (std::find(channels_.begin(), channels_.end(), unit) == channels_.end())
+                   throw std::runtime_error("unit '" + unit + "' is not a channel of this node");
+               if (!plugin_->load(unit, doc["data"])) throw std::runtime_error("plugin rejected the data");
+               sources_[unit] = req->path;
+               res->units.push_back(unit);
+               res->success = true;
+               res->message = "loaded " + unit;
+           }
+           catch (const std::exception& e)
+           {
+               res->success = false;
+               res->message = e.what();
+           }
+       }
+   
+       std::vector<std::string> loadLatest(const std::string& subject, std::string& message)
+       {
+           std::lock_guard<std::mutex> lock(mutex_);
+           std::vector<std::string> loaded;
+           if (subject.empty())
+           {
+               message = "no subject_id";
+               return loaded;
+           }
+           for (const auto& ch : channels_)
+           {
+               const auto path = store_->latest(subject, get_name(), ch);
+               if (!path) continue;
+               try
+               {
+                   if (plugin_->load(ch, CalibrationStore::read(*path)["data"]))
+                   {
+                       sources_[ch] = *path;
+                       loaded.push_back(ch);
+                   }
+               }
+               catch (const std::exception& e)
+               {
+                   RCLCPP_WARN(get_logger(), "skipping %s: %s", path->c_str(), e.what());
+               }
+           }
+           message = "loaded " + std::to_string(loaded.size()) + "/" + std::to_string(channels_.size()) + " channels";
+           return loaded;
+       }
+   
+       /* -- Diagnostics ----------------------------------------------------------------------- */
+   
+       void reportDiagnostics(diagnostic_updater::DiagnosticStatusWrapper& stat)
+       {
+           std::lock_guard<std::mutex> lock(mutex_);
+           if (!plugin_)
+           {
+               stat.summary(diagnostic_msgs::msg::DiagnosticStatus::OK, "no calibration configured");
+               return;
+           }
+           std::size_t done = 0;
+           for (const auto& ch : channels_)
+           {
+               const bool cal = plugin_->calibrated(ch);
+               done += cal ? 1 : 0;
+               stat.add(ch, cal ? sources_[ch] : std::string("not calibrated"));
+           }
+           stat.add("plugin", plugin_name_);
+           stat.add("mode", mode_ == CALIBRATED ? "calibrated" : mode_ == CONDITIONED ? "conditioned" : "bypass");
+           stat.add("calibrating", calibrating_ ? "yes" : "no");
+           if (done == channels_.size())
+               stat.summary(diagnostic_msgs::msg::DiagnosticStatus::OK, "all channels calibrated");
+           else
+               stat.summaryf(diagnostic_msgs::msg::DiagnosticStatus::WARN, "%zu/%zu channels calibrated", done,
+                             channels_.size());
+       }
+   
+       /* -- State ----------------------------------------------------------------------------- */
+   
+       enum Mode : int
+       {
+           CALIBRATED = 0,  
+           CONDITIONED = 1, 
+           BYPASS = 2       
+       };
+       std::atomic<int> mode_{CALIBRATED};                           
+       rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr param_cb_; 
+       pluginlib::ClassLoader<Plugin> loader_;                       
+       std::shared_ptr<Plugin> plugin_;                              
+       std::string plugin_name_;                                     
+       std::unique_ptr<CalibrationStore> store_;                     
+       std::map<std::string, std::string> topics_;                   
+       std::vector<typename rclcpp::Subscription<MsgT>::SharedPtr> subscriptions_; 
+       std::mutex mutex_;                                            
+       std::set<std::string> collecting_;                            
+       std::map<std::string, std::size_t> collected_;                
+       std::map<std::string, YAML::Node> pending_;                   
+       std::map<std::string, std::string> sources_;                  
+       std::thread calibration_thread_;                              
+       std::atomic<bool> calibrating_{false};                        
+       std::atomic<bool> stop_calibration_{false};                   
+       diagnostic_updater::Updater diagnostics_;                     
+       rclcpp_action::Server<Calibrate>::SharedPtr calibrate_server_;
+       typename rclcpp::Service<horus_msgs::srv::SaveCalibration>::SharedPtr save_srv_;
+       typename rclcpp::Service<horus_msgs::srv::LoadCalibration>::SharedPtr load_srv_;
+   };
+   
+   }  // namespace horus_human_core

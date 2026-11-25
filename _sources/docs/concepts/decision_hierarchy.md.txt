@@ -1,0 +1,111 @@
+# Decision hierarchy
+
+Decisions sit as low as their required speed. The split between a supervisor state machine and
+behavior trees follows the supervisor and executor decomposition evaluated for rehabilitation
+exoskeletons by Chávez-Reynoso et al. (Sensors, 2026).
+
+```{mermaid}
+flowchart TB
+  L1["L1 supervisor (fixed by HORUS)<br/>global mode, safety priority"]
+  L2["L2 behavior tree per mode (user XML)<br/>protocols, manual control, bounded recovery"]
+  L3["L3 state inside a generator (optional)<br/>e.g. heel strike restarts a profile"]
+  L0["L0 controller and hardware<br/>SafetyController, limits, timeouts, hardware safe mode"]
+  L1 -->|runs the tree in-process| L2
+  L2 -->|escalates on failure| L1
+  L2 -->|ExecuteBehavior| L3
+  L3 -->|reference| L0
+  L0 -.->|/diagnostics| L1
+  L1 -.->|estop, EMERGENCY_STOP| L0
+```
+
+## Level 1: the supervisor
+
+A mode answers one question: **who may move the device right now?**
+
+| Mode | Who commands the device | Value |
+|---|---|---|
+| INIT | nobody (starting, no operator yet) | 0 |
+| STANDBY | nobody; setup, calibration and recording happen here | 1 |
+| RUN | the protocol tree | 2 |
+| MANUAL | the operator (joint sliders in the UI) | 3 |
+| RECOVERY | the recovery tree, after a protocol failed | 4 |
+| EMERGENCY_STOP | nobody; latched until RESET, which is refused while a fault is active | 5 |
+
+```{mermaid}
+stateDiagram-v2
+  [*] --> INIT
+  INIT --> STANDBY: READY / STOP
+  STANDBY --> RUN: START
+  STANDBY --> MANUAL: MANUAL
+  RUN --> STANDBY: STOP / tree succeeded
+  MANUAL --> STANDBY: STOP / tree ended
+  RUN --> RECOVERY: tree failed
+  RECOVERY --> STANDBY: tree succeeded
+  RECOVERY --> EMERGENCY_STOP: tree failed
+  EMERGENCY_STOP --> STANDBY: RESET (no active fault)
+```
+
+READY is raised by the supervisor itself once the trees are loaded and the operator is connected (or
+the heartbeat is disabled). Not drawn: ESTOP and FAULT go to EMERGENCY_STOP from every mode; OPERATOR_LOST does so from RUN,
+MANUAL and RECOVERY (in INIT and STANDBY nothing moves, so a lost operator is only logged).
+
+| Event class | Events | Effect |
+|---|---|---|
+| safety | ESTOP (button, UI, `EmergencyStop` leaf), FAULT (a critical source in ERROR or stale), OPERATOR_LOST (heartbeat timed out) | EMERGENCY_STOP; always accepted |
+| escalation | TREE_FAILED | RUN → RECOVERY → EMERGENCY_STOP; MANUAL → STANDBY |
+| operator | READY, START, STOP, MANUAL, RESET | arbitrated: rejected if not allowed in the current mode |
+| progress | TREE_SUCCEEDED | RUN, MANUAL, RECOVERY → STANDBY |
+
+Events are handled as they arrive, highest class first. Users never edit the modes; they write the
+trees. There is no setup mode: subject selection and calibration happen in STANDBY from the Setup
+screen, and a calibration that moves the device is a protocol run in RUN.
+
+EMERGENCY_STOP runs no tree. Entering it halts the running tree at once; holding the device is the
+job of the control layer (`horus_control/SafetyController`) and the hardware, which read the same
+emergency stop topic directly.
+
+### Device health
+
+The supervisor reads `/diagnostics`. Each source is classified against `critical_sources`:
+
+| Level | Reaction |
+|---|---|
+| OK | nothing |
+| WARN | warning (UI banner, event in `trial.yaml`); trees may react with `IsHealthy level="warn"` |
+| ERROR or STALE from a critical source | EMERGENCY_STOP; RESET is refused until it clears |
+| ERROR or STALE from a non-critical source | warning and event in `trial.yaml`; the run continues |
+| silent for `stale_timeout` | counts as ERROR only while the device moves; when idle it is a warning, so a device disconnected on purpose does not block RESET |
+
+Critical sources are set in the rig file (`critical: true` on a sensor or human entry,
+`robot.critical_sources`), see {doc}`../configuration/rig_file`.
+
+## Level 2: behavior trees
+
+The supervisor runs the tree of the current mode in-process (as nav2's `bt_navigator` does), with
+BehaviorTree.CPP v4 and the leaves of the `horus_bt` library. RUN runs the protocol the operator
+picked (or `trees.run`), MANUAL runs `trees.manual`, RECOVERY runs `trees.recovery`. A mode change
+halts the old tree within microseconds; it never waits for a tick. HORUS leaves:
+
+| Leaf | Kind | Does |
+|---|---|---|
+| `ExecuteBehavior` | action | runs a generator behavior to completion |
+| `Calibrate` | action | runs `~/calibrate` on a sensing node; saves the result for the session's subject (`save`, default true) |
+| `IsAtPose` | condition | joints within a tolerance of a target |
+| `IsHealthy` | condition | no `/diagnostics` status for a source at `level` (`warn` or `error`) or worse; STALE counts |
+| `WaitForMessage` | action | waits for any message on a topic (e.g. a gait event), with a timeout |
+| `EmergencyStop` | action | asks the supervisor for EMERGENCY_STOP, with a `reason` |
+| `StartRecording`, `StopRecording` | action | open or close a trial on the session node |
+| `AddTrialNote` | action | adds `text` to the open trial |
+| `SetSpeedScale` | action | sets the generator server's live `speed_scale` to `value` |
+
+Rule for extending: a new global mode is a change of the framework; any new in-mode behavior is a
+new subtree.
+
+## Levels 3 and 0
+
+A generator plugin may keep a small state machine of its own; its decisions take effect on the next
+generation tick. Protective reflexes act in the real-time loop and the firmware, never waiting for
+the supervisor: `horus_control/SafetyController`, the last controller before the hardware, latches a
+stop within one control cycle on the emergency stop topic, on EMERGENCY_STOP or on a command timeout,
+and clamps every command to the joint limits; torque limits and the hardware's safe mode stay in the
+device.

@@ -1,0 +1,14 @@
+.. _exhale_function_interface__utils_8hpp_1a9c367a34497eaf6a39a456116271c1e2:
+
+Template Function horus_common::resolve_interface_names
+=======================================================
+
+- Defined in :ref:`file_include_horus_common_interface_utils.hpp`
+
+
+Function Documentation
+----------------------
+
+
+.. doxygenfunction:: horus_common::resolve_interface_names(const NodePtr&, const std::vector<std::string>&, const std::string&, std::vector<std::string>&)
+   :project: horus_common Doxygen Project

@@ -1,0 +1,33 @@
+.. GENERATED_CONTENT by rosdoc2.verbs.build.builders.sphinx_builder.
+
+horus_control
+=============
+
+HORUS ros2_control layer. Reserved for the model-based controllers HORUS will ship
+    (URDF gravity compensation, impedance, admittance); currently empty, everything a device needs
+    today is stock ros2_control, and firmware command conventions live in the device's repo.
+
+
+.. toctree::
+   :maxdepth: 2
+
+   Links <__links>
+
+   C++ API <generated/index>
+
+
+.. toctree::
+   :maxdepth: 2
+
+
+
+
+   Standard Documents <__standards>
+   ROS Package Dependencies <__ros_package_dependencies>
+
+.. include:: __readme_include.rst
+
+.. toctree::
+   :hidden:
+
+   genindex

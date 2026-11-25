@@ -1,0 +1,257 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="classhorus__bt_1_1ServiceLeaf" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>horus_bt::ServiceLeaf</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">BT::StatefulActionNode</basecompoundref>
+    <includes refid="system__nodes_8hpp" local="no">system_nodes.hpp</includes>
+    <templateparamlist>
+      <param>
+        <type>class SrvT</type>
+      </param>
+    </templateparamlist>
+    <sectiondef kind="protected-attrib">
+      <memberdef kind="variable" id="classhorus__bt_1_1ServiceLeaf_1a54e6cb32c94d5d28cc67b7453e5ef3be" prot="protected" static="no" mutable="no">
+        <type><ref refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kindref="member">NodePtr</ref></type>
+        <definition>NodePtr horus_bt::ServiceLeaf&lt; SrvT &gt;::node_</definition>
+        <argsstring></argsstring>
+        <name>node_</name>
+        <qualifiedname>horus_bt::ServiceLeaf::node_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="112" column="13" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="112" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classhorus__bt_1_1ServiceLeaf_1a15127ed12121d0c70f843bcc14df007c" prot="private" static="no" mutable="no">
+        <type>rclcpp::CallbackGroup::SharedPtr</type>
+        <definition>rclcpp::CallbackGroup::SharedPtr horus_bt::ServiceLeaf&lt; SrvT &gt;::group_</definition>
+        <argsstring></argsstring>
+        <name>group_</name>
+        <qualifiedname>horus_bt::ServiceLeaf::group_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="115" column="38" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1ServiceLeaf_1a0aa17196d79b1220c1d9e666e0adfb58" prot="private" static="no" mutable="no">
+        <type>rclcpp::executors::SingleThreadedExecutor</type>
+        <definition>rclcpp::executors::SingleThreadedExecutor horus_bt::ServiceLeaf&lt; SrvT &gt;::exec_</definition>
+        <argsstring></argsstring>
+        <name>exec_</name>
+        <qualifiedname>horus_bt::ServiceLeaf::exec_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="116" column="47" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1ServiceLeaf_1a79c3027dbefe9838ebe66871acb702b7" prot="private" static="no" mutable="no">
+        <type>rclcpp::Client&lt; SrvT &gt;::SharedPtr</type>
+        <definition>rclcpp::Client&lt;SrvT&gt;::SharedPtr horus_bt::ServiceLeaf&lt; SrvT &gt;::client_</definition>
+        <argsstring></argsstring>
+        <name>client_</name>
+        <qualifiedname>horus_bt::ServiceLeaf::client_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="117" column="41" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1ServiceLeaf_1ae1e6451c736ec8b2d64505b4b7402139" prot="private" static="no" mutable="no">
+        <type>std::shared_future&lt; typename SrvT::Response::SharedPtr &gt;</type>
+        <definition>std::shared_future&lt;typename SrvT::Response::SharedPtr&gt; horus_bt::ServiceLeaf&lt; SrvT &gt;::future_</definition>
+        <argsstring></argsstring>
+        <name>future_</name>
+        <qualifiedname>horus_bt::ServiceLeaf::future_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="118" column="24" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classhorus__bt_1_1ServiceLeaf_1a0e28acd90eef43aed415ee0f9090ed6c" prot="private" static="no" mutable="no">
+        <type>std::chrono::steady_clock::time_point</type>
+        <definition>std::chrono::steady_clock::time_point horus_bt::ServiceLeaf&lt; SrvT &gt;::deadline_</definition>
+        <argsstring></argsstring>
+        <name>deadline_</name>
+        <qualifiedname>horus_bt::ServiceLeaf::deadline_</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="119" column="43" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="119" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="classhorus__bt_1_1ServiceLeaf_1ab475651d673dde36fbb155b9f1061049" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>horus_bt::ServiceLeaf&lt; SrvT &gt;::ServiceLeaf</definition>
+        <argsstring>(const std::string &amp;name, const BT::NodeConfig &amp;config, const NodePtr &amp;node, const std::string &amp;service)</argsstring>
+        <name>ServiceLeaf</name>
+        <qualifiedname>horus_bt::ServiceLeaf::ServiceLeaf</qualifiedname>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const BT::NodeConfig &amp;</type>
+          <declname>config</declname>
+        </param>
+        <param>
+          <type>const <ref refid="node__ptr_8hpp_1a41e08c086d9b94730692b30ab5a453a7" kindref="member">NodePtr</ref> &amp;</type>
+          <declname>node</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>service</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="62" column="5" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="62" bodyend="68"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1ServiceLeaf_1a3edb94f6d34758dbf70c656603286568" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BT::NodeStatus</type>
+        <definition>BT::NodeStatus horus_bt::ServiceLeaf&lt; SrvT &gt;::onStart</definition>
+        <argsstring>() override</argsstring>
+        <name>onStart</name>
+        <qualifiedname>horus_bt::ServiceLeaf::onStart</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="72" column="20" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="72" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1ServiceLeaf_1a5add4b6008852f6fb35302efc8f255ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BT::NodeStatus</type>
+        <definition>BT::NodeStatus horus_bt::ServiceLeaf&lt; SrvT &gt;::onRunning</definition>
+        <argsstring>() override</argsstring>
+        <name>onRunning</name>
+        <qualifiedname>horus_bt::ServiceLeaf::onRunning</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="88" column="20" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="88" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classhorus__bt_1_1ServiceLeaf_1ae8e72b84225a6ec45cc507c56db63773" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void horus_bt::ServiceLeaf&lt; SrvT &gt;::onHalted</definition>
+        <argsstring>() override</argsstring>
+        <name>onHalted</name>
+        <qualifiedname>horus_bt::ServiceLeaf::onHalted</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="106" column="10" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="106" bodyend="106"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classhorus__bt_1_1ServiceLeaf_1a52393f7ec6a9b392880b3a830f73f92c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>BT::PortsList</type>
+        <definition>static BT::PortsList horus_bt::ServiceLeaf&lt; SrvT &gt;::basePorts</definition>
+        <argsstring>()</argsstring>
+        <name>basePorts</name>
+        <qualifiedname>horus_bt::ServiceLeaf::basePorts</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="70" column="26" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="70" bodyend="70"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="protected-func">
+      <memberdef kind="function" id="classhorus__bt_1_1ServiceLeaf_1a84c78dace68d6c86772aa01261a28a39" prot="protected" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool horus_bt::ServiceLeaf&lt; SrvT &gt;::fill</definition>
+        <argsstring>(typename SrvT::Request &amp;req)=0</argsstring>
+        <name>fill</name>
+        <qualifiedname>horus_bt::ServiceLeaf::fill</qualifiedname>
+        <param>
+          <type>typename SrvT::Request &amp;</type>
+          <declname>req</declname>
+        </param>
+        <briefdescription>
+<para>Fill the request from the ports. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>false to fail the leaf. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_bt/system_nodes.hpp" line="110" column="18"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>Base of a one-shot service call leaf: RUNNING until the reply, SUCCESS if accepted. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>BT::StatefulActionNode</label>
+      </node>
+      <node id="1">
+        <label>horus_bt::ServiceLeaf&lt; SrvT &gt;</label>
+        <link refid="classhorus__bt_1_1ServiceLeaf"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>BT::StatefulActionNode</label>
+      </node>
+      <node id="1">
+        <label>horus_bt::ServiceLeaf&lt; SrvT &gt;</label>
+        <link refid="classhorus__bt_1_1ServiceLeaf"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="include/horus_bt/system_nodes.hpp" line="59" column="1" bodyfile="include/horus_bt/system_nodes.hpp" bodystart="60" bodyend="120"/>
+    <listofallmembers>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a52393f7ec6a9b392880b3a830f73f92c" prot="public" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>basePorts</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a79c3027dbefe9838ebe66871acb702b7" prot="private" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>client_</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a0e28acd90eef43aed415ee0f9090ed6c" prot="private" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>deadline_</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a0aa17196d79b1220c1d9e666e0adfb58" prot="private" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>exec_</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a84c78dace68d6c86772aa01261a28a39" prot="protected" virt="pure-virtual"><scope>horus_bt::ServiceLeaf</scope><name>fill</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1ae1e6451c736ec8b2d64505b4b7402139" prot="private" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>future_</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a15127ed12121d0c70f843bcc14df007c" prot="private" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>group_</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a54e6cb32c94d5d28cc67b7453e5ef3be" prot="protected" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>node_</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1ae8e72b84225a6ec45cc507c56db63773" prot="public" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>onHalted</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a5add4b6008852f6fb35302efc8f255ae" prot="public" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>onRunning</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1a3edb94f6d34758dbf70c656603286568" prot="public" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>onStart</name></member>
+      <member refid="classhorus__bt_1_1ServiceLeaf_1ab475651d673dde36fbb155b9f1061049" prot="public" virt="non-virtual"><scope>horus_bt::ServiceLeaf</scope><name>ServiceLeaf</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

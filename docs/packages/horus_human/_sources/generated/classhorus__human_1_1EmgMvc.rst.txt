@@ -1,0 +1,26 @@
+.. _exhale_class_classhorus__human_1_1EmgMvc:
+
+Class EmgMvc
+============
+
+- Defined in :ref:`file_include_horus_human_default_calibrations.hpp`
+
+
+Inheritance Relationships
+-------------------------
+
+Base Type
+*********
+
+- ``public EmgCalibration``
+
+
+Class Documentation
+-------------------
+
+
+.. doxygenclass:: horus_human::EmgMvc
+   :project: horus_human Doxygen Project
+   :members:
+   :protected-members:
+   :undoc-members:

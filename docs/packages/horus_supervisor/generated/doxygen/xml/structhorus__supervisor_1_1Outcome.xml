@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhorus__supervisor_1_1Outcome" kind="struct" language="C++" prot="public">
+    <compoundname>horus_supervisor::Outcome</compoundname>
+    <includes refid="mode__machine_8hpp" local="no">mode_machine.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhorus__supervisor_1_1Outcome_1a7130912b1613b65f2f862f66d5668f16" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_supervisor::Outcome::accepted</definition>
+        <argsstring></argsstring>
+        <name>accepted</name>
+        <qualifiedname>horus_supervisor::Outcome::accepted</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the event was valid in the current mode </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="57" column="10" bodyfile="include/horus_supervisor/mode_machine.hpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__supervisor_1_1Outcome_1ac25b80fa0cef23ce1b2b61bac53c8c20" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_supervisor::Outcome::changed</definition>
+        <argsstring></argsstring>
+        <name>changed</name>
+        <qualifiedname>horus_supervisor::Outcome::changed</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>the mode changed </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="58" column="10" bodyfile="include/horus_supervisor/mode_machine.hpp" bodystart="58" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__supervisor_1_1Outcome_1abc26e8090f86b579416c775ce45fb1a9" prot="public" static="no" mutable="no">
+        <type><ref refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169" kindref="member">Mode</ref></type>
+        <definition>Mode horus_supervisor::Outcome::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <qualifiedname>horus_supervisor::Outcome::from</qualifiedname>
+        <initializer>{Mode::INIT}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="59" column="10" bodyfile="include/horus_supervisor/mode_machine.hpp" bodystart="59" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__supervisor_1_1Outcome_1a4d116b8b775770f00cf2d53cccf85be4" prot="public" static="no" mutable="no">
+        <type><ref refid="mode__machine_8hpp_1a883ae4438e53ba665d7964d12467c169" kindref="member">Mode</ref></type>
+        <definition>Mode horus_supervisor::Outcome::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <qualifiedname>horus_supervisor::Outcome::to</qualifiedname>
+        <initializer>{Mode::INIT}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="60" column="10" bodyfile="include/horus_supervisor/mode_machine.hpp" bodystart="60" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__supervisor_1_1Outcome_1aa34f1be7a035d407c22c33ad067d44c0" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string horus_supervisor::Outcome::reason</definition>
+        <argsstring></argsstring>
+        <name>reason</name>
+        <qualifiedname>horus_supervisor::Outcome::reason</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>human-readable explanation </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_supervisor/mode_machine.hpp" line="61" column="17" bodyfile="include/horus_supervisor/mode_machine.hpp" bodystart="61" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para><ref refid="structhorus__supervisor_1_1Outcome" kindref="compound">Outcome</ref> of handling one event. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_supervisor/mode_machine.hpp" line="55" column="1" bodyfile="include/horus_supervisor/mode_machine.hpp" bodystart="56" bodyend="62"/>
+    <listofallmembers>
+      <member refid="structhorus__supervisor_1_1Outcome_1a7130912b1613b65f2f862f66d5668f16" prot="public" virt="non-virtual"><scope>horus_supervisor::Outcome</scope><name>accepted</name></member>
+      <member refid="structhorus__supervisor_1_1Outcome_1ac25b80fa0cef23ce1b2b61bac53c8c20" prot="public" virt="non-virtual"><scope>horus_supervisor::Outcome</scope><name>changed</name></member>
+      <member refid="structhorus__supervisor_1_1Outcome_1abc26e8090f86b579416c775ce45fb1a9" prot="public" virt="non-virtual"><scope>horus_supervisor::Outcome</scope><name>from</name></member>
+      <member refid="structhorus__supervisor_1_1Outcome_1aa34f1be7a035d407c22c33ad067d44c0" prot="public" virt="non-virtual"><scope>horus_supervisor::Outcome</scope><name>reason</name></member>
+      <member refid="structhorus__supervisor_1_1Outcome_1a4d116b8b775770f00cf2d53cccf85be4" prot="public" virt="non-virtual"><scope>horus_supervisor::Outcome</scope><name>to</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

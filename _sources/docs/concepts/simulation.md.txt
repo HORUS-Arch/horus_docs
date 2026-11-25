@@ -1,0 +1,22 @@
+# Simulation
+
+The same URDF and controllers run on three backends.
+
+| Backend | Hardware plugin | Use |
+|---|---|---|
+| mock | `mock_components/GenericSystem` | CI, logic, the mock rig |
+| MuJoCo | `mujoco_ros2_control/MujocoSystemInterface` | dynamics |
+| device | the device's `<exo>_ros2` driver | experiments |
+
+The backend is one argument of the hardware xacro macro, so the description, the controllers, the rig,
+the trees, the generators and the recordings are identical. Moving a device into simulation needs its
+MJCF scene (or a conversion of its URDF) and that argument.
+
+```bash
+ros2 launch horus_mock_device sim.launch.py                  # with the MuJoCo viewer
+ros2 launch horus_mock_device sim.launch.py headless:=true   # CI
+```
+
+MuJoCo's equality constraints can close the loop formed by the straps between the human and the
+device models, which a URDF tree cannot express. A simulated session is recorded and replayed like a
+real one.

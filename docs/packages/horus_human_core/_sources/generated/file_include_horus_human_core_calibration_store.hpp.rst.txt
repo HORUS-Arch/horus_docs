@@ -1,0 +1,77 @@
+
+.. _file_include_horus_human_core_calibration_store.hpp:
+
+File calibration_store.hpp
+==========================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_human_core>` (``include/horus_human_core``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+On-disk store of calibration files, shared by every HORUS channel node. 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_human_core/calibration_store.hpp``)
+---------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_human_core_calibration_store.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+Layout: <data_root>/subjects/<subject>/calibration/<node>/<unit>_<YYYYmmdd_HHMMSS_mmm>.yaml. Every save is a new file (history is kept); the latest file of a unit is the newest timestamp. A file holds ``node``, ``unit``, ``plugin``, ``created_at`` and the plugin's ``data``. 
+
+
+
+
+Includes
+--------
+
+
+- ``optional``
+
+- ``string``
+
+- ``vector``
+
+- ``yaml-cpp/yaml.h``
+
+
+
+Included By
+-----------
+
+
+- :ref:`file_include_horus_human_core_channel_node.hpp`
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_human_core`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_struct_structhorus__human__core_1_1CalibrationEntry`
+
+- :ref:`exhale_class_classhorus__human__core_1_1CalibrationStore`
+

@@ -1,0 +1,42 @@
+Contribute
+==========
+
+This page will explain the steps that have to be followed when you want to create a new package or contribute to an existing package.
+
+When you want to add new dependencies to the project, follow the guidelines in the :ref:`dependencies-label` section.
+
+Create a new package
+--------------------
+When you want to create a new package, you have to follow the following steps:
+
+* Go to the source folder of the workspace and use the ``ros2 pkg create`` command to create a new package. For a C++ package for example, you can use the following command:
+
+.. code-block:: bash
+
+    cd ~/ros2_ws/src
+    ros2 pkg create --build-type ament_cmake --license MIT horus_new_package
+
+.. tip:: Use the naming convention in :ref:`style_guide-label` when creating a new package.
+
+* After creating the package, you update the ``package.xml`` file with the necessary information. For example, you can update the ``description`` and ``maintainer`` fields.
+* Create a ``README`` file in the package folder with a brief description of the package. 
+
+License
+^^^^^^^
+
+The HORUS code is released under the MIT license. For more information see the ``LICENSE``.
+
+.. warning:: Don't forget to update the header of the ``LICENSE`` file with the current year and the name of the organization. 
+
+Follow the template when updating the license file:
+
+.. code-block::
+    
+    MIT License
+
+    Copyright (c) [YEAR] HORUS University of Minho
+
+Documentation
+^^^^^^^^^^^^^
+
+.. important:: When you create a new package, follow the guidelines in the :ref:`documentation_package-label` section to prepare the package for the automatic documentation generation.

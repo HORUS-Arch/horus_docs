@@ -1,0 +1,44 @@
+
+.. _program_listing_file_include_horus_estimator_core_estimator.hpp:
+
+Program Listing for File estimator.hpp
+======================================
+
+|exhale_lsh| :ref:`Return to documentation for file <file_include_horus_estimator_core_estimator.hpp>` (``include/horus_estimator_core/estimator.hpp``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+.. code-block:: cpp
+
+   
+   #pragma once
+   
+   #include <memory>
+   #include <string>
+   
+   #include "rclcpp/rclcpp.hpp"
+   #include "rclcpp_lifecycle/lifecycle_node.hpp"
+   
+   namespace horus_estimator_core
+   {
+   
+   using NodePtr = rclcpp_lifecycle::LifecycleNode::SharedPtr; 
+   class Estimator
+   {
+      public:
+       using Ptr = std::shared_ptr<Estimator>;
+   
+       virtual ~Estimator() = default;
+   
+       virtual void configure(const NodePtr& node, const std::string& name) = 0;
+   
+       virtual void activate() = 0;
+   
+       virtual void deactivate() = 0;
+   
+       virtual void reset() = 0;
+   
+       virtual void update(const rclcpp::Time& time, const rclcpp::Duration& period) = 0;
+   };
+   
+   }  // namespace horus_estimator_core

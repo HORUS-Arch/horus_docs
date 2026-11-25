@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.8" xml:lang="en-US">
+  <compounddef id="structhorus__human_1_1ImuStaticPose_1_1Result" kind="struct" language="C++" prot="private">
+    <compoundname>horus_human::ImuStaticPose::Result</compoundname>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structhorus__human_1_1ImuStaticPose_1_1Result_1a3bfd978c3329da509ee8f548ebcd1347" prot="public" static="no" mutable="no">
+        <type>tf2::Quaternion</type>
+        <definition>tf2::Quaternion horus_human::ImuStaticPose::Result::offset</definition>
+        <argsstring></argsstring>
+        <name>offset</name>
+        <qualifiedname>horus_human::ImuStaticPose::Result::offset</qualifiedname>
+        <initializer>{0, 0, 0, 1}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>sensor -&gt; segment rotation </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="55" column="25" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__human_1_1ImuStaticPose_1_1Result_1af1fd290b9118fbe77430599a760bfe97" prot="public" static="no" mutable="no">
+        <type>tf2::Vector3</type>
+        <definition>tf2::Vector3 horus_human::ImuStaticPose::Result::bias</definition>
+        <argsstring></argsstring>
+        <name>bias</name>
+        <qualifiedname>horus_human::ImuStaticPose::Result::bias</qualifiedname>
+        <initializer>{0, 0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+<para>gyro bias, sensor frame, rad/s </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="56" column="22" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="56" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="variable" id="structhorus__human_1_1ImuStaticPose_1_1Result_1a4e39d3db4cff40acd809d32ba8a8f08a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool horus_human::ImuStaticPose::Result::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <qualifiedname>horus_human::ImuStaticPose::Result::valid</qualifiedname>
+        <initializer>{false}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="include/horus_human/default_calibrations.hpp" line="57" column="14" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="57" bodyend="57"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+<para>The applied calibration of one unit. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="include/horus_human/default_calibrations.hpp" line="53" column="5" bodyfile="include/horus_human/default_calibrations.hpp" bodystart="54" bodyend="58"/>
+    <listofallmembers>
+      <member refid="structhorus__human_1_1ImuStaticPose_1_1Result_1af1fd290b9118fbe77430599a760bfe97" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose::Result</scope><name>bias</name></member>
+      <member refid="structhorus__human_1_1ImuStaticPose_1_1Result_1a3bfd978c3329da509ee8f548ebcd1347" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose::Result</scope><name>offset</name></member>
+      <member refid="structhorus__human_1_1ImuStaticPose_1_1Result_1a4e39d3db4cff40acd809d32ba8a8f08a" prot="public" virt="non-virtual"><scope>horus_human::ImuStaticPose::Result</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

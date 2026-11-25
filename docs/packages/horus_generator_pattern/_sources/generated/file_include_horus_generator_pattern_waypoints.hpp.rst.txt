@@ -1,0 +1,73 @@
+
+.. _file_include_horus_generator_pattern_waypoints.hpp:
+
+File waypoints.hpp
+==================
+
+|exhale_lsh| :ref:`Parent directory <dir_include_horus_generator_pattern>` (``include/horus_generator_pattern``)
+
+.. |exhale_lsh| unicode:: U+021B0 .. UPWARDS ARROW WITH TIP LEFTWARDS
+
+
+
+Generator plugin that follows joint waypoints (home, sit, stand, recorded gaits). 
+
+
+
+.. contents:: Contents
+   :local:
+   :backlinks: none
+
+Definition (``include/horus_generator_pattern/waypoints.hpp``)
+--------------------------------------------------------------
+
+
+.. toctree::
+   :maxdepth: 1
+
+   program_listing_file_include_horus_generator_pattern_waypoints.hpp.rst
+
+
+
+Detailed Description
+--------------------
+
+Waypoints come from YAML (``times`` + flat ``positions``, one row of ``joints`` per time) or from a CSV file (``time, j1, j2, ...``, optional header naming the joints). ``quantity`` says what they are: ``position`` (default) and ``effort`` waypoints are interpolated and output as they are; with ``velocity`` the waypoints are positions and the output is their time derivative (scaled by the live speed), for velocity-controlled joints. Between waypoints the output is interpolated linearly or smoothly (cosine ease: zero velocity at every waypoint). With ``start_from_current``, the first waypoint is replaced by the measured joint positions when the behavior starts, so a "home" behavior works from wherever the robot is. A non-cycling trajectory finishes at its last waypoint; a cycling one restarts from the first. Playback speed is the generator_server's live ``speed_scale`` (it scales the time this plugin is given). 
+
+
+
+
+Includes
+--------
+
+
+- ``horus_generator_core/generator.hpp``
+
+- ``map``
+
+- ``mutex``
+
+- ``sensor_msgs/msg/joint_state.hpp``
+
+- ``string``
+
+- ``vector``
+
+
+
+
+
+
+Namespaces
+----------
+
+
+- :ref:`namespace_horus_generator_pattern`
+
+
+Classes
+-------
+
+
+- :ref:`exhale_class_classhorus__generator__pattern_1_1Waypoints`
+
